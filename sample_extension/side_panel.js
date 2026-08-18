@@ -1,4 +1,4 @@
-// side_panel.js – Add Leaflet modal, list rendering, persistence, delete
+// side_panel.js – Leaflet management with persistent storage, step management, UI reuse
 
 // ----- DOM Elements -----
 const addBtn = document.getElementById('addLeafletBtn');
@@ -7,61 +7,64 @@ const closeModal = document.getElementById('closeModal');
 const form = document.getElementById('leafletForm');
 const list = document.getElementById('leafletList');
 
+const stepModal = document.getElementById('stepModal');
+const closeStepModal = document.getElementById('closeStepModal');
+const stepForm = document.getElementById('stepForm');
+const stepList = document.getElementById('stepList');
+const stepModalTitle = document.getElementById('stepModalTitle');
+const stepInput = document.getElementById('stepInput');
+
 // ----- State -----
 let leaflets = [];
+let currentLeafIdx = null; // index of leaflet whose steps are being edited
 
-// Load persisted leaflets from localStorage
+// ----- Persistence -----
 function loadLeaflets() {
   const stored = localStorage.getItem('leaflets');
   if (stored) {
-    try {
-      leaflets = JSON.parse(stored);
-    } catch (e) {
-      console.error('Failed to parse leaflets from localStorage', e);
-      leaflets = [];
-    }
+    try { leaflets = JSON.parse(stored); }
+    catch (e) { console.error('Parse error', e); leaflets = []; }
   }
 }
+function saveLeaflets() { localStorage.setItem('leaflets', JSON.stringify(leaflets)); }
 
-// Persist current leaflets array
-function saveLeaflets() {
-  localStorage.setItem('leaflets', JSON.stringify(leaflets));
-}
-
-// Create a DOM element for a single leaflet item
+// ----- UI Helpers -----
 function createLeafletElement(item, index) {
   const itemDiv = document.createElement('div');
   itemDiv.className = 'leaflet-item';
-  // Title and description
+
+  // Header with title and delete (×) button (same style as modal close)
+  const header = document.createElement('div');
+  header.style.display = 'flex';
+  header.style.alignItems = 'center';
+
   const title = document.createElement('h4');
   title.textContent = item.name;
-  const para = document.createElement('p');
-  para.textContent = item.description;
-  // Delete (✕) button
+  title.style.cursor = 'pointer';
+  title.addEventListener('click', () => openStepModal(index));
+
   const delBtn = document.createElement('button');
+  delBtn.className = 'close-btn'; // reuse modal close style
   delBtn.innerHTML = '&times;';
   delBtn.title = 'Delete this leaflet';
-  delBtn.style.marginLeft = '8px';
   delBtn.addEventListener('click', () => {
-    // Remove from array and re‑save
     leaflets.splice(index, 1);
     saveLeaflets();
     renderList();
   });
-  // Assemble
-  const header = document.createElement('div');
-  header.style.display = 'flex';
-  header.style.alignItems = 'center';
+
   header.appendChild(title);
   header.appendChild(delBtn);
+
+  const desc = document.createElement('p');
+  desc.textContent = item.description;
+
   itemDiv.appendChild(header);
-  itemDiv.appendChild(para);
+  itemDiv.appendChild(desc);
   return itemDiv;
 }
 
-// Render the whole leaflets list
 function renderList() {
-  // Clear current content
   list.innerHTML = '';
   leaflets.forEach((it, i) => {
     const el = createLeafletElement(it, i);
@@ -69,25 +72,68 @@ function renderList() {
   });
 }
 
-// ----- Modal handling -----
+// ----- Leaflet Modal -----
 addBtn.addEventListener('click', () => modal.style.display = 'flex');
 closeModal.addEventListener('click', () => { modal.style.display = 'none'; form.reset(); });
 modal.addEventListener('click', e => { if (e.target === modal) { modal.style.display = 'none'; form.reset(); } });
 
-// ----- Form submission -----
 form.addEventListener('submit', e => {
   e.preventDefault();
   const name = document.getElementById('leafletName').value.trim();
   const desc = document.getElementById('leafletDesc').value.trim();
   if (!name || !desc) return;
-
-  // Add to state & persist
-  leaflets.push({ name, description: desc });
+  leaflets.push({ name, description: desc, steps: [] });
   saveLeaflets();
   renderList();
-
   form.reset();
   modal.style.display = 'none';
+});
+
+// ----- Step Modal -----
+function openStepModal(leafIdx) {
+  currentLeafIdx = leafIdx;
+  const leaf = leaflets[leafIdx];
+  stepModalTitle.textContent = `Steps of "${leaf.name}"`;
+  renderStepList();
+  stepModal.style.display = 'flex';
+}
+
+closeStepModal.addEventListener('click', () => { stepModal.style.display = 'none'; stepForm.reset(); });
+stepModal.addEventListener('click', e => { if (e.target === stepModal) { stepModal.style.display = 'none'; stepForm.reset(); } });
+
+function renderStepList() {
+  stepList.innerHTML = '';
+  if (currentLeafIdx === null) return;
+  const steps = leaflets[currentLeafIdx].steps || [];
+  steps.forEach((s, i) => {
+    const div = document.createElement('div');
+    div.className = 'step-item';
+    const span = document.createElement('span');
+    span.textContent = s;
+    const del = document.createElement('button');
+    del.className = 'close-btn';
+    del.innerHTML = '&times;';
+    del.title = 'Delete this step';
+    del.addEventListener('click', () => {
+      leaflets[currentLeafIdx].steps.splice(i, 1);
+      saveLeaflets();
+      renderStepList();
+    });
+    div.appendChild(span);
+    div.appendChild(del);
+    stepList.appendChild(div);
+  });
+}
+
+stepForm.addEventListener('submit', e => {
+  e.preventDefault();
+  if (currentLeafIdx === null) return;
+  const stepName = stepInput.value.trim();
+  if (!stepName) return;
+  leaflets[currentLeafIdx].steps.push(stepName);
+  saveLeaflets();
+  renderStepList();
+  stepForm.reset();
 });
 
 // ----- Init -----

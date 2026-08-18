@@ -4,10 +4,10 @@
   <title>Side Panel</title>
   <style>
     body { font-family: Arial, sans-serif; margin: 0; padding: 10px; }
-    #leafletList { margin-top: 10px; }
-    .leaflet-item { border: 1px solid #ddd; padding: 8px; margin-bottom: 8px; border-radius: 4px; }
+    #leafletList, #stepList { margin-top: 10px; }
+    .leaflet-item, .step-item { border: 1px solid #ddd; padding: 8px; margin-bottom: 8px; border-radius: 4px; }
     .modal {
-      display: none; /* hidden by default */
+      display: none; /* hidden */
       position: fixed;
       top: 0; left: 0; width: 100%; height: 100%;
       background: rgba(0,0,0,0.5);
@@ -18,6 +18,7 @@
     }
     .modal-content h3 { margin-top: 0; }
     .close-btn { cursor: pointer; float: right; font-weight: bold; }
+    button.delete-leaflet { background: none; border: none; font-size: 1.2rem; cursor: pointer; margin-left: 8px; }
   </style>
 </head>
 <body>
@@ -25,7 +26,7 @@
   <button id="addLeafletBtn">Add Leaflet</button>
   <div id="leafletList"></div>
 
-  <!-- Modal -->
+  <!-- Leaflet Add Modal -->
   <div id="leafletModal" class="modal">
     <div class="modal-content">
       <span class="close-btn" id="closeModal">&times;</span>
@@ -34,6 +35,19 @@
         <label>Name:<br><input type="text" id="leafletName" required></label><br><br>
         <label>Description:<br><textarea id="leafletDesc" rows="4" required></textarea></label><br><br>
         <button type="submit">Add</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Step Management Modal -->
+  <div id="stepModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" id="closeStepModal">&times;</span>
+      <h3 id="stepModalTitle">Steps</h3>
+      <div id="stepList"></div>
+      <form id="stepForm">
+        <label>Step name:<br><input type="text" id="stepInput" required></label><br><br>
+        <button type="submit">Add Step</button>
       </form>
     </div>
   </div>
