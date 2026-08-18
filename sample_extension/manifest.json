@@ -1,13 +1,13 @@
 {
   "manifest_version": 3,
   "name": "Sample Extension",
-  "description": "A minimal Chrome extension example.",
+  "description": "A minimal Chrome extension example with side panel.",
   "version": "1.0",
-  "action": {
-    "default_popup": "popup.html"
-  },
   "background": {
     "service_worker": "background.js"
+  },
+  "side_panel": {
+    "default_path": "side_panel.html"
   },
   "permissions": []
 }
