@@ -3,13 +3,16 @@
   "name": "Sample Extension",
   "description": "A minimal Chrome extension example with side panel.",
   "version": "1.0",
+  "permissions": [
+    "sidePanel"
+  ],
   "background": {
     "service_worker": "background.js"
   },
   "side_panel": {
     "default_path": "side_panel.html"
   },
-  "permissions": [
-    "sidePanel"
-  ]
+  "action": {
+
+  }
 }
