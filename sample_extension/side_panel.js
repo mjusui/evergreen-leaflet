@@ -39,7 +39,7 @@ function createLeafletElement(item, index) {
   para.textContent = item.description;
   // Delete (✕) button
   const delBtn = document.createElement('button');
-  delBtn.textContent = '✕';
+  delBtn.innerHTML = '&times;';
   delBtn.title = 'Delete this leaflet';
   delBtn.style.marginLeft = '8px';
   delBtn.addEventListener('click', () => {
