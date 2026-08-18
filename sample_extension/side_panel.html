@@ -1,1 +1,43 @@
-<!DOCTYPE html><html><head><title>Side Panel</title></head><body><h2>Side Panel Content</h2><button id="btn">Click me</button><script src="side_panel.js"></script></body></html>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Side Panel</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 10px; }
+    #leafletList { margin-top: 10px; }
+    .leaflet-item { border: 1px solid #ddd; padding: 8px; margin-bottom: 8px; border-radius: 4px; }
+    .modal {
+      display: none; /* hidden by default */
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5);
+      align-items: center; justify-content: center;
+    }
+    .modal-content {
+      background: #fff; padding: 20px; border-radius: 5px; width: 300px;
+    }
+    .modal-content h3 { margin-top: 0; }
+    .close-btn { cursor: pointer; float: right; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h2>Leaflet Panel</h2>
+  <button id="addLeafletBtn">Add Leaflet</button>
+  <div id="leafletList"></div>
+
+  <!-- Modal -->
+  <div id="leafletModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" id="closeModal">&times;</span>
+      <h3>Add New Leaflet</h3>
+      <form id="leafletForm">
+        <label>Name:<br><input type="text" id="leafletName" required></label><br><br>
+        <label>Description:<br><textarea id="leafletDesc" rows="4" required></textarea></label><br><br>
+        <button type="submit">Add</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="side_panel.js"></script>
+</body>
+</html>
