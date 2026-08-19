@@ -6,15 +6,17 @@ const scss=new Success()
   .classify('flex-col', 'display: flex', 'flex-direction: column', 'gap: 1rem')
   .classify('flex-row', 'display: flex', 'flex-direction: row', 'gap: 1rem', 'align-items: center')
   .classify('block', 'margin: 0.5rem', 'padding: 0.5rem', 'background-color: rgba(253,253,253,1.0)')
-  // .classify('border', 'border-style: solid', 'border-width: 1px',
-  //    'border-color: rgba(55,55,55,1.0)', 'font-weight: bold' )
+  .classify('border', 'border-style: solid', 'border-width: 1px',
+    'border-color: rgba(55,55,55,0.1)' )
   .classify('shadow', 'box-shadow: 0 0 1px 1px rgba(55,55,55,0.1)')
   .classify('margin-auto', 'margin: auto')
   .classify('center', 'margin-left: auto', 'margin-right: auto')
   .classify('middle', 'margin-top: auto', 'margin-bottom: auto')
-  .classify('button', 'padding: 0.5rem', 'border-style: solid',
-    'border-width: 0px', 'border-radius: 0.5rem', 'font-size: 0.8rem', 'font-weight: bold' )
-  .classify('color1', 'background-color: rgba(31,181,115, 1.0)', 'color: rgba(253,253,253,1.0)' ) 
+  .classify('button', 'padding: 0.5rem', 'border-radius: 0.5rem',
+    'font-size: 0.8rem', 'font-weight: bold' )
+  .classify('input', 'padding: 0.2rem', 'field-sizing: content')
+  .classify('color1', 'background-color: rgba(31,181,115,1.0)',
+    'border-color: rgba(31,181,115,1.0)', 'color: rgba(253,253,253,1.0)' ) 
   .classify('require', 'content: "*"', 'color: red')
   .classify('modal-hidden', 'display: none')
   .classify('modal-display', 'position: fixed', 'top: 0',
@@ -26,7 +28,8 @@ const scss=new Success()
   .themify('.block-col-shadow', '.block-col', 'shadow')
   .themify('.block-row-shadow', '.block-row', 'shadow')
   .themify('.margin', 'center', 'middle')
-  .themify('.button-color1', 'button', 'color1')
+  .themify('.button-color1', 'border', 'button', 'color1')
+  .themify('input, textarea', 'border', 'button', 'input')
   .themify('label.require::after', 'require')
   .themify('.modal', 'modal-hidden')
   .themify('.modal:not(:empty)', 'modal-display', 'flex-col')
