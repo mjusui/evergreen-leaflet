@@ -1,14 +1,14 @@
 import { main, } from '../bronze/debug/index.mjs';
 import { html, Success, } from '../bronze/templ/html/index.mjs';
 
-const sccs=new Success()
+const scss=new Success()
   .reset('*', 'color: rgba(55,55,55,1.0)', 'font-family: sans-serif', 'font-size: 1rem')
   .classify('flex-col', 'display: flex', 'flex-direction: column', 'gap: 1rem')
   .classify('flex-row', 'display: flex', 'flex-direction: row', 'gap: 1rem', 'align-items: center')
   .classify('block', 'margin: 0.5rem', 'padding: 0.5rem', 'background-color: rgba(253,253,253,1.0)')
   .classify('border', 'border-style: solid', 'border-width: 1px',
      'border-color: rgba(55,55,55,1.0)', 'font-weight: bold' )
-  .classify('shadow', 'box-shadow: 0 0 1rem 1rem rgba(55,55,55,0.2)')
+  .classify('shadow', 'box-shadow: 0 0 1px 1px rgba(55,55,55,0.1)')
   .classify('margin-auto', 'margin: auto')
   .classify('button', 'padding: 0.5rem' )
   .classify('color1', 'background-color: rgba(31,181,115, 1.0)', 'color: rgba(253,253,253,1.0)' ) 
@@ -25,12 +25,13 @@ const sccs=new Success()
   .themify('.button-color1', 'button', 'color1')
   .themify('.modal', 'modal-hidden')
   .themify('.modal:not(:empty)', 'modal-display')
+const html_css=scss.html;
 
 const handle=await main(()=>{
   const html_head=html.head({
     title: 'Evergreen Leaflet',
     styles: [
-      sccs.html,
+      html_css,
     ],
   });
   const html_script=html.scripts([
