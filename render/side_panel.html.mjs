@@ -1,6 +1,5 @@
 import { main, } from '../bronze/debug/index.mjs';
 import { html, Success, } from '../bronze/templ/html/index.mjs';
-import { script, } from '../bronze/templ/html/script/index.mjs';
 
 const sccs=new Success();
 
@@ -11,7 +10,7 @@ const handle=await main(()=>{
       sccs.html,
     ],
     scripts: [
-      script.wisdom,
+      { src: 'side_panel.js', },
     ],
   });
 console.log( (html`<html>
@@ -27,9 +26,6 @@ console.log( (html`<html>
       <section>
       </section>
     </template>
-    <script> main:{
-      wisdom.write('template-top', 'display');
-    }</script>
   </body>
 </html>`).toString() );
 }, import.meta.filename);
