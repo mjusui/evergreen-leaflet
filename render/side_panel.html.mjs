@@ -70,8 +70,10 @@ console.log( (html`<!DOCTYOE html>
 
     <template id='template-item-guide'>
       <div class='block-col-shadow'>
-        <h1 class='text-small' data-render1='textContent'></h1>
-        <div class='text-short' data-render2='textContent'></div>
+        <h1 class='text-small' style='--font-size: 0.8rem'
+          data-render1='textContent'></h1>
+        <div class='text-short' style='--font-size: 0.6rem'
+          data-render2='textContent'></div>
       </div>
     </template>
 
