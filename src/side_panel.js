@@ -160,6 +160,7 @@ page: {
 
   document.addEventListener('submit', ev =>{
     ev.preventDefault();
+    const { target, }=ev;
 
     if(target.classList.contains('add-item-guide') ){
       const form=target.parentNode;
