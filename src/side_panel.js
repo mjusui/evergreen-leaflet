@@ -136,6 +136,8 @@ page: {
         wisdom.text(elem.id, 'ガイドがありません');
         return;
       }
+      wisdom.clear(elem.id);
+
       items.forEach(item =>{
         const { title, desc, }=item;
         wisdom.append(elem.id, 'template-item-guide', [ title, desc, ]);
