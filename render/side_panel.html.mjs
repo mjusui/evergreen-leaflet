@@ -8,7 +8,7 @@ const scss=new Success()
   .classify('block', 'margin: 0.5rem', 'padding: 0.5rem', 'background-color: rgba(253,253,253,1.0)')
   .classify('border', 'border-style: solid', 'border-width: 1px',
     'border-color: rgba(55,55,55,0.1)' )
-  .classify('shadow', 'box-shadow: 0 0 1rem 1px rgba(55,55,55,0.1)')
+  .classify('shadow', 'box-shadow: 0 0 1rem 1px rgba(31,181,115,0.1)')
   .classify('margin-auto', 'margin: auto')
   .classify('center', 'margin-left: auto', 'margin-right: auto')
   .classify('middle', 'margin-top: auto', 'margin-bottom: auto')
@@ -58,7 +58,7 @@ console.log( (html`<!DOCTYOE html>
     </main>
     <section id='modal' class='modal'></section>
 
-    <template id='template-top'>
+    <template id='template-guides'>
       <header class='block-row'>
         <h1>ガイド一覧</h1>
         <div class='margin'></div>
@@ -69,7 +69,7 @@ console.log( (html`<!DOCTYOE html>
     </template>
 
     <template id='template-item-guide'>
-      <div class='block-col-shadow'>
+      <div class='block-col-shadow open-steps'>
         <h1 class='text-small' style='--font-size: 0.8rem'
           data-render1='textContent'></h1>
         <div class='text-short' style='--font-size: 0.6rem'
@@ -87,6 +87,9 @@ console.log( (html`<!DOCTYOE html>
 
         <button type='submit' class='button-color1'>追加</button>
       </form>
+    </template>
+
+    <template id='template-steps'>
     </template>
 
     ${html_script}

@@ -36,7 +36,7 @@ html`page: {
     wisdom.write(target, 'template-' + suffix);
     loadGuides();
   };
-  page.open('top');
+  page.open('guides');
 
   page.clear=(target='display')=>{
     wisdom.clear(target);

@@ -5,8 +5,8 @@
 .row { /* flex-row */ display: flex; flex-direction: row; gap: 1rem; align-items: center; }
 .block-col { /* .col */ /* flex-col */ display: flex; flex-direction: column; gap: 1rem; /* block */ margin: 0.5rem; padding: 0.5rem; background-color: rgba(253,253,253,1.0); }
 .block-row { /* .row */ /* flex-row */ display: flex; flex-direction: row; gap: 1rem; align-items: center; /* block */ margin: 0.5rem; padding: 0.5rem; background-color: rgba(253,253,253,1.0); }
-.block-col-shadow { /* .block-col */ /* .col */ /* flex-col */ display: flex; flex-direction: column; gap: 1rem; /* block */ margin: 0.5rem; padding: 0.5rem; background-color: rgba(253,253,253,1.0); /* shadow */ box-shadow: 0 0 1rem 1px rgba(55,55,55,0.1); }
-.block-row-shadow { /* .block-row */ /* .row */ /* flex-row */ display: flex; flex-direction: row; gap: 1rem; align-items: center; /* block */ margin: 0.5rem; padding: 0.5rem; background-color: rgba(253,253,253,1.0); /* shadow */ box-shadow: 0 0 1rem 1px rgba(55,55,55,0.1); }
+.block-col-shadow { /* .block-col */ /* .col */ /* flex-col */ display: flex; flex-direction: column; gap: 1rem; /* block */ margin: 0.5rem; padding: 0.5rem; background-color: rgba(253,253,253,1.0); /* shadow */ box-shadow: 0 0 1rem 1px rgba(31,181,115,0.1); }
+.block-row-shadow { /* .block-row */ /* .row */ /* flex-row */ display: flex; flex-direction: row; gap: 1rem; align-items: center; /* block */ margin: 0.5rem; padding: 0.5rem; background-color: rgba(253,253,253,1.0); /* shadow */ box-shadow: 0 0 1rem 1px rgba(31,181,115,0.1); }
 .margin { /* center */ margin-left: auto; margin-right: auto; /* middle */ margin-top: auto; margin-bottom: auto; }
 .button-color1 { /* border */ border-style: solid; border-width: 1px; border-color: rgba(55,55,55,0.1); /* button */ padding: 0.5rem; border-radius: 0.5rem; font-weight: bold; --font-size: 0.8rem; /* color1 */ background-color: rgba(31,181,115,1.0); border-color: rgba(31,181,115,1.0); color: rgba(253,253,253,1.0); }
 input { /* border */ border-style: solid; border-width: 1px; border-color: rgba(55,55,55,0.1); /* button */ padding: 0.5rem; border-radius: 0.5rem; font-weight: bold; --font-size: 0.8rem; /* input */ min-width: 80vw; font-weight: normal; }
@@ -20,7 +20,7 @@ label.require::after { /* require */ content: &quot;*&quot;; color: red; }
     </main>
     <section id='modal' class='modal'></section>
 
-    <template id='template-top'>
+    <template id='template-guides'>
       <header class='block-row'>
         <h1>ガイド一覧</h1>
         <div class='margin'></div>
@@ -31,7 +31,7 @@ label.require::after { /* require */ content: &quot;*&quot;; color: red; }
     </template>
 
     <template id='template-item-guide'>
-      <div class='block-col-shadow'>
+      <div class='block-col-shadow open-steps'>
         <h1 class='text-small' style='--font-size: 0.8rem'
           data-render1='textContent'></h1>
         <div class='text-short' style='--font-size: 0.6rem'
@@ -49,6 +49,9 @@ label.require::after { /* require */ content: &quot;*&quot;; color: red; }
 
         <button type='submit' class='button-color1'>追加</button>
       </form>
+    </template>
+
+    <template id='template-steps'>
     </template>
 
     <script src='side_panel.js'></script>
