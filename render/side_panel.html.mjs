@@ -5,18 +5,22 @@ const sccs=new Success()
   .reset('*', 'color: rgba(55,55,55,1.0)', 'font-family: sans-serif', 'font-size: 1rem')
   .classify('flex-col', 'display: flex', 'flex-direction: column', 'gap: 1rem')
   .classify('flex-row', 'display: flex', 'flex-direction: row', 'gap: 1rem', 'align-items: center')
-  .classify('block', 'margin: auto 0.5rem', 'padding: 0.5rem')
-  .classify('border', 'border-style: solid', 'border-width: 1px', 'border-color: rgba(55,55,55,1.0)' )
+  .classify('block', 'margin: 0.5rem', 'padding: 0.5rem')
+  .classify('border', 'border-style: solid', 'border-width: 1px',
+     'border-color: rgba(55,55,55,1.0)', 'font-weight: bold' )
   .classify('shadow', 'box-shadow: 0 0 1rem 1rem rgba(55,55,55,0.6)')
   .classify('margin-auto', 'margin: auto')
   .classify('button', 'padding: 0.5rem' )
-  .classify('color1', 'background-color: rgba(52,199,123, 1.0)', 'color: rgba(242,242,242,1.0)' ) 
+  .classify('color1', 'background-color: rgba(31,181,115, 1.0)', 'color: rgba(242,242,242,1.0)' ) 
   .classify('modal-hidden', 'display: none')
-  .classify('modal-display', 'display: block', 'position: fixed', 'top: 0', 'height: 100vh', 'width: 100%')
+  .classify('modal-display', 'display: block', 'position: fixed', 'top: 0',
+    'height: 100vh', 'width: 100%', 'background-color: rgba(55,55,55,0.2)')
   .themify('.col', 'flex-col')
   .themify('.row', 'flex-row')
-  .themify('.block-col', 'block', 'flex-col')
-  .themify('.block-row', 'block', 'flex-row')
+  .themify('.block-col', '.col', 'block')
+  .themify('.block-row', '.row', 'block')
+  .themify('.block-col-shadow', '.block-col', 'shadow')
+  .themify('.block-row-shadow', '.block-row', 'shadow')
   .themify('.margin', 'margin-auto')
   .themify('.button-color1', 'button', 'color1')
   .themify('.modal', 'modal-hidden')
@@ -41,16 +45,16 @@ console.log( (html`<html>
     </section>
 
     <template id='template-top'>
-      <header class='block-row'>
+      <header class='block-row-shadow'>
         <h1>Leaflets</h1>
         <div class='margin'></div>
         <button class='button-color1 open-modal-add-leaflet'>Add Leaflet</button>
       </header>
-      <section class='col'>
+      <section class='block-col-shadow'>
       </section>
     </template>
 
-    <template id='template-add-leaflet'>
+    <template id='template-modal-add-leaflet'>
       <div class='block'>
          
       </div>
