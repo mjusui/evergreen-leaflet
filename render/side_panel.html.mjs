@@ -63,7 +63,7 @@ console.log( (html`<!DOCTYOE html>
       <header class='block-row'>
         <h1>ガイド一覧</h1>
         <div class='margin'></div>
-        <button class='button-color1 open-modal-add-guide'>追加する</button>
+        <button class='button-color1 open-modal-add-item-guide'>追加する</button>
       </header>
       <section id='item-guides' class='block-col-shadow load-item-guides'>
       </section>
