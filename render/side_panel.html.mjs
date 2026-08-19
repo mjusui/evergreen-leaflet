@@ -81,7 +81,7 @@ console.log( (html`<!DOCTYOE html>
         <input type='text' name='title' require></input>
 
         <label>説明</label> 
-        <textarea name='desc' col='5'></textarea>
+        <textarea name='desc' cols='5'></textarea>
       </form>
     </template>
 
