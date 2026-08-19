@@ -160,6 +160,7 @@ page: {
 
   document.addEventListener('submit', ev =>{
     ev.preventDefault();
+    console.log('submit:', ev.target);
     const { target, }=ev;
 
     if(target.classList.contains('add-item-guide') ){
