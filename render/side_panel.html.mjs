@@ -5,16 +5,16 @@ const sccs=new Success()
   .reset('*', 'color: rgba(55,55,55,1.0)', 'font-family: sans-serif', 'font-size: 1rem')
   .classify('flex-col', 'display: flex', 'flex-direction: column', 'gap: 1rem')
   .classify('flex-row', 'display: flex', 'flex-direction: row', 'gap: 1rem', 'align-items: center')
-  .classify('block', 'margin: 0.5rem', 'padding: 0.5rem')
+  .classify('block', 'margin: 0.5rem', 'padding: 0.5rem', 'background-color: rgba(253,253,253,1.0)')
   .classify('border', 'border-style: solid', 'border-width: 1px',
      'border-color: rgba(55,55,55,1.0)', 'font-weight: bold' )
   .classify('shadow', 'box-shadow: 0 0 1rem 1rem rgba(55,55,55,0.6)')
   .classify('margin-auto', 'margin: auto')
   .classify('button', 'padding: 0.5rem' )
-  .classify('color1', 'background-color: rgba(31,181,115, 1.0)', 'color: rgba(242,242,242,1.0)' ) 
+  .classify('color1', 'background-color: rgba(31,181,115, 1.0)', 'color: rgba(253,253,253,1.0)' ) 
   .classify('modal-hidden', 'display: none')
   .classify('modal-display', 'display: block', 'position: fixed', 'top: 0',
-    'height: 100vh', 'width: 100%', 'background-color: rgba(55,55,55,0.2)')
+    'height: 100vh', 'width: 100%', 'background-color: rgba(55,55,55,0.5)')
   .themify('.col', 'flex-col')
   .themify('.row', 'flex-row')
   .themify('.block-col', '.col', 'block')
@@ -41,8 +41,7 @@ console.log( (html`<html>
   <body>
     <main id='display'>
     </main>
-    <section id='modal' class='modal'>
-    </section>
+    <section id='modal' class='modal'></section>
 
     <template id='template-top'>
       <header class='block-row-shadow'>
@@ -55,7 +54,7 @@ console.log( (html`<html>
     </template>
 
     <template id='template-modal-add-leaflet'>
-      <div class='block'>
+      <div class='block-col'>
          
       </div>
     </template>
