@@ -14,8 +14,8 @@ page: {
     ev.preventDefault();
   });
 
-  page.open=(suffix)=>{
-    wisdom.write('display', 'template-' + suffix);
+  page.open=(suffix, target='display')=>{
+    wisdom.write(target, 'template-' + suffix);
 
     let guides=null;
     ([ ...document.getElementsByClassName('load-item-guides'), ]).forEach(elem =>{
@@ -39,7 +39,7 @@ page: {
 
   ([ ...document.getElementsByClassName('open-modal-add-guide'), ]).forEach(elem =>{
     elem.addEventListener('click', ()=>{
-      page.open('modal-add-guide');
+      page.open('modal-add-guide', 'modal');
     });
   });
 }`,
