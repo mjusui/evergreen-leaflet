@@ -3,18 +3,21 @@ import { html, Success, } from '../bronze/templ/html/index.mjs';
 
 const sccs=new Success()
   .reset('*', 'color: rgba(55,55,55,1.0)', 'font-family: sans-serif', 'font-size: 1rem')
-  .classify('flex-col', 'display: flex', 'flex-direction: column')
-  .classify('flex-row', 'display: flex', 'flex-direction: row', 'align-items: center')
+  .classify('flex-col', 'display: flex', 'flex-direction: column', 'gap: 1rem')
+  .classify('flex-row', 'display: flex', 'flex-direction: row', 'gap: 1rem', 'align-items: center')
   .classify('block', 'margin: auto 0.5rem', 'padding: 0.5rem',
     'border-style: solid', 'border-width: 1px', 'border-color: rgba(55,55,55,1.0)' )
-  .classify('button', 'padding: 0.2rem',
-    'background-color: rgba(5,71,42, 1.0)', 'color: rgba(242,242,242,1.0)' ) 
+  .classify('margin-auto', 'margin: auto')
+  .classify('button', 'padding: 0.2rem' )
+  .classify('color1', 'background-color: rgba(5,71,42, 1.0)', 'color: rgba(242,242,242,1.0)' ) 
   .classify('modal-hidden', 'display: none')
   .classify('modal-display', 'display: block', 'position: fixed', 'top: 0', 'height: 100vh', 'width: 100%')
   .themify('.col', 'flex-col')
   .themify('.row', 'flex-row')
   .themify('.block-col', 'block', 'flex-col')
   .themify('.block-row', 'block', 'flex-row')
+  .themify('.margin', 'margin-auto')
+  .themify('.button-color1', 'button', 'color1')
   .themify('.modal', 'modal-hidden')
   .themify('.modal:not(:empty)', 'modal-display')
 
@@ -39,7 +42,8 @@ console.log( (html`<html>
     <template id='template-top'>
       <header class='block-row'>
         <h1>Leaflets</h1>
-        <button class='open-modal-add-leaflet'>Add Leaflet</button>
+        <div class='margin'></div>
+        <button class='button-color1 open-modal-add-leaflet'>Add Leaflet</button>
       </header>
       <section class='col'>
       </section>
