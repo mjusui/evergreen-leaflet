@@ -87,4 +87,4 @@ wisdom: {
   wisdom.append=( ...args)=> wisdom.render('append',  ...args);
   wisdom.text=(   ...args)=> wisdom.render('text',    ...args);
   wisdom.html=(   ...args)=> wisdom.render('html',    ...args);
-}
+}wisdom.write('template-top', 'display');
