@@ -17,7 +17,7 @@ const scss=new Success()
   .classify('color1', 'background-color: rgba(31,181,115, 1.0)', 'color: rgba(253,253,253,1.0)' ) 
   .classify('require', 'content: "*"', 'color: red')
   .classify('modal-hidden', 'display: none')
-  .classify('modal-display', 'display: block', 'position: fixed', 'top: 0',
+  .classify('modal-display', 'position: fixed', 'top: 0',
     'height: 100vh', 'width: 100%', 'background-color: rgba(55,55,55,0.5)')
   .themify('.col', 'flex-col')
   .themify('.row', 'flex-row')
@@ -29,7 +29,7 @@ const scss=new Success()
   .themify('.button-color1', 'button', 'color1')
   .themify('label.require::after', 'require')
   .themify('.modal', 'modal-hidden')
-  .themify('.modal:not(:empty)', 'modal-display')
+  .themify('.modal:not(:empty)', 'modal-display', 'flex-col')
   .themify(html`.modal:not(:empty) > *`, 'center', 'middle')
 const html_css=scss.html;
 
