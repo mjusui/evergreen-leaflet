@@ -13,3 +13,10 @@ do
   node $f > $path
   echo $path
 done
+
+
+git commit -a -m 'render'
+git push origin main
+
+
+
