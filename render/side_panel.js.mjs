@@ -14,7 +14,7 @@ html`page: {
   store.guide=new Starray('store-guides');
 
   const initForms=()=>{
-    ([ ...documents.getElementsByTagName('form'), ]).forEach(form =>{
+    ([ ...document.getElementsByTagName('form'), ]).forEach(form =>{
       form.addEventListener('submit', ev =>{
         ev.preventDefault();
       });
