@@ -2,6 +2,10 @@ import { main, } from '../bronze/debug/index.mjs';
 import { html, Success, } from '../bronze/templ/html/index.mjs';
 
 const sccs=new Success();
+sccs.classify('modal-hidden', 'display: none')
+  .classify('modal-display', 'display: block', 'position: fixed', 'top: 0', 'height: 100vh', 'width: 100%')
+  .themify('modal', 'modal-hidden')
+  .themify('modal:not(:empty)', 'modal-display')
 
 const handle=await main(()=>{
   const html_head=html.head({
@@ -18,6 +22,8 @@ console.log( (html`<html>
   <body>
     <main id='display'>
     </main>
+    <section id='modal' class='modal'>
+    </section>
 
     <template id='template-top'>
       <header>
