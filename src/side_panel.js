@@ -118,9 +118,21 @@ page: {
   };
   page.open('top');
 
+  page.clear=(target='display')=>{
+    wisdom.clear(target);
+  };
+
   ([ ...document.getElementsByClassName('open-modal-add-guide'), ]).forEach(elem =>{
     elem.addEventListener('click', ()=>{
       page.open('modal-add-guide', 'modal');
+    });
+  });
+
+  ([ ...ducument.getElementsByClassName('modal'), ]).forEach(elem =>{
+    elem.addEventListener('click', ev =>{
+      if(ev.target === elem){
+        page.clear('modal');
+      }
     });
   });
 }
