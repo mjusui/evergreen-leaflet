@@ -13,6 +13,13 @@ html`page: {
   const store={};
   store.guide=new Starray('store-guides');
 
+  const initForms=()=>{
+    ([ ...documents.getElementsByTagName('form'), ]).forEach(form =>{
+      form.addEventListener('submit', ev =>{
+        ev.preventDefault();
+      });
+    });
+  };
   const loadGuides=()=>{
     ([ ...document.getElementsByClassName('load-item-guides'), ]).forEach(elem =>{
       console.log('load-item-guides:', elem);
@@ -34,6 +41,7 @@ html`page: {
   page.open=(suffix, target='display')=>{
     wisdom.write(target, 'template-' + suffix);
     loadGuides();
+    initForms();
   };
   page.open('top');
 
@@ -43,10 +51,6 @@ html`page: {
 
 
   const body=document.getElementsByTagName('body')[0];
-  body.addEventListener('submit', ev =>{
-    console.log('submit:', ev.target);
-    ev.preventDefault();
-  });
   body.addEventListener('click', ev =>{
     console.log('click:', ev.target);
     const { target, }=ev;
