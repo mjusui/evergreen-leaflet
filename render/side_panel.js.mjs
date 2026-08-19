@@ -6,6 +6,6 @@ import { script, } from '../bronze/templ/html/script/index.mjs';
 const handle=await main(()=>{
 console.log( html.join([
   html`${script.wisdom}`,
-  html`wisdom.write('template-top', 'display');`
+  html`wisdom.write('display', 'template-top');`
 ], '').toString() );
 }, import.meta.filename);
