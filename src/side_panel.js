@@ -94,16 +94,20 @@ page: {
     wisdom.write('display', 'template-' + suffix);
 
     let guides=null;
-    ([ ...documeng.getElementsByClassName('load-item-guides'), ]).forEach(elem =>{
+    ([ ...document.getElementsByClassName('load-item-guides'), ]).forEach(elem =>{
       console.log('load-item-guides:', elem);
 
       if(!guides){
         const json=localStorage.getItem('json-guides');
         guides=JSON.parse(json) || [];
       }
+      if(guides.length < 1){
+        wisdom.text(elem.id, 'ガイドがありません');
+        return;
+      }
       guides.forEach(guide =>{
         const { title, desc, }=guide;
-        wisdom.append('item-guides', 'template-item-guide', [ title, desc, ]);
+        wisdom.append(elem.id, 'template-item-guide', [ title, desc, ]);
       });
     });
   };
