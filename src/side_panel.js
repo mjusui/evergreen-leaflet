@@ -90,6 +90,11 @@ wisdom: {
 }
   const page={};
 page: {
+  const body=document.getElementsByTagName('body')[0];
+  body.addEventListener('submit', ev =>{
+    ev.preventDefault();
+  });
+
   page.open=(suffix)=>{
     wisdom.write('display', 'template-' + suffix);
 

@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "Evergreen Leaflet",
-  "description": "Manual with browser run step by step",
-  "version": "1.0",
+  "description": "登録されたガイドにそって、ブラウザーを半自動で操作し、ユーザーにチュートリアルを提供します。",
+  "version": "0.9",
   "background": {
     "service_worker": "background.js"
   },

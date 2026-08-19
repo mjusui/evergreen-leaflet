@@ -15,6 +15,7 @@ const scss=new Success()
   .classify('button', 'padding: 0.5rem', 'border-style: solid',
     'border-width: 0px', 'border-radius: 0.5rem', 'font-size: 0.8rem', 'font-weight: bold' )
   .classify('color1', 'background-color: rgba(31,181,115, 1.0)', 'color: rgba(253,253,253,1.0)' ) 
+  .classify('require', 'content: "*"', 'color: red')
   .classify('modal-hidden', 'display: none')
   .classify('modal-display', 'display: block', 'position: fixed', 'top: 0',
     'height: 100vh', 'width: 100%', 'background-color: rgba(55,55,55,0.5)')
@@ -26,6 +27,7 @@ const scss=new Success()
   .themify('.block-row-shadow', '.block-row', 'shadow')
   .themify('.margin', 'center', 'middle')
   .themify('.button-color1', 'button', 'color1')
+  .themify('label.require', 'require')
   .themify('.modal', 'modal-hidden')
   .themify('.modal:not(:empty)', 'modal-display')
   .themify(html`.modal:not(:empty) > *`, 'center', 'middle')
@@ -70,9 +72,13 @@ console.log( (html`<!DOCTYOE html>
     </template>
 
     <template id='template-modal-add-leaflet'>
-      <div class='block-col'>
-         
-      </div>
+      <form class='block-col'>
+        <label class='require'>タイトル</label> 
+        <input type='text' name='title' require></input>
+
+        <label>説明</label> 
+        <textarea name='desc'></textarea>
+      </form>
     </template>
 
     ${html_script}
