@@ -94,6 +94,16 @@ page: {
   body.addEventListener('submit', ev =>{
     ev.preventDefault();
   });
+  body.addEventListener('click' ev =>{
+    const { target, }=ev;
+
+    if(target.classList.contains('modal') ){
+      page.clear('modal');
+    }
+    if(target.classList.contains('open-modal-add-guide') ){
+      page.open('modal-add-guide', 'modal');
+    }
+  });
 
   page.open=(suffix, target='display')=>{
     wisdom.write(target, 'template-' + suffix);
@@ -122,17 +132,4 @@ page: {
     wisdom.clear(target);
   };
 
-  ([ ...document.getElementsByClassName('open-modal-add-guide'), ]).forEach(elem =>{
-    elem.addEventListener('click', ()=>{
-      page.open('modal-add-guide', 'modal');
-    });
-  });
-
-  ([ ...document.getElementsByClassName('modal'), ]).forEach(elem =>{
-    elem.addEventListener('click', ev =>{
-      if(ev.target === elem){
-        page.clear('modal');
-      }
-    });
-  });
 }
