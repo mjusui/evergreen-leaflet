@@ -155,9 +155,11 @@ page: {
 
   const body=document.getElementsByTagName('body')[0];
   body.addEventListener('submit', ev =>{
+    console.log('submit:', ev);
     ev.preventDefault();
   });
   body.addEventListener('click', ev =>{
+    console.log('click:', ev);
     const { target, }=ev;
 
     if(target.classList.contains('modal') ){

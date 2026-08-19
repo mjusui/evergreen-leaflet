@@ -5,7 +5,7 @@ set -eou pipefail
 dir=$(dirname $0)
 cd $dir
 
-dest=${1:-$dir}
+dest=$dir/../src/
 
 for f in *.mjs
 do
