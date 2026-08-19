@@ -94,7 +94,7 @@ page: {
   body.addEventListener('submit', ev =>{
     ev.preventDefault();
   });
-  body.addEventListener('click' ev =>{
+  body.addEventListener('click', ev =>{
     const { target, }=ev;
 
     if(target.classList.contains('modal') ){
