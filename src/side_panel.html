@@ -90,15 +90,18 @@ wisdom: {
   wisdom.html=(   ...args)=> wisdom.render('html',    ...args); 
 }</script></head>
   <body>
-    <main>
+    <main id='display'>
     </main>
 
-    <template id='template-leaflets'>
+    <template id='template-top'>
       <header>
         <h1>Leaflets</h1>
       </header>
       <section>
       </section>
     </template>
+    <script> main:{
+      wisdom.write('template-top', 'display');
+    }</script>
   </body>
 </html>
