@@ -5,7 +5,14 @@ import { script, } from '../bronze/templ/html/script/index.mjs';
 
 const handle=await main(()=>{
 console.log( html.join([
-  html`${script.wisdom}`,
-  html`wisdom.write('display', 'template-top');`
+html`${script.wisdom}`,
+html`wisdom.write('display', 'template-top');`,
+html`
+  ([ ...document.getElementsByClassName('open-modal-add-leaflet'), ]).forEach(elem =>{
+    elem.addEventListener('click', ()=>{
+      wisdom.render('modal', 'template-add-leaflet');
+    });
+  });
+`,
 ], '').toString() );
 }, import.meta.filename);

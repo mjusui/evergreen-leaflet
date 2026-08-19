@@ -36,7 +36,7 @@ console.log( (html`<html>
     <template id='template-top'>
       <header class='row'>
         <h1>Leaflets</h1>
-        <button onclick='wisdom.write("modal", "template-add-leaflet");'>Add Leaflet</button>
+        <button class='open-modal-add-leaflet'>Add Leaflet</button>
       </header>
       <section class='col'>
         <div 

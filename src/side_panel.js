@@ -88,3 +88,9 @@ wisdom: {
   wisdom.text=(   ...args)=> wisdom.render('text',    ...args);
   wisdom.html=(   ...args)=> wisdom.render('html',    ...args);
 }wisdom.write('display', 'template-top');
+  ([ ...document.getElementsByClassName('open-modal-add-leaflet'), ]).forEach(elem =>{
+    elem.addEventListener('click', ()=>{
+      wisdom.render('modal', 'template-add-leaflet');
+    });
+  });
+
