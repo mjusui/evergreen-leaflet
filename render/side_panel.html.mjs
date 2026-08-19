@@ -84,7 +84,7 @@ console.log( (html`<!DOCTYOE html>
         <label>説明</label> 
         <textarea name='desc' cols='5'></textarea>
 
-        <button type='submit' class='button-color1 add-item-guide'>追加</button>
+        <button type='button' class='button-color1 add-item-guide'>追加</button>
       </form>
     </template>
 
