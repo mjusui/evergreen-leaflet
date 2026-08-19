@@ -10,7 +10,7 @@ html`wisdom.write('display', 'template-top');`,
 html`
   ([ ...document.getElementsByClassName('open-modal-add-leaflet'), ]).forEach(elem =>{
     elem.addEventListener('click', ()=>{
-      wisdom.render('modal', 'template-add-leaflet');
+      wisdom.write('modal', 'template-add-leaflet');
     });
   });
 `,
