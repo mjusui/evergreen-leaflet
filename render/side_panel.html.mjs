@@ -9,10 +9,10 @@ const handle=await main(()=>{
     styles: [
       sccs.html,
     ],
-    scripts: [
-      { src: 'side_panel.js', },
-    ],
   });
+  const html_script=html.scripts([
+    { src: 'side_panel.js', },
+  ]);
 console.log( (html`<html>
   <head>${html_head}</head>
   <body>
@@ -26,6 +26,8 @@ console.log( (html`<html>
       <section>
       </section>
     </template>
+
+    ${html_script}
   </body>
 </html>`).toString() );
 }, import.meta.filename);
