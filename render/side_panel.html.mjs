@@ -77,14 +77,14 @@ console.log( (html`<!DOCTYOE html>
     </template>
 
     <template id='template-modal-add-item-guide'>
-      <form class='block-col'>
+      <form class='block-col add-item-guide'>
         <label class='require'>タイトル</label> 
         <input type='text' name='title' required></input>
 
         <label>説明</label> 
         <textarea name='desc' cols='5'></textarea>
 
-        <button type='submit' class='button-color1 add-item-guide'>追加</button>
+        <button type='submit' class='button-color1'>追加</button>
       </form>
     </template>
 

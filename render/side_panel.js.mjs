@@ -35,7 +35,6 @@ html`page: {
   page.open=(suffix, target='display')=>{
     wisdom.write(target, 'template-' + suffix);
     loadGuides();
-    // initForms();
   };
   page.open('top');
 
@@ -50,9 +49,8 @@ html`page: {
     const { target, }=ev;
 
     if(target.classList.contains('add-item-guide') ){
-      const form=target.parentNode;
-      const title=form.title.value;
-      const desc=form.desc.value || '';
+      const title=target.title.value;
+      const desc=target.desc.value || '';
       store.guide.push({ title, desc, });
       loadGuides();
       page.clear('modal');
