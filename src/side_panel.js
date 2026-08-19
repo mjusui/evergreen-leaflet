@@ -103,13 +103,13 @@ const Starray=class Starray {
     return this.items;
   }
   push(...args){
-    const { items, }=this.param;
+    const items=this.list();
     const ret=items.push(...args);
     this.save();
     return ret;
   }
   filter(...args){
-    const { items, }=this.param;
+    const items=this.list();
     this.items=items.filter(...args);
     this.save();
     return this.items;
