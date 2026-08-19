@@ -71,7 +71,7 @@ console.log( (html`<!DOCTYOE html>
       </div>
     </template>
 
-    <template id='template-modal-add-leaflet'>
+    <template id='template-modal-add-guide'>
       <form class='block-col'>
         <label class='require'>タイトル</label> 
         <input type='text' name='title' require></input>
