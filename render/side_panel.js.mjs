@@ -42,11 +42,11 @@ html`page: {
 
   const body=document.getElementsByTagName('body')[0];
   body.addEventListener('submit', ev =>{
-    console.log('submit:', ev);
+    console.log('submit:', ev.target);
     ev.preventDefault();
   });
   body.addEventListener('click', ev =>{
-    console.log('click:', ev);
+    console.log('click:', ev.target);
     const { target, }=ev;
 
     if(target.classList.contains('modal') ){
@@ -63,8 +63,6 @@ html`page: {
       loadGuides();
     }
   });
-
-
 }`,
 ], '\n').toString() );
 }, import.meta.filename);
