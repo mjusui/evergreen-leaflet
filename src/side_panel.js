@@ -115,7 +115,8 @@ const Starray=class Starray {
     return this.items;
   }
   save(){
-    const { key, items, }=this;
+    const { key, }=this.param;
+    const items=this.list();
     const json=JSON.stringify(items);
     localStorage.setItem(key, json);
   }
@@ -174,6 +175,7 @@ page: {
       const desc=form.desc.value || '';
       store.guide.push({ title, desc, });
       loadGuides();
+      page.clear('modal');
     }
   });
 }

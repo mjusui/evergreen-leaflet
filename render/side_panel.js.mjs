@@ -61,6 +61,7 @@ html`page: {
       const desc=form.desc.value || '';
       store.guide.push({ title, desc, });
       loadGuides();
+      page.clear('modal');
     }
   });
 }`,
