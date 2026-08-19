@@ -2,7 +2,7 @@ import { main, } from '../bronze/debug/index.mjs';
 import { html, Success, } from '../bronze/templ/html/index.mjs';
 
 const scss=new Success()
-  .reset('*', 'color: rgba(55,55,55,1.0)', 'font-family: sans-serif', 'font-size: 1rem')
+  .reset('*', 'color: rgba(55,55,55,1.0)', 'font-family: sans-serif', 'font-size: var(--font-size, 1rem)')
   .classify('flex-col', 'display: flex', 'flex-direction: column', 'gap: 1rem')
   .classify('flex-row', 'display: flex', 'flex-direction: row', 'gap: 1rem', 'align-items: center')
   .classify('block', 'margin: 0.5rem', 'padding: 0.5rem', 'background-color: rgba(253,253,253,1.0)')
@@ -12,8 +12,7 @@ const scss=new Success()
   .classify('margin-auto', 'margin: auto')
   .classify('center', 'margin-left: auto', 'margin-right: auto')
   .classify('middle', 'margin-top: auto', 'margin-bottom: auto')
-  .classify('button', 'padding: 0.5rem', 'border-radius: 0.5rem',
-    'font-size: 0.8rem', 'font-weight: bold' )
+  .classify('button', 'padding: 0.5rem', 'border-radius: 0.5rem', 'font-weight: bold', '--font-size: 0.8rem' )
   .classify('input', 'min-width: 80vw', 'font-weight: normal')
   .classify('textarea', 'min-height: 5.4rem', 'max-height: 30vh', 'resize: none')
   .classify('color1', 'background-color: rgba(31,181,115,1.0)',
@@ -65,14 +64,14 @@ console.log( (html`<!DOCTYOE html>
         <div class='margin'></div>
         <button class='button-color1 open-modal-add-item-guide'>追加する</button>
       </header>
-      <section id='item-guides' class='block-col-shadow load-item-guides'>
+      <section id='item-guides' class='block-col load-item-guides'>
       </section>
     </template>
 
     <template id='template-item-guide'>
       <div class='block-col-shadow'>
-        <h1 data-render1='textContent'></h1>
-        <div data-render2='textContent'></div>
+        <h1 class='text-small' data-render1='textContent'></h1>
+        <div class='text-short' data-render2='textContent'></div>
       </div>
     </template>
 
