@@ -44,6 +44,7 @@ console.log( (html`<html>
 
     <template id='template-add-leaflet'>
       <div class='block'>
+         hoge
       </div>
     </template>
 
