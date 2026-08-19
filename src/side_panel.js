@@ -128,7 +128,7 @@ page: {
     });
   });
 
-  ([ ...ducument.getElementsByClassName('modal'), ]).forEach(elem =>{
+  ([ ...document.getElementsByClassName('modal'), ]).forEach(elem =>{
     elem.addEventListener('click', ev =>{
       if(ev.target === elem){
         page.clear('modal');
