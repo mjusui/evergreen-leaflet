@@ -2,18 +2,18 @@ import { main, } from '../bronze/debug/index.mjs';
 import { html, Success, } from '../bronze/templ/html/index.mjs';
 
 const sccs=new Success()
-  .reset()
+  .reset('*')
   .classify('flex-col', 'display: flex', 'flex-direction: column')
   .classify('flex-row', 'display: flex', 'flex-direction: row', 'align-items: center')
   .classify('block', 'margin: auto 0.5rem', 'padding: 0.5rem',
     'border-style: solid', 'border-width: 1px', 'border-color: rgba(55,55,55,1.0)' )
   .classify('modal-hidden', 'display: none')
   .classify('modal-display', 'display: block', 'position: fixed', 'top: 0', 'height: 100vh', 'width: 100%')
-  .themify('col', 'flex-col')
-  .themify('row', 'flex-row')
-  .themify('block', 'block')
-  .themify('modal', 'modal-hidden')
-  .themify('modal:not(:empty)', 'modal-display')
+  .themify('.col', 'flex-col')
+  .themify('.row', 'flex-row')
+  .themify('.block', 'block')
+  .themify('.modal', 'modal-hidden')
+  .themify('.modal:not(:empty)', 'modal-display')
 
 const handle=await main(()=>{
   const html_head=html.head({
@@ -44,7 +44,7 @@ console.log( (html`<html>
 
     <template id='template-add-leaflet'>
       <div class='block'>
-         hoge
+         
       </div>
     </template>
 
