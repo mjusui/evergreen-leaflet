@@ -98,7 +98,7 @@ const Starray=class Starray {
     const { key, items, }=this.param;
     if(!items){
       const json=localStorage.getItem(key);
-      this.items=JSON.parse(json);
+      this.items=JSON.parse(json) || [];
     }
     return this.items;
   }
