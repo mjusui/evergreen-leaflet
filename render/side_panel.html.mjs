@@ -34,6 +34,9 @@ const html_css=scss.html;
 const handle=await main(()=>{
   const html_head=html.head({
     title: 'Evergreen Leaflet',
+    metas: [
+      { charset: 'UTF-8', },
+    ],
     styles: [
       html_css,
     ],
@@ -41,7 +44,8 @@ const handle=await main(()=>{
   const html_script=html.scripts([
     { src: 'side_panel.js', },
   ]);
-console.log( (html`<html>
+console.log( (html`<!DOCTYOE html>
+<html>
   <head>${html_head}</head>
   <body>
     <main id='display'>
