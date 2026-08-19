@@ -8,7 +8,7 @@ const sccs=new Success()
   .classify('block', 'margin: 0.5rem', 'padding: 0.5rem', 'background-color: rgba(253,253,253,1.0)')
   .classify('border', 'border-style: solid', 'border-width: 1px',
      'border-color: rgba(55,55,55,1.0)', 'font-weight: bold' )
-  .classify('shadow', 'box-shadow: 0 0 1rem 1rem rgba(55,55,55,0.6)')
+  .classify('shadow', 'box-shadow: 0 0 1rem 1rem rgba(55,55,55,0.2)')
   .classify('margin-auto', 'margin: auto')
   .classify('button', 'padding: 0.5rem' )
   .classify('color1', 'background-color: rgba(31,181,115, 1.0)', 'color: rgba(253,253,253,1.0)' ) 
@@ -44,7 +44,7 @@ console.log( (html`<html>
     <section id='modal' class='modal'></section>
 
     <template id='template-top'>
-      <header class='block-row-shadow'>
+      <header class='block-row'>
         <h1>Leaflets</h1>
         <div class='margin'></div>
         <button class='button-color1 open-modal-add-leaflet'>Add Leaflet</button>
