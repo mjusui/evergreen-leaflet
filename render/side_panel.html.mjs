@@ -76,13 +76,15 @@ console.log( (html`<!DOCTYOE html>
       </div>
     </template>
 
-    <template id='template-modal-add-guide'>
+    <template id='template-modal-add-item-guide'>
       <form class='block-col'>
         <label class='require'>タイトル</label> 
         <input type='text' name='title' require></input>
 
         <label>説明</label> 
         <textarea name='desc' cols='5'></textarea>
+
+        <button class='button-color1 add-item-guide'></button>
       </form>
     </template>
 
