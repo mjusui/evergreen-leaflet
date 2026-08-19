@@ -14,7 +14,7 @@ const scss=new Success()
   .classify('middle', 'margin-top: auto', 'margin-bottom: auto')
   .classify('button', 'padding: 0.5rem', 'border-radius: 0.5rem',
     'font-size: 0.8rem', 'font-weight: bold' )
-  .classify('input', 'min-width: 80hw', 'padding: 0.2rem', 'field-sizing: content')
+  .classify('input', 'min-width: 80vw', 'padding: 0.2rem', 'field-sizing: content')
   .classify('color1', 'background-color: rgba(31,181,115,1.0)',
     'border-color: rgba(31,181,115,1.0)', 'color: rgba(253,253,253,1.0)' ) 
   .classify('require', 'content: "*"', 'color: red')
