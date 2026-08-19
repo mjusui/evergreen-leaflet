@@ -39,7 +39,6 @@ console.log( (html`<html>
         <button class='open-modal-add-leaflet'>Add Leaflet</button>
       </header>
       <section class='col'>
-        <div 
       </section>
     </template>
 
