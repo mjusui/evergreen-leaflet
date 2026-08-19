@@ -14,8 +14,9 @@ const scss=new Success()
   .classify('middle', 'margin-top: auto', 'margin-bottom: auto')
   .classify('button', 'padding: 0.5rem', 'border-radius: 0.5rem',
     'font-size: 0.8rem', 'font-weight: bold' )
-  .classify('textarea', 'padding: 0.2rem', 'min-width: 80vw', 'max-height: 80vh',
-    'min-height: 5.4rem', 'field-sizing: content', 'resize: none')
+  .classify('input', 'padding: 0.2rem')
+  .classify('textarea', 'padding: 0.2rem', 'min-height: 5.4rem', 'max-height: 30vh',
+    'field-sizing: content', 'resize: none')
   .classify('color1', 'background-color: rgba(31,181,115,1.0)',
     'border-color: rgba(31,181,115,1.0)', 'color: rgba(253,253,253,1.0)' ) 
   .classify('require', 'content: "*"', 'color: red')
@@ -30,7 +31,8 @@ const scss=new Success()
   .themify('.block-row-shadow', '.block-row', 'shadow')
   .themify('.margin', 'center', 'middle')
   .themify('.button-color1', 'border', 'button', 'color1')
-  .themify('input, textarea', 'border', 'button', 'textarea')
+  .themify('input', 'border', 'button', 'input')
+  .themify('textarea', 'border', 'button', 'textarea')
   .themify('label.require::after', 'require')
   .themify('.modal', 'modal-hidden')
   .themify('.modal:not(:empty)', 'modal-display', 'flex-col')
