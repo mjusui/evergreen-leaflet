@@ -1,4 +1,5 @@
 #!/bin/bash
+set -eou pipefail
 
 
 dir=$(dirname $0)

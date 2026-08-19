@@ -1,14 +1,19 @@
 <html>
-  <head><title>Evergreen Leaflet</title><style></style></head>
+  <head><title>Evergreen Leaflet</title><style>col { /* flex-col */ display: flex; flex-direction: column; }
+row { /* flex-row */ display: flex; flex-direction: row; align-items: center; }
+modal { /* modal-hidden */ display: none; }
+modal:not(:empty) { /* modal-display */ display: block; position: fixed; top: 0; height: 100vh; width: 100%; }</style></head>
   <body>
     <main id='display'>
     </main>
+    <section id='modal' class='modal'>
+    </section>
 
     <template id='template-top'>
       <header>
         <h1>Leaflets</h1>
       </header>
-      <section>
+      <section class='col'>
       </section>
     </template>
 

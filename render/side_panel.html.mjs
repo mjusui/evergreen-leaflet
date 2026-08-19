@@ -1,9 +1,13 @@
 import { main, } from '../bronze/debug/index.mjs';
 import { html, Success, } from '../bronze/templ/html/index.mjs';
 
-const sccs=new Success();
-sccs.classify('modal-hidden', 'display: none')
+const sccs=new Success()
+  .classify('flex-col', 'display: flex', 'flex-direction: column')
+  .classify('flex-row', 'display: flex', 'flex-direction: row', 'align-items: center')
+  .classify('modal-hidden', 'display: none')
   .classify('modal-display', 'display: block', 'position: fixed', 'top: 0', 'height: 100vh', 'width: 100%')
+  .themify('col', 'flex-col')
+  .themify('row', 'flex-row')
   .themify('modal', 'modal-hidden')
   .themify('modal:not(:empty)', 'modal-display')
 
@@ -29,7 +33,7 @@ console.log( (html`<html>
       <header>
         <h1>Leaflets</h1>
       </header>
-      <section>
+      <section class='col'>
       </section>
     </template>
 
