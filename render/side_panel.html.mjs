@@ -10,7 +10,8 @@ const scss=new Success()
   //    'border-color: rgba(55,55,55,1.0)', 'font-weight: bold' )
   .classify('shadow', 'box-shadow: 0 0 1px 1px rgba(55,55,55,0.1)')
   .classify('margin-auto', 'margin: auto')
-  .classify('button', 'padding: 0.5rem', 'border-style: solid', 'border-width: 0px', 'border-radius: 1rem' )
+  .classify('button', 'padding: 0.5rem', 'border-style: solid',
+    'border-width: 0px', 'border-radius: 0.5rem', 'font-size: 0.8rem' )
   .classify('color1', 'background-color: rgba(31,181,115, 1.0)', 'color: rgba(253,253,253,1.0)' ) 
   .classify('modal-hidden', 'display: none')
   .classify('modal-display', 'display: block', 'position: fixed', 'top: 0',
