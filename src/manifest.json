@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
-  "name": "Sample Extension",
-  "description": "A minimal Chrome extension example with side panel.",
+  "name": "Evergreen Leaflet",
+  "description": "Manual with browser run step by step",
   "version": "1.0",
   "background": {
     "service_worker": "background.js"
