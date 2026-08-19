@@ -46,6 +46,15 @@ html`page: {
 
   document.addEventListener('submit', ev =>{
     ev.preventDefault();
+
+    if(target.classList.contains('add-item-guide') ){
+      const form=target.parentNode;
+      const title=form.title.value;
+      const desc=form.desc.value || '';
+      store.guide.push({ title, desc, });
+      loadGuides();
+      page.clear('modal');
+    }
   });
   const body=document.getElementsByTagName('body')[0];
 
@@ -59,15 +68,6 @@ html`page: {
     if(target.classList.contains('open-modal-add-item-guide') ){
       page.open('modal-add-item-guide', 'modal');
     }
-    if(target.classList.contains('add-item-guide') ){
-      const form=target.parentNode;
-      const title=form.title.value;
-      const desc=form.desc.value || '';
-      store.guide.push({ title, desc, });
-      loadGuides();
-      page.clear('modal');
-    }
-
   });
 }`,
 ], '\n').toString() );
