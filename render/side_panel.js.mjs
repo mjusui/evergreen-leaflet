@@ -57,9 +57,6 @@ html`page: {
       loadGuides();
       page.clear('modal');
     }
-    if(onsubmit === 'open-steps'){
-
-    }
   });
   const body=document.getElementsByTagName('body')[0];
 
@@ -78,8 +75,8 @@ html`page: {
       page.open('modal', 'template-modal-add-item-guide', [ id, ]);
     }
     if(onclick === 'open-steps'){
-      const { id, title, 
-      page.open('display', 'template-steps');
+      const { id, title, desc, }=target.dataset;
+      page.open('display', 'template-steps', [ id, title, desc, ]);
     }
   });
 }`,
