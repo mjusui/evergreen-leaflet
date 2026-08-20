@@ -75,7 +75,9 @@ html`page: {
       page.open('modal', 'template-modal-add-item-guide', [ id, ]);
     }
     if(onclick === 'open-steps'){
-      const { id, title, desc, }=target.dataset;
+      const { id, }=target.closest('[data-id]').dataset;
+      const star=Starray.getinst('store-guide');
+      const { title, desc, }=star.list().find(a => a.id === id);
       page.open('display', 'template-steps', [ id, title, desc, ]);
     }
   });
