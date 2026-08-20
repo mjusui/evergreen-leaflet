@@ -71,7 +71,10 @@ html`page: {
       page.clear('modal');
     }
     if(onclick === 'open-modal-add-item-guide'){
-      page.open('modal', 'template-modal-add-item-guide');
+      const time=new Date().getTime();
+      const rand=Math.random()
+      const id=(time + '-' + rand);
+      page.open('modal', 'template-modal-add-item-guide', [ id, ]);
     }
   });
 }`,
