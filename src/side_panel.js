@@ -187,7 +187,7 @@ page: {
     }
     if(onclick === 'open-modal-add-item-guide'){
       const time=new Date().getTime();
-      const rand=Math.random()
+      const rand=Math.floor(Math.random() * 10**8);
       const id=(time + '-' + rand);
       page.open('modal', 'template-modal-add-item-guide', [ id, ]);
     }
