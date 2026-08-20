@@ -70,7 +70,6 @@ console.log( (html`<!DOCTYOE html>
       <section id='item-guides' class='block-col load-item-guides'>
       </section>
     </template>
-
     <template id='template-item-guide'>
       <div class='block-col-shadow'
         data-render1='data-id'  data-onclick='open-steps'>
@@ -100,10 +99,12 @@ console.log( (html`<!DOCTYOE html>
         <button class='button-back' data-onclick='open-guides'>←</button>
         <h1 data-render2='textContent'></h1>
         <div class='margin' data-render3='textContent'></div>
-        <button class='button-color1' data-onclick='open-modal-add-item-guide'>追加する</button>
+        <button class='button-color1' data-onclick='open-modal-add-item-step'>追加する</button>
       </header>
       <section id='item-steps' class='block-col load-item-steps' data-render1='data-id'>
       </section>
+    </template>
+    <template id='template-item-step'>
     </template>
 
     ${html_script}

@@ -150,6 +150,25 @@ page: {
       });
     });
   };
+  const loadSteps=()=>{
+    ([ ...document.getElementsByClassName('load-item-steps'), ]).forEach(elem =>{
+      console.log('load-item-steps:', elem);
+      const { id, }=elem.closest('[data-id]').dataset;
+      const star=Starray.getInst('store-step-' + id);
+      const items=star.list();
+
+      if(items.length < 1){
+        wisdom.text(elem.id, '手順がありません');
+        return;
+      }
+      wisdom.clear(elem.id);
+
+      items.forEach(item =>{
+        const { id, cmd, args, desc, }=item;
+        wisdom.append(elem.id, 'template-item-step');
+      });
+    });
+  };
 
   page.open=(...args)=>{
     wisdom.write(...args);
