@@ -172,7 +172,7 @@ page: {
       const id=target.id.value;
       const title=target.title.value;
       const desc=target.desc.value || '';
-      const star=Straray.getInst('store-guide');
+      const star=Starray.getInst('store-guide');
       star.push({ id, title, desc, });
       loadGuides();
       page.clear('modal');
