@@ -20,29 +20,32 @@ label.require::after { /* require */ content: &quot;*&quot;; color: red; }
   <body>
     <main id='display'>
     </main>
-    <section id='modal' class='modal'></section>
+    <section id='modal' class='modal' data-onclick='hide-modal'></section>
 
     <template id='template-guides'>
       <header class='block-row'>
         <h1>ガイド一覧</h1>
         <div class='margin'></div>
-        <button class='button-color1 open-modal-add-item-guide'>追加する</button>
+        <button class='button-color1' data-onclick='open-modal-add-item-guide'>追加する</button>
       </header>
       <section id='item-guides' class='block-col load-item-guides'>
       </section>
     </template>
 
     <template id='template-item-guide'>
-      <div class='block-col-shadow open-steps'>
+      <div class='block-col-shadow'
+        data-render1='data-id'  data-onclick='open-steps'>
         <h1 class='text-small' style='--font-size: 0.8rem'
-          data-render1='textContent'></h1>
+          data-render2='textContent'></h1>
         <div class='text-short' style='--font-size: 0.6rem'
-          data-render2='textContent'></div>
+          data-render3='textContent'></div>
       </div>
     </template>
 
     <template id='template-modal-add-item-guide'>
-      <form class='block-col add-item-guide'>
+      <form class='block-col' data-onsubmit='add-item-guide'>
+        <input type='hidden' name='id' data-render1='value'></input>
+
         <label class='require'>タイトル</label> 
         <input type='text' name='title' required></input>
 
@@ -58,9 +61,9 @@ label.require::after { /* require */ content: &quot;*&quot;; color: red; }
         <button class='button-back'></button>
         <h1 data-render1='textContent'></h1>
         <div class='margin'></div>
-        <button class='button-color1 open-modal-add-item-guide'>追加する</button>
+        <button class='button-color1' data-onclick='open-modal-add-item-guide'>追加する</button>
       </header>
-      <section id='item-guides' class='block-col load-item-guides'>
+      <section id='item-steps' class='block-col load-item-steps'>
       </section>
     </template>
 

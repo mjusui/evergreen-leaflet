@@ -26,20 +26,20 @@ html`page: {
       wisdom.clear(elem.id);
 
       items.forEach(item =>{
-        const { title, desc, }=item;
-        wisdom.append(elem.id, 'template-item-guide', [ title, desc, ]);
+        const { id, title, desc, }=item;
+        wisdom.append(elem.id, 'template-item-guide', [ id, title, desc, ]);
       });
     });
   };
 
-  page.open=(suffix, target='display')=>{
-    wisdom.write(target, 'template-' + suffix);
+  page.open=(...args)=>{
+    wisdom.write(...args);
     loadGuides();
   };
-  page.open('guides');
+  page.open('display', 'template-guides');
 
-  page.clear=(target='display')=>{
-    wisdom.clear(target);
+  page.clear=(...args)=>{
+    wisdom.clear(...args);
   };
 
 
@@ -47,13 +47,17 @@ html`page: {
     ev.preventDefault();
     console.log('submit:', ev.target);
     const { target, }=ev;
+    const { onsubmit, }=target.dataset;
 
-    if(target.classList.contains('add-item-guide') ){
+    if(onsubmit === 'add-item-guide'){
       const title=target.title.value;
       const desc=target.desc.value || '';
       store.guide.push({ title, desc, });
       loadGuides();
       page.clear('modal');
+    }
+    if(onsubmit === 'open-steps'){
+
     }
   });
   const body=document.getElementsByTagName('body')[0];
@@ -61,12 +65,13 @@ html`page: {
   body.addEventListener('click', ev =>{
     console.log('click:', ev.target);
     const { target, }=ev;
+    const { onclick, }=target.dataset;
 
-    if(target.classList.contains('modal') ){
+    if(onclick === 'hide-modal'){
       page.clear('modal');
     }
-    if(target.classList.contains('open-modal-add-item-guide') ){
-      page.open('modal-add-item-guide', 'modal');
+    if(onclick === 'open-modal-add-item-guide'){
+      page.open('modal', 'template-modal-add-item-guide');
     }
   });
 }`,
