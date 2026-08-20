@@ -80,6 +80,9 @@ html`page: {
       const { title, desc, }=star.list().find(a => a.id === id);
       page.open('display', 'template-steps', [ id, title, desc, ]);
     }
+    if(onclick === 'open-guides'){
+      page.open('display', 'template-guides');
+    }
   });
 }`,
 ], '\n').toString() );
