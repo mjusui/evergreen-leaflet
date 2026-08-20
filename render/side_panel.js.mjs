@@ -76,7 +76,7 @@ html`page: {
     }
     if(onclick === 'open-steps'){
       const { id, }=target.closest('[data-id]').dataset;
-      const star=Starray.getinst('store-guide');
+      const star=Starray.getInst('store-guide');
       const { title, desc, }=star.list().find(a => a.id === id);
       page.open('display', 'template-steps', [ id, title, desc, ]);
     }
