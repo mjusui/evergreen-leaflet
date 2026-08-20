@@ -34,9 +34,9 @@ label.require::after { /* require */ content: &quot;*&quot;; color: red; }
     <template id='template-item-guide'>
       <div class='block-col-shadow'
         data-render1='data-id'  data-onclick='open-steps'>
-        <h1 class='text-small' style='--font-size: 0.8rem'
+        <h1 style='--font-size: 0.8rem'
           data-render2='textContent' data-onclick='open-steps'></h1>
-        <div class='text-short' style='--font-size: 0.6rem'
+        <div style='--font-size: 0.6rem'
           data-render3='textContent' data-onclick='open-steps'></div>
       </div>
     </template>
@@ -59,13 +59,37 @@ label.require::after { /* require */ content: &quot;*&quot;; color: red; }
       <header class='block-row'>
         <button class='button-back' data-onclick='open-guides'>←</button>
         <h1 data-render2='textContent'></h1>
-        <div class='margin' data-render3='textContent'></div>
-        <button class='button-color1' data-onclick='open-modal-add-item-step'>追加する</button>
       </header>
+      <section class='block-col'>
+        <div data-render3='textContent'></div>
+      </section>
       <section id='item-steps' class='block-col load-item-steps' data-render1='data-id'>
       </section>
     </template>
     <template id='template-item-step'>
+      <div class='block-col-shadow'
+        data-render1='data-id' data-onclick='open-modal-edit-item-step'>
+        <h1 style='--font-size: 0.8rem' data-render2='textContent'
+          data-onclick='open-modal-edit-item-step'></h1>
+        <div style='--font-size: 0.6rem' data-render3='textContent'
+          data-onclick='open-modal-edit-item-step'></div>
+      </div>
+    </template>
+    
+    </template>
+
+    <template id='template-modal-add-item-step'>
+      <form class='block-col' data-onsubmit='add-item-step'>
+        <input type='hidden' name='id' data-render1='value' required></input>
+
+        <label class='require'>タイトル</label> 
+        <input type='text' name='title' required></input>
+
+        <label>説明</label> 
+        <textarea name='desc' cols='5'></textarea>
+
+        <button type='submit' class='button-color1'>追加</button>
+      </form>
     </template>
 
     <script src='side_panel.js'></script>

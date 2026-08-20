@@ -164,7 +164,7 @@ page: {
       wisdom.clear(elem.id);
 
       items.forEach(item =>{
-        const { id, cmd, args, desc, }=item;
+        const { id, cmd, args, capt, inst, }=item;
         wisdom.append(elem.id, 'template-item-step');
       });
     });
@@ -188,13 +188,18 @@ page: {
     const { onsubmit, }=target.dataset;
 
     if(onsubmit === 'add-item-guide'){
-      const id=target.id.value;
-      const title=target.title.value;
-      const desc=target.desc.value || '';
+      const [ id, title, desc ]=([ 'id', 'title', 'desc', ]).map(
+        key => target[key].value
+      );
       const star=Starray.getInst('store-guide');
       star.push({ id, title, desc, });
-      loadGuides();
+      // loadGuides();
       page.clear('modal');
+      page.open('display', 'template-steps', [ id, title, desc, ]);
+      loadSteps();
+    }
+    if(onsubmit === 'add-item-step'){
+      console.log(onsubmit, target);
     }
   });
   const body=document.getElementsByTagName('body')[0];
