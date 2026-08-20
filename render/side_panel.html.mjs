@@ -13,8 +13,6 @@ const scss=new Success()
   .classify('center', 'margin-left: auto', 'margin-right: auto')
   .classify('middle', 'margin-top: auto', 'margin-bottom: auto')
   .classify('button', 'padding: 0.5rem', 'border-radius: 0.5rem', 'font-weight: bold', '--font-size: 0.8rem' )
-  .classify('button-back', html.safe('content: "←"') )
-  .classify('button-close', html.safe('content: "✕"') )
   .classify('input', 'min-width: 80vw', 'font-weight: normal')
   .classify('textarea', 'min-height: 5.4rem', 'max-height: 30vh', 'resize: none')
   .classify('color1', 'background-color: rgba(31,181,115,1.0)',
@@ -31,8 +29,8 @@ const scss=new Success()
   .themify('.block-row-shadow', '.block-row', 'shadow')
   .themify('.margin', 'center', 'middle')
   .themify('.button-color1', 'border', 'button', 'color1')
-  .themify('.button-back::before', 'button', 'button-back')
-  .themify('.button-close::before', 'button', 'button-close')
+  .themify('.button-back', 'button')
+  .themify('.button-close', 'button')
   .themify('input', 'border', 'button', 'input')
   .themify('textarea', 'border', 'button', 'input', 'textarea')
   .themify('label.require::after', 'require')
@@ -98,7 +96,7 @@ console.log( (html`<!DOCTYOE html>
 
     <template id='template-steps'>
       <header class='block-row'>
-        <button class='button-back'></button>
+        <button class='button-back'>←</button>
         <h1 data-render2='textContent'></h1>
         <div class='margin' data-render3='textContent'></div>
         <button class='button-color1' data-onclick='open-modal-add-item-guide'>追加する</button>
