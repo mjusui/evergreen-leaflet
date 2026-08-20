@@ -8,11 +8,13 @@ const scss=new Success()
   .classify('block', 'margin: 0.5rem', 'padding: 0.5rem', 'background-color: rgba(253,253,253,1.0)')
   .classify('border', 'border-style: solid', 'border-width: 1px',
     'border-color: rgba(55,55,55,0.1)' )
-  .classify('shadow', 'box-shadow: 0 0 1rem 1px rgba(31,181,115,0.1)')
+  .classify('shadow', 'box-shadow: 0 0 1rem 1px rgba(55,55,55,0.1)')
   .classify('margin-auto', 'margin: auto')
   .classify('center', 'margin-left: auto', 'margin-right: auto')
   .classify('middle', 'margin-top: auto', 'margin-bottom: auto')
   .classify('button', 'padding: 0.5rem', 'border-radius: 0.5rem', 'font-weight: bold', '--font-size: 0.8rem' )
+  .classify('button-back', 'content: "←"' )
+  .classify('button-close', 'content: "✕"' )
   .classify('input', 'min-width: 80vw', 'font-weight: normal')
   .classify('textarea', 'min-height: 5.4rem', 'max-height: 30vh', 'resize: none')
   .classify('color1', 'background-color: rgba(31,181,115,1.0)',
@@ -29,6 +31,8 @@ const scss=new Success()
   .themify('.block-row-shadow', '.block-row', 'shadow')
   .themify('.margin', 'center', 'middle')
   .themify('.button-color1', 'border', 'button', 'color1')
+  .themify('.button-back', 'button', 'button-back')
+  .themify('.button-close', 'button', 'button-close')
   .themify('input', 'border', 'button', 'input')
   .themify('textarea', 'border', 'button', 'input', 'textarea')
   .themify('label.require::after', 'require')
@@ -90,6 +94,14 @@ console.log( (html`<!DOCTYOE html>
     </template>
 
     <template id='template-steps'>
+      <header class='block-row'>
+        <button class='button-back'></button>
+        <h1 data-render1='textContent'></h1>
+        <div class='margin'></div>
+        <button class='button-color1 open-modal-add-item-guide'>追加する</button>
+      </header>
+      <section id='item-guides' class='block-col load-item-guides'>
+      </section>
     </template>
 
     ${html_script}
