@@ -76,9 +76,9 @@ console.log( (html`<!DOCTYOE html>
       <div class='block-col-shadow'
         data-render1='data-id'  data-onclick='open-steps'>
         <h1 class='text-small' style='--font-size: 0.8rem'
-          data-render2='textContent'></h1>
+          data-render2='textContent' data-onclick='open-steps'></h1>
         <div class='text-short' style='--font-size: 0.6rem'
-          data-render3='textContent'></div>
+          data-render3='textContent' data-onclick='open-steps'></div>
       </div>
     </template>
 
