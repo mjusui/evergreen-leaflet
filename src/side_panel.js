@@ -164,9 +164,10 @@ page: {
     const { onsubmit, }=target.dataset;
 
     if(onsubmit === 'add-item-guide'){
+      const id=target.id.value;
       const title=target.title.value;
       const desc=target.desc.value || '';
-      store.guide.push({ title, desc, });
+      store.guide.push({ id, title, desc, });
       loadGuides();
       page.clear('modal');
     }

@@ -84,7 +84,7 @@ console.log( (html`<!DOCTYOE html>
 
     <template id='template-modal-add-item-guide'>
       <form class='block-col' data-onsubmit='add-item-guide'>
-        <input type='hidden' name='id' data-render1='value'></input>
+        <input type='hidden' name='id' data-render1='value' required></input>
 
         <label class='require'>タイトル</label> 
         <input type='text' name='title' required></input>
