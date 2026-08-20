@@ -100,7 +100,7 @@ console.log( (html`<!DOCTYOE html>
         <h1 data-render2='textContent'></h1>
       </header>
       <section class='block-col'>
-        <div data-render3='textContent'></div>
+        <div style='--font-size: 0.8rem' data-render3='textContent'></div>
       </section>
       <section id='item-steps' class='block-col load-item-steps' data-render1='data-id'>
       </section>
