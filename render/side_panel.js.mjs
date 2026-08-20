@@ -10,14 +10,13 @@ html`${script.starray}`,
 html`page: {
   const page={};
 
-  const store={};
-  store.guide=new Starray('store-guides');
-
+  
 
   const loadGuides=()=>{
     ([ ...document.getElementsByClassName('load-item-guides'), ]).forEach(elem =>{
       console.log('load-item-guides:', elem);
-      const items=store.guide.list();
+      const star=Starray.getInst('store-guide');
+      const items=star.list();
 
       if(items.length < 1){
         wisdom.text(elem.id, 'ガイドがありません');
@@ -53,7 +52,8 @@ html`page: {
       const id=target.id.value;
       const title=target.title.value;
       const desc=target.desc.value || '';
-      store.guide.push({ id, title, desc, });
+      const star=Straray.getInst('store-guide');
+      star.push({ id, title, desc, });
       loadGuides();
       page.clear('modal');
     }
@@ -76,6 +76,10 @@ html`page: {
       const rand=Math.floor(Math.random() * 10**8);
       const id=(time + '-' + rand);
       page.open('modal', 'template-modal-add-item-guide', [ id, ]);
+    }
+    if(onclick === 'open-steps'){
+      const { id, title, 
+      page.open('display', 'template-steps');
     }
   });
 }`,
