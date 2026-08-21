@@ -10,7 +10,10 @@ const scss=new Success()
     'border-color: rgba(55,55,55,0.1)' )
   .classify('bar', 'margin-bottom: -1px', 'border-bottom-style: solid', 'border-bottom-width: 1px',
     'border-bottom-color: rgba(55,55,55,0.1)' )
+  .classify('bar-item', '')
   .classify('relative', 'position: relative').classify('absolute', 'position: absolute')
+  .classify('absolute-top', 'top: 0').classify('absolute-bottom', 'bottom: 0')
+  .classify('absolute-left', 'left: 0').classify('absolute-right', 'right: 0')
   .classify('shadow', 'box-shadow: 0 0 1rem 1px rgba(55,55,55,0.1)')
   .classify('margin-auto', 'margin: auto')
   .classify('center', 'margin-left: auto', 'margin-right: auto')
@@ -33,6 +36,7 @@ const scss=new Success()
   .themify('.block-row-shadow', '.block-row', 'shadow')
   .themify('.bar', 'bar', 'relative')
   .themify(html`.bar > *`, 'absolute')
+  .themify('.bar-button', 'absolute-right')
   .themify('.margin', 'center', 'middle')
   .themify('.button-color1', 'border', 'button', 'color1')
   .themify('input', 'border', 'button', 'input')
@@ -121,7 +125,6 @@ console.log( (html`<!DOCTYOE html>
           data-onclick='open-modal-edit-item-step'></div>
       </div>
       <div class='bar'>
-        <div class='margin'></div>
         <button data-render1='data-id'
           data-onclick='open-modal-add-item-step'>✎</button>
       </div>

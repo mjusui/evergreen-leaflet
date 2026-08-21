@@ -9,6 +9,7 @@
 .block-row-shadow { /* .block-row */ /* .row */ /* flex-row */ display: flex; flex-direction: row; gap: 1rem; align-items: center; /* block */ margin: 0.5rem; padding: 0.5rem; background-color: rgba(253,253,253,1.0); /* shadow */ box-shadow: 0 0 1rem 1px rgba(55,55,55,0.1); }
 .bar { /* bar */ margin-bottom: -1px; border-bottom-style: solid; border-bottom-width: 1px; border-bottom-color: rgba(55,55,55,0.1); /* relative */ position: relative; }
 .bar > * { /* absolute */ position: absolute; }
+.bar-button { /* absolute-right */ right: 0; }
 .margin { /* center */ margin-left: auto; margin-right: auto; /* middle */ margin-top: auto; margin-bottom: auto; }
 .button-color1 { /* border */ border-style: solid; border-width: 1px; border-color: rgba(55,55,55,0.1); /* button */ padding: 0.5rem; border-radius: 0.5rem; font-weight: bold; --font-size: 0.8rem; /* color1 */ background-color: rgba(31,181,115,1.0); border-color: rgba(31,181,115,1.0); color: rgba(253,253,253,1.0); }
 input { /* border */ border-style: solid; border-width: 1px; border-color: rgba(55,55,55,0.1); /* button */ padding: 0.5rem; border-radius: 0.5rem; font-weight: bold; --font-size: 0.8rem; /* input */ min-width: 80vw; font-weight: normal; }
@@ -79,7 +80,6 @@ label.require::after { /* require */ content: &quot;*&quot;; color: red; }
           data-onclick='open-modal-edit-item-step'></div>
       </div>
       <div class='bar'>
-        <div class='margin'></div>
         <button data-render1='data-id'
           data-onclick='open-modal-add-item-step'>✎</button>
       </div>
