@@ -70,7 +70,7 @@ console.log( (html`<!DOCTYOE html>
         <h1>ガイド一覧</h1>
         <div class='margin'></div>
         <button class='button-color1' style='--font-size: 1rem'
-          data-onclick='open-modal-item-guide'>+</button>
+          data-onclick='open-modal-item-guide'> + </button>
       </header>
       <section id='item-guides' class='block-col load-item-guides'>
       </section>
@@ -110,7 +110,7 @@ console.log( (html`<!DOCTYOE html>
       <section id='item-steps' class='block-col load-item-steps' data-render1='data-id'>
         <div class='bar'>
           <div class='margin'></div>
-          <button style='--font-size: 1rem' data-onclick='open-modal-item-step'>+</button>
+          <button style='--font-size: 1rem' data-onclick='open-modal-item-step'> + </button>
         </div>
       </section>
     </template>
@@ -123,7 +123,7 @@ console.log( (html`<!DOCTYOE html>
           data-onclick='open-modal-item-step'></div>
       </div>
       <div class='bar'>
-        <button style='--font-size: 1rem' data-onclick='open-modal-item-step'>+</button>
+        <button style='--font-size: 1rem' data-onclick='open-modal-item-step'> + </button>
       </div>
     </template>
 
