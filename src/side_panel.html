@@ -44,11 +44,11 @@ label.require::after { /* require */ content: &quot;*&quot;; color: red; }
       <form class='block-col' data-onsubmit='add-item-guide'>
         <input type='hidden' name='id' data-render1='value' required></input>
 
-        <label class='require'>タイトル</label> 
-        <input type='text' name='title' data-render2='value' required></input>
+        <label for='input-title' class='require'>タイトル</label> 
+        <input id='input-title' type='text' name='title' data-render2='value' required></input>
 
-        <label>説明</label> 
-        <textarea name='desc' data-render3='value' cols='5'></textarea>
+        <label for='textarea-desc'>説明</label> 
+        <textarea id='textarea-desc' name='desc' data-render3='value' cols='5'></textarea>
 
         <button type='submit' class='button-color1'>追加</button>
       </form>
@@ -87,17 +87,17 @@ label.require::after { /* require */ content: &quot;*&quot;; color: red; }
       <form class='block-col' data-onsubmit='add-item-step'>
         <input type='hidden' name='id' data-render1='value' required></input>
 
-        <label class='require'>動作</label> 
-        <select name='cmd' data-render3='value' data-onchange='set-args-placeholder'>
+        <label for='select-cmd' class='require'>動作</label> 
+        <select id='select-cmd' name='cmd' data-render3='value' data-onchange='set-args-placeholder'>
           <option disabled>選択してください</option>
           <option value='goto' data-placeholder='遷移先のURL' data-args='require'>画面遷移</option>
         </select>
 
-        <label>対象</label>
-        <textarea name='args' data-render4='value'></textarea>
+        <label for='textarea-args'>対象</label>
+        <textarea id='textarea-args' name='args' data-render4='value'></textarea>
 
-        <label>操作説明</label> 
-        <textarea name='inst' data-render5='value' cols='5'></textarea>
+        <label for='textarea-inst'>操作説明</label> 
+        <textarea id='textarea-inst' name='inst' data-render5='value' cols='5'></textarea>
 
         <button type='submit' class='button-color1'>追加</button>
       </form>
