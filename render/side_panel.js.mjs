@@ -44,9 +44,9 @@ html`page: {
       wisdom.clear(elem.id);
 
       items.forEach(item =>{
-        const { id, capt, inst, cmd, args, }=item;
+        const { id='', capt='', cmd='', args='', inst='', }=item;
         wisdom.append(elem.id, 'template-item-step',
-          [ id, capt, inst, cmd, args, ]);
+          [ id, capt, cmd, args, inst, ]);
       });
     });
   };
@@ -113,8 +113,8 @@ html`page: {
       page.open('display', 'template-steps', [ id, title, desc, ]);
     }
     if(onclick === 'open-modal-item-step'){
-      const { id, capt, inst, cmd, args, }=target.dataset;
-      page.open('modal', 'template-modal-item-step', [ id, capt, inst, cmd, args, ]);
+      const { id, capt='', cmd='', args='', inst='', }=target.dataset;
+      page.open('modal', 'template-modal-item-step', [ id, capt, cmd, args, inst, ]);
     }
   });
 }`,

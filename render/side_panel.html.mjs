@@ -132,16 +132,16 @@ console.log( (html`<!DOCTYOE html>
         <input type='hidden' name='id' data-render1='value' required></input>
 
         <label class='require'>動作</label> 
-        <select name='cmd' data-render2='value' data-onchange='set-args-placeholder'>
+        <select name='cmd' data-render3='value' data-onchange='set-args-placeholder'>
           <option disabled>選択してください</option>
           <option value='goto' data-placeholder='遷移先のURL' data-args='require'>画面遷移</option>
         </select>
 
         <label>対象</label>
-        <textarea name='args' data-render3='value'></textarea>
+        <textarea name='args' data-render4='value'></textarea>
 
         <label>操作説明</label> 
-        <textarea name='inst' cols='5'></textarea>
+        <textarea name='inst' data-render5='value' cols='5'></textarea>
 
         <button type='submit' class='button-color1'>追加</button>
       </form>
