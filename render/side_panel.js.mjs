@@ -97,7 +97,7 @@ html`page: {
       page.open('display', 'template-guides');
     }
     if(onclick === 'open-modal-item-guide'){
-      let { id, title, desc, }=target.dataset;
+      let { id='', title='', desc='', }=target.dataset;
 
       if(!id){
         const time=new Date().getTime();

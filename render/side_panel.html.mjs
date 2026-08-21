@@ -69,7 +69,8 @@ console.log( (html`<!DOCTYOE html>
       <header class='block-row'>
         <h1>ガイド一覧</h1>
         <div class='margin'></div>
-        <button class='button-color1' data-onclick='open-modal-item-guide'>追加する</button>
+        <button class='button-color1' style='--font-size: 1rem'
+          data-onclick='open-modal-item-guide'>+</button>
       </header>
       <section id='item-guides' class='block-col load-item-guides'>
       </section>
@@ -94,7 +95,7 @@ console.log( (html`<!DOCTYOE html>
         <label for='textarea-desc'>説明</label> 
         <textarea id='textarea-desc' name='desc' data-render3='value' cols='5'></textarea>
 
-        <button type='submit' class='button-color1'>追加</button>
+        <button type='submit' class='button-color1'>保存</button>
       </form>
     </template>
 
@@ -109,7 +110,7 @@ console.log( (html`<!DOCTYOE html>
       <section id='item-steps' class='block-col load-item-steps' data-render1='data-id'>
         <div class='bar'>
           <div class='margin'></div>
-          <button data-onclick='open-modal-item-step'>✎追加</button>
+          <button style='--font-size: 1rem' data-onclick='open-modal-item-step'>+</button>
         </div>
       </section>
     </template>
@@ -122,8 +123,7 @@ console.log( (html`<!DOCTYOE html>
           data-onclick='open-modal-item-step'></div>
       </div>
       <div class='bar'>
-        <button data-render1='data-id'
-          data-onclick='open-modal-item-step'>✎</button>
+        <button style='--font-size: 1rem' data-onclick='open-modal-item-step'>+</button>
       </div>
     </template>
 
@@ -143,7 +143,7 @@ console.log( (html`<!DOCTYOE html>
         <label for='textarea-inst'>操作説明</label> 
         <textarea id='textarea-inst' name='inst' data-render5='value' cols='5'></textarea>
 
-        <button type='submit' class='button-color1'>追加</button>
+        <button type='submit' class='button-color1'>保存</button>
       </form>
     </template>
 
