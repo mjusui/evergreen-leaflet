@@ -23,7 +23,7 @@ const scss=new Success()
   .classify('textarea', 'min-height: 5.4rem', 'max-height: 30vh', 'resize: none')
   .classify('color1', 'background-color: rgba(31,181,115,1.0)',
     'border-color: rgba(31,181,115,1.0)', 'color: rgba(253,253,253,1.0)' ) 
-  .classify('require', 'content: "*"', 'color: red')
+  .classify('required', 'content: "*"', 'color: red')
   .classify('modal-hidden', 'display: none')
   .classify('modal-display', 'position: fixed', 'top: 0',
     'height: 100vh', 'width: 100%', 'background-color: rgba(55,55,55,0.5)')
@@ -40,7 +40,7 @@ const scss=new Success()
   .themify('.button-sign-color1', 'border', 'button', 'color1')
   .themify('input', 'border', 'button', 'input')
   .themify('textarea', 'border', 'button', 'input', 'textarea')
-  .themify('label.require::after', 'require')
+  .themify('label.required::after', 'required')
   .themify('.modal', 'modal-hidden')
   .themify('.modal:not(:empty)', 'modal-display', 'flex-col')
   .themify(html`.modal:not(:empty) > *`, 'center', 'middle')
@@ -91,7 +91,7 @@ console.log( (html`<!DOCTYOE html>
       <form class='block-col' data-onsubmit='add-item-guide'>
         <input type='hidden' name='id' data-render1='value' required></input>
 
-        <label for='input-title' class='require'>タイトル</label> 
+        <label for='input-title' class='required'>タイトル</label> 
         <input id='input-title' type='text' name='title' data-render2='value' required></input>
 
         <label for='textarea-desc'>説明</label> 
@@ -133,10 +133,10 @@ console.log( (html`<!DOCTYOE html>
       <form class='block-col' data-onsubmit='add-item-step'>
         <input type='hidden' name='id' data-render1='value' required></input>
 
-        <label for='select-cmd' class='require'>動作</label> 
-        <select id='select-cmd' name='cmd' data-render3='value' data-onchange='set-args-placeholder'>
+        <label for='select-cmd' class='required'>動作</label> 
+        <select id='select-cmd' name='cmd' data-render3='value' data-onchange='set-args-placeholder' required>
           <option disabled>選択してください</option>
-          <option value='goto' data-placeholder='遷移先のURL' data-args='require'>画面遷移</option>
+          <option value='goto' data-placeholder='遷移先のURL' data-args='required'>画面遷移</option>
         </select>
 
         <label for='textarea-args'>対象</label>
