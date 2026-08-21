@@ -213,11 +213,18 @@ page: {
     if(onclick === 'hide-modal'){
       page.clear('modal');
     }
-    if(onclick === 'open-modal-add-item-guide'){
-      const time=new Date().getTime();
-      const rand=Math.floor(Math.random() * 10**8);
-      const id=(time + '-' + rand);
-      page.open('modal', 'template-modal-add-item-guide', [ id, ]);
+    if(onclick === 'open-guides'){
+      page.open('display', 'template-guides');
+    }
+    if(onclick === 'open-modal-item-guide'){
+      let { id, title, desc, }=target.dataset;
+
+      if(!id){
+        const time=new Date().getTime();
+        const rand=Math.floor(Math.random() * 10**8);
+        id=(time + '-' + rand);
+      }
+      page.open('modal', 'template-modal-item-guide', [ id, title, desc, ]);
     }
     if(onclick === 'open-steps'){
       const { id, }=target.closest('[data-id]').dataset;
@@ -225,8 +232,9 @@ page: {
       const { title, desc, }=star.list().find(a => a.id === id);
       page.open('display', 'template-steps', [ id, title, desc, ]);
     }
-    if(onclick === 'open-guides'){
-      page.open('display', 'template-guides');
+    if(onclick === 'open-modal-item-step'){
+      const { id, capt, inst, cmd, args, }=target.dataset;
+      page.open('modal', 'template-modal-item-step', [ id, capt, inst, cmd, args, ]);
     }
   });
 }

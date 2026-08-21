@@ -69,7 +69,7 @@ console.log( (html`<!DOCTYOE html>
       <header class='block-row'>
         <h1>ガイド一覧</h1>
         <div class='margin'></div>
-        <button class='button-color1' data-onclick='open-modal-add-item-guide'>追加する</button>
+        <button class='button-color1' data-onclick='open-modal-item-guide'>追加する</button>
       </header>
       <section id='item-guides' class='block-col load-item-guides'>
       </section>
@@ -84,15 +84,15 @@ console.log( (html`<!DOCTYOE html>
       </div>
     </template>
 
-    <template id='template-modal-add-item-guide'>
+    <template id='template-modal-item-guide'>
       <form class='block-col' data-onsubmit='add-item-guide'>
         <input type='hidden' name='id' data-render1='value' required></input>
 
         <label class='require'>タイトル</label> 
-        <input type='text' name='title' required></input>
+        <input type='text' name='title' data-render2='value' required></input>
 
         <label>説明</label> 
-        <textarea name='desc' cols='5'></textarea>
+        <textarea name='desc' data-render3='value' cols='5'></textarea>
 
         <button type='submit' class='button-color1'>追加</button>
       </form>
@@ -109,25 +109,25 @@ console.log( (html`<!DOCTYOE html>
       <section id='item-steps' class='block-col load-item-steps' data-render1='data-id'>
         <div class='bar'>
           <div class='margin'></div>
-          <button data-onclick='open-modal-add-item-step'>✎</button>
+          <button data-onclick='open-modal-item-step'>✎追加</button>
         </div>
       </section>
     </template>
     <template id='template-item-step'>
       <div class='block-col-shadow' data-render1='data-id'
-        data-onclick='open-modal-edit-item-step'>
+        data-onclick='open-modal-item-step'>
         <h1 style='--font-size: 0.8rem' data-render2='textContent'
-          data-onclick='open-modal-edit-item-step'></h1>
+          data-onclick='open-modal-item-step'></h1>
         <div style='--font-size: 0.6rem' data-render3='textContent'
-          data-onclick='open-modal-edit-item-step'></div>
+          data-onclick='open-modal-item-step'></div>
       </div>
       <div class='bar'>
         <button data-render1='data-id'
-          data-onclick='open-modal-add-item-step'>✎</button>
+          data-onclick='open-modal-item-step'>✎</button>
       </div>
     </template>
 
-    <template id='template-modal-add-item-step'>
+    <template id='template-modal-item-step'>
       <form class='block-col' data-onsubmit='add-item-step'>
         <input type='hidden' name='id' data-render1='value' required></input>
 
