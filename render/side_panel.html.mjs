@@ -10,7 +10,6 @@ const scss=new Success()
     'border-color: rgba(55,55,55,0.1)' )
   .classify('bar', 'margin-bottom: -1px', 'border-bottom-style: solid', 'border-bottom-width: 1px',
     'border-bottom-color: rgba(55,55,55,0.1)' )
-  .classify('bar-item', '')
   .classify('relative', 'position: relative').classify('absolute', 'position: absolute')
   .classify('absolute-top', 'top: 0').classify('absolute-bottom', 'bottom: 0')
   .classify('absolute-left', 'left: 0').classify('absolute-right', 'right: 0')
@@ -34,9 +33,7 @@ const scss=new Success()
   .themify('.block-row', '.row', 'block')
   .themify('.block-col-shadow', '.block-col', 'shadow')
   .themify('.block-row-shadow', '.block-row', 'shadow')
-  .themify('.bar', 'bar', 'relative')
-  .themify(html`.bar > *`, 'absolute')
-  .themify('.bar-button', 'absolute-right')
+  .themify('.bar', 'bar', 'flex-row')
   .themify('.margin', 'center', 'middle')
   .themify('.button-color1', 'border', 'button', 'color1')
   .themify('input', 'border', 'button', 'input')
@@ -111,7 +108,8 @@ console.log( (html`<!DOCTYOE html>
       </section>
       <section id='item-steps' class='block-col load-item-steps' data-render1='data-id'>
         <div class='bar'>
-          <button class='bar-button' data-onclick='open-modal-add-item-step'>✎</button>
+          <div class='margin'></div>
+          <button data-onclick='open-modal-add-item-step'>✎</button>
         </div>
       </section>
     </template>
