@@ -44,8 +44,9 @@ html`page: {
       wisdom.clear(elem.id);
 
       items.forEach(item =>{
-        const { id, cmd, args, capt, inst, }=item;
-        wisdom.append(elem.id, 'template-item-step');
+        const { id, capt, inst, cmd, args, }=item;
+        wisdom.append(elem.id, 'template-item-step',
+          [ id, capt, inst, cmd, args, ]);
       });
     });
   };

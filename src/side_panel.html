@@ -9,8 +9,6 @@
 .block-row-shadow { /* .block-row */ /* .row */ /* flex-row */ display: flex; flex-direction: row; gap: 1rem; align-items: center; /* block */ margin: 0.5rem; padding: 0.5rem; background-color: rgba(253,253,253,1.0); /* shadow */ box-shadow: 0 0 1rem 1px rgba(55,55,55,0.1); }
 .margin { /* center */ margin-left: auto; margin-right: auto; /* middle */ margin-top: auto; margin-bottom: auto; }
 .button-color1 { /* border */ border-style: solid; border-width: 1px; border-color: rgba(55,55,55,0.1); /* button */ padding: 0.5rem; border-radius: 0.5rem; font-weight: bold; --font-size: 0.8rem; /* color1 */ background-color: rgba(31,181,115,1.0); border-color: rgba(31,181,115,1.0); color: rgba(253,253,253,1.0); }
-.button-back { /* button */ padding: 0.5rem; border-radius: 0.5rem; font-weight: bold; --font-size: 0.8rem; /* button-sign */ --font-size: 1rem; }
-.button-close { /* button */ padding: 0.5rem; border-radius: 0.5rem; font-weight: bold; --font-size: 0.8rem; /* button-sign */ --font-size: 1rem; }
 input { /* border */ border-style: solid; border-width: 1px; border-color: rgba(55,55,55,0.1); /* button */ padding: 0.5rem; border-radius: 0.5rem; font-weight: bold; --font-size: 0.8rem; /* input */ min-width: 80vw; font-weight: normal; }
 textarea { /* border */ border-style: solid; border-width: 1px; border-color: rgba(55,55,55,0.1); /* button */ padding: 0.5rem; border-radius: 0.5rem; font-weight: bold; --font-size: 0.8rem; /* input */ min-width: 80vw; font-weight: normal; /* textarea */ min-height: 5.4rem; max-height: 30vh; resize: none; }
 label.require::after { /* require */ content: &quot;*&quot;; color: red; }
@@ -56,26 +54,29 @@ label.require::after { /* require */ content: &quot;*&quot;; color: red; }
     </template>
 
     <template id='template-steps'>
+      <button style='--font-size: 1rem' data-onclick='open-guides'>←</button>
       <header class='block-row'>
-        <button class='button-back' data-onclick='open-guides'>←</button>
         <h1 data-render2='textContent'></h1>
       </header>
-      <section class='block-col'>
+      <section class='col'>
         <div style='--font-size: 0.8rem' data-render3='textContent'></div>
       </section>
       <section id='item-steps' class='block-col load-item-steps' data-render1='data-id'>
       </section>
     </template>
     <template id='template-item-step'>
-      <div class='block-col-shadow'
-        data-render1='data-id' data-onclick='open-modal-edit-item-step'>
+      <div class='block-col-shadow' data-render1='data-id'
+        data-onclick='open-modal-edit-item-step'>
         <h1 style='--font-size: 0.8rem' data-render2='textContent'
           data-onclick='open-modal-edit-item-step'></h1>
         <div style='--font-size: 0.6rem' data-render3='textContent'
           data-onclick='open-modal-edit-item-step'></div>
       </div>
-    </template>
-    
+      <div class='bar'>
+        <div class='margin'></div>
+        <button data-render1='data-id'
+          data-onclick='open-modal-add-item-step'>✎</button>
+      </div>
     </template>
 
     <template id='template-modal-add-item-step'>

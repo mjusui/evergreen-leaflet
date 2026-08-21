@@ -13,7 +13,7 @@ const scss=new Success()
   .classify('center', 'margin-left: auto', 'margin-right: auto')
   .classify('middle', 'margin-top: auto', 'margin-bottom: auto')
   .classify('button', 'padding: 0.5rem', 'border-radius: 0.5rem', 'font-weight: bold', '--font-size: 0.8rem' )
-  .classify('button-sign', '--font-size: 1rem')
+  //.classify('button-sign', '--font-size: 1rem')
   .classify('input', 'min-width: 80vw', 'font-weight: normal')
   .classify('textarea', 'min-height: 5.4rem', 'max-height: 30vh', 'resize: none')
   .classify('color1', 'background-color: rgba(31,181,115,1.0)',
@@ -30,8 +30,6 @@ const scss=new Success()
   .themify('.block-row-shadow', '.block-row', 'shadow')
   .themify('.margin', 'center', 'middle')
   .themify('.button-color1', 'border', 'button', 'color1')
-  .themify('.button-back', 'button', 'button-sign')
-  .themify('.button-close', 'button', 'button-sign')
   .themify('input', 'border', 'button', 'input')
   .themify('textarea', 'border', 'button', 'input', 'textarea')
   .themify('label.require::after', 'require')
@@ -95,26 +93,29 @@ console.log( (html`<!DOCTYOE html>
     </template>
 
     <template id='template-steps'>
+      <button style='--font-size: 1rem' data-onclick='open-guides'>←</button>
       <header class='block-row'>
-        <button class='button-back' data-onclick='open-guides'>←</button>
         <h1 data-render2='textContent'></h1>
       </header>
-      <section class='block-col'>
+      <section class='col'>
         <div style='--font-size: 0.8rem' data-render3='textContent'></div>
       </section>
       <section id='item-steps' class='block-col load-item-steps' data-render1='data-id'>
       </section>
     </template>
     <template id='template-item-step'>
-      <div class='block-col-shadow'
-        data-render1='data-id' data-onclick='open-modal-edit-item-step'>
+      <div class='block-col-shadow' data-render1='data-id'
+        data-onclick='open-modal-edit-item-step'>
         <h1 style='--font-size: 0.8rem' data-render2='textContent'
           data-onclick='open-modal-edit-item-step'></h1>
         <div style='--font-size: 0.6rem' data-render3='textContent'
           data-onclick='open-modal-edit-item-step'></div>
       </div>
-    </template>
-    
+      <div class='bar'>
+        <div class='margin'></div>
+        <button data-render1='data-id'
+          data-onclick='open-modal-add-item-step'>✎</button>
+      </div>
     </template>
 
     <template id='template-modal-add-item-step'>
