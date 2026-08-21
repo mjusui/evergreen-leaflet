@@ -111,8 +111,7 @@ console.log( (html`<!DOCTYOE html>
       </section>
       <section id='item-steps' class='block-col load-item-steps' data-render1='data-id'>
         <div class='bar'>
-          <div class='margin'></div>
-          <button data-onclick='open-modal-add-item-step'>✎</button>
+          <button class='bar-button' data-onclick='open-modal-add-item-step'>✎</button>
         </div>
       </section>
     </template>
