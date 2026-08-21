@@ -97,10 +97,14 @@ console.log( (html`<!DOCTYOE html>
       <header class='block-row'>
         <h1 data-render2='textContent'></h1>
       </header>
-      <section class='col'>
+      <section class='block-col'>
         <div style='--font-size: 0.8rem' data-render3='textContent'></div>
       </section>
       <section id='item-steps' class='block-col load-item-steps' data-render1='data-id'>
+        <div class='bar'>
+          <div class='margin'></div>
+          <button data-onclick='open-modal-add-item-step'>✎</button>
+        </div>
       </section>
     </template>
     <template id='template-item-step'>
