@@ -237,4 +237,18 @@ page: {
       page.open('modal', 'template-modal-item-step', [ id, capt, cmd, args, inst, ]);
     }
   });
+
+  body.addEventListener('change', ev =>{
+    const { target, }=ev;
+    const { onchange, }=target.dataset;
+
+    if(onchange === 'set-args-placeholder'){
+      const option=target.selectedOptions[0];
+      const { placeholder='', args=false, }=option.dataset;
+
+      const form=target.parentNode;
+      form.args.placeholder=placeholder;
+      form.args.required=args;
+    }
+  });
 }
