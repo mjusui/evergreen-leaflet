@@ -23,7 +23,7 @@ const scss=new Success()
   .classify('textarea', 'min-height: 5.4rem', 'max-height: 30vh', 'resize: none')
   .classify('color1', 'background-color: rgba(31,181,115,1.0)',
     'border-color: rgba(31,181,115,1.0)', 'color: rgba(253,253,253,1.0)' ) 
-  .classify('required', html`content: "*"`, 'color: red')
+  .classify('required', html.safe('content: "*"'), 'color: red')
   .classify('modal-hidden', 'display: none')
   .classify('modal-display', 'position: fixed', 'top: 0',
     'height: 100vh', 'width: 100%', 'background-color: rgba(55,55,55,0.5)')
