@@ -186,6 +186,7 @@ page: {
   page.open=(...args)=>{
     wisdom.write(...args);
     loadGuides();
+    loadSteps();
   };
   page.open('display', 'template-guides');
 
