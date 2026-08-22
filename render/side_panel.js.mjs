@@ -39,8 +39,8 @@ html`page: {
   const loadSteps=()=>{
     ([ ...document.getElementsByClassName('load-item-steps'), ]).forEach(elem =>{
       console.log('load-item-steps:', elem);
-      const { id, }=elem.closest('[data-id]').dataset;
-      const star=Starray.getInst('store-step-' + id);
+      const { guideid, }=elem.closest('[data-guideid]').dataset;
+      const star=Starray.getInst('store-step-' + guideid);
       const items=star.list();
 
       if(items.length < 1){
@@ -50,9 +50,9 @@ html`page: {
       wisdom.clear(elem.id);
 
       items.forEach(item =>{
-        const { id='', capt='', cmd='', args='', inst='', }=item;
+        const { id='', cmd='', args='', inst='', }=item;
         wisdom.append(elem.id, 'template-item-step',
-          [ id, capt, cmd, args, inst, ]);
+          [ guideid, id, cmd, args, inst, ]);
       });
     });
   };
@@ -74,23 +74,51 @@ html`page: {
     const { target, }=ev;
     const { onsubmit, }=target.dataset;
 
-    if(onsubmit === 'add-item-guide'){
+    if(onsubmit === 'upsert-item-guide'){
       const [ id, title, desc ]=([ 'id', 'title', 'desc', ]).map(
         key => target[key].value
       );
       const star=Starray.getInst('store-guide');
-      star.push({ id, title, desc, });
-      // loadGuides();
+
+      let updated=0;
+      star.map(a =>{
+        if(a.id === id){
+          update++;
+          return Object.assign(a, { title, desc, });
+        }
+        return a;
+      });
+
+      if(updated < 1){
+        star.push({ id, title, desc, });
+        page.open('display', 'template-steps', [ id, title, desc, ]);
+        loadSteps();
+      }else{
+        loadGuides();
+      }
       page.clear('modal');
-      page.open('display', 'template-steps', [ id, title, desc, ]);
-      loadSteps();
     }
-    if(onsubmit === 'add-item-step'){
+    if(onsubmit === 'upsert-item-step'){
       console.log(onsubmit, target);
-      const [ id, cmd, args, inst, ]=([ 'id', 'cmd', 'args', 'inst', ]).map(
+      const [ guideid, id, cmd, args, inst, ]=([ 'guideid', 'id', 'cmd', 'args', 'inst', ]).map(
         key => target[key].value
       );
-      const star=Starray.getInst('store-step-' + id);
+      const star=Starray.getInst('store-step-' + guideid);
+
+      let updated=0;
+      star.map(a =>{
+        if(a.id === id){
+          updated++;
+          return Object.assign(a, { cmd, args, inst, });
+        }
+        return a;
+      });
+
+      if(!updated){
+        star.push({ id, cmd, args, inst, });
+      }
+      loadSteps();
+      page.clear('modal');
     }
   });
   const body=document.getElementsByTagName('body')[0];
