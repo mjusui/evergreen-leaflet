@@ -109,12 +109,14 @@ console.log( (html`<!DOCTYOE html>
       <section class='block-col'>
         <div style='--font-size: 0.8rem' data-render3='textContent'></div>
       </section>
-      <section id='item-steps' class='block-col load-item-steps' data-render1='data-guideid'>
+      <section class='col'>
         <div class='bar'>
           <div class='margin'></div>
           <button class='button-color1' style='--font-size: 1rem'
             data-render1='data-guideid' data-onclick='open-modal-item-step'>+</button>
         </div>
+      </section>
+      <section id='item-steps' class='block-col load-item-steps' data-render1='data-guideid'>
       </section>
     </template>
     <template id='template-item-step'>
