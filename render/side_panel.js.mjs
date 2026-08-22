@@ -11,6 +11,12 @@ html`page: {
   const page={};
 
   
+  const gen={};
+  gen.id=()=>{
+    const time=new Date().getTime();
+    const rand=Math.floor(Math.random() * 10**8);
+    return (time + '-' + rand);
+  };
 
   const loadGuides=()=>{
     ([ ...document.getElementsByClassName('load-item-guides'), ]).forEach(elem =>{
@@ -81,6 +87,10 @@ html`page: {
     }
     if(onsubmit === 'add-item-step'){
       console.log(onsubmit, target);
+      const [ id, cmd, args, inst, ]=([ 'id', 'cmd', 'args', 'inst', ]).map(
+        key => target[key].value
+      );
+      const star=Starray.getInst('store-step-' + id);
     }
   });
   const body=document.getElementsByTagName('body')[0];
@@ -97,13 +107,7 @@ html`page: {
       page.open('display', 'template-guides');
     }
     if(onclick === 'open-modal-item-guide'){
-      let { id='', title='', desc='', }=target.dataset;
-
-      if(!id){
-        const time=new Date().getTime();
-        const rand=Math.floor(Math.random() * 10**8);
-        id=(time + '-' + rand);
-      }
+      let { id=gen.id(), title='', desc='', }=target.dataset;
       page.open('modal', 'template-modal-item-guide', [ id, title, desc, ]);
     }
     if(onclick === 'open-steps'){
@@ -113,8 +117,8 @@ html`page: {
       page.open('display', 'template-steps', [ id, title, desc, ]);
     }
     if(onclick === 'open-modal-item-step'){
-      const { id, capt='', cmd='', args='', inst='', }=target.dataset;
-      page.open('modal', 'template-modal-item-step', [ id, capt, cmd, args, inst, ]);
+      const { guideid, id='', cmd='', args='', inst='', }=target.dataset;
+      page.open('modal', 'template-modal-item-step', [ guideid, id, cmd, args, inst, ]);
     }
   });
 

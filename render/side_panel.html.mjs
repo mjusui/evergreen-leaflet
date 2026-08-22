@@ -109,10 +109,11 @@ console.log( (html`<!DOCTYOE html>
       <section class='block-col'>
         <div style='--font-size: 0.8rem' data-render3='textContent'></div>
       </section>
-      <section id='item-steps' class='block-col load-item-steps' data-render1='data-id'>
+      <section id='item-steps' class='block-col load-item-steps' data-render1='data-guideid'>
         <div class='bar'>
           <div class='margin'></div>
-          <button class='button-color1' style='--font-size: 1rem' data-onclick='open-modal-item-step'>+</button>
+          <button class='button-color1' style='--font-size: 1rem'
+            data-render1='data-guideid' data-onclick='open-modal-item-step'>+</button>
         </div>
       </section>
     </template>
@@ -131,7 +132,8 @@ console.log( (html`<!DOCTYOE html>
 
     <template id='template-modal-item-step'>
       <form class='block-col' data-onsubmit='add-item-step'>
-        <input type='hidden' name='id' data-render1='value' required></input>
+        <input type='hidden' name='guideid' data-render1='value' required></input>
+        <input type='hidden' name='id' data-render2='value' required></input>
 
         <label for='select-cmd' class='required'>動作</label> 
         <select id='select-cmd' name='cmd' data-render3='value' data-onchange='set-args-placeholder' required>
