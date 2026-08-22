@@ -124,6 +124,8 @@ console.log( (html`<!DOCTYOE html>
           data-onclick='open-modal-item-step'></h1>
         <div style='--font-size: 0.6rem' data-render4='textContent'
           data-onclick='open-modal-item-step'></div>
+        <div style='--font-size: 0.6rem' data-render5='textContent'
+          data-onclick='open-modal-item-step'></div>
       </div>
       <div class='bar'>
         <div class='margin'></div>
