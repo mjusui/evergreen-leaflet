@@ -109,7 +109,7 @@ console.log( (html`<!DOCTYOE html>
       <section class='block-col'>
         <div style='--font-size: 0.8rem' data-render3='textContent'></div>
       </section>
-      <section class='col'>
+      <section class='block-col'>
         <div class='bar'>
           <div class='margin'></div>
           <button class='button-color1' style='--font-size: 1rem'
