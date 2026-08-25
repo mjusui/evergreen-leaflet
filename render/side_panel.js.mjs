@@ -146,8 +146,16 @@ html`page: {
       page.open('display', 'template-steps', [ id, title, desc, ]);
     }
     if(onclick === 'open-modal-item-step'){
-      const { guideid, id='', cmd='', args='', inst='', }=target.dataset;
-      page.open('modal', 'template-modal-item-step', [ guideid, id, cmd, args, inst, ]);
+      const { guideid, id='', previd='', }=target.closest('[data-guideid]').dataset;
+      const vals=[ guideid, id, ];
+
+      if(id){
+        const star=Starray.getInst('store-step-' + guideid);
+        const { cmd, args, inst, }=star.list().find(a => a.id === id);
+        vals.push(cmd, args, inst);
+      }
+      vals.push('', '', '');
+      page.open('modal', 'template-modal-item-step', vals);
     }
   });
 

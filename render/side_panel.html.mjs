@@ -120,8 +120,8 @@ console.log( (html`<!DOCTYOE html>
       </section>
     </template>
     <template id='template-item-step'>
-      <div class='block-col-shadow' data-render2='data-id'
-        data-onclick='open-modal-item-step'>
+      <div class='block-col-shadow' data-render1='data-guideid'
+        data-render2='data-id' data-onclick='open-modal-item-step'>
         <h1 style='--font-size: 0.8rem' data-render3='textContent'
           data-onclick='open-modal-item-step'></h1>
         <div style='--font-size: 0.6rem' data-render4='textContent'
@@ -132,7 +132,7 @@ console.log( (html`<!DOCTYOE html>
       <div class='bar'>
         <div class='margin'></div>
         <button class='button-color1' style='--font-size: 1rem'
-          data-render1='data-guideid' data-render2='data-id'
+          data-render1='data-guideid' data-render2='data-previd'
           data-onclick='open-modal-item-step'>+</button>
       </div>
     </template>
