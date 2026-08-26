@@ -75,6 +75,7 @@ console.log( (html`<!DOCTYOE html>
         <button class='button-color1' style='--font-size: 1rem'
           data-onclick='open-modal-item-guide'>+</button>
       </header>
+      <div class='bar'></div>
       <section id='item-guides' class='block-col load-item-guides'>
       </section>
     </template>
