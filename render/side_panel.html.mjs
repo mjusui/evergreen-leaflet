@@ -189,7 +189,7 @@ console.log( (html`<!DOCTYOE html>
       <div class='bar'></div>
 
       <section class='block-col-shadow'>
-        <div>(
+        <div style='--font-size: 0.8rem'>(
           <span data-render5='textContent'></span>${ '/'
          }<span data-render6='textContent'></span>
         )</div>
