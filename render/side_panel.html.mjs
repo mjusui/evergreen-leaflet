@@ -177,6 +177,21 @@ console.log( (html`<!DOCTYOE html>
       </form>
     </template>
 
+
+    <template id='template-run'>
+      <button style='--font-size: 1rem' data-onclick='open-runs'>←</button>
+      <header class='block-col'>
+        <div class='row'>
+          <h1 data-render2='textContent'></h1>
+          <div class='margin'></div>
+          <button class='button-color1' style='--font-size: 1rem'
+            data-render1='data-guideid' data-onclick='open-steps'>${ '||' }</button>
+        </div>
+        <div style='--font-size: 0.8rem' data-render3='textContent'></div>
+      </header>
+      <div class='bar'></div>
+    </template>
+
     ${html_script}
   </body>
 </html>`).toString() );
