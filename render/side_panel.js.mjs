@@ -168,7 +168,7 @@ html`page: {
 
       if(guideid){
         const guide=Starray.getInst('store-guide');
-        cosnt { title , desc, }=guide.list().find(a => a.id === guideid);
+        const { title , desc, }=guide.list().find(a => a.id === guideid);
 
         const step=Starray.getInst('store-step-' + guideid);
         const { id: stepid, url, keys, inst, }=step.list().find(
