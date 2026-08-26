@@ -171,12 +171,14 @@ html`page: {
         const { title , desc, }=guide.list().find(a => a.id === guideid);
 
         const step=Starray.getInst('store-step-' + guideid);
-        const { id: nextid, url, keys, inst, }=step.list().find(
+        const { length: len, }=step.list();
+        const idx=step.list().findIndex(
           (a, i, l)=> i && l[i - 1].id === stepid
-        ) || step.list()[0];
+        ) || 0 ;
+        const { id: nextid, url, keys, inst, }=step.list()[idx];
 
         page.open('display', 'template-run',
-          [ guideid, nextid, title, desc, url, keys, inst, ]);
+          [ guideid, nextid, title, desc, idx, len, url, keys, inst, ]);
       }else
       if(runid){
       }
