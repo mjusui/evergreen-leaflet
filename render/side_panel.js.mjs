@@ -145,7 +145,7 @@ html`page: {
       page.open('modal', 'template-modal-item-guide', [ id, title, desc, ]);
     }
     if(onclick === 'open-steps'){
-      const { guideid, }=target.closest('[data-id]').dataset;
+      const { guideid, }=target.closest('[data-guideid]').dataset;
       const star=Starray.getInst('store-guide');
       const { title, desc, }=star.list().find(a => a.id === guideid);
       page.open('display', 'template-steps', [ guideid, title, desc, ]);
