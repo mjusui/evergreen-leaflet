@@ -107,7 +107,12 @@ console.log( (html`<!DOCTYOE html>
     <template id='template-steps'>
       <button style='--font-size: 1rem' data-onclick='open-guides'>←</button>
       <header class='block-col'>
-        <h1 data-render2='textContent'></h1>
+        <div class='row'>
+          <h1 data-render2='textContent'></h1>
+          <div class='margin'></div>
+          <button class='button-color1' style='--font-size: 1rem'
+            data-render1='data-guideid' data-onclick='open-run'>${ '>' }</button>
+        </div>
         <div style='--font-size: 0.8rem' data-render3='textContent'></div>
       </header>
       <div class='bar'></div>
