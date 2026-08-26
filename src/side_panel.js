@@ -177,9 +177,9 @@ page: {
       wisdom.clear(elem.id);
 
       items.forEach(item =>{
-        const { id='', cmd='', args='', inst='', }=item;
+        const { id='', url='', keys='', inst='', }=item;
         wisdom.append(elem.id, 'template-item-step',
-          [ guideid, id, cmd, args, inst, ]);
+          [ guideid, id, url, keys, inst, ]);
       });
     });
   };
