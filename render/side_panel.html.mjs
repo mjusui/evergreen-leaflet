@@ -20,7 +20,8 @@ const scss=new Success()
   .classify('button', 'padding: 0.2rem', 'border-radius: 0.2rem', 'font-weight: bold', '--font-size: 0.8rem', 'min-width: calc(1lh + 0.4rem)' )
   //.classify('button-sign', '--font-size: 1rem')
   .classify('input', 'min-width: 80vw', 'font-weight: normal')
-  .classify('textarea', 'min-height: 5.4rem', 'max-height: 30vh', 'resize: none')
+  // .classify('textarea', 'min-height: 5.4rem', 'max-height: 30vh', 'resize: none')
+  .classify('textarea', 'max-height: 30vh', 'resize: none')
   .classify('color1', 'background-color: rgba(31,181,115,1.0)',
     'border-color: rgba(31,181,115,1.0)', 'color: rgba(253,253,253,1.0)' ) 
   .classify('required', html`content: '*'`, 'color: red')
@@ -144,7 +145,7 @@ console.log( (html`<!DOCTYOE html>
         <input type='hidden' name='previd' data-render3='value' required></input>
 
 
-        <label for='select-cmd' class='required'>ページURL</label> 
+        <label for='select-cmd'>ページURL</label> 
         <textarea name='url' data-render4='value' cols='2'></textarea>
 
         <label for='select-cmd' class='required'>取得する値(カンマ区切り)</label> 
