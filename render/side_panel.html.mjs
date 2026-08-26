@@ -187,6 +187,7 @@ console.log( (html`<!DOCTYOE html>
         <div style='--font-size: 0.8rem' data-render4='textContent'></div>
       </header>
       <div class='bar'></div>
+      <div class='margin'></div>
       <section class='block-col-shadow'>
         <h1 style='--font-size: 0.8rem' data-render5='textContent'></h1>
         <div id='slot-keys' class='col'></div>
@@ -195,6 +196,7 @@ console.log( (html`<!DOCTYOE html>
         <button class='button-color1' data-render1='data-guideid'
           data-render2='data-stepid' data-onclick='open-run'>次へ</button>
       </section>
+      <div class='margin'></div>
     </template>
 
     ${html_script}
