@@ -97,7 +97,7 @@ const Starray=class Starray {
   }
   constructor(key){
     const items=null;
-    const param={ key, items, };
+    this.param={ key, items, };
   }
   list(){
     const { key, items, }=this.param;
