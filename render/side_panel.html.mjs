@@ -191,6 +191,9 @@ console.log( (html`<!DOCTYOE html>
         <h1 style='--font-size: 0.8rem' data-render5='textContent'></h1>
         <div id='slot-keys' class='col'></div>
         <pre style='--font-size: 0.8rem' data-render7='textContent'></pre>
+
+        <button data-render1='data-guideid' data-render2='data-stepid'
+          data-onclick='open-run'>次へ</button>
       </section>
     </template>
 
