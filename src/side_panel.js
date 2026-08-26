@@ -299,9 +299,7 @@ page: {
 
         const step=Starray.getInst('store-step-' + guideid);
         const { length: len, }=step.list();
-        const idx=step.list().findIndex(
-          (a, i, l)=> i && l[i - 1].id === stepid
-        ) || 0 ;
+        const idx=(step.list().findIndex(a => a.id === stepid) + 1) % len;
         const { id: nextid, url, keys, inst, }=step.list()[idx];
 
         page.open('display', 'template-run',
