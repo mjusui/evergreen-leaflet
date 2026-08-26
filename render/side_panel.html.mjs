@@ -81,7 +81,7 @@ console.log( (html`<!DOCTYOE html>
     </template>
     <template id='template-item-guide'>
       <div class='block-col-shadow'
-        data-render1='data-id'  data-onclick='open-steps'>
+        data-render1='data-guideid'  data-onclick='open-steps'>
         <h1 style='--font-size: 0.8rem'
           data-render2='textContent' data-onclick='open-steps'></h1>
         <div style='--font-size: 0.6rem'
@@ -116,10 +116,6 @@ console.log( (html`<!DOCTYOE html>
         <div style='--font-size: 0.8rem' data-render3='textContent'></div>
       </header>
       <div class='bar'></div>
-      <!-- <section class='block-col'>
-        <div style='--font-size: 0.8rem' data-render3='textContent'></div>
-        <div class='bar'></div>
-      </section> -->
       <section class='block-col'>
         <div class='bar'>
           <div class='margin'></div>
@@ -179,15 +175,16 @@ console.log( (html`<!DOCTYOE html>
 
 
     <template id='template-run'>
-      <button style='--font-size: 1rem' data-onclick='open-runs'>←</button>
+      <button style='--font-size: 1rem'
+        data-render1='data-guideid'  data-onclick='open-steps'>←</button>
       <header class='block-col'>
         <div class='row'>
-          <h1 data-render2='textContent'></h1>
+          <h1 data-render3='textContent'></h1>
           <div class='margin'></div>
-          <button class='button-color1' style='--font-size: 1rem'
+          <button class='button-color1' style='--font-size: 0.8rem'
             data-render1='data-guideid' data-onclick='open-steps'>${ '||' }</button>
         </div>
-        <div style='--font-size: 0.8rem' data-render3='textContent'></div>
+        <div style='--font-size: 0.8rem' data-render4='textContent'></div>
       </header>
       <div class='bar'></div>
     </template>

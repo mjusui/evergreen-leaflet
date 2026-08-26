@@ -272,10 +272,10 @@ page: {
       page.open('modal', 'template-modal-item-guide', [ id, title, desc, ]);
     }
     if(onclick === 'open-steps'){
-      const { id, }=target.closest('[data-id]').dataset;
+      const { guideid, }=target.closest('[data-id]').dataset;
       const star=Starray.getInst('store-guide');
-      const { title, desc, }=star.list().find(a => a.id === id);
-      page.open('display', 'template-steps', [ id, title, desc, ]);
+      const { title, desc, }=star.list().find(a => a.id === guideid);
+      page.open('display', 'template-steps', [ guideid, title, desc, ]);
     }
     if(onclick === 'open-modal-item-step'){
       const { guideid, id='', previd='', }=target.closest('[data-guideid]').dataset;
@@ -291,13 +291,19 @@ page: {
       page.open('modal', 'template-modal-item-step', vals);
     }
     if(onclick === 'open-run'){
-      const { guideid, runid, }=target.dataset;
+      const { guideid, stepid, }=target.dataset;
 
       if(guideid){
-        // const star=Straray.getInst('store-step-' + guideid);
-        // const items=star.list();
-        page.open('display', 'template-run');
-        // loadRun()
+        const guide=Starray.getInst('store-guide');
+        cosnt { title , desc, }=guide.list().find(a => a.id === guideid);
+
+        const step=Starray.getInst('store-step-' + guideid);
+        const { id: stepid, url, keys, inst, }=step.list().find(
+          (a, i, l)=> i && l[i - 1].id === stepid
+        ) || step.list()[0];
+
+        page.open('display', 'template-run',
+          [ guideid, stepid, title, desc, url, keys, inst, ]);
       }else
       if(runid){
       }
