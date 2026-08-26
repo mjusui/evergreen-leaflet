@@ -109,8 +109,7 @@ console.log( (html`<!DOCTYOE html>
         <h1 data-render2='textContent'></h1>
         <div style='--font-size: 0.8rem' data-render3='textContent'></div>
       </header>
-      <section class='block-col'>
-      </section>
+      <div class='bar'></div>
       <!-- <section class='block-col'>
         <div style='--font-size: 0.8rem' data-render3='textContent'></div>
         <div class='bar'></div>
