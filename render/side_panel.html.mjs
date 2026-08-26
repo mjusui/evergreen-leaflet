@@ -141,18 +141,17 @@ console.log( (html`<!DOCTYOE html>
       <form class='block-col' data-onsubmit='upsert-item-step'>
         <input type='hidden' name='guideid' data-render1='value' required></input>
         <input type='hidden' name='id' data-render2='value' required></input>
+        <input type='hidden' name='previd' data-render3='value' required></input>
 
-        <label for='select-cmd' class='required'>動作</label> 
-        <select id='select-cmd' name='cmd' data-render3='value' data-onchange='set-args-placeholder' required>
-          <option disabled>選択してください</option>
-          <option value='goto' data-placeholder='遷移先のURL' data-args='required'>画面遷移</option>
-        </select>
 
-        <label for='textarea-args'>対象</label>
-        <textarea id='textarea-args' name='args' data-render4='value'></textarea>
+        <label for='select-cmd' class='required'>ページURL</label> 
+        <textarea name='url' data-render4='value' cols='2'></textarea>
+
+        <label for='select-cmd' class='required'>取得する値(カンマ区切り)</label> 
+        <textarea name='keys' data-render5='value' cols='2'></textarea>
 
         <label for='textarea-inst'>操作説明</label> 
-        <textarea id='textarea-inst' name='inst' data-render5='value' cols='5'></textarea>
+        <textarea id='textarea-inst' name='inst' data-render6='value' cols='5'></textarea>
 
         <button type='submit' class='button-color1'>保存</button>
       </form>

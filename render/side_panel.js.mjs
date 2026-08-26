@@ -82,7 +82,7 @@ html`page: {
       const star=Starray.getInst('store-guide');
 
       let updated=0;
-      star.map(a =>{
+      star.flatMap(a =>{
         if(a.id === id){
           update++;
           return Object.assign(a, { title, desc, });
@@ -101,22 +101,27 @@ html`page: {
     }
     if(onsubmit === 'upsert-item-step'){
       console.log(onsubmit, target);
-      const [ guideid, id, cmd, args, inst, ]=([ 'guideid', 'id', 'cmd', 'args', 'inst', ]).map(
+      const [ guideid, id, previd, url, keys, inst, ]=([
+        'guideid', 'id', 'previd', 'url', 'keys', 'inst', ]).map(
         key => target[key].value
       );
       const star=Starray.getInst('store-step-' + guideid);
 
       let updated=0;
-      star.map(a =>{
+      star.flatMap(a =>{
+        if(a.id === previd){
+          updated++;
+          return [ a, { id, url, keys, inst, }, ];
+        }
         if(a.id === id){
           updated++;
-          return Object.assign(a, { cmd, args, inst, });
+          return Object.assign(a, { url, keys, inst, });
         }
         return a;
       });
 
-      if(!updated){
-        star.push({ id, cmd, args, inst, });
+      if(updated < 1){
+        star.unshift({ id, url, keys, inst, });
       }
       loadSteps();
       page.clear('modal');
@@ -147,14 +152,15 @@ html`page: {
     }
     if(onclick === 'open-modal-item-step'){
       const { guideid, id='', previd='', }=target.closest('[data-guideid]').dataset;
-      const vals=[ guideid, id, ];
+      const vals=[];
 
       if(id){
         const star=Starray.getInst('store-step-' + guideid);
-        const { cmd, args, inst, }=star.list().find(a => a.id === id);
-        vals.push(cmd, args, inst);
+        const { url, keys, inst, }=star.list().find(a => a.id === id);
+        vals.push(guideid, id, previd, url, keys, inst);
+      }else{
+        vals.push(guideid, gen.id(), previd, '', '', '');
       }
-      vals.push('', '', '');
       page.open('modal', 'template-modal-item-step', vals);
     }
   });
