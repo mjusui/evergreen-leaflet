@@ -190,7 +190,7 @@ console.log( (html`<!DOCTYOE html>
       <section class='block-col-shadow'>
         <h1 style='--font-size: 0.8rem' data-render5='textContent'></h1>
         <div id='slot-keys' class='col'></div>
-        <pre style='--font-size: 0.8rem' data-render6='textContent'></pre>
+        <pre style='--font-size: 0.8rem' data-render7='textContent'></pre>
       </section>
     </template>
 
