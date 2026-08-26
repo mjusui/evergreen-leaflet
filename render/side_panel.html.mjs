@@ -105,13 +105,14 @@ console.log( (html`<!DOCTYOE html>
 
     <template id='template-steps'>
       <button style='--font-size: 1rem' data-onclick='open-guides'>←</button>
-      <header class='block-row'>
+      <header class='block-col-shadow'>
         <h1 data-render2='textContent'></h1>
+        <div style='--font-size: 0.8rem' data-render3='textContent'></div>
       </header>
-      <section class='block-col'>
+      <!-- <section class='block-col'>
         <div style='--font-size: 0.8rem' data-render3='textContent'></div>
         <div class='bar'></div>
-      </section>
+      </section> -->
       <section class='block-col'>
         <div class='bar'>
           <div class='margin'></div>
