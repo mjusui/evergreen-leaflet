@@ -98,7 +98,6 @@ const Starray=class Starray {
   constructor(key){
     const items=null;
     const param={ key, items, };
-    this.param=param;
   }
   list(){
     const { key, items, }=this.param;
@@ -108,29 +107,31 @@ const Starray=class Starray {
     }
     return this.param.items;
   }
-  push(...args){
-    const items=this.list();
-    const ret=items.push(...args);
-    this.save();
-    return ret;
-  }
-  flatMap(...args){
-    const items=this.list();
-    this.param.items=items.map(...args).flat(1);
-    this.save();
-    return this.param.items;
-  }
-  filter(...args){
-    const items=this.list();
-    this.param.items=items.filter(...args);
-    this.save();
-    return this.param.items;
-  }
   save(){
     const { key, }=this.param;
     const items=this.list();
     const json=JSON.stringify(items);
     localStorage.setItem(key, json);
+  }
+  mutate(hndl){
+    const ret=hndl(this.list() );
+    this.save();
+    return ret;
+  }
+  replace(hndl){
+    const items=hndl(this.list() );
+    this.param.items=items;
+    this.save();
+    return items;
+  }
+  push(...args){
+    return this.mutate(items => items.push(...args) );
+  }
+  unshift(...args){
+    return this.mutate(items => items.unshift(...args) );
+  }
+  flatMap(...args){
+    return this.replace(items => items.flatMap(...args) );
   }
 }
 page: {
