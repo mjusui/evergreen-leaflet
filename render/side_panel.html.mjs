@@ -181,8 +181,8 @@ console.log( (html`<!DOCTYOE html>
         <div class='row'>
           <h1 data-render3='textContent'></h1>
           <div class='margin'></div>
-          <button class='button-color1' style='--font-size: 1.0rem'
-            data-render1='data-guideid' data-onclick='open-steps'>${ '-' }</button>
+          <!-- <button class='button-color1' style='--font-size: 1.0rem'
+            data-render1='data-guideid' data-onclick='open-steps'>${ '-' }</button> -->
         </div>
         <div style='--font-size: 0.8rem' data-render4='textContent'></div>
       </header>
