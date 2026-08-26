@@ -110,6 +110,7 @@ console.log( (html`<!DOCTYOE html>
       </header>
       <section class='block-col'>
         <div style='--font-size: 0.8rem' data-render3='textContent'></div>
+        <div class='bar'></div>
       </section>
       <section class='block-col'>
         <div class='bar'>
