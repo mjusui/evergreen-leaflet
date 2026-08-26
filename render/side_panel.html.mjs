@@ -185,6 +185,9 @@ console.log( (html`<!DOCTYOE html>
             data-render1='data-guideid' data-onclick='open-steps'>${ '-' }</button> -->
         </div>
         <div style='--font-size: 0.8rem' data-render4='textContent'></div>
+        <section class='block-col-shadow'>
+          <h1 data-render5='textContent'></h1>
+        </section>
       </header>
       <div class='bar'></div>
     </template>
