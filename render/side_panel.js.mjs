@@ -163,6 +163,18 @@ html`page: {
       }
       page.open('modal', 'template-modal-item-step', vals);
     }
+    if(onclick === 'open-run'){
+      const { guideid, runid, }=target.dataset;
+
+      if(guideid){
+        // const star=Straray.getInst('store-step-' + guideid);
+        // const items=star.list();
+        page.open('display', 'template-run');
+        // loadRun()
+      }else
+      if(runid){
+      }
+    }
   });
 
   body.addEventListener('change', ev =>{
