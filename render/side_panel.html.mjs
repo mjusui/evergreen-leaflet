@@ -40,6 +40,7 @@ const scss=new Success()
   .themify('.button-sign-color1', 'border', 'button', 'color1')
   .themify('input', 'border', 'button', 'input')
   .themify('textarea', 'border', 'button', 'input', 'textarea')
+  .themify('label', 'button', 'input')
   .themify('label.required::after', 'required')
   .themify('.modal', 'modal-hidden')
   .themify('.modal:not(:empty)', 'modal-display', 'flex-col')
@@ -95,7 +96,8 @@ console.log( (html`<!DOCTYOE html>
         <input id='input-title' type='text' name='title' data-render2='value' required></input>
 
         <label for='textarea-desc'>説明</label> 
-        <textarea id='textarea-desc' name='desc' data-render3='value' cols='5'></textarea>
+        <textarea id='textarea-desc' style='--cols: 5'
+          name='desc' data-render3='value'></textarea>
 
         <button type='submit' class='button-color1'>保存</button>
       </form>
