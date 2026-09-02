@@ -24,8 +24,8 @@ const scss=new Success()
   .classify('textarea', 'min-height: calc(0.4rem + var(--cols) * 1rem)', 'max-height: 30vh', 'resize: none')
   .classify('color1', 'background-color: rgba(31,181,115,1.0)',
     'border-color: rgba(31,181,115,1.0)', 'color: rgba(253,253,253,1.0)' ) 
-  .classify('color2', 'background-color: rgba(28, 160, 105, 1.0)',
-    'border-color: rgba(31,181,115,1.0)', 'color: rgba(253,253,253,1.0)' ) 
+  .classify('color2', 'background-color: rgba(45,115,210,1.0)',
+    'border-color: rgba(45,115,210,1.0)', 'color: rgba(253,253,253,1.0)' ) 
   .classify('color9', 'background-color: rgba(220,220,220,1.0)',
     'border-color: rgba(220,220,220,1.0)', 'color: rgba(55,55,55,1.0)' ) 
   .classify('required', html`content: '*'`, 'color: red')
@@ -97,7 +97,7 @@ console.log( (html`<!DOCTYOE html>
         </div>
 
         <div class='margin'></div>
-        <button class='button-color9'>✎</button>
+        <button class='button-color2'>✎</button>
       </div>
     </template>
 
