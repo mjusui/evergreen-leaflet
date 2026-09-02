@@ -174,7 +174,8 @@ page: {
         wisdom.text(elem.id, '手順がありません');
         return;
       }
-      wisdom.clear(elem.id);
+      // wisdom.clear(elem.id);
+      wisdom.write(elem.id, 'template-item-step-top', [ guideid, ]);
 
       items.forEach(item =>{
         const { id='', url='', keys='', inst='', }=item;
