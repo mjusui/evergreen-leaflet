@@ -192,20 +192,13 @@ console.log(idx, nextidx);
       page.open('modal', 'template-modal-item-step', vals);
     }
     if(onclick === 'open-runs'){
-      const { guideid, stepid, }=target.dataset;
+      const { guideid, stepid='', }=target.dataset;
 
-      if(guideid){
-        const guide=Starray.getInst('store-guide');
-        const { title , desc, }=guide.list().find(a => a.id === guideid);
+      const guide=Starray.getInst('store-guide');
+      const { title , desc, }=guide.list().find(a => a.id === guideid);
 
-        const step=Starray.getInst('store-step-' + guideid);
-        const { length: len, }=step.list();
-        const idx=(step.list().findIndex(a => a.id === stepid) + 1) % len;
-        const { id: nextid, url, keys, inst, }=step.list()[idx];
-
-        page.open('display', 'template-runs',
-          [ guideid, nextid, title, desc, ]);
-      }
+      page.open('display', 'template-runs',
+        [ guideid, stepid, title, desc, ]);
     }
   });
 
