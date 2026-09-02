@@ -302,8 +302,8 @@ page: {
         const idx=(step.list().findIndex(a => a.id === stepid) + 1) % len;
         const { id: nextid, url, keys, inst, }=step.list()[idx];
 
-        page.open('display', 'template-run',
-          [ guideid, nextid, title, desc, idx + 1, len, url, keys, inst, ]);
+        page.open('display', 'template-runs',
+          [ guideid, nextid, title, desc, idx + 1, len, url, keys, inst, '--opecity: 0.8' ]);
       }else
       if(runid){
       }

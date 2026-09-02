@@ -2,7 +2,8 @@ import { main, } from '../bronze/debug/index.mjs';
 import { html, Success, } from '../bronze/templ/html/index.mjs';
 
 const scss=new Success()
-  .reset('*', 'color: rgba(55,55,55,1.0)', 'font-family: sans-serif', 'font-size: var(--font-size, 1rem)')
+  .reset('*', 'color: rgba(55,55,55,1.0)', 'font-family: sans-serif',
+     'font-size: var(--font-size, 1rem)', 'opecity: var(--opecity)' )
   .classify('flex-col', 'display: flex', 'flex-direction: column', 'gap: 1rem')
   .classify('flex-row', 'display: flex', 'flex-direction: row', 'gap: 1rem', 'align-items: center')
   .classify('block', 'margin: 0.5rem', 'padding: 0.5rem', 'background-color: rgba(253,253,253,1.0)')
@@ -23,6 +24,8 @@ const scss=new Success()
   .classify('textarea', 'min-height: calc(0.4rem + var(--cols) * 1rem)', 'max-height: 30vh', 'resize: none')
   .classify('color1', 'background-color: rgba(31,181,115,1.0)',
     'border-color: rgba(31,181,115,1.0)', 'color: rgba(253,253,253,1.0)' ) 
+  .classify('color2', 'background-color: rgba(55,55,55,0.1)',
+    'border-color: rgba(31,181,115,1.0)', 'color: rgba(253,253,253,1.0)' ) 
   .classify('required', html`content: '*'`, 'color: red')
   .classify('modal-hidden', 'display: none')
   .classify('modal-display', 'position: fixed', 'top: 0',
@@ -37,6 +40,7 @@ const scss=new Success()
   .themify('.margin', 'center', 'middle')
   .themify('button', 'button')
   .themify('.button-color1', 'border', 'button', 'color1')
+  .themify('.button-color2', 'border', 'button', 'color2')
   .themify('.button-sign-color1', 'border', 'button', 'color1')
   .themify('input', 'border', 'button', 'input')
   .themify('textarea', 'border', 'button', 'input', 'textarea')
@@ -64,7 +68,7 @@ console.log( (html`<!DOCTYOE html>
 <html>
   <head>${html_head}</head>
   <body>
-    <main id='display'>
+    <main id='display' class='col'>
     </main>
     <section id='modal' class='modal' data-onclick='hide-modal'></section>
 
@@ -174,7 +178,7 @@ console.log( (html`<!DOCTYOE html>
     </template>
 
 
-    <template id='template-run'>
+    <template id='template-runs'>
       <button style='--font-size: 1rem'
         data-render1='data-guideid'  data-onclick='open-steps'>←</button>
       <header class='block-col'>
@@ -187,6 +191,9 @@ console.log( (html`<!DOCTYOE html>
         <div style='--font-size: 0.8rem' data-render4='textContent'></div>
       </header>
       <div class='bar'></div>
+
+      <section id='item-runs'>
+      </section>
 
       <section class='block-col-shadow'>
         <div class='row'>
@@ -203,6 +210,23 @@ console.log( (html`<!DOCTYOE html>
         <button class='button-color1' data-render1='data-guideid'
           data-render2='data-stepid' data-onclick='open-run'>次へ</button>
       </section>
+    </template>
+    <template id='template-item-run'>
+      <div class='col' data-render10='style'>
+        <div class='row'>
+          <div style='--font-size: 0.8rem'>(
+            <span data-render5='textContent'></span>${ ' / '
+           }<span data-render6='textContent'></span>
+          )</div>
+
+          <h1 style='--font-size: 0.8rem' data-render7='textContent'></h1>
+        </div>
+        <div id='slot-keys' class='col'></div>
+        <pre style='--font-size: 0.8rem' data-render9='textContent'></pre>
+
+        <button class='button-color1' data-render1='data-guideid'
+          data-render2='data-stepid' data-onclick='open-run'>次へ</button>
+      </div>
     </template>
 
     ${html_script}
