@@ -58,14 +58,15 @@ html`page: {
   };
   const loadRuns=()=>{
     ([ ...document.getElementsByClassName('load-item-runs'), ]).forEach(elem =>{
-      const { guideid, stepid, }=elem.dataset;
-console.log('stepid:', stepid);
+      const { guideid, }=elem.dataset;
 
       const guide=Starray.getInst('store-guide');
       const { title , desc, }=guide.list().find(a => a.id === guideid);
 
       const step=Starray.getInst('store-step-' + guideid);
       const items=step.list();
+
+      const stepid=elem.dataset.stepid || items[0].id ;
 
       wisdom.clear(elem.id);
 
