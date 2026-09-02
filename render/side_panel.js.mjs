@@ -56,11 +56,44 @@ html`page: {
       });
     });
   };
+  const loadRuns=()=>{
+    ([ document.getElementsByClassName('load-item-runs').forEach(elem =>{
+      const { guideid, stepid, }=elem.dataset;
+
+      const guide=Starray.getInst('store-guide');
+      const { title , desc, }=guide.list().find(a => a.id === guideid);
+
+      const step=Starray.getInst('store-step-' + guideid);
+      // const { length: len, }=step.list();
+      // const idx=(step.list().findIndex(a => a.id === stepid) + 1) % len;
+
+      wisdom.clear(elem.id);
+
+      step.list().forEach((item, idx, items)=>{
+        const { id, url, keys, inst, }=item;
+
+        const nextidx=(idx + 1) % items.length;
+        const { id: nextid, }=items[nextidx];
+
+        const style=id === stepid
+          ? '--opacity: 1.0' : '--opacity: 0.6' ;
+
+        wisdom.append(elem.id, 'template-item-run', [
+          guideid, nextid, title, desc, (nextidx + 1), items.length,
+          url, keys, inst, style, ])
+      });
+
+      // page.open('display', 'template-runs', [
+      //   guideid, nextid, title, desc, (nextidx + 1), items.length,
+      //   url, keys, inst, '--opacity: 0.8' ]);
+    });
+  };
 
   page.open=(...args)=>{
     wisdom.write(...args);
     loadGuides();
     loadSteps();
+    loadRuns();
   };
   page.open('display', 'template-guides');
 
@@ -163,7 +196,7 @@ html`page: {
       }
       page.open('modal', 'template-modal-item-step', vals);
     }
-    if(onclick === 'open-run'){
+    if(onclick === 'open-runs'){
       const { guideid, stepid, }=target.dataset;
 
       if(guideid){
@@ -176,9 +209,7 @@ html`page: {
         const { id: nextid, url, keys, inst, }=step.list()[idx];
 
         page.open('display', 'template-runs',
-          [ guideid, nextid, title, desc, idx + 1, len, url, keys, inst, '--opacity: 0.8' ]);
-      }else
-      if(runid){
+          [ guideid, nextid, title, desc, ]);
       }
     }
   });

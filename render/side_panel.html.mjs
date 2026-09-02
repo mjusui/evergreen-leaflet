@@ -115,7 +115,7 @@ console.log( (html`<!DOCTYOE html>
           <h1 data-render2='textContent'></h1>
           <div class='margin'></div>
           <button class='button-color1' style='--font-size: 1rem'
-            data-render1='data-guideid' data-onclick='open-run'>${ '>' }</button>
+            data-render1='data-guideid' data-onclick='open-runs'>${ '>' }</button>
         </div>
         <div style='--font-size: 0.8rem' data-render3='textContent'></div>
       </header>
@@ -179,40 +179,26 @@ console.log( (html`<!DOCTYOE html>
 
 
     <template id='template-runs'>
-      <button style='--font-size: 1rem'
-        data-render1='data-guideid'  data-onclick='open-steps'>←</button>
+      <section class='col'>
+        <button style='--font-size: 1rem'
+          data-render1='data-guideid'  data-onclick='open-steps'>←</button>
+        <div class='margin'></div>
+      </section>
       <header class='block-col'>
         <div class='row'>
           <h1 data-render3='textContent'></h1>
           <div class='margin'></div>
-          <!-- <button class='button-color1' style='--font-size: 1.0rem'
-            data-render1='data-guideid' data-onclick='open-steps'>${ '-' }</button> -->
         </div>
         <div style='--font-size: 0.8rem' data-render4='textContent'></div>
       </header>
       <div class='bar'></div>
 
-      <section id='item-runs'>
-      </section>
-
-      <section class='block-col-shadow'>
-        <div class='row'>
-          <div style='--font-size: 0.8rem'>(
-            <span data-render5='textContent'></span>${ ' / '
-           }<span data-render6='textContent'></span>
-          )</div>
-
-          <h1 style='--font-size: 0.8rem' data-render7='textContent'></h1>
-        </div>
-        <div id='slot-keys' class='col'></div>
-        <pre style='--font-size: 0.8rem' data-render9='textContent'></pre>
-
-        <button class='button-color1' data-render1='data-guideid'
-          data-render2='data-stepid' data-onclick='open-run'>次へ</button>
+      <section id='item-runs' class='load-item-runs' data-render1='data-guideid'
+        data-render2='data-stepid'>
       </section>
     </template>
     <template id='template-item-run'>
-      <div class='col' data-render10='style'>
+      <div class='block-col-shadow' data-render10='style'>
         <div class='row'>
           <div style='--font-size: 0.8rem'>(
             <span data-render5='textContent'></span>${ ' / '
@@ -225,7 +211,7 @@ console.log( (html`<!DOCTYOE html>
         <pre style='--font-size: 0.8rem' data-render9='textContent'></pre>
 
         <button class='button-color1' data-render1='data-guideid'
-          data-render2='data-stepid' data-onclick='open-run'>次へ</button>
+          data-render2='data-stepid' data-onclick='open-runs'>次へ</button>
       </div>
     </template>
 
