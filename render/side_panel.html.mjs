@@ -10,7 +10,7 @@ const scss=new Success()
   .classify('border', 'border-style: solid', 'border-width: 1px',
     'border-color: rgba(55,55,55,0.1)' )
   .classify('bar', 'margin-bottom: -1px', 'border-bottom-style: solid', 'border-bottom-width: 1px',
-    'border-bottom-color: rgba(55,55,55,0.1)' )
+    'border-bottom-color: rgba(55,55,55,0.1)', 'height: 0' )
   .classify('relative', 'position: relative').classify('absolute', 'position: absolute')
   .classify('absolute-top', 'top: 0').classify('absolute-bottom', 'bottom: 0')
   .classify('absolute-left', 'left: 0').classify('absolute-right', 'right: 0')
