@@ -24,8 +24,8 @@ const scss=new Success()
   .classify('textarea', 'min-height: calc(0.4rem + var(--cols) * 1rem)', 'max-height: 30vh', 'resize: none')
   .classify('color1', 'background-color: rgba(31,181,115,1.0)',
     'border-color: rgba(31,181,115,1.0)', 'color: rgba(253,253,253,1.0)' ) 
-  .classify('color2', 'background-color: rgba(55,55,55,0.1)',
-    'border-color: rgba(31,181,115,1.0)', 'color: rgba(253,253,253,1.0)' ) 
+  .classify('color2', 'background-color: rgba(242,242,242,1.0)',
+    'border-color: rgba(242,242,242,1.0)', 'color: rgba(55,55,55,1.0)' ) 
   .classify('required', html`content: '*'`, 'color: red')
   .classify('modal-hidden', 'display: none')
   .classify('modal-display', 'position: fixed', 'top: 0',
@@ -122,13 +122,6 @@ console.log( (html`<!DOCTYOE html>
         <div style='--font-size: 0.8rem' data-render3='textContent'></div>
       </header>
       <div class='bar'></div>
-      <!-- <section class='block-col'>
-        <div class='bar'>
-          <div class='margin'></div>
-          <button class='button-color1' style='--font-size: 1rem'
-            data-render1='data-guideid' data-onclick='open-modal-item-step'>+</button>
-        </div>
-      </section> -->
       <section id='item-steps' class='block-col load-item-steps' data-render1='data-guideid'>
       </section>
     </template>
