@@ -24,7 +24,9 @@ const scss=new Success()
   .classify('textarea', 'min-height: calc(0.4rem + var(--cols) * 1rem)', 'max-height: 30vh', 'resize: none')
   .classify('color1', 'background-color: rgba(31,181,115,1.0)',
     'border-color: rgba(31,181,115,1.0)', 'color: rgba(253,253,253,1.0)' ) 
-  .classify('color2', 'background-color: rgba(220,220,220,1.0)',
+  .classify('color2', 'background-color: rgba(28, 160, 105, 1.0)',
+    'border-color: rgba(31,181,115,1.0)', 'color: rgba(253,253,253,1.0)' ) 
+  .classify('color9', 'background-color: rgba(220,220,220,1.0)',
     'border-color: rgba(220,220,220,1.0)', 'color: rgba(55,55,55,1.0)' ) 
   .classify('required', html`content: '*'`, 'color: red')
   .classify('modal-hidden', 'display: none')
@@ -41,6 +43,7 @@ const scss=new Success()
   .themify('button', 'button')
   .themify('.button-color1', 'border', 'button', 'color1')
   .themify('.button-color2', 'border', 'button', 'color2')
+  .themify('.button-color9', 'border', 'button', 'color9')
   .themify('.button-sign-color1', 'border', 'button', 'color1')
   .themify('input', 'border', 'button', 'input')
   .themify('textarea', 'border', 'button', 'input', 'textarea')
@@ -84,12 +87,15 @@ console.log( (html`<!DOCTYOE html>
       </section>
     </template>
     <template id='template-item-guide'>
-      <div class='block-col-shadow'
-        data-render1='data-guideid'  data-onclick='open-steps'>
-        <h1 style='--font-size: 0.8rem'
-          data-render2='textContent' data-onclick='open-steps'></h1>
-        <div style='--font-size: 0.6rem'
-          data-render3='textContent' data-onclick='open-steps'></div>
+      <div class='block-row-shadow'>
+        <div class='col'
+          data-render1='data-guideid'  data-onclick='open-steps'>
+          <h1 style='--font-size: 0.8rem'
+            data-render2='textContent' data-onclick='open-steps'></h1>
+          <div style='--font-size: 0.6rem'
+            data-render3='textContent' data-onclick='open-steps'></div>
+        </div>
+        <button class='button-color2'>✎</button>
       </div>
     </template>
 
@@ -128,7 +134,7 @@ console.log( (html`<!DOCTYOE html>
     <template id='template-item-step-top'>
       <div class='bar'>
         <div class='margin'></div>
-        <button class='button-color2' style='--font-size: 1rem'
+        <button class='button-color9' style='--font-size: 1rem'
           data-render1='data-guideid'
           data-onclick='open-modal-item-step'>+</button>
       </div>
@@ -151,7 +157,7 @@ console.log( (html`<!DOCTYOE html>
       </div>
       <div class='bar'>
         <div class='margin'></div>
-        <button class='button-color2' style='--font-size: 1rem'
+        <button class='button-color9' style='--font-size: 1rem'
           data-render1='data-guideid' data-render2='data-previd'
           data-onclick='open-modal-item-step'>+</button>
       </div>
