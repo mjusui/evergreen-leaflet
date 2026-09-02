@@ -72,6 +72,7 @@ html`page: {
 
         const nextidx=(idx + 1) % items.length;
         const { id: nextid, }=items[nextidx];
+console.log(idx, nextidx);
 
         const style=id === stepid
           ? '--opacity: 1.0' : '--opacity: 0.6' ;
