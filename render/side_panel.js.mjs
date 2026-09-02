@@ -77,7 +77,7 @@ html`page: {
           ? '--opacity: 1.0' : '--opacity: 0.6' ;
 
         wisdom.append(elem.id, 'template-item-run', [
-          guideid, nextid, title, desc, (nextidx + 1), items.length,
+          guideid, nextid, title, desc, (idx + 1), items.length,
           url, keys, inst, style, ]);
       });
     });
