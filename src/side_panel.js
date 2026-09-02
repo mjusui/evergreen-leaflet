@@ -186,20 +186,21 @@ page: {
   const loadRuns=()=>{
     ([ ...document.getElementsByClassName('load-item-runs'), ]).forEach(elem =>{
       const { guideid, stepid, }=elem.dataset;
+console.log('stepid:', stepid);
 
       const guide=Starray.getInst('store-guide');
       const { title , desc, }=guide.list().find(a => a.id === guideid);
 
       const step=Starray.getInst('store-step-' + guideid);
+      const items=step.list();
 
       wisdom.clear(elem.id);
 
-      step.list().forEach((item, idx, items)=>{
+      items.forEach((item, idx)=>{
         const { id, url, keys, inst, }=item;
 
         const nextidx=(idx + 1) % items.length;
         const { id: nextid, }=items[nextidx];
-console.log(idx, nextidx);
 
         const style=id === stepid
           ? '--opacity: 1.0' : '--opacity: 0.6' ;
