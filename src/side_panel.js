@@ -184,15 +184,13 @@ page: {
     });
   };
   const loadRuns=()=>{
-    ([ document.getElementsByClassName('load-item-runs').forEach(elem =>{
+    ([ ...document.getElementsByClassName('load-item-runs'), ]).forEach(elem =>{
       const { guideid, stepid, }=elem.dataset;
 
       const guide=Starray.getInst('store-guide');
       const { title , desc, }=guide.list().find(a => a.id === guideid);
 
       const step=Starray.getInst('store-step-' + guideid);
-      // const { length: len, }=step.list();
-      // const idx=(step.list().findIndex(a => a.id === stepid) + 1) % len;
 
       wisdom.clear(elem.id);
 
@@ -207,12 +205,8 @@ page: {
 
         wisdom.append(elem.id, 'template-item-run', [
           guideid, nextid, title, desc, (nextidx + 1), items.length,
-          url, keys, inst, style, ])
+          url, keys, inst, style, ]);
       });
-
-      // page.open('display', 'template-runs', [
-      //   guideid, nextid, title, desc, (nextidx + 1), items.length,
-      //   url, keys, inst, '--opacity: 0.8' ]);
     });
   };
 
