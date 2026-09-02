@@ -11,7 +11,7 @@
 .margin { /* center */ margin-left: auto; margin-right: auto; /* middle */ margin-top: auto; margin-bottom: auto; }
 button { /* button */ padding: 0.2rem; border-radius: 0.2rem; font-weight: bold; --font-size: 0.8rem; min-width: calc(1lh + 0.4rem); }
 .button-color1 { /* border */ border-style: solid; border-width: 1px; border-color: rgba(55,55,55,0.1); /* button */ padding: 0.2rem; border-radius: 0.2rem; font-weight: bold; --font-size: 0.8rem; min-width: calc(1lh + 0.4rem); /* color1 */ background-color: rgba(31,181,115,1.0); border-color: rgba(31,181,115,1.0); color: rgba(253,253,253,1.0); }
-.button-color2 { /* border */ border-style: solid; border-width: 1px; border-color: rgba(55,55,55,0.1); /* button */ padding: 0.2rem; border-radius: 0.2rem; font-weight: bold; --font-size: 0.8rem; min-width: calc(1lh + 0.4rem); /* color2 */ background-color: rgba(242,242,242,1.0); border-color: rgba(242,242,242,1.0); color: rgba(55,55,55,1.0); }
+.button-color2 { /* border */ border-style: solid; border-width: 1px; border-color: rgba(55,55,55,0.1); /* button */ padding: 0.2rem; border-radius: 0.2rem; font-weight: bold; --font-size: 0.8rem; min-width: calc(1lh + 0.4rem); /* color2 */ background-color: rgba(231,231,231,1.0); border-color: rgba(231,231,231,1.0); color: rgba(55,55,55,1.0); }
 .button-sign-color1 { /* border */ border-style: solid; border-width: 1px; border-color: rgba(55,55,55,0.1); /* button */ padding: 0.2rem; border-radius: 0.2rem; font-weight: bold; --font-size: 0.8rem; min-width: calc(1lh + 0.4rem); /* color1 */ background-color: rgba(31,181,115,1.0); border-color: rgba(31,181,115,1.0); color: rgba(253,253,253,1.0); }
 input { /* border */ border-style: solid; border-width: 1px; border-color: rgba(55,55,55,0.1); /* button */ padding: 0.2rem; border-radius: 0.2rem; font-weight: bold; --font-size: 0.8rem; min-width: calc(1lh + 0.4rem); /* input */ min-width: 80vw; font-weight: normal; }
 textarea { /* border */ border-style: solid; border-width: 1px; border-color: rgba(55,55,55,0.1); /* button */ padding: 0.2rem; border-radius: 0.2rem; font-weight: bold; --font-size: 0.8rem; min-width: calc(1lh + 0.4rem); /* input */ min-width: 80vw; font-weight: normal; /* textarea */ min-height: calc(0.4rem + var(--cols) * 1rem); max-height: 30vh; resize: none; }
@@ -81,7 +81,7 @@ label.required::after { /* required */ content: '*'; color: red; }
     <template id='template-item-step-top'>
       <div class='bar'>
         <div class='margin'></div>
-        <button class='button-color1' style='--font-size: 1rem'
+        <button class='button-color2' style='--font-size: 1rem'
           data-render1='data-guideid'
           data-onclick='open-modal-item-step'>+</button>
       </div>
@@ -104,7 +104,7 @@ label.required::after { /* required */ content: '*'; color: red; }
       </div>
       <div class='bar'>
         <div class='margin'></div>
-        <button class='button-color1' style='--font-size: 1rem'
+        <button class='button-color2' style='--font-size: 1rem'
           data-render1='data-guideid' data-render2='data-previd'
           data-onclick='open-modal-item-step'>+</button>
       </div>
