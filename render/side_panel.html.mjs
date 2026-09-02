@@ -3,7 +3,7 @@ import { html, Success, } from '../bronze/templ/html/index.mjs';
 
 const scss=new Success()
   .reset('*', 'color: rgba(55,55,55,1.0)', 'font-family: sans-serif',
-     'font-size: var(--font-size, 1rem)', 'opecity: var(--opecity)' )
+     'font-size: var(--font-size, 1rem)', 'opacity: var(--opacity)' )
   .classify('flex-col', 'display: flex', 'flex-direction: column', 'gap: 1rem')
   .classify('flex-row', 'display: flex', 'flex-direction: row', 'gap: 1rem', 'align-items: center')
   .classify('block', 'margin: 0.5rem', 'padding: 0.5rem', 'background-color: rgba(253,253,253,1.0)')

@@ -303,7 +303,7 @@ page: {
         const { id: nextid, url, keys, inst, }=step.list()[idx];
 
         page.open('display', 'template-runs',
-          [ guideid, nextid, title, desc, idx + 1, len, url, keys, inst, '--opecity: 0.8' ]);
+          [ guideid, nextid, title, desc, idx + 1, len, url, keys, inst, '--opacity: 0.8' ]);
       }else
       if(runid){
       }
