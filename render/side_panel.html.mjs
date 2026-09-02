@@ -95,7 +95,9 @@ console.log( (html`<!DOCTYOE html>
           <div style='--font-size: 0.6rem'
             data-render3='textContent' data-onclick='open-steps'></div>
         </div>
-        <button class='button-color2'>✎</button>
+
+        <div class='margin'></div>
+        <button class='button-color9'>✎</button>
       </div>
     </template>
 
