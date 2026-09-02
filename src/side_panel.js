@@ -193,7 +193,7 @@ page: {
       const step=Starray.getInst('store-step-' + guideid);
       const items=step.list();
 
-      const stepid=elem.dataset.stepid || items[0].id ;
+      const stepid=(elem.dataset.stepid || items[0].id);
 
       wisdom.clear(elem.id);
 
@@ -202,13 +202,15 @@ page: {
 
         const nextidx=(idx + 1) % items.length;
         const { id: nextid, }=items[nextidx];
+        const done=0 < nextidx
+          ? '次へ' : '完了' ;
 
         const style=id === stepid
           ? '--opacity: 1.0' : '--opacity: 0.6' ;
 
         wisdom.append(elem.id, 'template-item-run', [
-          guideid, nextid, title, desc, (idx + 1), items.length,
-          url, keys, inst, style, ]);
+          guideid, nextid, title, desc, (idx + 1),
+          items.length, url, keys, inst, style, done, ]);
       });
     });
   };
