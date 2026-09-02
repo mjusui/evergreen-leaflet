@@ -109,7 +109,9 @@ console.log( (html`<!DOCTYOE html>
     </template>
 
     <template id='template-steps'>
-      <button style='--font-size: 1rem' data-onclick='open-guides'>←</button>
+      <section class='row'>
+        <button style='--font-size: 1rem' data-onclick='open-guides'>←</button>
+      </section>
       <header class='block-col'>
         <div class='row'>
           <h1 data-render2='textContent'></h1>
@@ -179,7 +181,7 @@ console.log( (html`<!DOCTYOE html>
 
 
     <template id='template-runs'>
-      <section class='col'>
+      <section class='row'>
         <button style='--font-size: 1rem'
           data-render1='data-guideid'  data-onclick='open-steps'>←</button>
         <div class='margin'></div>
