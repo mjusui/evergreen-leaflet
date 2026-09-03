@@ -201,7 +201,7 @@ html`page: {
       page.open('modal', 'template-modal-item-step', vals);
     }
     if(onclick === 'open-runs'){
-      const { guideid, stepid='', }=target.closest('[data-stepid]').dataset;
+      const { guideid, stepid='', }=target.closest('[data-guideid]').dataset;
       const reset=(target.dataset.reset === 'true');
 
       const guide=Starray.getInst('store-guide');
