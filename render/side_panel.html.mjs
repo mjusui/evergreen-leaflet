@@ -95,9 +95,8 @@ console.log( (html`<!DOCTYOE html>
           <div style='--font-size: 0.6rem'
             data-render3='textContent' data-onclick='open-steps'></div>
         </div>
-
         <div class='margin'></div>
-        <button class='button-color2'>✎</button>
+        <button class='button-color2' data=onclick='open-modal-item-guide'>✎</button>
       </div>
     </template>
 
