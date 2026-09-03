@@ -213,13 +213,13 @@ console.log( (html`<!DOCTYOE html>
         data-render1='data-guideid' data-render2='data-stepid'
         data-onclick='open-runs'>
         <div class='row'>
-          <div style='--font-size: 0.8rem' data-render1='data-guideid'
-            data-render2='data-stepid' data-onclick='open-runs'>(
-            <span data-render6='textContent'></span>${ ' / '
-           }<span data-render7='textContent'></span>
+          <div style='--font-size: 0.8rem'>(
+            <span data-render6='textContent' data-onclick='open-runs'></span>${ ' / '
+           }<span data-render7='textContent' data-onclick='open-runs'></span>
           )</div>
 
-          <h1 style='--font-size: 0.8rem' data-render12='textContent'></h1>
+          <h1 style='--font-size: 0.8rem' data-render12='textContent'
+            data-onclick='open-runs'></h1>
         </div>
         <div id='slot-keys' class='col' data-render1='data-guideid'
           data-render2='data-stepid' data-onclick='open-runs'></div>
