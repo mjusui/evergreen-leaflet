@@ -100,7 +100,7 @@ html`page: {
       elem.id=('slot-' + type + '-' + stepid);
 
       // const guide=Starray.getInst('store-guide');
-      cosnt step=Starray.getInst('store-step-' + guideid);
+      const step=Starray.getInst('store-step-' + guideid);
       const { keys, templ, }=step.list().find(a => a.id === stepid);
 
       wisdom.clear(elem.id);
