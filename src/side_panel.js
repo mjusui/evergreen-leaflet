@@ -328,6 +328,7 @@ page: {
       page.open('modal', 'template-modal-item-step', vals);
     }
     if(onclick === 'open-runs'){
+console.log('open-runs:', target);
       const { guideid, stepid='', }=target.dataset;
       const reset=(target.dataset.reset === 'true');
 
