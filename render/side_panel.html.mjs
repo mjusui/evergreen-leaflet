@@ -224,11 +224,11 @@ console.log( (html`<!DOCTYOE html>
         <pre style='--font-size: 0.8rem' data-render13='textContent'
           data-render1='data-guideid' data-render2='data-stepid' data-onclick='open-runs'></pre>
 
-        <div id='slot-inputs' class='col load-item-run-inputs' data-render1='data-guideid'
-          data-render2='data-stepid' data-onclick='open-runs'></div>
+        <div class='col load-item-run-inputs' data-render1='data-guideid'
+          data-render2='data-stepid' data-onclick='open-runs' data-type='inputs'></div>
 
-        <div id='slot-outputs' class='col load-item-run-outputs' data-render1='data-guideid'
-          data-render2='data-stepid' data-onclick='open-runs'></div>
+        <div class='col load-item-run-outputs' data-render1='data-guideid'
+          data-render2='data-stepid' data-onclick='open-runs' data-type='outputs'></div>
 
         <button class='button-color1' data-render1='data-guideid'
           data-render3='data-stepid' data-render8='data-reset' data-render9='textContent'
@@ -236,9 +236,9 @@ console.log( (html`<!DOCTYOE html>
       </div>
     </template>
     <template id='template-item-run-input'>
-      <label for='textarea-url'>ページURL</label> 
-      <textarea id='textarea-url' style='--cols: 2'
-        name='url' data-render4='value' cols='2'></textarea>
+      <label data-render1='textContent' data-render2='for'></label> 
+      <textarea style='--cols: 2'
+        data-render1='name' data-render2='id' cols='2'></textarea>
     </template>
 
     ${html_script}

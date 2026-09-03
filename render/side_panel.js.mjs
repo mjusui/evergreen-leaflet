@@ -91,6 +91,33 @@ html`page: {
           disabled, url, inst, ]);
       });
     });
+    loadRunInOuts();
+  };
+  loadRunInOuts=()=>{
+    ([ ...document.getElementsByClassName('load-item-run-inputs'),
+       ...document.getElementsByClassName('load-item-run-outputs'), ]).forEach(elem =>{
+      const { type, guideid, stepid, }=elem.dataset;
+      elem.id=('slot-' + type + '-' + stepid);
+
+      // const guide=Starray.getInst('store-guide');
+      cosnt step=Starray.getInst('store-step-' + guideid);
+      const { keys, templ, }=step.list().find(a => a.id === stepid);
+
+      wisdom.clear(elem.id);
+      const template_name='template-item-run-' + type;
+
+      if(type === 'inputs'){
+        keys.split(',').forEach(str =>{
+          const key=str.trim();
+          const textareaid='textarea-' + key;
+
+          wisdom.append(elem.id, template_name, [ key, textareaid, ]);
+        });
+      }else
+      if(type === 'outputs'){
+
+      }
+    });
   };
 
   page.open=(...args)=>{
