@@ -212,7 +212,8 @@ console.log( (html`<!DOCTYOE html>
       <div class='block-col-shadow' data-render10='style'
         data-render1='data-guideid' data-render2='data-stepid'
         data-onclick='open-runs'>
-        <div class='row'>
+        <div class='row' data-render1='data-guideid' data-render2='data-stepid'
+          data-onclick='open-runs'>
           <div style='--font-size: 0.8rem'>(
             <span data-render6='textContent'></span>${ ' / '
            }<span data-render7='textContent'></span>
