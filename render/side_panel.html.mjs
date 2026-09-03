@@ -225,10 +225,10 @@ console.log( (html`<!DOCTYOE html>
           data-render1='data-guideid' data-render2='data-stepid' data-onclick='open-runs'></pre>
 
         <div class='col load-item-run-inputs' data-render1='data-guideid'
-          data-render2='data-stepid' data-onclick='open-runs' data-type='inputs'></div>
+          data-render2='data-stepid' data-onclick='open-runs' data-type='input'></div>
 
         <div class='col load-item-run-outputs' data-render1='data-guideid'
-          data-render2='data-stepid' data-onclick='open-runs' data-type='outputs'></div>
+          data-render2='data-stepid' data-onclick='open-runs' data-type='output'></div>
 
         <button class='button-color1' data-render1='data-guideid'
           data-render3='data-stepid' data-render8='data-reset' data-render9='textContent'

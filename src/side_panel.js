@@ -224,7 +224,7 @@ page: {
     ([ ...document.getElementsByClassName('load-item-run-inputs'),
        ...document.getElementsByClassName('load-item-run-outputs'), ]).forEach(elem =>{
       const { type, guideid, stepid, }=elem.dataset;
-      elem.id=('slot-' + type + '-' + stepid);
+      elem.id=('slot-' + type + 's-' + stepid);
 
       // const guide=Starray.getInst('store-guide');
       const step=Starray.getInst('store-step-' + guideid);
@@ -233,7 +233,7 @@ page: {
       wisdom.clear(elem.id);
       const template_name='template-item-run-' + type;
 
-      if(type === 'inputs'){
+      if(type === 'input'){
         keys.split(',').forEach(str =>{
           const key=str.trim();
           const textareaid='textarea-' + key;
@@ -241,7 +241,7 @@ page: {
           wisdom.append(elem.id, template_name, [ key, textareaid, ]);
         });
       }else
-      if(type === 'outputs'){
+      if(type === 'output'){
 
       }
     });
