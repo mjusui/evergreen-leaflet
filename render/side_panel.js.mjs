@@ -88,7 +88,7 @@ html`page: {
         wisdom.append(elem.id, 'template-item-run', [
           guideid, id, nextid, title, desc,
           (idx + 1), items.length, reset, done, style,
-          disabled, url, keys, inst, ]);
+          disabled, url, inst, ]);
       });
     });
   };
