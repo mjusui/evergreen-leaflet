@@ -244,7 +244,7 @@ page: {
       let updated=0;
       star.flatMap(a =>{
         if(a.id === id){
-          update++;
+          updated++;
           return Object.assign(a, { title, desc, });
         }
         return a;
