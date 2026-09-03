@@ -203,6 +203,7 @@ page: {
 
         const nextidx=(idx + 1) % items.length;
         const { id: nextid, }=items[nextidx];
+        const reset=!nextidx;
         const done=0 < nextidx
           ? '次へ' : '完了' ;
 
@@ -211,7 +212,7 @@ page: {
 
         wisdom.append(elem.id, 'template-item-run', [
           guideid, nextid, title, desc, (idx + 1),
-          items.length, url, keys, inst, style, nextidx, done, ]);
+          items.length, url, keys, inst, style, reset, done, ]);
       });
     });
   };
