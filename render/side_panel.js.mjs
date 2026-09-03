@@ -84,8 +84,9 @@ html`page: {
           ? '--opacity: 1.0' : '--opacity: 0.6' ;
 
         wisdom.append(elem.id, 'template-item-run', [
-          guideid, nextid, title, desc, (idx + 1),
-          items.length, url, keys, inst, style, reset, done, ]);
+          guideid, stepid, nextid, title, desc,
+          (idx + 1), items.length, reset, done, style,
+          url, keys, inst, ]);
       });
     });
   };
@@ -198,11 +199,22 @@ html`page: {
       page.open('modal', 'template-modal-item-step', vals);
     }
     if(onclick === 'open-runs'){
-      const { guideid, stepid='', reset, }=target.dataset;
+      const { guideid, stepid='', }=target.dataset;
+      const reset=(target.dataset.reset === 'true');
 console.log('reset:', reset);
+
 
       const guide=Starray.getInst('store-guide');
       const { title , desc, }=guide.list().find(a => a.id === guideid);
+
+      if(reset){
+        const run=Starray.getInst('store-run-' + guideid)
+        const init={
+          inputs: {},
+          outputs: [],
+        };
+        run.flatMap( (item, idx)=> 0 < idx : [] : init);
+      }
 
       page.open('display', 'template-runs',
         [ guideid, stepid, title, desc, ]);
