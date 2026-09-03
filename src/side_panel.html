@@ -163,16 +163,18 @@ label.required::after { /* required */ content: '*'; color: red; }
       <div class='block-col-shadow' data-render10='style'
         data-render1='data-guideid' data-render2='data-stepid'
         data-onclick='open-runs'>
-        <div class='row' data-render1='data-guideid' data-render2='data-stepid'
-          data-onclick='open-runs'>
-          <div style='--font-size: 0.8rem'>(
+        <div class='row'>
+          <div style='--font-size: 0.8rem' data-render1='data-guideid'
+            data-render2='data-stepid' data-onclick='open-runs'>(
             <span data-render6='textContent'></span> / <span data-render7='textContent'></span>
           )</div>
 
           <h1 style='--font-size: 0.8rem' data-render12='textContent'></h1>
         </div>
-        <div id='slot-keys' class='col'></div>
-        <pre style='--font-size: 0.8rem' data-render14='textContent'></pre>
+        <div id='slot-keys' class='col' data-render1='data-guideid'
+          data-render2='data-stepid' data-onclick='open-runs'></div>
+        <pre style='--font-size: 0.8rem' data-render14='textContent'
+          data-render1='data-guideid' data-render2='data-stepid' data-onclick='open-runs'></pre>
 
         <button class='button-color1' data-render1='data-guideid'
           data-render3='data-stepid' data-render8='data-reset' data-render9='textContent'
