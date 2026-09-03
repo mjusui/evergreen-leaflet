@@ -209,7 +209,8 @@ console.log( (html`<!DOCTYOE html>
       </section>
     </template>
     <template id='template-item-run'>
-      <div class='block-col-shadow' data-render10='style'>
+      <div class='block-col-shadow' data-render10='style'
+        data-render2='data-stepid'  data-onclick='open-runs'>
         <div class='row'>
           <div style='--font-size: 0.8rem'>(
             <span data-render6='textContent'></span>${ ' / '

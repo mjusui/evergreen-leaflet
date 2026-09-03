@@ -201,7 +201,6 @@ html`page: {
     if(onclick === 'open-runs'){
       const { guideid, stepid='', }=target.dataset;
       const reset=(target.dataset.reset === 'true');
-console.log('reset:', reset);
 
 
       const guide=Starray.getInst('store-guide');
