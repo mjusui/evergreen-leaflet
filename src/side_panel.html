@@ -93,20 +93,20 @@ label.required::after { /* required */ content: '*'; color: red; }
       </div>
     </template>
     <template id='template-item-step'>
-      <div class='block-col-shadow' data-render1='data-guideid'
-        data-render2='data-id' data-onclick='open-modal-item-step'>
-        <h1 style='--font-size: 0.8rem' data-render3='textContent'
-          data-onclick='open-modal-item-step'></h1>
-        <div class='row'>
-          <div style='--font-size: 0.6rem'>取得する値: </div>
-          <div style='--font-size: 0.6rem' data-render4='textContent'
-            data-onclick='open-modal-item-step'></div>
+      <div class='block-row-shadow' data-render1='data-guideid' data-render2='data-id'>
+        <div class='col'>
+          <h1 style='--font-size: 0.8rem' data-render3='textContent'></h1>
+          <div class='row'>
+            <div style='--font-size: 0.6rem'>取得する値: </div>
+            <div style='--font-size: 0.6rem' data-render4='textContent'></div>
+          </div>
+          <div class='row'>
+            <div style='--font-size: 0.6rem'>操作説明: </div>
+            <div style='--font-size: 0.6rem' data-render5='textContent'></div>
+          </div>
         </div>
-        <div class='row'>
-          <div style='--font-size: 0.6rem'>操作説明: </div>
-          <div style='--font-size: 0.6rem' data-render5='textContent'
-            data-onclick='open-modal-item-step'></div>
-        </div>
+        <div class='margin'></div>
+        <button class='button-color2' data-onclick='open-modal-item-step'>✎</button>
       </div>
       <div class='bar'>
         <div class='margin'></div>
