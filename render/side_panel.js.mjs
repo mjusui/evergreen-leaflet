@@ -86,7 +86,7 @@ html`page: {
           ? '' : 'disabled' ;
 
         wisdom.append(elem.id, 'template-item-run', [
-          guideid, stepid, nextid, title, desc,
+          guideid, id, nextid, title, desc,
           (idx + 1), items.length, reset, done, style,
           disabled, url, keys, inst, ]);
       });
@@ -201,7 +201,6 @@ html`page: {
       page.open('modal', 'template-modal-item-step', vals);
     }
     if(onclick === 'open-runs'){
-console.log('open-runs:', target);
       const { guideid, stepid='', }=target.dataset;
       const reset=(target.dataset.reset === 'true');
 
