@@ -301,8 +301,8 @@ page: {
       page.open('display', 'template-guides');
     }
     if(onclick === 'open-modal-item-guide'){
-      let { id=gen.id(), title='', desc='', }=target.dataset;
-      page.open('modal', 'template-modal-item-guide', [ id, title, desc, ]);
+      let { guideid=gen.id(), title='', desc='', }=target.dataset;
+      page.open('modal', 'template-modal-item-guide', [ guideid, title, desc, ]);
     }
     if(onclick === 'open-steps'){
       const { guideid, }=target.closest('[data-guideid]').dataset;
