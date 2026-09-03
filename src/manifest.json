@@ -7,9 +7,7 @@
     "service_worker": "background.js"
   },
   "action": {
-    "default_icon": {
-      "48": "icon.svg"
-    }
+    "default_icon": "icon.svg"
   },
   "side_panel": {
     "default_path": "side_panel.html"
