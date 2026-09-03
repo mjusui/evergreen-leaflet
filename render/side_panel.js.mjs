@@ -213,7 +213,7 @@ console.log('reset:', reset);
           inputs: {},
           outputs: [],
         };
-        run.flatMap( (item, idx)=> 0 < idx : [] : init);
+        run.flatMap( (item, idx)=> 0 < idx ? [] : init);
       }
 
       page.open('display', 'template-runs',
