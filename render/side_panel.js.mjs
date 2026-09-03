@@ -174,8 +174,8 @@ html`page: {
       page.open('display', 'template-guides');
     }
     if(onclick === 'open-modal-item-guide'){
-      let { guideid=gen.id(), title='', desc='', }=target.dataset;
-      page.open('modal', 'template-modal-item-guide', [ guideid, title, desc, ]);
+      let { id=gen.id(), title='', desc='', }=target.dataset;
+      page.open('modal', 'template-modal-item-guide', [ id, title, desc, ]);
     }
     if(onclick === 'open-steps'){
       const { guideid, }=target.closest('[data-guideid]').dataset;
