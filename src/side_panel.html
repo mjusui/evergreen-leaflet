@@ -39,15 +39,16 @@ label.required::after { /* required */ content: '*'; color: red; }
     </template>
     <template id='template-item-guide'>
       <div class='block-row-shadow'>
-        <div class='col'
-          data-render1='data-guideid'  data-onclick='open-steps'>
+        <div class='col' data-render1='data-guideid' data-onclick='open-steps'>
           <h1 style='--font-size: 0.8rem'
             data-render2='textContent' data-onclick='open-steps'></h1>
           <div style='--font-size: 0.6rem'
             data-render3='textContent' data-onclick='open-steps'></div>
         </div>
         <div class='margin'></div>
-        <button class='button-color2' data-onclick='open-modal-item-guide'>✎</button>
+        <button class='button-color2' data-render='data-guideid'
+          data-render2='data-title' data-render3='data-desc'
+          data-onclick='open-modal-item-guide'>✎</button>
       </div>
     </template>
 
