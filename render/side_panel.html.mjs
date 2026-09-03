@@ -217,14 +217,14 @@ console.log( (html`<!DOCTYOE html>
            }<span data-render7='textContent'></span>
           )</div>
 
-          <h1 style='--font-size: 0.8rem' data-render11='textContent'></h1>
+          <h1 style='--font-size: 0.8rem' data-render12='textContent'></h1>
         </div>
         <div id='slot-keys' class='col'></div>
-        <pre style='--font-size: 0.8rem' data-render13='textContent'></pre>
+        <pre style='--font-size: 0.8rem' data-render14='textContent'></pre>
 
         <button class='button-color1' data-render1='data-guideid'
           data-render3='data-stepid' data-render8='data-reset' data-render9='textContent'
-          data-onclick='open-runs'></button>
+          data-render11='disabled' data-onclick='open-runs'></button>
       </div>
     </template>
 

@@ -82,11 +82,13 @@ html`page: {
 
         const style=id === stepid
           ? '--opacity: 1.0' : '--opacity: 0.6' ;
+        const disabled=id === stepid
+          ? '' : 'disabled' ;
 
         wisdom.append(elem.id, 'template-item-run', [
           guideid, stepid, nextid, title, desc,
           (idx + 1), items.length, reset, done, style,
-          url, keys, inst, ]);
+          disabled, url, keys, inst, ]);
       });
     });
   };
@@ -201,7 +203,6 @@ html`page: {
     if(onclick === 'open-runs'){
       const { guideid, stepid='', }=target.dataset;
       const reset=(target.dataset.reset === 'true');
-
 
       const guide=Starray.getInst('store-guide');
       const { title , desc, }=guide.list().find(a => a.id === guideid);
