@@ -125,7 +125,7 @@ console.log( (html`<!DOCTYOE html>
           <h1 data-render2='textContent'></h1>
           <div class='margin'></div>
           <button class='button-color1' style='--font-size: 1rem'
-            data-render1='data-guideid' data-onclick='open-runs'>${ '>' }</button>
+            data-render1='data-guideid' data-reset='1' data-onclick='open-runs'>${ '>' }</button>
         </div>
         <div style='--font-size: 0.8rem' data-render3='textContent'></div>
       </header>
@@ -222,7 +222,7 @@ console.log( (html`<!DOCTYOE html>
         <pre style='--font-size: 0.8rem' data-render9='textContent'></pre>
 
         <button class='button-color1' data-render1='data-guideid'
-          data-render2='data-stepid' data-render11='textContent'
+          data-render2='data-stepid' data-render11='data-reset' data-render12='textContent'
           data-onclick='open-runs'></button>
       </div>
     </template>

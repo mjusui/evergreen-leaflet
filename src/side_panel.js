@@ -211,7 +211,7 @@ page: {
 
         wisdom.append(elem.id, 'template-item-run', [
           guideid, nextid, title, desc, (idx + 1),
-          items.length, url, keys, inst, style, done, ]);
+          items.length, url, keys, inst, style, nextidx, done, ]);
       });
     });
   };
@@ -324,7 +324,8 @@ page: {
       page.open('modal', 'template-modal-item-step', vals);
     }
     if(onclick === 'open-runs'){
-      const { guideid, stepid='', }=target.dataset;
+      const { guideid, stepid='', reset, }=target.dataset;
+console.log('reset:', reset);
 
       const guide=Starray.getInst('store-guide');
       const { title , desc, }=guide.list().find(a => a.id === guideid);
