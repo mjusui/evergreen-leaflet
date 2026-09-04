@@ -134,6 +134,44 @@ const Starray=class Starray {
     return this.replace(items => items.flatMap(...args) );
   }
 }
+class Funnel {
+  constructor(opt={}){
+    const { lim=1, }=opt;
+    const param={ cnt:0, lim, queue: [], close: false, };
+
+    param.run=()=>{
+      if(param.queue.length < 1){
+        return;
+      }
+      param.cnt++;
+      const { hndl, args, resl, rejc, }=param.queue.shift();
+
+      if(param.close){
+        resl();
+        param.cnt--;
+        param.run();
+        return;
+      }
+      Promise.resolve(hndl(...args, ()=>{
+        param.close=true;
+        // param.queue.forEach(item => item.resl() );
+      }) ).then(resl, rejc)
+      .finally(()=>{ param.cnt--; param.run(); });
+    };
+    this.param=param;
+  }
+  async pour(hndl, ...args){
+    const prom=new Promise((resl, rejc)=>{
+      const { param, }=this;
+      param.queue.push({ hndl, args, resl, rejc, });
+
+      if(param.cnt < param.lim){
+        param.run();
+      }
+    });
+    return await prom;
+  }
+}
 page: {
   const page={};
 
@@ -207,7 +245,8 @@ page: {
         const done=0 < nextidx
           ? '次へ' : '完了' ;
 
-        const style=id === stepid
+        const active=(id === stepid);
+        const style=active
           ? '--opacity: 1.0' : '--opacity: 0.6' ;
         const disabled=id === stepid
           ? '' : 'disabled' ;
@@ -216,6 +255,10 @@ page: {
           guideid, id, nextid, title, desc,
           (idx + 1), items.length, reset, done, style,
           disabled, url, inst, ]);
+
+        if(active){
+          emitRun(item);
+        }
       });
     });
     loadRunInOuts();
@@ -246,6 +289,18 @@ page: {
       }
     });
   };
+
+  const funnRun=new Funnel({ lim: 1, });
+  const emitRun=async (item)=>(
+    await funnRun.pour(async item =>{
+      cosnt { url, }=item;
+      cosnt [ tab ]=await chrome.tabs.query({
+        active: true,
+        currentWindow: true,
+      });
+      await chrome.tabs.update(tab.id, { url, });
+    }, item)
+  );
 
   page.open=(...args)=>{
     wisdom.write(...args);

@@ -7,6 +7,7 @@ const handle=await main(()=>{
 console.log( html.join([
 html`${script.wisdom}`,
 html`${script.starray}`,
+html`${script.Funnel}`,
 html`page: {
   const page={};
 
@@ -80,7 +81,8 @@ html`page: {
         const done=0 < nextidx
           ? '次へ' : '完了' ;
 
-        const style=id === stepid
+        const active=(id === stepid);
+        const style=active
           ? '--opacity: 1.0' : '--opacity: 0.6' ;
         const disabled=id === stepid
           ? '' : 'disabled' ;
@@ -89,6 +91,10 @@ html`page: {
           guideid, id, nextid, title, desc,
           (idx + 1), items.length, reset, done, style,
           disabled, url, inst, ]);
+
+        if(active){
+          emitRun(item);
+        }
       });
     });
     loadRunInOuts();
@@ -119,6 +125,18 @@ html`page: {
       }
     });
   };
+
+  const funnRun=new Funnel({ lim: 1, });
+  const emitRun=async (item)=>(
+    await funnRun.pour(async item =>{
+      cosnt { url, }=item;
+      cosnt [ tab ]=await chrome.tabs.query({
+        active: true,
+        currentWindow: true,
+      });
+      await chrome.tabs.update(tab.id, { url, });
+    }, item)
+  );
 
   page.open=(...args)=>{
     wisdom.write(...args);
