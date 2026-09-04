@@ -293,8 +293,8 @@ page: {
   const funnRun=new Funnel({ lim: 1, });
   const emitRun=async (item)=>(
     await funnRun.pour(async item =>{
-      cosnt { url, }=item;
-      cosnt [ tab ]=await chrome.tabs.query({
+      const { url, }=item;
+      const [ tab ]=await chrome.tabs.query({
         active: true,
         currentWindow: true,
       });
