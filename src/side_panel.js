@@ -324,7 +324,7 @@ page: {
           const textareaid='textarea-output-' + stepid;
 
 console.log(templ);
-          const { result, text, }=await wrap.postMessage(
+          const { result: text, }=await wrap.postMessage(
             { cmd: 'render', templ, ctxt: inputs, },
             '*', document.getElementById('sandbox').contentWindow );
 console.log(text);
