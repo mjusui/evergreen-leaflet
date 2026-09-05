@@ -149,7 +149,7 @@ html`page: {
           { cmd: 'render', templ, ctxt: inputs, },
           '*', document.getElementById('sandbox').contentWindow );
 
-        if(err)P
+        if(err){
           console.error(err);
         }
 
