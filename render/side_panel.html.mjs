@@ -18,6 +18,9 @@ const scss=new Success()
   .classify('margin-auto', 'margin: auto')
   .classify('center', 'margin-left: auto', 'margin-right: auto')
   .classify('middle', 'margin-top: auto', 'margin-bottom: auto')
+  .classify('merge-top', 'margin-bottom: 0', 'border-bottom-width: 0')
+  .classify('merge-middle', 'margin-top: 0', 'border-top-width: 0', 'margin-bottom: 0', 'border-bottom-width: 0')
+  .classify('merge-bottom', 'margin-top: 0', 'border-top-width: 0')
   .classify('button', 'padding: 0.2rem', 'border-radius: 0.2rem', 'font-weight: bold', '--font-size: 0.8rem', 'min-width: calc(1lh + 0.4rem)' )
   //.classify('button-sign', '--font-size: 1rem')
   .classify('input', 'min-width: 80vw', 'font-weight: normal')
@@ -49,6 +52,9 @@ const scss=new Success()
   .themify('textarea', 'border', 'button', 'input', 'textarea')
   .themify('label', 'button', 'input')
   .themify('label.required::after', 'required')
+  .themify('.merge-top', 'border', 'merge-top')
+  .themify('.merge-middle', 'border', 'merge-middle')
+  .themify('.merge-bottom', 'border', 'merge-bottom')
   .themify('.modal', 'modal-hidden')
   .themify('.modal:not(:empty)', 'modal-display', 'flex-col')
   .themify(html`.modal:not(:empty) > *`, 'center', 'middle')
@@ -236,8 +242,8 @@ console.log( (html`<!DOCTYOE html>
       </div>
     </template>
     <template id='template-item-run-input'>
-      <label data-render1='textContent' data-render2='for'></label> 
-      <textarea style='--cols: 2'
+      <label class='merge-top' data-render1='textContent' data-render2='for'></label> 
+      <textarea calss='merge-bottom' style='--cols: 2'
         data-render1='name' data-render2='id' cols='2'></textarea>
     </template>
 
