@@ -131,7 +131,7 @@ console.log( (html`<!DOCTYOE html>
           <h1 data-render2='textContent'></h1>
           <div class='margin'></div>
           <button class='button-color1' style='--font-size: 1rem'
-            data-render1='data-guideid' data-reset='true' data-onclick='open-runs'>${ '>' }</button>
+            data-render1='data-guideid' data-onclick='open-runs'>${ '>' }</button>
         </div>
         <div style='--font-size: 0.8rem' data-render3='textContent'></div>
       </header>
@@ -232,10 +232,10 @@ console.log( (html`<!DOCTYOE html>
            }<span data-render7='textContent' data-onclick='open-runs'></span>
           )</div>
 
-          <h1 style='--font-size: 0.8rem' data-render12='textContent'
+          <h1 style='--font-size: 0.8rem' data-render11='textContent'
             data-onclick='open-runs'></h1>
         </div>
-        <pre style='--font-size: 0.8rem' data-render13='textContent'
+        <pre style='--font-size: 0.8rem' data-render12='textContent'
           data-render1='data-guideid' data-render2='data-stepid' data-onclick='open-runs'></pre>
 
         <div class='col load-item-run-inputs' data-render1='data-guideid'
@@ -245,8 +245,8 @@ console.log( (html`<!DOCTYOE html>
           data-render2='data-stepid' data-onclick='open-runs' data-type='output'></div>
 
         <button class='button-color1' data-render1='data-guideid'
-          data-render3='data-stepid' data-render8='data-reset' data-render9='textContent'
-          data-render11='disabled' data-onclick='open-runs'></button>
+          data-render3='data-stepid' data-render8='textContent'
+          data-render10='disabled' data-onclick='open-runs'></button>
       </div>
     </template>
     <template id='template-item-run-input'>
@@ -254,7 +254,7 @@ console.log( (html`<!DOCTYOE html>
         <label class='merge-top' data-render3='textContent' data-render4='for'></label> 
         <textarea class='merge-bottom' style='--cols: 2'
           data-render1='data-guideid' data-render2='data-stepid'
-          data-render3='name' data-render4='id' data-onchange='update-run-input'
+          data-render3='name' data-render4='id' data-render5='value' data-onchange='update-run-input'
           placeholder='値を貼り付けてください' cols='2'></textarea>
       </div>
     </template>

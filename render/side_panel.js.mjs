@@ -77,7 +77,6 @@ html`page: {
 
         const nextidx=(idx + 1) % items.length;
         const { id: nextid, }=items[nextidx];
-        const reset=!nextidx;
         const done=0 < nextidx
           ? '次へ' : '完了' ;
 
@@ -89,8 +88,8 @@ html`page: {
 
         wisdom.append(elem.id, 'template-item-run', [
           guideid, id, nextid, title, desc,
-          (idx + 1), items.length, reset, done, style,
-          disabled, url, inst, ]);
+          (idx + 1), items.length,  done, style, disabled,
+          url, inst, ]);
 
         if(active){
           emitRun(item);
@@ -109,6 +108,9 @@ html`page: {
       const step=Starray.getInst('store-step-' + guideid);
       const { keys, templ, }=step.list().find(a => a.id === stepid);
 
+      const run=Starray.getInst('store-run-' + guideid);
+      const { inputs, outputs, }=run.list()[0];
+
       wisdom.clear(elem.id);
       const template_name='template-item-run-' + type;
 
@@ -117,8 +119,10 @@ html`page: {
           const key=str.trim();
           const textareaid='textarea-' + key;
 
+          const value=inputs[key] || '';
+
           wisdom.append(elem.id, template_name, [
-            guideid, stepid, key, textareaid, ]);
+            guideid, stepid, key, textareaid, value, ]);
         });
       }else
       if(type === 'output'){
@@ -248,20 +252,13 @@ html`page: {
     }
     if(onclick === 'open-runs'){
       const { guideid, stepid='', }=target.closest('[data-guideid]').dataset;
-      const reset=(target.dataset.reset === 'true');
 
       const guide=Starray.getInst('store-guide');
       const { title , desc, }=guide.list().find(a => a.id === guideid);
 
-      if(reset){
-        const run=Starray.getInst('store-run-' + guideid)
-        const init={
-          inputs: {},
-          outputs: [],
-        };
-        run.unshift(init);
-        run.flatMap((item, idx)=> 0 < idx ? [] : item);
-      }
+      const run=Starray.getInst('store-run-' + guideid);
+      run.push({ inputs: {}, outputs: [], });
+      run.flatMap( (item, idx)=> 0 < idx ? [] : item);
 
       page.open('display', 'template-runs',
         [ guideid, stepid, title, desc, ]);
