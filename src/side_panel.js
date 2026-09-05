@@ -270,7 +270,7 @@ page: {
 
       // const guide=Starray.getInst('store-guide');
       const step=Starray.getInst('store-step-' + guideid);
-      const { keys, templ, }=step.list().find(a => a.id === stepid);
+      const { keys, templ='', }=step.list().find(a => a.id === stepid);
 
       const run=Starray.getInst('store-run-' + guideid);
       const { inputs, outputs, }=run.list()[0];
