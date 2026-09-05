@@ -189,7 +189,7 @@ console.log('postMessage:', data);
   };
   window.addEventListener('message', ev =>{
     console.log('message:', ev);
-    const { target: targ, }=ev;
+    const { source: targ, }=ev;
     const { msgid, }=ev.data;
 
     waits=waits.filter(w =>{
