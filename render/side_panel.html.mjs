@@ -223,7 +223,7 @@ console.log( (html`<!DOCTYOE html>
       </section>
     </template>
     <template id='template-item-run'>
-      <div class='block-col-shadow' data-render10='style'
+      <div class='block-col-shadow' data-render9='style'
         data-render1='data-guideid' data-render2='data-stepid'
         data-onclick='open-runs'>
         <div class='row'>
