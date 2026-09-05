@@ -270,7 +270,7 @@ page: {
 
       // const guide=Starray.getInst('store-guide');
       const step=Starray.getInst('store-step-' + guideid);
-      const { keys, templ='', }=step.list().find(a => a.id === stepid);
+      const { keys, templ, }=step.list().find(a => a.id === stepid);
 
       const run=Starray.getInst('store-run-' + guideid);
       const { inputs, outputs, }=run.list()[0];
@@ -290,11 +290,13 @@ page: {
         });
       }else
       if(type === 'output'){
-        const labeltext='生成されたテキスト';
-        const textareaid='textarea-output-' + stepid;
+        if(templ){
+          const labeltext='生成されたテキスト';
+          const textareaid='textarea-output-' + stepid;
 
-        wisdom.append(elem.id, template_name, [
-          guideid, stepid, labeltext, textareaid, templ, ]);
+          wisdom.append(elem.id, template_name, [
+            guideid, stepid, labeltext, textareaid, templ, ]);
+        }
       }
     });
   };

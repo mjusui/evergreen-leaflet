@@ -264,7 +264,7 @@ console.log( (html`<!DOCTYOE html>
         <textarea style='--cols: 5'
           data-render1='data-guideid' data-render2='data-stepid'
           data-render4='id' data-render5='value' data-onclick='copy-run-output'
-          placeholder='値を貼り付けてください' cols='5' readonly></textarea>
+          cols='5' readonly></textarea>
       </div>
     </template>
 
