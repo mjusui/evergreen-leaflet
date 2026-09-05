@@ -110,12 +110,13 @@ console.log( (html`<!DOCTYOE html>
 
         <button class='button-color3' data-render1='data-id'
           data-render2='data-title' data-render3='data-desc'
-          data-onclick='open-modal-item-guide-delete'>-</button>
+          data-delete='true' data-onclick='open-modal-item-guide'>-</button>
       </div>
     </template>
 
     <template id='template-modal-item-guide'>
       <form class='block-col' data-onsubmit='upsert-item-guide'>
+        <h1 data-render4='textContent'></h1>
         <input type='hidden' name='id' data-render1='value' required></input>
 
         <label for='input-title' class='required'>タイトル</label> 
@@ -125,7 +126,8 @@ console.log( (html`<!DOCTYOE html>
         <textarea id='textarea-desc' style='--cols: 5'
           name='desc' data-render3='value'></textarea>
 
-        <button type='submit' class='button-color1'>保存</button>
+        <button type='submit' class='button-color1'
+          data-render5='textContent'></button>
       </form>
     </template>
 

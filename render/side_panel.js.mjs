@@ -257,8 +257,13 @@ html`page: {
       page.open('display', 'template-guides');
     }
     if(onclick === 'open-modal-item-guide'){
-      let { id=gen.id(), title='', desc='', }=target.dataset;
-      page.open('modal', 'template-modal-item-guide', [ id, title, desc, ]);
+      const { id=gen.id(), title='', desc='', }=target.dataset;
+      const deleting=(target.dataset.delete === 'true');
+
+      const warn=deleting ? 'このガイドを削除しますか?' : '' ;
+      const buttontext=deleting ? '削除' : '保存' ;
+
+      page.open('modal', 'template-modal-item-guide', [ id, title, desc, warn, buttontext, ]);
     }
     if(onclick === 'open-steps'){
       const { guideid, }=target.closest('[data-guideid]').dataset;
