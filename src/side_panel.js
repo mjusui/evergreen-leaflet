@@ -500,6 +500,8 @@ page: {
         inputs[name]=value;
         return item;
       }); 
+
+      loadRunOutputs();
     }
   });
 }
