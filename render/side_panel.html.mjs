@@ -245,7 +245,8 @@ console.log( (html`<!DOCTYOE html>
       <div class='col'>
         <label class='merge-top' data-render1='textContent' data-render2='for'></label> 
         <textarea class='merge-bottom' style='--cols: 2'
-          data-render1='name' data-render2='id' cols='2'></textarea>
+          data-render1='name' data-render2='id' data-onchange='update-run-input'
+          placeholder='値を貼り付けてください' cols='2'></textarea>
       </div>
     </template>
 
