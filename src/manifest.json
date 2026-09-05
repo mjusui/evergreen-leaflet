@@ -12,5 +12,8 @@
   "side_panel": {
     "default_path": "side_panel.html"
   },
+  "sandbox": {
+    "pages": [ "sandbox.html" ]
+  },
   "permissions": ["sidePanel"]
 }
