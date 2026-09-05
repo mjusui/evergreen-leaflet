@@ -269,7 +269,7 @@ console.log( (html`<!DOCTYOE html>
     </template>
 
 
-    <iframe src='sandbox.html' hidden></iframe>
+    <iframe id='sandbox' src='sandbox.html' hidden></iframe>
     ${html_script}
   </body>
 </html>`).toString() );

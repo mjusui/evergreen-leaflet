@@ -8,6 +8,7 @@ console.log( html.join([
 html`${script.wisdom}`,
 html`${script.starray}`,
 html`${script.Funnel}`,
+html`${script.wrap}`,
 html`page: {
   const page={};
 
@@ -98,7 +99,7 @@ html`page: {
     });
     loadRunInOuts();
   };
-  loadRunInOuts=()=>{
+  loadRunInOuts=async ()=>{
     ([ ...document.getElementsByClassName('load-item-run-inputs'),
        ...document.getElementsByClassName('load-item-run-outputs'), ]).forEach(elem =>{
       const { type, guideid, stepid, }=elem.dataset;
@@ -130,8 +131,12 @@ html`page: {
           const labeltext='生成されたテキスト';
           const textareaid='textarea-output-' + stepid;
 
+          const text=await wrap.postMessage(
+            { cmd: 'render', templ, ctxt: inputs, },
+            '*', document.getElementById('sandbox').contentWindow );
+
           wisdom.append(elem.id, template_name, [
-            guideid, stepid, labeltext, textareaid, templ, ]);
+            guideid, stepid, labeltext, textareaid, text, ]);
         }
       }
     });

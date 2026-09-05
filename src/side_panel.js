@@ -172,6 +172,33 @@ class Funnel {
     return await prom;
   }
 }
+const wrap={};
+wrap: {
+  let waits=[];
+  wrap.postMessage=async (data, org, targ)=>{
+    const time=new Date().getTime();
+    const rand=Math.floor(Math.random() * 10**8);
+    const msgid=(time + '-' + rand);
+    data.msgid=msgid;
+
+    return await new Promise(resl =>{
+      waits.push({ msgid, targ, org, resl, });
+      targ.postMessage(data, org);
+    });
+  };
+  window.addEventListener('message', ev =>{
+    const { source: targ, }=ev;
+    const { msgid, }=ev.data;
+
+    waits=waits.filter(w =>{
+      if( !(w.msgid === msgid && w.targ === targ) ){
+        return true;
+      }
+      const { resl, }=w;
+      resl(ev.data);
+    });
+  });
+}
 page: {
   const page={};
 
@@ -262,7 +289,7 @@ page: {
     });
     loadRunInOuts();
   };
-  loadRunInOuts=()=>{
+  loadRunInOuts=async ()=>{
     ([ ...document.getElementsByClassName('load-item-run-inputs'),
        ...document.getElementsByClassName('load-item-run-outputs'), ]).forEach(elem =>{
       const { type, guideid, stepid, }=elem.dataset;
@@ -294,8 +321,12 @@ page: {
           const labeltext='生成されたテキスト';
           const textareaid='textarea-output-' + stepid;
 
+          const text=await wrap.postMessage(
+            { cmd: 'render', templ, ctxt: inputs, },
+            '*', document.getElementById('sandbox').contentWindow );
+
           wisdom.append(elem.id, template_name, [
-            guideid, stepid, labeltext, textareaid, templ, ]);
+            guideid, stepid, labeltext, textareaid, text, ]);
         }
       }
     });
