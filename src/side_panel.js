@@ -289,9 +289,9 @@ page: {
     });
     loadRunInOuts();
   };
-  loadRunInOuts=async ()=>{
+  loadRunInOuts=()=>{
     ([ ...document.getElementsByClassName('load-item-run-inputs'),
-       ...document.getElementsByClassName('load-item-run-outputs'), ]).forEach(elem =>{
+       ...document.getElementsByClassName('load-item-run-outputs'), ]).forEach(async elem =>{
       const { type, guideid, stepid, }=elem.dataset;
       elem.id=('slot-' + type + 's-' + stepid);
 
