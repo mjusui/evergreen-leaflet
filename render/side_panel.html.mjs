@@ -108,8 +108,8 @@ console.log( (html`<!DOCTYOE html>
           data-render2='data-title' data-render3='data-desc'
           data-onclick='open-modal-item-guide'>✎</button>
 
-        <button class='button-color3' data-render1='data-id'
-          data-render2='data-title' data-render3='data-desc'
+        <button class='button-color3' style='--font-size: 1rem'
+          data-render1='data-id' data-render2='data-title' data-render3='data-desc'
           data-delete='true' data-onclick='open-modal-item-guide'>-</button>
       </div>
     </template>
