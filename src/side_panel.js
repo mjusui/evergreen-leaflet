@@ -497,7 +497,7 @@ page: {
       const run=Starray.getInst('store-run-' + guideid);
       run.flatMap(item =>{
         const { inputs, }=item;
-        inputs[name]=value;
+        inputs[name]=value || undefined;
         return item;
       }); 
 
