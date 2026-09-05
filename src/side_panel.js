@@ -307,15 +307,17 @@ page: {
       wisdom.clear(elem.id);
       const template_name='template-item-run-input';
 
-      keys.split(',').forEach(str =>{
-        const key=str.trim();
-        const textareaid='textarea-' + key;
+      if(keys){
+        keys.split(',').forEach(str =>{
+          const key=str.trim();
+          const textareaid='textarea-' + key;
 
-        const value=inputs[key] || '';
+          const value=inputs[key] || '';
 
-        wisdom.append(elem.id, template_name, [
-          guideid, stepid, key, textareaid, value, ]);
-      });
+          wisdom.append(elem.id, template_name, [
+            guideid, stepid, key, textareaid, value, ]);
+        });
+      }
     });
   };
   loadRunOutputs=()=>{
@@ -356,6 +358,10 @@ page: {
   const emitRun=async (item)=>(
     await funnRun.pour(async item =>{
       const { url, }=item;
+
+      if(!url){
+        return;
+      }
       const [ tab ]=await chrome.tabs.query({
         active: true,
         currentWindow: true,
