@@ -126,8 +126,8 @@ console.log( (html`<!DOCTYOE html>
         <textarea id='textarea-desc' style='--cols: 5'
           name='desc' data-render3='value'></textarea>
 
-        <button type='submit' class='button-color1'
-          data-render5='textContent'></button>
+        <button type='submit'  data-render5='class'
+          data-render6='textContent' data-render7='data-delete'></button>
       </form>
     </template>
 

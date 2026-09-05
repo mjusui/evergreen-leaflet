@@ -261,9 +261,12 @@ html`page: {
       const deleting=(target.dataset.delete === 'true');
 
       const warn=deleting ? 'このガイドを削除しますか?' : '' ;
+      const buttonclass=deleting ? 'button-color3' : 'button-color1' ;
       const buttontext=deleting ? '削除' : '保存' ;
 
-      page.open('modal', 'template-modal-item-guide', [ id, title, desc, warn, buttontext, ]);
+      page.open('modal', 'template-modal-item-guide', [
+        id, title, desc, warn, buttonclass,
+        buttontext, deleting, ]);
     }
     if(onclick === 'open-steps'){
       const { guideid, }=target.closest('[data-guideid]').dataset;
