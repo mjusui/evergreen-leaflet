@@ -90,7 +90,7 @@ html`page: {
         wisdom.append(elem.id, 'template-item-run', [
           guideid, id, nextid, title, desc,
           (idx + 1), items.length,  done, style, disabled,
-          url, inst, ]);
+          url || (URLなし), inst, ]);
 
         if(active){
           emitRun(item);
