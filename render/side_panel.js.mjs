@@ -126,7 +126,11 @@ html`page: {
         });
       }else
       if(type === 'output'){
+        const labeltext='生成されたテキスト';
+        const textareaid='textarea-output-' + stepid;
 
+        wisdom.append(elem.id, template_name, [
+          guideid, stepid, labeltext, textareaid, templ, ]);
       }
     });
   };
