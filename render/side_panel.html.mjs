@@ -115,7 +115,7 @@ console.log( (html`<!DOCTYOE html>
     </template>
 
     <template id='template-modal-item-guide'>
-      <form class='block-col' data-onsubmit='upsert-item-guide'>
+      <form class='block-col' data-onsubmit='mutate-item-guide'>
         <h1 data-render4='textContent'></h1>
         <input type='hidden' name='id' data-render1='value' required></input>
 
@@ -185,7 +185,7 @@ console.log( (html`<!DOCTYOE html>
     </template>
 
     <template id='template-modal-item-step'>
-      <form class='block-col' data-onsubmit='upsert-item-step'>
+      <form class='block-col' data-onsubmit='mutate-item-step'>
         <input type='hidden' name='guideid' data-render1='value' required></input>
         <input type='hidden' name='id' data-render2='value' required></input>
         <input type='hidden' name='previd' data-render3='value' required></input>

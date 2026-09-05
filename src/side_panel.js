@@ -382,8 +382,9 @@ page: {
     console.log('submit:', ev.target);
     const { target, }=ev;
     const { onsubmit, }=target.dataset;
+    const deleting=(target.dataset.delete === 'true');
 
-    if(onsubmit === 'upsert-item-guide'){
+    if(onsubmit === 'mutate-item-guide'){
       const [ id, title, desc ]=([ 'id', 'title', 'desc', ]).map(
         key => target[key].value
       );
@@ -393,7 +394,8 @@ page: {
       star.flatMap(a =>{
         if(a.id === id){
           updated++;
-          return Object.assign(a, { title, desc, });
+          return deleting ? []
+            : Object.assign(a, { title, desc, });
         }
         return a;
       });
@@ -407,7 +409,7 @@ page: {
       }
       page.clear('modal');
     }
-    if(onsubmit === 'upsert-item-step'){
+    if(onsubmit === 'mutate-item-step'){
       console.log(onsubmit, target);
       const [ guideid, id, previd, url, inst, keys, templ, ]=([
         'guideid', 'id', 'previd', 'url', 'inst', 'keys', 'templ', ]).map(
@@ -423,7 +425,8 @@ page: {
         }
         if(a.id === id){
           updated++;
-          return Object.assign(a, { url, inst, keys, templ, });
+          return deleting ? []
+            : Object.assign(a, { url, inst, keys, templ, });
         }
         return a;
       });
