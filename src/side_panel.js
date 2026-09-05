@@ -305,7 +305,7 @@ page: {
       const { inputs, outputs, }=run.list()[0];
 
       wisdom.clear(elem.id);
-      const template_name='template-item-run-' + type;
+      const template_name='template-item-run-input';
 
       keys.split(',').forEach(str =>{
         const key=str.trim();
@@ -331,7 +331,7 @@ page: {
       const { inputs, outputs, }=run.list()[0];
 
       wisdom.clear(elem.id);
-      const template_name='template-item-run-' + type;
+      const template_name='template-item-run-output';
 
       if(templ){
         const labeltext='生成されたテキスト';
