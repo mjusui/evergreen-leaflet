@@ -348,8 +348,8 @@ page: {
     }
     if(onsubmit === 'upsert-item-step'){
       console.log(onsubmit, target);
-      const [ guideid, id, previd, url, keys, inst, ]=([
-        'guideid', 'id', 'previd', 'url', 'keys', 'inst', ]).map(
+      const [ guideid, id, previd, url, inst, keys, templ, ]=([
+        'guideid', 'id', 'previd', 'url', 'inst', 'keys', 'templ', ]).map(
         key => target[key].value
       );
       const star=Starray.getInst('store-step-' + guideid);
@@ -358,17 +358,17 @@ page: {
       star.flatMap(a =>{
         if(a.id === previd){
           updated++;
-          return [ a, { id, url, keys, inst, }, ];
+          return [ a, { id, url, inst, keys, templ, }, ];
         }
         if(a.id === id){
           updated++;
-          return Object.assign(a, { url, keys, inst, });
+          return Object.assign(a, { url, inst, keys, templ, });
         }
         return a;
       });
 
       if(updated < 1){
-        star.unshift({ id, url, keys, inst, });
+        star.unshift({ id, url, inst, keys, templ, });
       }
       loadSteps();
       page.clear('modal');
