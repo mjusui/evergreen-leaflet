@@ -216,9 +216,9 @@ page: {
       wisdom.write(elem.id, 'template-item-step-top', [ guideid, ]);
 
       items.forEach(item =>{
-        const { id='', url='', keys='', inst='', }=item;
+        const { id='', url='', inst='', keys='', templ='', }=item;
         wisdom.append(elem.id, 'template-item-step',
-          [ guideid, id, url, keys, inst, ]);
+          [ guideid, id, url, inst, keys, templ, ]);
       });
     });
   };
@@ -403,7 +403,7 @@ page: {
 
       if(id){
         const star=Starray.getInst('store-step-' + guideid);
-        const { url, keys, inst, templ, }=star.list().find(a => a.id === id);
+        const { url='', inst='', keys='', templ='', }=star.list().find(a => a.id === id);
         vals.push(guideid, id, previd, url, inst, keys, templ);
       }else{
         vals.push(guideid, gen.id(), previd, '', '', '', '');
