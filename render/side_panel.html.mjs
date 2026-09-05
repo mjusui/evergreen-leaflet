@@ -104,8 +104,8 @@ console.log( (html`<!DOCTYOE html>
             data-render3='textContent' data-onclick='open-steps'></div>
         </div>
         <div class='margin' data-render1='data-guideid' data-onclick='open-steps'></div>
-        <button class='button-color2' data-render1='data-id'
-          data-render2='data-title' data-render3='data-desc'
+        <button class='button-color2'  style='--font-size: 1rem'
+          data-render1='data-id' data-render2='data-title' data-render3='data-desc'
           data-onclick='open-modal-item-guide'>✎</button>
 
         <button class='button-color3' style='--font-size: 1rem'
@@ -115,7 +115,8 @@ console.log( (html`<!DOCTYOE html>
     </template>
 
     <template id='template-modal-item-guide'>
-      <form class='block-col' data-onsubmit='mutate-item-guide'>
+      <form class='block-col' data-render7='data-delete'
+        data-onsubmit='mutate-item-guide'>
         <h1 data-render4='textContent'></h1>
         <input type='hidden' name='id' data-render1='value' required></input>
 
@@ -126,8 +127,8 @@ console.log( (html`<!DOCTYOE html>
         <textarea id='textarea-desc' style='--cols: 5'
           name='desc' data-render3='value'></textarea>
 
-        <button type='submit'  data-render5='class'
-          data-render6='textContent' data-render7='data-delete'></button>
+        <button type='submit' data-render5='class'
+          data-render6='textContent'></button>
       </form>
     </template>
 
