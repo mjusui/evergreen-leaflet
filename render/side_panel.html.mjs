@@ -191,8 +191,8 @@ console.log( (html`<!DOCTYOE html>
           name='keys' data-render6='value' cols='2'></textarea>
 
         <label for='textarea-templ'>生成するテキスト</label> 
-        <textarea id='textarea-templ' style='--cols: 2'
-          name='templ' data-render7='value' cols='2'></textarea>
+        <textarea id='textarea-templ' style='--cols: 5'
+          name='templ' data-render7='value' cols='5'></textarea>
 
         <button type='submit' class='button-color1'>保存</button>
       </form>
