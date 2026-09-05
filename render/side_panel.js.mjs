@@ -131,9 +131,11 @@ html`page: {
           const labeltext='生成されたテキスト';
           const textareaid='textarea-output-' + stepid;
 
+console.log(templ);
           const text=await wrap.postMessage(
             { cmd: 'render', templ, ctxt: inputs, },
             '*', document.getElementById('sandbox').contentWindow );
+console.log(text);
 
           wisdom.append(elem.id, template_name, [
             guideid, stepid, labeltext, textareaid, text, ]);
