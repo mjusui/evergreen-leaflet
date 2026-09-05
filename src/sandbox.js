@@ -11,7 +11,7 @@ sandbox: {
       },
     });
 
-    const func=new Function('ctxt', 'with(ctxt){ return (`templ`); }' );
+    const func=new Function('ctxt', 'with(ctxt){ return (`' + templ + '`); }' );
     return func(prox);
   };
 
