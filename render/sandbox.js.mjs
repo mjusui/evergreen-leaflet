@@ -12,7 +12,7 @@ html`sandbox: {
         const val=targ[key];
 
         if(val === undefined){
-          return '\${key}';
+          return '\${' + key + '}';
         }
         return Reflect.get(...arguments);
       },
