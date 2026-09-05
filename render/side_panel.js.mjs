@@ -239,10 +239,10 @@ html`page: {
 
       if(id){
         const star=Starray.getInst('store-step-' + guideid);
-        const { url, keys, inst, }=star.list().find(a => a.id === id);
-        vals.push(guideid, id, previd, url, keys, inst);
+        const { url, keys, inst, templ, }=star.list().find(a => a.id === id);
+        vals.push(guideid, id, previd, url, inst, keys, templ);
       }else{
-        vals.push(guideid, gen.id(), previd, '', '', '');
+        vals.push(guideid, gen.id(), previd, '', '', '', '');
       }
       page.open('modal', 'template-modal-item-step', vals);
     }
@@ -272,14 +272,6 @@ html`page: {
     const { target, }=ev;
     const { onchange, }=target.dataset;
 
-    if(onchange === 'set-args-placeholder'){
-      const option=target.selectedOptions[0];
-      const { placeholder='', args=false, }=option.dataset;
-
-      const form=target.parentNode;
-      form.args.placeholder=placeholder;
-      form.args.required=args;
-    }
     if(onchange === 'update-run-input'){
       const { guideid, }=target.dataset;
       const { name, value, }=target;

@@ -182,13 +182,17 @@ console.log( (html`<!DOCTYOE html>
         <textarea id='textarea-url' style='--cols: 2'
           name='url' data-render4='value' cols='2'></textarea>
 
-        <label for='textarea-keys' class='required'>取得する値(カンマ区切り)</label> 
-        <textarea id='textarea-keys' style='--cols: 2'
-          name='keys' data-render5='value' cols='2'></textarea>
-
         <label for='textarea-inst'>操作説明</label> 
         <textarea id='textarea-inst' style='--cols: 5'
-          name='inst' data-render6='value'></textarea>
+          name='inst' data-render5='value'></textarea>
+
+        <label for='textarea-keys' class='required'>取得する値(カンマ区切り)</label> 
+        <textarea id='textarea-keys' style='--cols: 2'
+          name='keys' data-render6='value' cols='2'></textarea>
+
+        <label for='textarea-templ' class='required'>生成するテキスト</label> 
+        <textarea id='textarea-templ' style='--cols: 2'
+          name='templ' data-render7='value' cols='2'></textarea>
 
         <button type='submit' class='button-color1'>保存</button>
       </form>
