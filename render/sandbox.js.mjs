@@ -11,6 +11,7 @@ html`sandbox: {
       get(targ, key){
         const val=targ[key];
 
+console.log('prox.get:', arguments);
         if(val === undefined){
           return '\${' + key + '}';
         }
