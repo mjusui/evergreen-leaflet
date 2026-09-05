@@ -179,6 +179,9 @@ console.log( (html`<!DOCTYOE html>
 
         <button class='button-color2'  style='--font-size: 0.95rem'
           data-onclick='open-modal-item-step'>✎</button>
+
+        <button class='button-color3'  style='--font-size: 1.0rem'
+          data-delete='true' data-onclick='open-modal-item-step'>-</button>
       </div>
       <div class='bar'>
         <div class='margin'></div>
@@ -189,11 +192,11 @@ console.log( (html`<!DOCTYOE html>
     </template>
 
     <template id='template-modal-item-step'>
-      <form class='block-col' data-onsubmit='mutate-item-step'>
+      <form class='block-col' data-render11='data-delete' data-onsubmit='mutate-item-step'>
+        <h1 data-render8='textContent'></h1>
         <input type='hidden' name='guideid' data-render1='value' required></input>
         <input type='hidden' name='id' data-render2='value' required></input>
         <input type='hidden' name='previd' data-render3='value' required></input>
-
 
         <label for='textarea-url'>ページURL</label> 
         <textarea id='textarea-url' style='--cols: 2'
@@ -211,7 +214,8 @@ console.log( (html`<!DOCTYOE html>
         <textarea id='textarea-templ' style='--cols: 5'
           name='templ' data-render7='value' cols='5'></textarea>
 
-        <button type='submit' class='button-color1'>保存</button>
+        <button type='submit' data-render9='class'
+          data-render10='textContent'></button>
       </form>
     </template>
 
