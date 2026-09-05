@@ -1,6 +1,7 @@
 sandbox: {
   const render=(templ, ctxt)=>{
     const prox=new Proxy(ctxt, {
+      has(){ return true; },
       get(targ, key){
         const val=targ[key];
 
