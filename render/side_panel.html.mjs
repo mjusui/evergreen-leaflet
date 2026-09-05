@@ -105,7 +105,7 @@ console.log( (html`<!DOCTYOE html>
         </div>
         <div class='margin' data-render1='data-guideid' data-onclick='open-steps'></div>
 
-        <button class='button-color2'  style='--font-size: 0.9rem'
+        <button class='button-color2' style='--font-size: 0.95rem'
           data-render1='data-id' data-render2='data-title' data-render3='data-desc'
           data-onclick='open-modal-item-guide'>✎</button>
 
@@ -176,7 +176,9 @@ console.log( (html`<!DOCTYOE html>
           </div>
         </div>
         <div class='margin'></div>
-        <button class='button-color2' data-onclick='open-modal-item-step'>✎</button>
+
+        <button class='button-color2'  style='--font-size: 0.95rem'
+          data-onclick='open-modal-item-step'>✎</button>
       </div>
       <div class='bar'>
         <div class='margin'></div>
