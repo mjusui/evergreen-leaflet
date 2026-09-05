@@ -182,7 +182,7 @@ wrap: {
     data.msgid=msgid;
 
     return await new Promise(resl =>{
-      waits.push({ msgid, targ, org, resl, });
+      waits.push({ msgid, org, resl, });
       targ.postMessage(data, org);
 console.log('postMessage:', data);
     });
@@ -193,7 +193,7 @@ console.log('postMessage:', data);
     const { msgid, }=ev.data;
 
     waits=waits.filter(w =>{
-      if( !(w.msgid === msgid && w.targ === targ) ){
+      if( !(w.msgid === msgid) ){
         return true;
       }
       const { resl, }=w;
