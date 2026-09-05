@@ -5,7 +5,6 @@ sandbox: {
       get(targ, key){
         const val=targ[key];
 
-console.log('prox.get:', String(key), arguments);
         if(val === undefined){
           return '${' + String(key) + '}';
         }
@@ -20,7 +19,7 @@ console.log('prox.get:', String(key), arguments);
   window.addEventListener("message", ev => {
     console.log('sandbox.message:', ev);
   try {
-    const { cmd, } = ev.data;
+    const { msgid, cmd, } = ev.data;
     let result=null;
 
     if(cmd === 'render'){
@@ -29,9 +28,9 @@ console.log('prox.get:', String(key), arguments);
     }else{
       throw new Error('command not found');
     }
-    ev.source.postMessage({ result, }, '*');
+    ev.source.postMessage({ msgid, result, }, '*');
   }catch(err){
-    ev.source.postMessage({ err, }, '*');
+    ev.source.postMessage({ msgid, err, }, '*');
   } });
   console.log('sandbox: init');
 }
