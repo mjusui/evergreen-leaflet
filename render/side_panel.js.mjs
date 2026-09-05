@@ -117,7 +117,8 @@ html`page: {
           const key=str.trim();
           const textareaid='textarea-' + key;
 
-          wisdom.append(elem.id, template_name, [ key, textareaid, ]);
+          wisdom.append(elem.id, template_name, [
+            guideid, stepid, key, textareaid, ]);
         });
       }else
       if(type === 'output'){
@@ -278,6 +279,17 @@ html`page: {
       const form=target.parentNode;
       form.args.placeholder=placeholder;
       form.args.required=args;
+    }
+    if(onchange === 'update-run-input'){
+      const { guideid, }=target.dataset;
+      const { name, value, }=target;
+
+      const run=Starray.getInst('store-run-' + guideid);
+      run.flatMap(item =>{
+        const { inputs, }=item;
+        inputs[name]=value;
+        return item;
+      }); 
     }
   });
 }`,
