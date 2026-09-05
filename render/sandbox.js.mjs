@@ -24,20 +24,21 @@ html`sandbox: {
 
   window.addEventListener("message", ev => {
     console.log('sandbox.message:', ev);
-  try {
     const { msgid, cmd, } = ev.data;
-    let result=null;
+    try {
+      let result=null;
 
-    if(cmd === 'render'){
-      const { templ, ctxt, }=ev.data;
-      result=render(templ, ctxt);
-    }else{
-      throw new Error('command not found');
+      if(cmd === 'render'){
+        const { templ, ctxt, }=ev.data;
+        result=render(templ, ctxt);
+      }else{
+        throw new Error('command not found');
+      }
+      ev.source.postMessage({ msgid, result, }, '*');
+    }catch(err){
+      ev.source.postMessage({ msgid, err, }, '*');
     }
-    ev.source.postMessage({ msgid, result, }, '*');
-  }catch(err){
-    ev.source.postMessage({ msgid, err, }, '*');
-  } });
+  });
   console.log('sandbox: init');
 }`,
 ], '\n').toString() );
