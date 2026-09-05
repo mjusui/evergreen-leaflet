@@ -289,13 +289,13 @@ page: {
         }
       });
     });
-    loadRunInOuts();
+    loadRunInputs();
+    loadRunOutputs();
   };
-  loadRunInOuts=()=>{
-    ([ ...document.getElementsByClassName('load-item-run-inputs'),
-       ...document.getElementsByClassName('load-item-run-outputs'), ]).forEach(async elem =>{
-      const { type, guideid, stepid, }=elem.dataset;
-      elem.id=('slot-' + type + 's-' + stepid);
+  loadRunInputs=()=>{
+    ([ ...document.getElementsByClassName('load-item-run-inputs'), ]).forEach(async elem =>{
+      const { guideid, stepid, }=elem.dataset;
+      elem.id=('slot-inputs-' + stepid);
 
       // const guide=Starray.getInst('store-guide');
       const step=Starray.getInst('store-step-' + guideid);
@@ -307,34 +307,50 @@ page: {
       wisdom.clear(elem.id);
       const template_name='template-item-run-' + type;
 
-      if(type === 'input'){
-        keys.split(',').forEach(str =>{
-          const key=str.trim();
-          const textareaid='textarea-' + key;
+      keys.split(',').forEach(str =>{
+        const key=str.trim();
+        const textareaid='textarea-' + key;
 
-          const value=inputs[key] || '';
+        const value=inputs[key] || '';
 
-          wisdom.append(elem.id, template_name, [
-            guideid, stepid, key, textareaid, value, ]);
-        });
-      }else
-      if(type === 'output'){
-        if(templ){
-          const labeltext='生成されたテキスト';
-          const textareaid='textarea-output-' + stepid;
+        wisdom.append(elem.id, template_name, [
+          guideid, stepid, key, textareaid, value, ]);
+      });
+    });
+  };
+  loadRunOutputs=()=>{
+    ([ ...document.getElementsByClassName('load-item-run-outputs'), ]).forEach(async elem =>{
+      const { guideid, stepid, }=elem.dataset;
+      elem.id=('slot-outputs-' + stepid);
 
-console.log(templ);
-          const { result: text, }=await wrap.postMessage(
-            { cmd: 'render', templ, ctxt: inputs, },
-            '*', document.getElementById('sandbox').contentWindow );
-console.log(text);
+      // const guide=Starray.getInst('store-guide');
+      const step=Starray.getInst('store-step-' + guideid);
+      const { keys, templ, }=step.list().find(a => a.id === stepid);
 
-          wisdom.append(elem.id, template_name, [
-            guideid, stepid, labeltext, textareaid, text, ]);
+      const run=Starray.getInst('store-run-' + guideid);
+      const { inputs, outputs, }=run.list()[0];
+
+      wisdom.clear(elem.id);
+      const template_name='template-item-run-' + type;
+
+      if(templ){
+        const labeltext='生成されたテキスト';
+        const textareaid='textarea-output-' + stepid;
+
+        const { err, result: text=templ, }=await wrap.postMessage(
+          { cmd: 'render', templ, ctxt: inputs, },
+          '*', document.getElementById('sandbox').contentWindow );
+
+        if(err)P
+          console.error(err);
         }
+
+        wisdom.append(elem.id, template_name, [
+          guideid, stepid, labeltext, textareaid, text, ]);
       }
     });
   };
+
 
   const funnRun=new Funnel({ lim: 1, });
   const emitRun=async (item)=>(
