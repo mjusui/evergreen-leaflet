@@ -241,6 +241,7 @@ console.log( (html`<!DOCTYOE html>
         data-render1='name' data-render2='id' cols='2'></textarea>
     </template>
 
+    <iframe src='sandbox.html'></iframe>
     ${html_script}
   </body>
 </html>`).toString() );
