@@ -104,7 +104,8 @@ console.log( (html`<!DOCTYOE html>
             data-render3='textContent' data-onclick='open-steps'></div>
         </div>
         <div class='margin' data-render1='data-guideid' data-onclick='open-steps'></div>
-        <button class='button-color2'  style='--font-size: 1rem'
+
+        <button class='button-color2'  style='--font-size: 0.9rem'
           data-render1='data-id' data-render2='data-title' data-render3='data-desc'
           data-onclick='open-modal-item-guide'>✎</button>
 
