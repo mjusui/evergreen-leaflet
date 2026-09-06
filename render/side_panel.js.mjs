@@ -296,7 +296,7 @@ html`page: {
         vals.push(guideid, gen.id(), previd, '', '', '', '');
       }
       const warn=deleting ? 'この操作を削除しますか?' : '' ;
-      const buttonclass=deleting ? 'button-color3' : 'button-color2' ;
+      const buttonclass=deleting ? 'button-color3' : 'button-color1' ;
       const buttontext=deleting ? '削除' : '保存' ;
       vals.push(warn, buttonclass, buttontext, deleting);
 
