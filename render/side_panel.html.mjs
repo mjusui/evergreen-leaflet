@@ -83,7 +83,7 @@ const handle=await main(()=>{
 console.log( (html`<!DOCTYOE html>
 <html>
   <head>${html_head}</head>
-  <body>
+  <body class='col'>
     <main id='display' class='col'>
     </main>
     <section id='modal' class='modal' data-onclick='hide-modal'></section>
