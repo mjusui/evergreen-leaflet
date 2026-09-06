@@ -534,5 +534,9 @@ page: {
 
     console.log(ev.clipboardData);
     console.log(ev.clipboardData.items);
+
+    for(const item of ev.clipboardData.items){
+      console.log(item);
+    }
   });
 }
