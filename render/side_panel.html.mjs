@@ -37,7 +37,7 @@ const scss=new Success()
   .classify('modal-hidden', 'display: none')
   .classify('modal-display', 'position: fixed', 'top: 0',
     'height: 100vh', 'width: 100%', 'background-color: rgba(55,55,55,0.5)')
-  .classify('app-theme', 'content: ""', 'position: sticky', 'top: 0', 'height: 0.5rem', 'display: block',
+  .classify('app-theme', 'content: ""', 'position: sticky', 'top: 0', 'height: 1rem', 'display: block',
     `background: linear-gradient(135deg, rgba(20, 130, 85, 1.0) 0%,
       rgba(31, 181, 115, 1.0) 45%, rgba(55, 200, 150, 1.0) 70%, rgba(45, 160, 180, 1.0) 100%)` )
   .themify('.col', 'flex-col')
