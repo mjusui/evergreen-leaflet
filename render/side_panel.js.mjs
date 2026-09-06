@@ -341,6 +341,7 @@ html`page: {
     console.log('paste:', ev);
 
     console.log(ev.clipboardData);
+    console.log(ev.clipboardData.items);
   });
 }`,
 ], '\n').toString() );
