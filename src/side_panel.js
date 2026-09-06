@@ -510,6 +510,7 @@ page: {
   });
 
   body.addEventListener('change', ev =>{
+    console.log('change:', ev);
     const { target, }=ev;
     const { onchange, }=target.dataset;
 
@@ -526,5 +527,11 @@ page: {
 
       loadRunOutputs();
     }
+  });
+
+  body.addEventListener('paste', ev =>{
+    console.log('paste:', ev);
+
+    console.log(ev.clipboardData);
   });
 }
