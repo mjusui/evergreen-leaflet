@@ -38,7 +38,7 @@ const scss=new Success()
   .classify('modal-display', 'position: fixed', 'top: 0',
     'height: 100vh', 'width: 100%', 'background-color: rgba(55,55,55,0.5)')
   .classify('app-theme', 'border-top-width: 1px',
-    `border-top-image: linear-gradient(135deg, rgba(20, 130, 85, 1.0) 0%,
+    `border-image: linear-gradient(135deg, rgba(20, 130, 85, 1.0) 0%,
       rgba(31, 181, 115, 1.0) 45%, rgba(55, 200, 150, 1.0) 70%, rgba(45, 160, 180, 1.0) 100%)` )
   .themify('.col', 'flex-col')
   .themify('.row', 'flex-row')
