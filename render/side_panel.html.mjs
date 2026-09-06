@@ -37,6 +37,9 @@ const scss=new Success()
   .classify('modal-hidden', 'display: none')
   .classify('modal-display', 'position: fixed', 'top: 0',
     'height: 100vh', 'width: 100%', 'background-color: rgba(55,55,55,0.5)')
+  .classify('app-theme', 'border-top-width: 1px',
+    `border-top-color: linear-gradient(135deg, rgba(20, 130, 85, 1.0) 0%,
+      rgba(31, 181, 115, 1.0) 45%, rgba(55, 200, 150, 1.0) 70%, rgba(45, 160, 180, 1.0) 100%)` )
   .themify('.col', 'flex-col')
   .themify('.row', 'flex-row')
   .themify('.block-col', '.col', 'block')
@@ -61,6 +64,7 @@ const scss=new Success()
   .themify('.modal', 'modal-hidden')
   .themify('.modal:not(:empty)', 'modal-display', 'flex-col')
   .themify(html`.modal:not(:empty) > *`, 'center', 'middle')
+  .themify('.app-theme', 'app-theme')
 const html_css=scss.html;
 
 const handle=await main(()=>{
@@ -79,7 +83,7 @@ const handle=await main(()=>{
 console.log( (html`<!DOCTYOE html>
 <html>
   <head>${html_head}</head>
-  <body>
+  <body class='app-theme'>
     <main id='display' class='col'>
     </main>
     <section id='modal' class='modal' data-onclick='hide-modal'></section>
