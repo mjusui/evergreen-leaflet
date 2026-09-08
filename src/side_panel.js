@@ -575,12 +575,12 @@ page: {
   const transferRunInput=async (trans)=>{
     for(const item of trans.items){
       const { kind, type, }=item;
-      console.log(kind, type);
 
       if(kind === 'string'){
-        item.getAsString(
-          (...args)=> console.log('transferRunInput:', ...args)
-        );
+        item.getAsString((...args)=>{
+          console.log(kind, type);
+          console.log('transferRunInput:', ...args)
+        });
       }else
       if(kind === 'file'){
         const file=item.getAsFile();
@@ -596,6 +596,7 @@ page: {
           reader.readAsDataURL(file);
         });
         const dataUrl=await prom;
+        console.log(kind, type);
         console.log('transferRunInput:', dataUrl);
       }
     }
