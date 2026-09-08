@@ -578,10 +578,9 @@ page: {
       console.log(kind, type);
 
       if(kind === 'string'){
-        const text=item.getAsString(
+        item.getAsString(
           (...args)=> console.log('transferRunInput:', ...args)
         );
-        console.log(text);
       }else
       if(kind === 'file'){
         const file=item.getAsFile();
@@ -597,7 +596,7 @@ page: {
           reader.readAsDataURL(file);
         });
         const dataUrl=await prom;
-        console.log(dataUrl);
+        console.log('transferRunInput:', dataUrl);
       }
     }
   };
