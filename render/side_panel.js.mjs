@@ -338,13 +338,22 @@ html`page: {
   });
 
   const transferRunInput=async (trans)=>{
-    for(const item of trans.items){
+    const vals={ images: [], pdfs: [], files: [], };
+
+    const proms=([ ...trans.items, ]).map(async item =>{
       const { kind, type, }=item;
 
       if(kind === 'string'){
-        item.getAsString((...args)=>{
+        item.getAsString((text, ...args)=>{
           console.log(kind, type);
-          console.log('transferRunInput:', ...args)
+          console.log('transferRunInput:', text, ...args)
+
+          if(type === 'text/plain'){
+            vals.text=text;
+          }
+          if(type === 'text/html'){
+            vals.html=text;
+          }
         });
       }else
       if(kind === 'file'){
@@ -360,11 +369,31 @@ html`page: {
           reader.onerror=() => rejc(reader.error);
           reader.readAsDataURL(file);
         });
-        const dataUrl=await prom;
+        const dataURL=await prom;
         console.log(kind, type);
         console.log('transferRunInput:', dataUrl);
+
+        vals.files.push( ([
+          '<a href="', dataURL, '"',
+            download="', file.name, '"',
+          '>', file.name, '</a>',
+        ]).join('') );
+
+        if(type.startsWith('image/') ){
+          vals.images.push( ([
+            '<img src="', dataURL, '"', '></img>'
+          ]).join('') );
+        }
+        if(type === 'application/pdf'){
+          vals.pdfs.push( ([
+            '<embed src="', dataURL, '"', '></embed>'
+          ]).join('') );
+        }
       }
-    }
+    });
+    await Promise.all(proms);
+
+    console.log(vals);
   };
 
   body.addEventListener('dragover', ev =>{
