@@ -572,14 +572,67 @@ page: {
     }
   });
 
+  const transferRunInput=async (trans)=>{
+    for(const item of trans.items){
+      const { kind, type, }=item;
+      console.log(kind, type);
+
+      if(kind === 'string'){
+        const text=item.getAsString(
+          (...args)=> console.log('transferRunInput:', ...args)
+        );
+        console.log(text);
+      }else
+      if(kind === 'file'){
+        const file=item.getAsFile();
+
+        if(!file){
+          console.log('no file');
+          continue;
+        }
+        const prom=new Promise((resl, rejc)=>{
+          const reader=new FileReader();
+          reader.onload=() => resl(reader.result);
+          reader.onerror=() => rejc(reader.error);
+          reader.readAsDataURL(file);
+        });
+        const dataUrl=await prom;
+        console.log(dataUrl);
+      }
+    }
+  };
+
+  body.addEventListener('dragover', ev =>{
+    console.log('dragover:', ev);
+    const { target, }=ev;
+    const { ondrop, }=target.dataset;
+
+    if(ondrop){
+      ev.preventDefault();
+    }
+  });
+  body.addEventListener('drop', ev =>{
+    console.log('drop:', ev);
+    const { target, }=ev;
+    const { ondrop, }=target.dataset;
+
+    console.log(ev.dataTransfer);
+    console.log(ev.dataTransfer.items);
+
+    if(ondrop === 'update-run-input'){
+      transferRunInput(ev.dataTransfer);
+    }
+  });
   body.addEventListener('paste', ev =>{
     console.log('paste:', ev);
+    const { target, }=ev;
+    const { onpaste, }=target.dataset;
 
     console.log(ev.clipboardData);
     console.log(ev.clipboardData.items);
 
-    for(const item of ev.clipboardData.items){
-      console.log(item);
+    if(onpaste === 'update-run-input'){
+      transferRunInput(ev.clipboardData);
     }
   });
 }
