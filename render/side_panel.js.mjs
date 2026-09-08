@@ -374,19 +374,19 @@ html`page: {
         console.log('transferRunInput:', dataUrl);
 
         vals.files.push( ([
-          '<a href="', dataURL, '"',
-            download="', file.name, '"',
+          '<a href="', dataURL, '" ',
+            'download="', file.name, '"',
           '>', file.name, '</a>',
         ]).join('') );
 
         if(type.startsWith('image/') ){
           vals.images.push( ([
-            '<img src="', dataURL, '"', '></img>'
+            '<img src="', dataURL, '" ', '></img>'
           ]).join('') );
         }
         if(type === 'application/pdf'){
           vals.pdfs.push( ([
-            '<embed src="', dataURL, '"', '></embed>'
+            '<embed src="', dataURL, '" ', '></embed>'
           ]).join('') );
         }
       }
