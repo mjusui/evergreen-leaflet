@@ -377,6 +377,7 @@ html`page: {
     }
   });
   body.addEventListener('drop', ev =>{
+    ev.preventDefault(); 
     console.log('drop:', ev);
     const { target, }=ev;
     const { ondrop, }=target.dataset;
