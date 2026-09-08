@@ -184,7 +184,6 @@ wrap: {
     return await new Promise(resl =>{
       waits.push({ msgid, org, resl, });
       targ.postMessage(data, org);
-console.log('postMessage:', data);
     });
   };
   window.addEventListener('message', ev =>{
@@ -200,6 +199,52 @@ console.log('postMessage:', data);
       resl(ev.data);
     });
   });
+
+  const Pasted=class PastedString extends String {
+    constructor(vals){
+      super(vals.text || '');
+
+      const prox=new Proxy(this, {
+        get(targ, key){
+          const val=targ[key] || vals[key];
+          return val;
+        },
+      });
+      return prox;
+    }
+  };
+  wrap.toPasted=async (clipboardData)=>{
+    const vals={};
+    const convert=(type, string)=>{
+      if(type === 'text/plain'){
+        vals.text=string;
+      }
+      if(type === 'text/html'){
+        vals.html=string;
+      }
+      if(type === 'text/csv'){
+        vals.csv=string.trim().split('
+').map(
+          row => row.split(',').map(col => col.trim() )
+        );
+      }
+      if(type === 'text/tsv'){
+        vals.tsv=string.trim().split('
+').map(
+          row => row.split('	').map(col => col.trim() )
+        );
+      }
+    };
+    for(const item of clipboardData.items){
+      console.log('clipboard:', item);
+
+      if(item.kind === 'string'){
+      }
+      if(item.kind === 'file'){
+
+      }
+    }
+  };
 }
 page: {
   const page={};
