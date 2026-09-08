@@ -575,7 +575,7 @@ page: {
   const transferRunInput=async (trans)=>{
     const vals={ images: [], pdfs: [], files: [], };
 
-    const proms=([ ...trans.items, ]).forEach(async item =>{
+    const proms=([ ...trans.items, ]).map(async item =>{
       const { kind, type, }=item;
 
       if(kind === 'string'){
