@@ -606,7 +606,7 @@ page: {
         });
         const dataURL=await prom;
         console.log(kind, type);
-        console.log('transferRunInput:', dataUrl);
+        console.log('transferRunInput:', dataURL);
 
         vals.files.push( ([
           '<a href="', dataURL, '" ',
@@ -628,7 +628,7 @@ page: {
     });
     await Promise.all(proms);
 
-    console.log(vals);
+    console.log('transferRunInput:', vals);
   };
 
   body.addEventListener('dragover', ev =>{
