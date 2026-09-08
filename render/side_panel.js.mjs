@@ -340,7 +340,7 @@ html`page: {
   const transferRunInput=async (trans)=>{
     const vals={ images: [], pdfs: [], files: [], };
 
-    const proms=([ ...trans.items, ]).map(async item =>{
+    const proms=([ ...trans.items, ]).forEach(async item =>{
       const { kind, type, }=item;
 
       if(kind === 'string'){
@@ -361,7 +361,7 @@ html`page: {
 
         if(!file){
           console.log('no file');
-          continue;
+          return;
         }
         const prom=new Promise((resl, rejc)=>{
           const reader=new FileReader();
