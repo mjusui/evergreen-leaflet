@@ -223,14 +223,12 @@ wrap: {
         vals.html=string;
       }
       if(type === 'text/csv'){
-        vals.csv=string.trim().split('
-').map(
+        vals.csv=string.trim().split('\n').map(
           row => row.split(',').map(col => col.trim() )
         );
       }
       if(type === 'text/tsv'){
-        vals.tsv=string.trim().split('
-').map(
+        vals.tsv=string.trim().split('\n').map(
           row => row.split('	').map(col => col.trim() )
         );
       }
