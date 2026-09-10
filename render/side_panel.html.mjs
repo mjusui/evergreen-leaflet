@@ -182,10 +182,10 @@ console.log( (html`<!DOCTYOE html>
         <div class='margin'></div>
 
         <button class='button-color2'  style='--font-size: 0.95rem'
-          data-onclick='open-modal-item-step'>✎</button>
+          data-kind='update' data-onclick='open-modal-item-step'>✎</button>
 
         <button class='button-color3'  style='--font-size: 1.0rem'
-          data-delete='true' data-onclick='open-modal-item-step'>-</button>
+          data-kind='delete' data-onclick='open-modal-item-step'>-</button>
       </div>
       <div class='bar'>
         <div class='margin'></div>

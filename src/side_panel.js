@@ -522,7 +522,8 @@ page: {
     }
     if(onclick === 'open-modal-item-step'){
       const { guideid, id='', previd='', }=target.closest('[data-guideid]').dataset;
-      const deleting=(target.dataset.delete === 'true');
+      const { kind , }=target.dataset;
+      const deleting=(kind === 'delete');
       const vals=[];
 
       if(id){
@@ -533,7 +534,9 @@ page: {
         vals.push(guideid, gen.id(), previd, '', '', '', '');
       }
       const warn=deleting ? 'この操作を削除しますか?' : '' ;
-      const buttonclass=deleting ? 'button-color3' : 'button-color1' ;
+      const buttonclass=kind === 'update ? 'button-color2'
+        : kind === 'delete' ? 'button-color3'
+        : 'button-color1' ;
       const buttontext=deleting ? '削除' : '保存' ;
       vals.push(warn, buttonclass, buttontext, deleting);
 
