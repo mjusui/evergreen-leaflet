@@ -120,7 +120,7 @@ html`page: {
           const key=str.trim();
           const textareaid='textarea-' + key;
 
-          const value=inputs[key] || '';
+          const value=(inputs[key] || {}).text || '';
 
           wisdom.append(elem.id, template_name, [
             guideid, stepid, key, textareaid, value, ]);
