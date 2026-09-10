@@ -420,7 +420,7 @@ html`page: {
       const vals=await resolveRunInputVals(ev.dataTransfer);
     }
   });
-  body.addEventListener('paste', ev =>{
+  body.addEventListener('paste', async ev =>{
     console.log('paste:', ev);
     const { target, }=ev;
     const { onpaste, }=target.dataset;
