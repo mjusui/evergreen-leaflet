@@ -23,8 +23,15 @@ html`sandbox: {
       },
     });
 
-    const func=new Function('ctxt', 't', 'with(ctxt){ return (t\`' + templ + '\`); }' );
-    return func(prox, t);
+    const func=new Function('ctxt', ([
+      'with(ctxt){',
+      '  const t=(strs, ...vals)=> strs.map((str, i)=> [',
+      '    str, (typeof vals[i] === "object" ? vals[i].text : vals[i]) || "",',
+      '  ]).flat(1).join("");',
+      '  return (t\`' + templ + '\`);',
+      '}', ]).join('\\n')
+    );
+    return func(prox);
   };
 
   window.addEventListener("message", ev => {
