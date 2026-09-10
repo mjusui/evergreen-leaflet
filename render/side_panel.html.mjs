@@ -132,6 +132,7 @@ console.log( (html`<!DOCTYOE html>
         <textarea id='textarea-desc' style='--cols: 5'
           name='desc' data-render3='value'></textarea>
 
+        <div class='margin'></div>
         <button type='submit' data-render5='class'
           data-render6='textContent'></button>
       </form>
@@ -218,6 +219,7 @@ console.log( (html`<!DOCTYOE html>
         <textarea id='textarea-templ' style='--cols: 5'
           name='templ' data-render7='value' cols='5'></textarea>
 
+        <div class='margin'></div>
         <button type='submit' data-render9='class'
           data-render10='textContent'></button>
       </form>
