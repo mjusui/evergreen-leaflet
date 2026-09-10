@@ -487,7 +487,9 @@ page: {
   };
   const updateRunInput=(target, vals)=>{
     const { guideid, }=target.dataset;
-    const { name, value, }=target;
+    const { name, }=target;
+
+    target.value=vals.text;
 
     const run=Starray.getInst('store-run-' + guideid);
     run.flatMap(item =>{
