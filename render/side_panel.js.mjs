@@ -299,7 +299,7 @@ html`page: {
         vals.push(guideid, gen.id(), previd, '', '', '', '');
       }
       const warn=deleting ? 'この操作を削除しますか?' : '' ;
-      const buttonclass=kind === 'update ? 'button-color2'
+      const buttonclass=kind === 'update' ? 'button-color2'
         : kind === 'delete' ? 'button-color3'
         : 'button-color1' ;
       const buttontext=deleting ? '削除' : '保存' ;
