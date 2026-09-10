@@ -284,8 +284,8 @@ console.log( (html`<!DOCTYOE html>
     </template>
     <template id='template-item-run-input'>
       <div class='col'>
-        <label class='merge-top' data-render3='textContent' data-render4='for'></label> 
-        <textarea class='merge-bottom' style='--cols: 2'
+        <label data-render3='textContent' data-render4='for'></label> 
+        <textarea style='--cols: 2'
           data-render1='data-guideid' data-render2='data-stepid'
           data-render3='name' data-render4='id' data-render5='value' data-onchange='update-run-input'
           data-onpaste='update-run-input' data-ondrop='update-run-input'
