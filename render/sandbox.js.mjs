@@ -5,11 +5,6 @@ import { html, } from '../bronze/templ/html/index.mjs';
 const handle=await main(()=>{
 console.log( html.join([
 html`sandbox: {
-  const t=(strs, ...vals)=>(
-    strs.map( (str, i)=> [
-      str, (typeof vals[i] === 'object' ? vals[i].text : vals[i]) || '',
-    ]).flat(1).join('')
-  );
   const render=(templ, ctxt)=>{
     const prox=new Proxy(ctxt, {
       has(){ return true; },
@@ -25,8 +20,8 @@ html`sandbox: {
 
     const func=new Function('ctxt', ([
       'with(ctxt){',
-      '  const t=(strs, ...vals)=> strs.map((str, i)=> [',
-      '    str, (typeof vals[i] === "object" ? vals[i].text : vals[i]) || "",',
+      '  const t=(strs, ...vals)=> strs.map((str, i)=> console.log('vals[i]:', vals[i]) || [',
+      '    str, (typeof vals[i] === "string" ? vals[i] : vals[i].text) || "",',
       '  ]).flat(1).join("");',
       '  return (t\`' + templ + '\`);',
       '}', ]).join('\\n')
