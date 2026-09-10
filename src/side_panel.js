@@ -589,7 +589,6 @@ page: {
           }else
           if(type === 'text/html'){
             vals.html=text;
-            vals.text=vals.text || vals.html;
           }
         });
       }else
@@ -627,6 +626,9 @@ page: {
       }
     });
     await Promise.all(proms);
+
+    vals.html=vals.html || vals.files.join('\n');
+    vals.text=vals.text || vals.html;
 
     console.log('transferRunInput:', vals);
     return vals;
