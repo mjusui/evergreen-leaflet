@@ -157,7 +157,7 @@ console.log( (html`<!DOCTYOE html>
     <template id='template-item-step-top'>
       <div class='bar'>
         <div class='margin'></div>
-        <button class='button-color9' style='--font-size: 1rem'
+        <button class='button-color1' style='--font-size: 1rem'
           data-render1='data-guideid'
           data-onclick='open-modal-item-step'>+</button>
       </div>
@@ -189,7 +189,7 @@ console.log( (html`<!DOCTYOE html>
       </div>
       <div class='bar'>
         <div class='margin'></div>
-        <button class='button-color9' style='--font-size: 1rem'
+        <button class='button-color1' style='--font-size: 1rem'
           data-render1='data-guideid' data-render2='data-previd'
           data-onclick='open-modal-item-step'>+</button>
       </div>
