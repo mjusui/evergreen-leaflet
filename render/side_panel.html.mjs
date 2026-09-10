@@ -111,11 +111,11 @@ console.log( (html`<!DOCTYOE html>
 
         <button class='button-color2' style='--font-size: 0.95rem'
           data-render1='data-id' data-render2='data-title' data-render3='data-desc'
-          data-onclick='open-modal-item-guide'>✎</button>
+          data-kind='update' data-onclick='open-modal-item-guide'>✎</button>
 
         <button class='button-color3' style='--font-size: 1rem'
           data-render1='data-id' data-render2='data-title' data-render3='data-desc'
-          data-delete='true' data-onclick='open-modal-item-guide'>-</button>
+          data-kind='delete' data-onclick='open-modal-item-guide'>-</button>
       </div>
     </template>
 

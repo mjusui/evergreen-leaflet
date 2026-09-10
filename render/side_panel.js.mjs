@@ -266,11 +266,13 @@ html`page: {
       page.open('display', 'template-guides');
     }
     if(onclick === 'open-modal-item-guide'){
-      const { id=gen.id(), title='', desc='', }=target.dataset;
-      const deleting=(target.dataset.delete === 'true');
+      const { id=gen.id(), title='', desc='', kind, }=target.dataset;
+      const deleting=(kind === 'delete');
 
       const warn=deleting ? 'このガイドを削除しますか?' : '' ;
-      const buttonclass=deleting ? 'button-color3' : 'button-color1' ;
+      const buttonclass=kind === 'update' ? 'button-color2'
+        : kind === 'delete' ? 'button-color3'
+        : 'button-color1' ;
       const buttontext=deleting ? '削除' : '保存' ;
 
       page.open('modal', 'template-modal-item-guide', [
