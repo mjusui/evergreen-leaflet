@@ -269,6 +269,8 @@ console.log( (html`<!DOCTYOE html>
         <div class='col load-item-run-inputs' data-render1='data-guideid'
           data-render2='data-stepid' data-onclick='open-runs' data-type='input'></div>
 
+        <div class='margin'></div>
+
         <h1 style='--font-size: 0.8rem'>生成するテキスト</h1>
         <div class='col load-item-run-outputs' data-render1='data-guideid'
           data-render2='data-stepid' data-onclick='open-runs' data-type='output'></div>
