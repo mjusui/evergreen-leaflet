@@ -29,7 +29,7 @@ const scss=new Success()
     'border-color: rgba(31,181,115,1.0)', 'color: rgba(253,253,253,1.0)', 'color: rgba(31,181,115,1.0)' ) 
   .classify('color2', 'background-color: rgba(45,115,210,0.0)',
     'border-color: rgba(45,115,210,1.0)', 'color: rgba(253,253,253,1.0)', 'color: rgba(45,115,210,1.0)' ) 
-  .classify('color3', 'background-color: rgba(220,70,70,0.2)',
+  .classify('color3', 'background-color: rgba(220,70,70,0.0)',
     'border-color: rgba(220,70,70,1.0)', 'color: rgba(253,253,253,1.0)', 'color: rgba(220,70,70,1.0)' ) 
   .classify('color9', 'background-color: rgba(220,220,220,1.0)',
     'border-color: rgba(220,220,220,1.0)', 'color: rgba(55,55,55,1.0)' ) 
