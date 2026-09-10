@@ -265,6 +265,7 @@ console.log( (html`<!DOCTYOE html>
 
         <div class='margin'></div>
 
+        <h1 style='--font-size: 0.8rem'>取得する値</h1>
         <div class='col load-item-run-inputs' data-render1='data-guideid'
           data-render2='data-stepid' data-onclick='open-runs' data-type='input'></div>
 
