@@ -244,6 +244,7 @@ html`page: {
     });
     await Promise.all(proms);
 
+console.log('vals:', vals);
     vals.html=vals.html || vals.files.join('\\n');
     vals.text=vals.text || vals.html;
 
