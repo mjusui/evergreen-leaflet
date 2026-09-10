@@ -14,7 +14,7 @@ sandbox: {
 
     const func=new Function('ctxt', ([
       'with(ctxt){',
-      '  const t=(strs, ...vals)=> strs.map((str, i)=> console.log('vals[i]:', vals[i]) || [',
+      '  const t=(strs, ...vals)=> strs.map((str, i)=> console.log("vals[i]:", vals[i]) || [',
       '    str, (typeof vals[i] === "string" ? vals[i] : vals[i].text) || "",',
       '  ]).flat(1).join("");',
       '  return (t`' + templ + '`);',
