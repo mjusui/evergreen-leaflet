@@ -255,16 +255,15 @@ console.log('vals:', vals);
     const { guideid, }=target.dataset;
     const { name, }=target;
 
-    target.value=vals.text;
-
     const run=Starray.getInst('store-run-' + guideid);
     run.flatMap(item =>{
       const { inputs, }=item;
       inputs[name]=vals.text
-        ? Object.assign(vals, inputs[name] || {})
+        ? Object.assign(inputs[name] || {}, vals)
         : undefined ;
       return item;
     }); 
+    target.value=vals.text;
 
     loadRunOutputs();
   };
