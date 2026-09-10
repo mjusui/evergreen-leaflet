@@ -25,8 +25,8 @@ const scss=new Success()
   //.classify('button-sign', '--font-size: 1rem')
   .classify('input', 'min-width: 80vw', 'font-weight: normal')
   .classify('textarea', 'min-height: calc(0.4rem + var(--cols) * 1rem)', 'max-height: 30vh', 'resize: none')
-  .classify('color1', 'background-color: rgba(31,181,115,0.5)',
-    'border-color: rgba(31,181,115,0.5)', 'color: rgba(253,253,253,1.0)', 'color: rgba(31,181,115,1.0)' ) 
+  .classify('color1', 'background-color: rgba(31,181,115,0.2)',
+    'border-color: rgba(31,181,115,0.2)', 'color: rgba(253,253,253,1.0)', 'color: rgba(31,181,115,1.0)' ) 
   .classify('color2', 'background-color: rgba(45,115,210,1.0)',
     'border-color: rgba(45,115,210,1.0)', 'color: rgba(253,253,253,1.0)' ) 
   .classify('color3', 'background-color: rgba(220,70,70,1.0)',
