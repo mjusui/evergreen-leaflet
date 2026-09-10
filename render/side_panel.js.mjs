@@ -419,6 +419,7 @@ html`page: {
 
     if(ondrop === 'update-run-input'){
       const vals=await resolveRunInputVals(ev.dataTransfer);
+      target.value=vals.text;
     }
   });
   body.addEventListener('paste', async ev =>{
