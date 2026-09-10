@@ -144,7 +144,6 @@ html`page: {
       const template_name='template-item-run-output';
 
       if(templ){
-        const labeltext='生成されたテキスト';
         const textareaid='textarea-output-' + stepid;
 
         const { err, result: text=templ, }=await wrap.postMessage(
@@ -156,7 +155,7 @@ html`page: {
         }
 
         wisdom.append(elem.id, template_name, [
-          guideid, stepid, labeltext, textareaid, text, ]);
+          guideid, stepid, textareaid, text, ]);
       }
     });
   };
@@ -189,6 +188,82 @@ html`page: {
   page.clear=(...args)=>{
     wisdom.clear(...args);
   };
+
+  const resolveRunInput=async (trans)=>{
+    // const vals={ images: [], pdfs: [], files: [], };
+    const vals={ text: '', html: '', files: [], };
+
+    const proms=([ ...trans.items, ]).map(async item =>{
+      const { kind, type, }=item;
+
+      if(kind === 'string'){
+        item.getAsString((text, ...args)=>{
+          console.log(kind, type);
+          console.log('transferRunInput:', text, ...args)
+
+          if(type === 'text/plain'){
+            vals.text=text;
+          }else
+          if(type === 'text/html'){
+            vals.html=text;
+          }
+        });
+      }else
+      if(kind === 'file'){
+        const file=item.getAsFile();
+
+        if(!file){
+          console.log('no file');
+          return;
+        }
+        const prom=new Promise((resl, rejc)=>{
+          const reader=new FileReader();
+          reader.onload=() => resl(reader.result);
+          reader.onerror=() => rejc(reader.error);
+          reader.readAsDataURL(file);
+        });
+        const dataURL=await prom;
+        console.log(kind, type);
+        console.log('transferRunInput:', dataURL);
+
+        if(type.startsWith('image/') ){
+          vals.files.push( ([
+            '<img src="', dataURL, '" ', '></img>'
+          ]).join('') );
+        }else
+        if(type === 'application/pdf'){
+          vals.files.push( ([
+            '<embed src="', dataURL, '" ', '></embed>'
+          ]).join('') );
+        }else{
+          vals.files.push( ([
+            '<a href="', dataURL, '" download>', file.name, '</a>'
+          ]).join('') );
+        }
+      }
+    });
+    await Promise.all(proms);
+
+    vals.html=vals.html || vals.files.join('\\n');
+    vals.text=vals.text || vals.html;
+
+    console.log('transferRunInput:', vals);
+    return vals;
+  };
+  const updateRunInput=(target, vals)=>{
+    const { guideid, }=target.dataset;
+    const { name, value, }=target;
+
+    const run=Starray.getInst('store-run-' + guideid);
+    run.flatMap(item =>{
+      const { inputs, }=item;
+      inputs[name]=vals || undefined;
+      return item;
+    }); 
+
+    loadRunOutputs();
+  };
+
 
 
   document.addEventListener('submit', ev =>{
@@ -328,81 +403,13 @@ html`page: {
     const { onchange, }=target.dataset;
 
     if(onchange === 'update-run-input'){
-      const { guideid, }=target.dataset;
-      const { name, value, }=target;
-
-      const run=Starray.getInst('store-run-' + guideid);
-      run.flatMap(item =>{
-        const { inputs, }=item;
-        inputs[name]=value || undefined;
-        return item;
-      }); 
-
-      loadRunOutputs();
+      const { value, }=target;
+      const vals=value
+        ? { text: value, html: value, files: [], }
+        : undefined ;
+      updateRunInput(target, vals);
     }
   });
-
-  const resolveRunInputVals=async (trans)=>{
-    // const vals={ images: [], pdfs: [], files: [], };
-    const vals={ text: '', html: '', files: [], };
-
-    const proms=([ ...trans.items, ]).map(async item =>{
-      const { kind, type, }=item;
-
-      if(kind === 'string'){
-        item.getAsString((text, ...args)=>{
-          console.log(kind, type);
-          console.log('transferRunInput:', text, ...args)
-
-          if(type === 'text/plain'){
-            vals.text=text;
-          }else
-          if(type === 'text/html'){
-            vals.html=text;
-          }
-        });
-      }else
-      if(kind === 'file'){
-        const file=item.getAsFile();
-
-        if(!file){
-          console.log('no file');
-          return;
-        }
-        const prom=new Promise((resl, rejc)=>{
-          const reader=new FileReader();
-          reader.onload=() => resl(reader.result);
-          reader.onerror=() => rejc(reader.error);
-          reader.readAsDataURL(file);
-        });
-        const dataURL=await prom;
-        console.log(kind, type);
-        console.log('transferRunInput:', dataURL);
-
-        if(type.startsWith('image/') ){
-          vals.files.push( ([
-            '<img src="', dataURL, '" ', '></img>'
-          ]).join('') );
-        }else
-        if(type === 'application/pdf'){
-          vals.files.push( ([
-            '<embed src="', dataURL, '" ', '></embed>'
-          ]).join('') );
-        }else{
-          vals.files.push( ([
-            '<a href="', dataURL, '" download>', file.name, '</a>'
-          ]).join('') );
-        }
-      }
-    });
-    await Promise.all(proms);
-
-    vals.html=vals.html || vals.files.join('\\n');
-    vals.text=vals.text || vals.html;
-
-    console.log('transferRunInput:', vals);
-    return vals;
-  };
 
   body.addEventListener('dragover', ev =>{
     console.log('dragover:', ev);
@@ -424,7 +431,7 @@ html`page: {
 
     if(ondrop === 'update-run-input'){
       const vals=await resolveRunInputVals(ev.dataTransfer);
-      target.value=vals.text;
+      updateRunInput(target, vals);
     }
   });
   body.addEventListener('paste', async ev =>{
@@ -437,6 +444,7 @@ html`page: {
 
     if(onpaste === 'update-run-input'){
       const vals=await resolveRunInputVals(ev.clipboardData);
+      updateRunInput(target, vals);
     }
   });
 }`,
