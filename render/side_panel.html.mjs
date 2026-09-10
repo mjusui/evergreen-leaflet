@@ -269,6 +269,8 @@ console.log( (html`<!DOCTYOE html>
         <div class='col load-item-run-outputs' data-render1='data-guideid'
           data-render2='data-stepid' data-onclick='open-runs' data-type='output'></div>
 
+        <div class='margin'></div>
+        <div class='margin'></div>
         <button class='button-color1' data-render1='data-guideid'
           data-render3='data-stepid' data-render8='textContent'
           data-render10='disabled' data-onclick='open-runs'></button>
