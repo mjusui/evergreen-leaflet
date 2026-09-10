@@ -1,9 +1,8 @@
 sandbox: {
   const t=(strs, ...vals)=>(
-    ([ strs[0], strs.slice(1).map(
-      (str, i)=> [ typeof vals[i] === 'object'
-        ? vals[i].text ? vals[i], str, ]
-    ) ]).flat(2).join('')  
+    strs.map( (str, i)=> [
+      str, (typeof vals[i] === 'object' ? vals[i].text : vals[i]) || '',
+    ]).flat(1).join('')
   );
   const render=(templ, ctxt)=>{
     const prox=new Proxy(ctxt, {
