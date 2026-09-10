@@ -572,7 +572,7 @@ page: {
     }
   });
 
-  const transferRunInput=async (trans)=>{
+  const resolveRunInputVals=async (trans)=>{
     const vals={ images: [], pdfs: [], files: [], };
 
     const proms=([ ...trans.items, ]).map(async item =>{
@@ -628,7 +628,9 @@ page: {
     });
     await Promise.all(proms);
 
+
     console.log('transferRunInput:', vals);
+    return vals;
   };
 
   body.addEventListener('dragover', ev =>{
@@ -640,7 +642,7 @@ page: {
       ev.preventDefault();
     }
   });
-  body.addEventListener('drop', ev =>{
+  body.addEventListener('drop', async ev =>{
     ev.preventDefault(); 
     console.log('drop:', ev);
     const { target, }=ev;
@@ -650,7 +652,7 @@ page: {
     console.log(ev.dataTransfer.items);
 
     if(ondrop === 'update-run-input'){
-      transferRunInput(ev.dataTransfer);
+      const vals=await resolveRunInputVals(ev.dataTransfer);
     }
   });
   body.addEventListener('paste', ev =>{
@@ -662,7 +664,7 @@ page: {
     console.log(ev.clipboardData.items);
 
     if(onpaste === 'update-run-input'){
-      transferRunInput(ev.clipboardData);
+      const vals=await resolveRunInputVals(ev.clipboardData);
     }
   });
 }
