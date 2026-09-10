@@ -665,7 +665,7 @@ page: {
     console.log(ev.dataTransfer.items);
 
     if(ondrop === 'update-run-input'){
-      const vals=await resolveRunInputVals(ev.dataTransfer);
+      const vals=await resolveRunInput(ev.dataTransfer);
       updateRunInput(target, vals);
     }
   });
@@ -678,7 +678,7 @@ page: {
     console.log(ev.clipboardData.items);
 
     if(onpaste === 'update-run-input'){
-      const vals=await resolveRunInputVals(ev.clipboardData);
+      const vals=await resolveRunInput(ev.clipboardData);
       updateRunInput(target, vals);
     }
   });
