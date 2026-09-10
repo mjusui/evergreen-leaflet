@@ -1,4 +1,10 @@
 sandbox: {
+  const t=(strs, ...vals)=>(
+    ([ strs[0], strs.slice(1).map(
+      (str, i)=> [ typeof vals[i] === 'object'
+        ? vals[i].text ? vals[i], str, ]
+    ) ]).flat(2).join('')  
+  );
   const render=(templ, ctxt)=>{
     const prox=new Proxy(ctxt, {
       has(){ return true; },
@@ -12,8 +18,8 @@ sandbox: {
       },
     });
 
-    const func=new Function('ctxt', 'with(ctxt){ return (`' + templ + '`); }' );
-    return func(prox);
+    const func=new Function('ctxt', 't', 'with(ctxt){ return (t`' + templ + '`); }' );
+    return func(prox, t);
   };
 
   window.addEventListener("message", ev => {

@@ -573,7 +573,8 @@ page: {
   });
 
   const resolveRunInputVals=async (trans)=>{
-    const vals={ images: [], pdfs: [], files: [], };
+    // const vals={ images: [], pdfs: [], files: [], };
+    const vals={ text: '', html: '', files: [], };
 
     const proms=([ ...trans.items, ]).map(async item =>{
       const { kind, type, }=item;
@@ -585,9 +586,10 @@ page: {
 
           if(type === 'text/plain'){
             vals.text=text;
-          }
+          }else
           if(type === 'text/html'){
             vals.html=text;
+            vals.text=vals.text || vals.html;
           }
         });
       }else
@@ -608,26 +610,23 @@ page: {
         console.log(kind, type);
         console.log('transferRunInput:', dataURL);
 
-        vals.files.push( ([
-          '<a href="', dataURL, '" ',
-            'download="', file.name, '"',
-          '>', file.name, '</a>',
-        ]).join('') );
-
         if(type.startsWith('image/') ){
-          vals.images.push( ([
+          vals.files.push( ([
             '<img src="', dataURL, '" ', '></img>'
           ]).join('') );
-        }
+        }else
         if(type === 'application/pdf'){
-          vals.pdfs.push( ([
+          vals.files.push( ([
             '<embed src="', dataURL, '" ', '></embed>'
+          ]).join('') );
+        }else{
+          vals.files.push( ([
+            '<a href="', dataURL, '" download>', file.name, '</a>'
           ]).join('') );
         }
       }
     });
     await Promise.all(proms);
-
 
     console.log('transferRunInput:', vals);
     return vals;
