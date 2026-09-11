@@ -298,9 +298,9 @@ console.log( (html`<!DOCTYOE html>
           data-render1='data-guideid' data-render2='data-stepid'
           data-render3='id' data-render4='value' data-onclick='copy-run-output'
           cols='5' readonly></textarea> -->
-        <div style='--font-size: 0.8rem'
+        <pre style='--font-size: 0.8rem'
           data-render1='data-guideid' data-render2='data-stepid'
-          data-render3='id' data-render4='innerHTML' data-onclick='copy-run-output'></div>
+          data-render3='id' data-render4='innerHTML' data-onclick='copy-run-output'></pre>
       </div>
     </template>
 
