@@ -646,7 +646,7 @@ console.log('vals:', vals);
     if(onchange === 'update-run-input'){
       const { value, }=target;
       const vals=value
-        ? { text: value, html: value, files: [], }
+        ? { text: value, }
         : undefined ;
       updateRunInput(target, vals);
     }
