@@ -56,7 +56,7 @@ const scss=new Success()
   .themify('.button-sign-color1', 'border', 'button', 'color1')
   .themify('input', 'border', 'button', 'input')
   .themify('textarea', 'border', 'button', 'input', 'textarea')
-  .themify('.run-output', 'border', 'button', 'input')
+  .themify('.run-output', 'border', 'button', 'input', 'textarea')
   .themify('label', 'button', 'input')
   .themify('label.required::after', 'required')
   .themify('.merge-top', 'border', 'merge-top')
@@ -299,7 +299,7 @@ console.log( (html`<!DOCTYOE html>
           data-render1='data-guideid' data-render2='data-stepid'
           data-render3='id' data-render4='value' data-onclick='copy-run-output'
           cols='5' readonly></textarea> -->
-        <pre class='run-output' style='--font-size: 0.8rem'
+        <pre class='run-output' style='--cols: 5'
           data-render1='data-guideid' data-render2='data-stepid'
           data-render3='id' data-render4='innerHTML' data-onclick='copy-run-output'></pre>
       </div>
