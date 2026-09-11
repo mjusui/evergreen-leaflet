@@ -17,15 +17,15 @@ console.log(src);
 console.log(dst);
 
       if(!src) break;
-      const idx=cnt;
+      const swt=(cnt % 2);
       cnt++;
 
-      const sig=sigs[idx];
+      const sig=sigs[swt];
       const strs=src.split(sig);
       src=strs.slice(1).join(sig);
 
       let str=strs[0];
-      if(idx % 2){
+      if(swt){
         const evaluate=new Function('ctxt',
           'with(ctxt){'
         + '  return (' + str + ');'
