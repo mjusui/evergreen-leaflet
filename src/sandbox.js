@@ -28,6 +28,7 @@ console.log(dst);
 
         try {
           let val=evaluate(ctxt);
+console.log('val:', val);
 
           if(val === 'object'){
             val=val.text;
