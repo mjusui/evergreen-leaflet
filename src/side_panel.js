@@ -425,8 +425,8 @@ page: {
   };
 
   const resolveRunInput=async (trans)=>{
-    // const vals={ images: [], pdfs: [], files: [], };
-    const vals={ text: '', html: '', files: [], };
+    const vals={ text: '', html: '',
+      files: [], filenames: [], };
 
     const proms=([ ...trans.items, ]).map(async item =>{
       const { kind, type, }=item;
@@ -461,6 +461,7 @@ page: {
         console.log(kind, type);
         console.log('transferRunInput:', dataURL);
 
+        vals.filenames.push(file.name);
         if(type.startsWith('image/') ){
           vals.files.push( ([
             '<img src="', dataURL, '" ', '></img>'
@@ -481,7 +482,7 @@ page: {
 
 console.log('vals:', vals);
     vals.html=vals.html || vals.files.join('\n');
-    vals.text=vals.text || vals.html;
+    vals.text=vals.text || vals.filenames.join('\n');
 
     console.log('transferRunInput:', vals);
     return vals;
