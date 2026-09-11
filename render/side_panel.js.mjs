@@ -262,11 +262,12 @@ console.log('vals:', vals);
 
       if( !(last && vals && last.text === vals.text) ){
         inputs[name]=vals;
-        target.value=vals.text;
       }
       return item;
     }); 
-
+    if(vals){
+      target.value=vals.text;
+    }
     loadRunOutputs();
   };
 
