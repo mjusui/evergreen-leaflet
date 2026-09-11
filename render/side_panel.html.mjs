@@ -273,7 +273,6 @@ console.log( (html`<!DOCTYOE html>
 
         <div class='margin'></div>
 
-        <h1 style='--font-size: 0.8rem'>生成されたテキスト</h1>
         <div class='col load-item-run-outputs' data-render1='data-guideid'
           data-render2='data-stepid' data-onclick='open-runs' data-type='output'></div>
 
@@ -300,6 +299,7 @@ console.log( (html`<!DOCTYOE html>
           data-render1='data-guideid' data-render2='data-stepid'
           data-render3='id' data-render4='value' data-onclick='copy-run-output'
           cols='5' readonly></textarea> -->
+        <h1 style='--font-size: 0.8rem'>生成されたテキスト</h1>
         <pre class='run-output' style='--cols: 5'
           data-render1='data-guideid' data-render2='data-stepid'
           data-render3='id' data-render4='innerHTML' data-onclick='copy-run-output'></pre>
