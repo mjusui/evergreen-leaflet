@@ -40,6 +40,7 @@ console.log(dst);
           }
           str=val;
         }catch(err){
+console.log('evaluate:', err);
           str='{{' + str + '}}'
         }
       }
