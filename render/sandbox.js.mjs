@@ -12,10 +12,6 @@ html`sandbox: {
     let src=templ;
     let dst='';
     while(true){
-console.log('src,dst:');
-console.log(src);
-console.log(dst);
-
       if(!src) break;
       const swt=(cnt % 2);
       cnt++;
@@ -46,7 +42,6 @@ console.log(dst);
           }
           str=val;
         }catch(err){
-console.log('evaluate:', err);
           str='{{' + str + '}}'
         }
       }
