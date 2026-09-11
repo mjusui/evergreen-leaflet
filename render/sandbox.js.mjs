@@ -6,6 +6,47 @@ const handle=await main(()=>{
 console.log( html.join([
 html`sandbox: {
   const render=(templ, ctxt)=>{
+    const sigs=[ '{{', '}}', ];
+
+    let cnt=0;
+    let src=templ;
+    let dst='';
+    while(true){
+      if(!src) break;
+      const idx=cnt;
+      cnt++;
+
+      const sig=sigs[idx];
+      const strs=src.split(sig);
+      src=strs.slice(1).join(sig);
+
+      let str=strs[0];
+      if(idx % 2){
+        const evaluate=new Function('ctxt',
+          'with(ctxt){'
+        + '  return (' + str + ');'
+        + '}'
+        );
+
+        try {
+          let val=evaluate(ctxt);
+
+          if(val === 'object'){
+            val=val.text;
+          }
+          if(val === undefined){
+            throw new Error('evaluate to undefined');
+          }
+          str=val;
+        }catch(err){
+          str='{{' + str + '}}'
+        }
+      }
+      dst+=str;
+    }
+    return dst;
+  };
+  const render2=(templ, ctxt)=>{
     const prox=new Proxy(ctxt, {
       has(){ return true; },
       get(targ, key){
