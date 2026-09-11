@@ -294,10 +294,12 @@ console.log( (html`<!DOCTYOE html>
     </template>
     <template id='template-item-run-output'>
       <div class='col'>
-        <textarea style='--cols: 5'
+        <!-- <textarea style='--cols: 5'
           data-render1='data-guideid' data-render2='data-stepid'
           data-render3='id' data-render4='value' data-onclick='copy-run-output'
-          cols='5' readonly></textarea>
+          cols='5' readonly></textarea> -->
+        <div data-render1='data-guideid' data-render2='data-stepid'
+          data-render3='id' data-render4='innerHTML' data-onclick='copy-run-output'></div>
       </div>
     </template>
 
