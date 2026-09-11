@@ -500,10 +500,11 @@ console.log('vals:', vals);
       }
       return item;
     }); 
+    loadRunOutputs();
+
     if(vals){
       target.value=vals.text;
     }
-    loadRunOutputs();
   };
 
 
