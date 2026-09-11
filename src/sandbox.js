@@ -11,7 +11,6 @@ sandbox: {
         return Reflect.get(...arguments);
       },
     });
-console.log('ctxt:', ctxt);
 
     const func=new Function('ctxt', ([
       'with(ctxt){',

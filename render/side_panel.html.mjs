@@ -287,7 +287,7 @@ console.log( (html`<!DOCTYOE html>
         <label data-render3='textContent' data-render4='for'></label> 
         <textarea style='--cols: 2'
           data-render1='data-guideid' data-render2='data-stepid'
-          data-render3='name' data-render4='id' data-render5='value' data-oninput='update-run-input'
+          data-render3='name' data-render4='id' data-render5='value' data-onchange='update-run-input'
           data-onpaste='update-run-input' data-ondrop='update-run-input'
           placeholder='値を貼り付けてください' cols='2'></textarea>
       </div>

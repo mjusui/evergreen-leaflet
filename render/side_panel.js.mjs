@@ -258,9 +258,11 @@ console.log('vals:', vals);
     const run=Starray.getInst('store-run-' + guideid);
     run.flatMap(item =>{
       const { inputs, }=item;
-      inputs[name]=vals.text
-        ? Object.assign(inputs[name] || {}, vals)
-        : undefined ;
+      const last=inputs[name];
+
+      if(last && !(last.text === vals.text) ){
+        inputs[name]=vals;
+      }
       return item;
     }); 
     target.value=vals.text;
@@ -401,17 +403,8 @@ console.log('vals:', vals);
     }
   });
 
-  let lockInput=false;
-  body.addEventListener('input', async ev =>{
+  body.addEventListener('change', async ev =>{
     console.log('input:', ev);
-    if(lockInput){
-      return;
-    }
-    lockInput=true;
-
-    await new Promise(resl => setTimeout(resl, 500) );
-    lockInput=false;
-
     const { target, }=ev;
     const { onchange, }=target.dataset;
 
