@@ -495,7 +495,7 @@ console.log('vals:', vals);
       const { inputs, }=item;
       const last=inputs[name];
 
-      if( !(last && last.text === vals.text) ){
+      if( !(last && vals && last.text === vals.text) ){
         inputs[name]=vals;
       }
       return item;
