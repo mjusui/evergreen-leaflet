@@ -28,9 +28,11 @@ console.log(dst);
 
         try {
           let val=evaluate(ctxt);
-console.log('val:', val);
 
-          if(val === 'object'){
+          if(val === null){
+            val='null';
+          }
+          if(typeof val === 'object'){
             val=val.text;
           }
           if(val === undefined){
