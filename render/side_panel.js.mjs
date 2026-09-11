@@ -260,7 +260,7 @@ console.log('vals:', vals);
       const { inputs, }=item;
       const last=inputs[name];
 
-      if(last && !(last.text === vals.text) ){
+      if( !(last && last.text === vals.text) ){
         inputs[name]=vals;
       }
       return item;
@@ -403,7 +403,7 @@ console.log('vals:', vals);
     }
   });
 
-  body.addEventListener('change', async ev =>{
+  body.addEventListener('change', ev =>{
     console.log('input:', ev);
     const { target, }=ev;
     const { onchange, }=target.dataset;
