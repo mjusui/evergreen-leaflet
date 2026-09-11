@@ -636,8 +636,17 @@ console.log('vals:', vals);
     }
   });
 
-  body.addEventListener('change', ev =>{
-    console.log('change:', ev);
+  let lockInput=false;
+  body.addEventListener('input', async ev =>{
+    console.log('input:', ev);
+    if(lockInput){
+      return;
+    }
+    lockInput=true;
+
+    await new Promise(resl => setTimeout(resl, 500) );
+    lockInput=false;
+
     const { target, }=ev;
     const { onchange, }=target.dataset;
 
