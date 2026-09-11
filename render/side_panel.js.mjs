@@ -382,7 +382,7 @@ console.log('vals:', vals);
       }else{
         vals.push(guideid, gen.id(), previd, '', '', '', '');
       }
-      const warn=deleting ? 'この操作を削除しますか?' : '' ;
+      const warn=deleting ? 'このステップを削除しますか?' : '' ;
       const buttonclass=kind === 'update' ? 'button-color2'
         : kind === 'delete' ? 'button-color3'
         : 'button-color1' ;
