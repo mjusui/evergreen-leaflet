@@ -45,14 +45,15 @@ body::before { /* app-theme */ content: ""; position: sticky; top: 0; height: 1r
       </section>
     </template>
     <template id='template-item-guide'>
-      <div class='block-row-shadow'>
-        <div class='col' data-render1='data-guideid' data-onclick='open-steps'>
+      <div class='block-row-shadow' data-render1='dat-guideid'
+        data-onclick='open-steps'>
+        <div class='col'>
           <h1 style='--font-size: 0.8rem'
-            data-render2='textContent' data-onclick='open-steps'></h1>
+            data-render2='textContent' ></h1>
           <div style='--font-size: 0.6rem'
-            data-render3='textContent' data-onclick='open-steps'></div>
+            data-render3='textContent'></div>
         </div>
-        <div class='margin' data-render1='data-guideid' data-onclick='open-steps'></div>
+        <div class='margin'></div>
 
         <button class='button-color2' style='--font-size: 0.95rem'
           data-render1='data-id' data-render2='data-title' data-render3='data-desc'

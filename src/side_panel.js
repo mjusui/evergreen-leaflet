@@ -200,48 +200,25 @@ wrap: {
     });
   });
 
-  const Pasted=class PastedString extends String {
-    constructor(vals){
-      super(vals.text || '');
+  wrap.datasets=(elem)=>{
+    const resolve=(node, key)=>{
+      const { dataset, parent, }=node;
+      const val=dataset[key]
 
-      const prox=new Proxy(this, {
-        get(targ, key){
-          const val=targ[key] || vals[key];
-          return val;
-        },
-      });
-      return prox;
-    }
-  };
-  wrap.toPasted=async (clipboardData)=>{
-    const vals={};
-    const convert=(type, string)=>{
-      if(type === 'text/plain'){
-        vals.text=string;
+      if(val === undefined){
+        if(parent){
+          return resolve(parent, key);
+        }
+        return;
       }
-      if(type === 'text/html'){
-        vals.html=string;
-      }
-      if(type === 'text/csv'){
-        vals.csv=string.trim().split('\n').map(
-          row => row.split(',').map(col => col.trim() )
-        );
-      }
-      if(type === 'text/tsv'){
-        vals.tsv=string.trim().split('\n').map(
-          row => row.split('	').map(col => col.trim() )
-        );
-      }
+      return val;
     };
-    for(const item of clipboardData.items){
-      console.log('clipboard:', item);
-
-      if(item.kind === 'string'){
-      }
-      if(item.kind === 'file'){
-
-      }
-    }
+    const prox=new Proxy({}, {
+      get(targ, key){
+        return resolve(elem, key);
+      },
+    });
+    return prox;
   };
 }
 page: {
