@@ -555,6 +555,7 @@ console.log('vals:', vals);
     const { target, }=ev;
     // const { onclick, }=target.dataset;
     const { onclick, }=wrap.datasets(target);
+console.log('onclick', onclick);
 
     if(onclick === 'hide-modal'){
       page.clear('modal');
