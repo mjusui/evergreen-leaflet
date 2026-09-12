@@ -553,7 +553,8 @@ console.log('vals:', vals);
   body.addEventListener('click', ev =>{
     console.log('click:', ev.target);
     const { target, }=ev;
-    const { onclick, }=target.dataset;
+    // const { onclick, }=target.dataset;
+    const { onclick, }=wrap.datasets(target);
 
     if(onclick === 'hide-modal'){
       page.clear('modal');
@@ -576,7 +577,8 @@ console.log('vals:', vals);
         buttontext, deleting, ]);
     }
     if(onclick === 'open-steps'){
-      const { guideid, }=target.closest('[data-guideid]').dataset;
+      // const { guideid, }=target.closest('[data-guideid]').dataset;
+      const { guideid, }=wrap.datasets(target);
       const star=Starray.getInst('store-guide');
       const { title, desc, }=star.list().find(a => a.id === guideid);
       page.open('display', 'template-steps', [ guideid, title, desc, ]);
