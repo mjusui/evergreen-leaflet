@@ -202,8 +202,9 @@ wrap: {
 
   wrap.datasets=(elem)=>{
     const resolve=(node, key)=>{
-      const { dataset, parent, }=node;
+      const { dataset, parentElement: parent, }=node;
       const val=dataset[key]
+console.log('wrap.datasets:', node, key, val);
 
       if(val === undefined){
         if(parent){
