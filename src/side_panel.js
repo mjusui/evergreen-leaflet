@@ -253,7 +253,8 @@ page: {
   const loadSteps=()=>{
     ([ ...document.getElementsByClassName('load-item-steps'), ]).forEach(elem =>{
       console.log('load-item-steps:', elem);
-      const { guideid, }=elem.closest('[data-guideid]').dataset;
+      // const { guideid, }=elem.closest('[data-guideid]').dataset;
+      const { guideid, }=wrap.datasets(elem);
       const star=Starray.getInst('store-step-' + guideid);
       const items=star.list();
 
@@ -273,7 +274,8 @@ page: {
   };
   const loadRuns=()=>{
     ([ ...document.getElementsByClassName('load-item-runs'), ]).forEach(elem =>{
-      const { guideid, }=elem.dataset;
+      //const { guideid, }=elem.dataset;
+      const { guideid, }=wrap.datasets(elem);
 
       const guide=Starray.getInst('store-guide');
       const { title , desc, }=guide.list().find(a => a.id === guideid);
@@ -281,7 +283,8 @@ page: {
       const step=Starray.getInst('store-step-' + guideid);
       const items=step.list();
 
-      const stepid=(elem.dataset.stepid || items[0].id);
+      //const stepid=(elem.dataset.stepid || items[0].id);
+      const stepid=(wrap.datasets(elem).stepid || items[0].id);
 
       wisdom.clear(elem.id);
 
@@ -314,7 +317,8 @@ page: {
   };
   loadRunInputs=()=>{
     ([ ...document.getElementsByClassName('load-item-run-inputs'), ]).forEach(async elem =>{
-      const { guideid, stepid, }=elem.dataset;
+      //const { guideid, stepid, }=elem.dataset;
+      const { guideid, stepid, }=wrap.datasets(elem);
       elem.id=('slot-inputs-' + stepid);
 
       // const guide=Starray.getInst('store-guide');
@@ -342,7 +346,8 @@ page: {
   };
   loadRunOutputs=()=>{
     ([ ...document.getElementsByClassName('load-item-run-outputs'), ]).forEach(async elem =>{
-      const { guideid, stepid, }=elem.dataset;
+      //const { guideid, stepid, }=elem.dataset;
+      const { guideid, stepid, }=wrap.datasets(elem);
       elem.id=('slot-outputs-' + stepid);
 
       // const guide=Starray.getInst('store-guide');
@@ -622,7 +627,7 @@ console.log('vals:', vals);
   });
 
   body.addEventListener('change', ev =>{
-    console.log('input:', ev);
+    console.log('change:', ev);
     const { target, }=ev;
     const { onchange, }=target.dataset;
 
