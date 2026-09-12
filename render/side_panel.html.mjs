@@ -257,26 +257,22 @@ console.log( (html`<!DOCTYOE html>
         data-onclick='open-runs'>
         <div class='row'>
           <div style='--font-size: 0.8rem'>(
-            <span data-render6='textContent' data-onclick='open-runs'></span>${ ' / '
-           }<span data-render7='textContent' data-onclick='open-runs'></span>
+            <span data-render6='textContent'></span>${ ' / '
+           }<span data-render7='textContent'></span>
           )</div>
 
-          <h1 style='--font-size: 0.8rem' data-render11='textContent'
-            data-onclick='open-runs'></h1>
+          <h1 style='--font-size: 0.8rem' data-render11='textContent'></h1>
         </div>
-        <pre style='--font-size: 0.8rem' data-render12='textContent'
-          data-render1='data-guideid' data-render2='data-stepid' data-onclick='open-runs'></pre>
+        <pre style='--font-size: 0.8rem' data-render12='textContent'></pre>
 
         <div class='margin'></div>
 
         <h1 style='--font-size: 0.8rem'>取得する値</h1>
-        <div class='col load-item-run-inputs' data-render1='data-guideid'
-          data-render2='data-stepid' data-onclick='open-runs' data-type='input'></div>
+        <div class='col load-item-run-inputs' data-type='input'></div>
 
         <div class='margin'></div>
 
-        <div class='col load-item-run-outputs' data-render1='data-guideid'
-          data-render2='data-stepid' data-onclick='open-runs' data-type='output'></div>
+        <div class='col load-item-run-outputs' data-type='output'></div>
 
         <div class='margin'></div>
         <div class='margin'></div>

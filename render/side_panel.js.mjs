@@ -343,7 +343,6 @@ console.log('vals:', vals);
     const { target, }=ev;
     // const { onclick, }=target.dataset;
     const { onclick, }=wrap.datasets(target);
-console.log('onclick', onclick);
 
     if(onclick === 'hide-modal'){
       page.clear('modal');
@@ -395,7 +394,8 @@ console.log('onclick', onclick);
       page.open('modal', 'template-modal-item-step', vals);
     }
     if(onclick === 'open-runs'){
-      const { guideid, stepid='', }=target.closest('[data-guideid]').dataset;
+      //const { guideid, stepid='', }=target.closest('[data-guideid]').dataset;
+      const { guideid, stepid='', }=wrap.datasets(target);
 
       const guide=Starray.getInst('store-guide');
       const { title , desc, }=guide.list().find(a => a.id === guideid);
