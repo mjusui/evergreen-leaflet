@@ -103,7 +103,7 @@ console.log( (html`<!DOCTYOE html>
       </section>
     </template>
     <template id='template-item-guide'>
-      <div class='block-row-shadow' data-render1='dat-guideid'
+      <div class='block-row-shadow' data-render1='data-guideid'
         data-onclick='open-steps'>
         <div class='col'>
           <h1 style='--font-size: 0.8rem'
