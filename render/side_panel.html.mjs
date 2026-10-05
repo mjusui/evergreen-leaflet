@@ -17,6 +17,7 @@ const scss=new Success()
   .classify('pos-left', 'left: 0').classify('pos-right', 'right: 0')
   .classify('shadow', 'box-shadow: 0 0 1rem 1px rgba(55,55,55,0.1)')
   .classify('margin-auto', 'margin: auto')
+  .classify('top', 'margin-bottom: auto').classify('bottom', 'margin-top: auto')
   .classify('center', 'margin-left: auto', 'margin-right: auto')
   .classify('middle', 'margin-top: auto', 'margin-bottom: auto')
   .classify('merge-top', 'margin-bottom: 0', 'border-bottom-width: 0')
@@ -71,7 +72,7 @@ const scss=new Success()
   .themify(html`.modal:not(:empty) > *`, 'center', 'middle')
   .themify('body::before', 'app-theme')
   .themify('body', 'body')
-  .themify('footer', 'sticky', 'pos-bottom')
+  .themify('footer', 'sticky', 'pos-bottom', 'bottom')
 const html_css=scss.html;
 
 const handle=await main(()=>{
