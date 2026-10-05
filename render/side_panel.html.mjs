@@ -58,6 +58,7 @@ const scss=new Success()
   .themify('.button-color2', 'border', 'button', 'color2')
   .themify('.button-color3', 'border', 'button', 'color3')
   .themify('.button-color9', 'border', 'button', 'color9')
+  .themify('.button-color9-shadow', '.button-color9', 'shadow')
   .themify('.button-sign-color1', 'border', 'button', 'color1')
   .themify('input', 'border', 'button', 'input')
   .themify('textarea', 'border', 'button', 'input', 'textarea')
@@ -98,11 +99,11 @@ console.log( (html`<!DOCTYOE html>
 
     <div class='margin'></div>
 
-    <footer class='block-row-shadow'>
+    <footer class='block-row'>
         <div class='margin'></div>
 
-        <button class='button-color9' style='--font-size: 1rem'
-          data-onclick='open-modal-settings'>*</button>
+        <button class='button-color9-shadow' style='--font-size: 1rem'
+          data-onclick='open-modal-settings'>=</button>
         </div>
     </footer>
 
