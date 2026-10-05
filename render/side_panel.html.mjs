@@ -29,6 +29,8 @@ const scss=new Success()
   //.classify('button-sign', '--font-size: 1rem')
   .classify('input', 'min-width: 80vw', 'font-weight: normal')
   .classify('textarea', 'min-height: calc(0.4rem + var(--cols) * 1rem)', 'max-height: 20vh', 'resize: none')
+  .classify('color0', `background: linear-gradient(135deg, rgba(20, 130, 85, 1.0) 0%,
+      rgba(31, 181, 115, 1.0) 45%, rgba(55, 200, 150, 1.0) 70%, rgba(45, 160, 180, 1.0) 100%)` )
   .classify('color1', 'background-color: rgba(31,181,115,0.0)',
     'border-color: rgba(31,181,115,1.0)', 'color: rgba(253,253,253,1.0)', 'color: rgba(31,181,115,1.0)' ) 
   .classify('color2', 'background-color: rgba(45,115,210,0.0)',
@@ -41,9 +43,7 @@ const scss=new Success()
   .classify('modal-hidden', 'display: none')
   .classify('modal-display', 'position: fixed', 'top: 0',
     'height: 100vh', 'width: 100%', 'background-color: rgba(55,55,55,0.5)')
-  .classify('app-theme', 'content: ""', 'position: sticky', 'top: 0', 'height: 1rem', 'display: block',
-    'z-index: 100', `background: linear-gradient(135deg, rgba(20, 130, 85, 1.0) 0%,
-      rgba(31, 181, 115, 1.0) 45%, rgba(55, 200, 150, 1.0) 70%, rgba(45, 160, 180, 1.0) 100%)` )
+  .classify('app-theme', 'content: ""', 'height: 1rem', 'display: block', 'z-index: 100' )
   .classify('body', 'min-height: 100vh')
   .themify('.col', 'flex-col')
   .themify('.row', 'flex-row')
@@ -70,9 +70,9 @@ const scss=new Success()
   .themify('.modal', 'modal-hidden')
   .themify('.modal:not(:empty)', 'modal-display', 'flex-col')
   .themify(html`.modal:not(:empty) > *`, 'center', 'middle')
-  .themify('body::before', 'app-theme')
+  .themify('body::before', 'app-theme', 'sticky', 'pos-top', 'color0')
   .themify('body', 'body')
-  .themify('footer', 'sticky', 'pos-bottom')
+  .themify('footer', 'sticky', 'pos-bottom', 'color0')
 const html_css=scss.html;
 
 const handle=await main(()=>{
