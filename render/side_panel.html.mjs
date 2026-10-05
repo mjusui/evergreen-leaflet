@@ -72,7 +72,7 @@ const scss=new Success()
   .themify(html`.modal:not(:empty) > *`, 'center', 'middle')
   .themify('body::before', 'app-theme')
   .themify('body', 'body')
-  .themify('footer', 'sticky', 'pos-bottom', 'bottom')
+  .themify('footer', 'sticky', 'pos-bottom')
 const html_css=scss.html;
 
 const handle=await main(()=>{
@@ -96,6 +96,7 @@ console.log( (html`<!DOCTYOE html>
     </main>
     <section id='modal' class='modal' data-onclick='hide-modal'></section>
 
+    <div class='margin'></div>
     <footer>
     </footer>
 
