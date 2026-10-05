@@ -72,7 +72,7 @@ const scss=new Success()
   .themify(html`.modal:not(:empty) > *`, 'center', 'middle')
   .themify('body::before', 'app-theme', 'sticky', 'pos-top', 'color0')
   .themify('body', 'body')
-  .themify('footer', 'sticky', 'pos-bottom', 'color0')
+  .themify('footer', 'sticky', 'pos-bottom')
 const html_css=scss.html;
 
 const handle=await main(()=>{
@@ -98,14 +98,12 @@ console.log( (html`<!DOCTYOE html>
 
     <div class='margin'></div>
 
-    <footer class='col'>
-      <div class='block-row'>
+    <footer class='block-row-shadow'>
         <div class='margin'></div>
 
         <button class='button-color9' style='--font-size: 1rem'
           data-onclick='open-modal-settings'>*</button>
         </div>
-      </div>
     </footer>
 
     <template id='template-guides'>
