@@ -42,13 +42,13 @@ const scss=new Success()
   // .classify('color9', 'background-color: rgba(220,220,220,0.0)',
   //  'border-color: rgba(220,220,220,1.0)', 'color: rgba(55,55,55,1.0)', 'color: rgba(220,220,220,1.0)' ) 
   .classify('color9', 'background-color: rgba(55,55,55,0.0)',
-   'border-color: rgba(55,55,55,1.0)', 'color: rgba(55,55,55,1.0)' ) 
+   'border-color: rgba(55,55,55,1.0)', 'color: rgba(253,253,253,1.0)', 'color: rgba(55,55,55,1.0)' ) 
   .classify('required', html`content: '*'`, 'color: red')
   .classify('modal-hidden', 'display: none')
   .classify('modal-display', 'position: fixed', 'top: 0', 'z-index: 80',
     'height: 100vh', 'width: 100%', 'background-color: rgba(55,55,55,0.5)')
   .classify('app-theme', 'content: ""', 'height: 1rem', 'display: block', 'z-index: 100' )
-  .classify('body', 'min-height: 100vh')
+  .classify('body', 'min-height: 100vh', 'background-color: rgba(253,253,253,1.0)' )
   .themify('.col', 'flex-col')
   .themify('.row', 'flex-row')
   .themify('.block-col', '.col', 'block')
