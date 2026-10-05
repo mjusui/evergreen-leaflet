@@ -98,11 +98,13 @@ console.log( (html`<!DOCTYOE html>
 
     <div class='margin'></div>
 
-    <footer class='block-row'>
-      <div class='margin'></div>
+    <footer class='col'>
+      <div class='block-row'>
+        <div class='margin'></div>
 
-      <button class='button-color9' style='--font-size: 1rem'
-        data-onclick='open-modal-settings'>*</button>
+        <button class='button-color9' style='--font-size: 1rem'
+          data-onclick='open-modal-settings'>*</button>
+        </div>
       </div>
     </footer>
 
