@@ -558,10 +558,10 @@ console.log('vals:', vals);
   body.addEventListener('click', ev =>{
     console.log('click:', ev.target);
     const { target, }=ev;
-    // const { onclick, }=target.dataset;
-    const { onclick, }=wrap.datasets(target);
+    const { onclick: onclick_self, }=target.dataset;
+    const { onclick: onclick, }=wrap.datasets(target);
 
-    if(onclick === 'hide-modal'){
+    if(onclick_self === 'hide-modal'){
       page.clear('modal');
     }
     if(onclick === 'open-guides'){
