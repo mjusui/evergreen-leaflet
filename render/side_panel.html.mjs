@@ -39,8 +39,10 @@ const scss=new Success()
     'border-color: rgba(220,70,70,1.0)', 'color: rgba(253,253,253,1.0)', 'color: rgba(220,70,70,1.0)' ) 
   // .classify('color9', 'background-color: rgba(220,220,220,1.0)',
   //   'border-color: rgba(220,220,220,1.0)', 'color: rgba(55,55,55,1.0)' ) 
-  .classify('color9', 'background-color: rgba(220,220,220,0.0)',
-    'border-color: rgba(220,220,220,1.0)', 'color: rgba(55,55,55,1.0)', 'color: rgba(220,220,220,1.0)' ) 
+  // .classify('color9', 'background-color: rgba(220,220,220,0.0)',
+  //  'border-color: rgba(220,220,220,1.0)', 'color: rgba(55,55,55,1.0)', 'color: rgba(220,220,220,1.0)' ) 
+  .classify('color9', 'background-color: rgba(55,55,55,0.0)',
+   'border-color: rgba(55,55,55,1.0)', 'color: rgba(55,55,55,1.0)' ) 
   .classify('required', html`content: '*'`, 'color: red')
   .classify('modal-hidden', 'display: none')
   .classify('modal-display', 'position: fixed', 'top: 0',
