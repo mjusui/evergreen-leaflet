@@ -11,9 +11,10 @@ const scss=new Success()
     'border-color: rgba(55,55,55,0.1)' )
   .classify('bar', 'margin-top: 0.5rem', 'margin-bottom: calc(0.5rem - 1px)',
     'border-bottom-style: solid', 'border-bottom-width: 1px', 'border-bottom-color: rgba(55,55,55,0.1)', 'height: 0' )
+  .classify('sticky', 'position: sticky').classify('fixed', 'position: fixed')
   .classify('relative', 'position: relative').classify('absolute', 'position: absolute')
-  .classify('absolute-top', 'top: 0').classify('absolute-bottom', 'bottom: 0')
-  .classify('absolute-left', 'left: 0').classify('absolute-right', 'right: 0')
+  .classify('pos-top', 'top: 0').classify('pos-bottom', 'bottom: 0')
+  .classify('pos-left', 'left: 0').classify('pos-right', 'right: 0')
   .classify('shadow', 'box-shadow: 0 0 1rem 1px rgba(55,55,55,0.1)')
   .classify('margin-auto', 'margin: auto')
   .classify('center', 'margin-left: auto', 'margin-right: auto')
@@ -42,6 +43,7 @@ const scss=new Success()
   .classify('app-theme', 'content: ""', 'position: sticky', 'top: 0', 'height: 1rem', 'display: block',
     'z-index: 100', `background: linear-gradient(135deg, rgba(20, 130, 85, 1.0) 0%,
       rgba(31, 181, 115, 1.0) 45%, rgba(55, 200, 150, 1.0) 70%, rgba(45, 160, 180, 1.0) 100%)` )
+  .classify('footer', 'sticky', 'pos-bottom')
   .themify('.col', 'flex-col')
   .themify('.row', 'flex-row')
   .themify('.block-col', '.col', 'block')
@@ -90,6 +92,9 @@ console.log( (html`<!DOCTYOE html>
     <main id='display' class='col'>
     </main>
     <section id='modal' class='modal' data-onclick='hide-modal'></section>
+
+    <footer>
+    </footer>
 
     <template id='template-guides'>
       <header class='block-row'>
