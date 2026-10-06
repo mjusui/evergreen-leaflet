@@ -564,6 +564,9 @@ console.log('vals:', vals);
     if(onclick_self === 'hide-modal'){
       page.clear('modal');
     }
+    if(onclick === 'open-modal-settings'){
+      page.open('modal', 'template-modal-settings');
+    }
     if(onclick === 'open-guides'){
       page.open('display', 'template-guides');
     }

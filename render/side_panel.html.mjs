@@ -111,6 +111,24 @@ console.log( (html`<!DOCTYOE html>
         </div>
     </footer>
 
+    <template id='template-modal-settings'>
+      <form class='block-col'
+        data-onsubmit='update-settings'>
+        <h1>共通設定</h1>
+
+        <select id='select-provider-type'
+          name='provider_type' data-render1='value'>
+          <option value='openai' selected>Open AI</option>
+        </select>
+
+        <textarea id='textarea-provider-url' style='--cols: 2'
+          name='provider_url' data-render2='value' cols='2'></textarea>
+
+        <button class='button-color2'
+          type='submit'>保存</button>
+      </form>
+    </template>
+
     <template id='template-guides'>
       <header class='block-row'>
         <h1>ガイド一覧</h1>
