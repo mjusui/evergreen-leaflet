@@ -578,11 +578,12 @@ console.log('vals:', vals);
     }
     if(onclick === 'open-modal-settings'){
       const star=Starray.getInst('store-settings');
-      const [ item ]=star.list();
-      const { llm, }=item;
+      const [ item={} ]=star.list();
+      const { provider_type='', provider_key='',
+        provider_url='', }=(item.llm || {});
 
       page.open('modal', 'template-modal-settings',
-        [ llm.provider_type, llm.provider_key, llm.provider_url, ]);
+        [ provider_type, provider_key, provider_url, ]);
     }
     if(onclick === 'open-guides'){
       page.open('display', 'template-guides');
