@@ -130,7 +130,7 @@ console.log( (html`<!DOCTYOE html>
               <option value='openai' selected>Open AI</option>
             </select>
 
-            <label for='input-provider-key'></label>
+            <label for='input-provider-key'>APIキー</label>
             <input id='input-provider-key'
               type='text' name='provider_key' data-render2='value'>
             </input>
