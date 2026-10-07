@@ -54,19 +54,22 @@ footer { /* sticky */ position: sticky; /* pos-bottom */ bottom: 0; }</style></h
         <h1>共通設定</h1>
         <div class='margin'></div>
 
-        <legend>生成AI</legend>
-        <fieldset class='block-col-shadow'>
-          <label for='select-provider-type' class='required'>種類</label>
-          <select id='select-provider-type'
-            name='provider_type' data-render1='value'>
-            <option value='none'>生成AIを使わない</option>
-            <option value='openai' selected>Open AI</option>
-          </select>
+        <div class='block-col-shadow'>
+          <legend>生成AI</legend>
+          <div class='margin'></div>
+          <fieldset class='col'>
+            <label for='select-provider-type' class='required'>種類</label>
+            <select id='select-provider-type'
+              name='provider_type' data-render1='value'>
+              <option value='none'>生成AIを使わない</option>
+              <option value='openai' selected>Open AI</option>
+            </select>
 
-          <label for='select-provider-url'>カスタムURL</label>
-          <textarea id='textarea-provider-url' style='--cols: 2'
-            name='provider_url' data-render2='value' cols='2'></textarea>
-        </fieldset>
+            <label for='select-provider-url'>カスタムURL</label>
+            <textarea id='textarea-provider-url' style='--cols: 2'
+              name='provider_url' data-render2='value' cols='2'></textarea>
+          </fieldset>
+        </div>
 
         <div class='margin'></div>
         <div class='margin'></div>
