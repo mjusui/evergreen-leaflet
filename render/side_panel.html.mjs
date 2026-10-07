@@ -116,13 +116,19 @@ console.log( (html`<!DOCTYOE html>
         data-onsubmit='update-settings'>
         <h1>共通設定</h1>
 
-        <select id='select-provider-type'
-          name='provider_type' data-render1='value'>
-          <option value='openai' selected>Open AI</option>
-        </select>
+        <legend>生成AI</legend>
+        <fieldset>
+          <label for='select-provider-type' class='required'>種類</label>
+          <select id='select-provider-type'
+            name='provider_type' data-render1='value'>
+            <option value='none'>生成AIを使わない</option>
+            <option value='openai' selected>Open AI</option>
+          </select>
 
-        <textarea id='textarea-provider-url' style='--cols: 2'
-          name='provider_url' data-render2='value' cols='2'></textarea>
+          <label for='select-provider-url'>カスタムURL</label>
+          <textarea id='textarea-provider-url' style='--cols: 2'
+            name='provider_url' data-render2='value' cols='2'></textarea>
+        </fieldset>
 
         <button class='button-color2'
           type='submit'>保存</button>
