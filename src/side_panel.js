@@ -577,7 +577,12 @@ console.log('vals:', vals);
       page.clear('modal');
     }
     if(onclick === 'open-modal-settings'){
-      page.open('modal', 'template-modal-settings');
+      const star=Starray.getInst('store-settings');
+      const [ item ]=star.list();
+      const { llm, }=item;
+
+      page.open('modal', 'template-modal-settings',
+        [ llm.provider_type, llm.provider_key, llm.provider_url, ]);
     }
     if(onclick === 'open-guides'){
       page.open('display', 'template-guides');
