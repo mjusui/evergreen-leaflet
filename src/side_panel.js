@@ -500,16 +500,13 @@ console.log('vals:', vals);
     const deleting=(target.dataset.delete === 'true');
 
     if(onsubmit === 'update-settings'){
-console.log(target.provider_type.value);
-console.log(target.provider_key.value);
-console.log(target.provider_url.value);
       const { value: provider_type='none', }=target.provider_type;
       const { value: provider_key='', }=target.provider_key;
       const { value: provider_url='', }=target.provider_url;
       const llm={ provider_type, provider_key, provider_url, };
 
       const star=Starray.getInst('store-settings');
-      star.push({ llm, });
+      star.unshift({ llm, });
       star.flatMap( (item, idx)=> 0 < idx ? [] : item);
 
       page.clear('modal');
@@ -581,9 +578,12 @@ console.log(target.provider_url.value);
     }
     if(onclick === 'open-modal-settings'){
       const star=Starray.getInst('store-settings');
-      const [ item={} ]=star.list();
-      const { provider_type='', provider_key='',
-        provider_url='', }=(item.llm || {});
+      star.push({ llm: {}, });
+      star.flatMap( (item, idx)=> 0 < idx ? [] : item);
+
+      const [ item ]=star.list();
+      const { provider_type='openai', provider_key='',
+        provider_url='', }=item.llm;
 
       page.open('modal', 'template-modal-settings',
         [ provider_type, provider_key, provider_url, ]);
