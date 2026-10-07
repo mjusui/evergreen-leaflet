@@ -258,12 +258,12 @@ page: {
       const star=Starray.getInst('store-step-' + guideid);
       const items=star.list();
 
+      wisdom.write(elem.id, 'template-item-step-top', [ guideid, ]);
       if(items.length < 1){
-        wisdom.text(elem.id, '手順がありません');
+        // wisdom.text(elem.id, '手順がありません');
         return;
       }
       // wisdom.clear(elem.id);
-      wisdom.write(elem.id, 'template-item-step-top', [ guideid, ]);
 
       items.forEach(item =>{
         const { id='', url='', inst='', keys='', templ='', }=item;
