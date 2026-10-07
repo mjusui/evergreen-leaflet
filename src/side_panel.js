@@ -313,6 +313,9 @@ page: {
 
         if(active){
 console.log(node);
+console.log(node.textContent);
+console.log(node.childNodes);
+console.log(node.children);
 console.log(node.firstElementChild);
           (node.lastElementChild || node).scrollIntoView();
           emitRun(item);
