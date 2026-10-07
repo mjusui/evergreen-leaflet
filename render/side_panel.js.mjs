@@ -295,7 +295,7 @@ console.log('vals:', vals);
 
       const star=Starray.getInst('store-settings');
       star.push({ llm, });
-      start.flatMap( (item, idx)=> 0 < idx ? [] : item);
+      star.flatMap( (item, idx)=> 0 < idx ? [] : item);
 
       page.clear('modal');
     }
