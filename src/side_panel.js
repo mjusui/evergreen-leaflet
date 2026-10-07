@@ -314,11 +314,13 @@ page: {
         if(active){
           const view=slot.lastElementChild;
 console.log(view);
-          setTimeout(()=>{
-            view.firstElementChild.scrollIntoView({
+          // setTimeout(()=>{
+            // view.firstElementChild.scrollIntoView({
+            view.scrollIntoView({
+              behavior: 'smooth',
               block: 'center',
             });
-          }, 300);
+          // }, 300);
           emitRun(item);
         }
       });
