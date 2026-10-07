@@ -116,8 +116,11 @@ console.log( (html`<!DOCTYOE html>
       <form class='block-col'
         data-onsubmit='update-settings'>
         <h1>共通設定</h1>
+        <div class='margin'></div>
 
         <legend>生成AI</legend>
+        <div class='bar'></div>
+
         <fieldset class='col'>
           <label for='select-provider-type' class='required'>種類</label>
           <select id='select-provider-type'
@@ -131,6 +134,7 @@ console.log( (html`<!DOCTYOE html>
             name='provider_url' data-render2='value' cols='2'></textarea>
         </fieldset>
 
+        <div class='margin'></div>
         <div class='margin'></div>
         <button class='button-color2'
           type='submit'>保存</button>
