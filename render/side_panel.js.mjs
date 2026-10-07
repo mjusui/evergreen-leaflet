@@ -98,7 +98,7 @@ html`page: {
         if(active){
 console.log(node);
 console.log(node.firstElementChild);
-          (node.firstElementChild || node).scrollIntoView();
+          (node.lastElementChild || node).scrollIntoView();
           emitRun(item);
         }
       });
