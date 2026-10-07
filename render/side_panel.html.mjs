@@ -119,9 +119,7 @@ console.log( (html`<!DOCTYOE html>
         <div class='margin'></div>
 
         <legend>生成AI</legend>
-        <div class='bar'></div>
-
-        <fieldset class='col'>
+        <fieldset class='block-col'>
           <label for='select-provider-type' class='required'>種類</label>
           <select id='select-provider-type'
             name='provider_type' data-render1='value'>
