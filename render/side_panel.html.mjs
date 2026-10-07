@@ -70,6 +70,7 @@ const scss=new Success()
   .themify('.run-output', 'border', 'button', 'input', 'textarea', 'scroll')
   .themify('label', 'button', 'input')
   .themify('label.required::after', 'required')
+  .themify('legend', 'button', 'input')
   .themify('.merge-top', 'border', 'merge-top')
   .themify('.merge-middle', 'border', 'merge-middle')
   .themify('.merge-bottom', 'border', 'merge-bottom')
@@ -119,7 +120,7 @@ console.log( (html`<!DOCTYOE html>
         <div class='margin'></div>
 
         <legend>生成AI</legend>
-        <fieldset class='block-col'>
+        <fieldset class='col'>
           <label for='select-provider-type' class='required'>種類</label>
           <select id='select-provider-type'
             name='provider_type' data-render1='value'>
