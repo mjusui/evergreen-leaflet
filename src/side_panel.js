@@ -312,7 +312,9 @@ page: {
           url || '(URLなし)', inst, ]);
 
         if(active){
-          node.firstElementChild.scrollIntoView();
+console.log(node);
+console.log(node.firstElementChild);
+          (node.firstElementChild || node).scrollIntoView();
           emitRun(item);
         }
       });
