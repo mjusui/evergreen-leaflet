@@ -100,7 +100,7 @@ html`page: {
 console.log(view);
           setTimeout(()=>{
             view.firstElementChild.scrollIntoView({
-              block: 'start',
+              block: 'center',
             });
           }, 300);
           emitRun(item);
