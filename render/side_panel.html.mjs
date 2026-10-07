@@ -65,6 +65,7 @@ const scss=new Success()
   .themify('.button-color9-shadow', '.button-color9', 'shadow')
   .themify('.button-sign-color1', 'border', 'button', 'color1')
   .themify('input', 'border', 'button', 'input')
+  .themify('select', 'border', 'button', 'input')
   .themify('textarea', 'border', 'button', 'input', 'textarea')
   .themify('.run-output', 'border', 'button', 'input', 'textarea', 'scroll')
   .themify('label', 'button', 'input')
@@ -130,6 +131,7 @@ console.log( (html`<!DOCTYOE html>
             name='provider_url' data-render2='value' cols='2'></textarea>
         </fieldset>
 
+        <div class='margin'></div>
         <button class='button-color2'
           type='submit'>保存</button>
       </form>
