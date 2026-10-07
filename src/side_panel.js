@@ -499,6 +499,18 @@ console.log('vals:', vals);
     const { onsubmit, }=target.dataset;
     const deleting=(target.dataset.delete === 'true');
 
+    if(onsubmit === 'update-settings'){
+      const { value: provider_type='none', }=target.provider_type;
+      const { value: provider_key='', }=target.provider_key;
+      const { value: provider_url='', }=target.provider_url;
+      const llm={ provider_type, provider_key, provider_url, };
+
+      const star=Starray.getInst('store-settings');
+      star.push({ llm, });
+      start.flatMap( (item, idx)=> 0 < idx ? [] : item);
+
+      page.clear('modal');
+    }
     if(onsubmit === 'mutate-item-guide'){
       const [ id, title, desc ]=([ 'id', 'title', 'desc', ]).map(
         key => target[key].value

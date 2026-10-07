@@ -125,14 +125,19 @@ console.log( (html`<!DOCTYOE html>
           <fieldset class='col'>
             <label for='select-provider-type' class='required'>種類</label>
             <select id='select-provider-type'
-              name='provider_type' data-render1='value'>
+              name='provider_type' data-render1='value' required>
               <option value='none'>生成AIを使わない</option>
               <option value='openai' selected>Open AI</option>
             </select>
 
+            <label for='input-provider-key'></label>
+            <input id='input-provider-key'
+              type='text' name='provider_key' data-render2='value'>
+            </input>
+
             <label for='select-provider-url'>カスタムURL</label>
             <textarea id='textarea-provider-url' style='--cols: 2'
-              name='provider_url' data-render2='value' cols='2'></textarea>
+              name='provider_url' data-render3='value' cols='2'></textarea>
           </fieldset>
         </div>
 
