@@ -315,7 +315,7 @@ page: {
           const view=slot.lastElementChild;
 console.log(view);
           setTimeout(()=>{
-            view.scrollIntoView();
+            view.firstElementChild.scrollIntoView();
           }, 300);
           emitRun(item);
         }
