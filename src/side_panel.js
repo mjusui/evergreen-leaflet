@@ -312,12 +312,14 @@ page: {
           url || '(URLなし)', inst, ]);
 
         if(active){
+setTimeout(()=>{
 console.log(node);
 console.log(node.textContent);
 console.log(node.childNodes);
 console.log(node.children);
 console.log(node.firstElementChild);
           (node.lastElementChild || node).scrollIntoView();
+}, 100);
           emitRun(item);
         }
       });
