@@ -90,12 +90,13 @@ html`page: {
         const disabled=id === stepid
           ? '' : 'disabled' ;
 
-        wisdom.append(elem.id, 'template-item-run', [
+        const node=wisdom.append(elem.id, 'template-item-run', [
           guideid, id, nextid, title, desc,
           (idx + 1), items.length,  done, style, disabled,
           url || '(URLなし)', inst, ]);
 
         if(active){
+          node.scrollIntoView();
           emitRun(item);
         }
       });

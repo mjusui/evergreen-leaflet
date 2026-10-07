@@ -20,26 +20,26 @@ wisdom: {
       const elem=document.getElementById(remove_id);
       elem.remove();
       fire('change', { element: elem, });
-      return;
+      return elem;
     }
     const slot=document.getElementById(slot_id);
 
     if(cmd === 'clear'){
       slot.innerHTML='';
       fire('change', { element: slot, slot, });
-      return;
+      return slot;
     }
     if(cmd === 'html'){
       const html=temp_id;
       slot.innerHTML=html;
       fire('change', { element: slot, slot, });
-      return;
+      return slot;
     }
     if(cmd === 'text'){
       const text=temp_id;
       slot.textContent=text;
       fire('change', { element: slot, slot, });
-      return;
+      return slot;
     }
     const temp=document.getElementById(temp_id);
     const node=temp.content.cloneNode(true);
@@ -65,8 +65,9 @@ wisdom: {
       if(same){
         slot.replaceChild(node, same);
         fire('change', { element: slot, slot, temp });
-        return;
+        return node;
       }
+      return null
     }
 
     if(cmd === 'write'){
@@ -77,8 +78,11 @@ wisdom: {
     }else
     if(cmd === 'prepend'){
       slot.prepend(node);
+    }else{
+      return null;
     }
     fire('change', { element: slot, slot, temp, });
+    return node;
   };
   wisdom.clear=(  ...args)=> wisdom.render('clear',   ...args);
   wisdom.remove=( ...args)=> wisdom.render('remove',  ...args);
@@ -302,12 +306,13 @@ page: {
         const disabled=id === stepid
           ? '' : 'disabled' ;
 
-        wisdom.append(elem.id, 'template-item-run', [
+        const node=wisdom.append(elem.id, 'template-item-run', [
           guideid, id, nextid, title, desc,
           (idx + 1), items.length,  done, style, disabled,
           url || '(URLなし)', inst, ]);
 
         if(active){
+          node.scrollIntoView();
           emitRun(item);
         }
       });
