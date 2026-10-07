@@ -96,7 +96,11 @@ html`page: {
           url || '(URLなし)', inst, ]);
 
         if(active){
-          slot.lastElementChild.scrollIntoView();
+          const view=slot.lastElementChild;
+console.log(view);
+          setTimeout(()=>{
+            view.lastElementChild.scrollIntoView();
+          }, 300);
           emitRun(item);
         }
       });
