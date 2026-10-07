@@ -96,7 +96,7 @@ html`page: {
           url || '(URLなし)', inst, ]);
 
         if(active){
-          node.scrollIntoView();
+          node.firstElementChild.scrollIntoView();
           emitRun(item);
         }
       });
