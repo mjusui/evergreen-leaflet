@@ -500,6 +500,9 @@ console.log('vals:', vals);
     const deleting=(target.dataset.delete === 'true');
 
     if(onsubmit === 'update-settings'){
+console.log(target.provider_type);
+console.log(target.provider_key);
+console.log(target.provider_url);
       const { value: provider_type='none', }=target.provider_type;
       const { value: provider_key='', }=target.provider_key;
       const { value: provider_url='', }=target.provider_url;
