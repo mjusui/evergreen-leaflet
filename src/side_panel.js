@@ -65,7 +65,7 @@ wisdom: {
       if(same){
         slot.replaceChild(node, same);
         fire('change', { element: slot, slot, temp });
-        return node;
+        return document.getElementById(update_id);
       }
       return null
     }
@@ -82,7 +82,7 @@ wisdom: {
       return null;
     }
     fire('change', { element: slot, slot, temp, });
-    return node;
+    return slot;
   };
   wisdom.clear=(  ...args)=> wisdom.render('clear',   ...args);
   wisdom.remove=( ...args)=> wisdom.render('remove',  ...args);
@@ -306,20 +306,13 @@ page: {
         const disabled=id === stepid
           ? '' : 'disabled' ;
 
-        const node=wisdom.append(elem.id, 'template-item-run', [
+        const slot=wisdom.append(elem.id, 'template-item-run', [
           guideid, id, nextid, title, desc,
           (idx + 1), items.length,  done, style, disabled,
           url || '(URLなし)', inst, ]);
 
         if(active){
-setTimeout(()=>{
-console.log(node);
-console.log(node.textContent);
-console.log(node.childNodes);
-console.log(node.children);
-console.log(node.firstElementChild);
-          (node.lastElementChild || node).scrollIntoView();
-}, 1000);
+          slot.lastElementChild.scrollIntoView();
           emitRun(item);
         }
       });
