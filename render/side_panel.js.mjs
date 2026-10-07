@@ -99,7 +99,9 @@ html`page: {
           const view=slot.lastElementChild;
 console.log(view);
           setTimeout(()=>{
-            view.firstElementChild.scrollIntoView();
+            view.firstElementChild.scrollIntoView({
+              block: 'start',
+            });
           }, 300);
           emitRun(item);
         }
