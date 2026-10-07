@@ -319,7 +319,7 @@ console.log(node.childNodes);
 console.log(node.children);
 console.log(node.firstElementChild);
           (node.lastElementChild || node).scrollIntoView();
-}, 100);
+}, 1000);
           emitRun(item);
         }
       });
