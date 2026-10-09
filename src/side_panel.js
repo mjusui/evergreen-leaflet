@@ -391,6 +391,7 @@ page: {
     loadRunOutputs();
   };
   loadRunInputs=()=>{
+console.log(document.getElementsByClassName('load-item-run-inputs') );
     ([ ...document.getElementsByClassName('load-item-run-inputs'), ]).forEach(async elem =>{
       //const { guideid, stepid, }=elem.dataset;
       const { guideid, stepid, }=wrap.datasets(elem);
