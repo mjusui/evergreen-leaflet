@@ -176,52 +176,55 @@ class Funnel {
     return await prom;
   }
 }
-const third=(()=>{
-  const openai={};
-  const OpenAI=class OpenAIClient {
-    constructor(key=null, url='https://api.openai.com/v1/responses'){
-      const param={ key, url, };
-      this.param=param;
-    }
-    getSess(){
-      return new OpenAISess(this);
-    }
-  }
-  const OpenAISess=class OpenAIClientSession {
-    constructor(openai){
-      const param={ openai, resp_id: null, };
-      this.param=param;
-    }
-    async request(item){
-      const { param, }=this;
-      const { resp_id, openai, }=param;
-      const { key, url, }=openai.param;
+const wrap={};
+wrap: {
+  let waits=[];
+  wrap.postMessage=async (data, org, targ)=>{
+    const time=new Date().getTime();
+    const rand=Math.floor(Math.random() * 10**8);
+    const msgid=(time + '-' + rand);
+    data.msgid=msgid;
 
-      if(resp_id){
-        item.previous_response_id=resp_id;
-      }
-
-      const init={
-        method: 'POST',
-        headers: {
-          'content-type': 'application/json',
-          'authorization': 'Bearer ' + key,
-        },
-        body: JSON.stringify(item),
-      };
-      const resp=await fetch(url, init);
-      const body=await resp.json();
-      param.resp_id=body.id;
-
-      return { resp, body, };
-    }
-  }
-  openai.getInst=(key, url)=>{
-    return new OpenAI(key, url);
+    return await new Promise(resl =>{
+      waits.push({ msgid, org, resl, });
+      targ.postMessage(data, org);
+    });
   };
+  window.addEventListener('message', ev =>{
+    console.log('message:', ev);
+    const { source: targ, }=ev;
+    const { msgid, }=ev.data;
 
-  return { openai, };
-})()
+    waits=waits.filter(w =>{
+      if( !(w.msgid === msgid) ){
+        return true;
+      }
+      const { resl, }=w;
+      resl(ev.data);
+    });
+  });
+
+  wrap.datasets=(elem)=>{
+    const resolve=(node, key)=>{
+      const { dataset, parentElement: parent, }=node;
+      const val=dataset[key]
+
+      if(val === undefined){
+        if(parent){
+          return resolve(parent, key);
+        }
+        return;
+      }
+      return val;
+    };
+    const prox=new Proxy({}, {
+      get(targ, key){
+        return resolve(elem, key);
+      },
+    });
+    return prox;
+  };
+}
 page: {
   const page={};
 
