@@ -61,8 +61,8 @@ html`page: {
       });
     });
   };
-  const loadRuns=()=>{
-    ([ ...document.getElementsByClassName('load-item-runs'), ]).forEach(async elem =>{
+  const loadRuns=async ()=>{
+    const proms=([ ...document.getElementsByClassName('load-item-runs'), ]).map(async elem =>{
       //const { guideid, }=elem.dataset;
       const { guideid, }=wrap.datasets(elem);
 
@@ -124,6 +124,8 @@ html`page: {
         }
       });
     });
+    await proms;
+
     loadRunInputs();
     loadRunOutputs();
   };
