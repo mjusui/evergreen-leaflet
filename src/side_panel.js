@@ -299,7 +299,7 @@ page: {
             return null;
           }
           const { err, result: url, }=await wrap.postMessage(
-            {cmd: 'render', templ: item.url, ctxt: inputs, },
+            { cmd: 'render', templ: item.url, ctxt: inputs, },
             '*', document.getElementById('sandbox').contentWindow );
 
           return err ? item.url : url;
@@ -333,7 +333,7 @@ page: {
               block: 'center',
             });
           }, 300);
-          emitRun(item, url);
+          emitRun(url);
         }
       });
     });
