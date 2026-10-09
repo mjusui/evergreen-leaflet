@@ -177,7 +177,6 @@ class Funnel {
   }
 }
 const third=(()=>{
-third:{
   const openai={};
   const OpenAI=class OpenAIClient {
     constructor(key=null, url='https://api.openai.com/v1/responses'){
