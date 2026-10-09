@@ -353,7 +353,7 @@ page: {
           return err ? item.url : url;
         })
       );
-      items.forEach(async (item, idx)=>{
+      items.forEach((item, idx)=>{
         const url=urls[idx];
         const { id, keys, inst, }=item;
 
