@@ -9,6 +9,7 @@ html`${script.wisdom}`,
 html`${script.starray}`,
 html`${script.Funnel}`,
 html`${script.wrap}`,
+html`${script.third}`,
 html`page: {
   const page={};
 
