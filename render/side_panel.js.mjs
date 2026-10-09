@@ -138,6 +138,7 @@ html`page: {
       // const guide=Starray.getInst('store-guide');
       const step=Starray.getInst('store-step-' + guideid);
       const { keys, templ, }=step.list().find(a => a.id === stepid);
+console.log('keys:', keys);
 
       const run=Starray.getInst('store-run-' + guideid);
       const { inputs, outputs, }=run.list()[0];
@@ -154,7 +155,6 @@ html`page: {
 
           wisdom.append(elem.id, template_name, [
             guideid, stepid, key, textareaid, value, ]);
-console.log(key);
         });
       }
     });
