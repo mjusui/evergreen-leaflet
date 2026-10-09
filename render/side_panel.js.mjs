@@ -125,6 +125,7 @@ html`page: {
 console.log('loadRuns:', url);
       });
     });
+console.log(proms);
     await proms;
 
     loadRunInputs();
