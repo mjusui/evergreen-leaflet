@@ -60,7 +60,7 @@ html`page: {
       });
     });
   };
-  const loadRuns=()=>{
+  const loadRuns=async ()=>{
     ([ ...document.getElementsByClassName('load-item-runs'), ]).forEach(elem =>{
       //const { guideid, }=elem.dataset;
       const { guideid, }=wrap.datasets(elem);
@@ -74,10 +74,26 @@ html`page: {
       //const stepid=(elem.dataset.stepid || items[0].id);
       const stepid=(wrap.datasets(elem).stepid || items[0].id);
 
+      const run=Starray.getInst('store-run-' + guideid);
+      const { inputs, }=run.list()[0];
+
       wisdom.clear(elem.id);
 
-      items.forEach((item, idx)=>{
-        const { id, url, keys, inst, }=item;
+      const urls=await Promise.all(
+        items.map(async item => {
+          if(!item.url){
+            return null;
+          }
+          const { err, result: url, }=await wrap.postMessage(
+            {cmd: 'render', templ: item.url, ctxt: inputs, },
+            '*', document.getElementById('sandbox').contentWindow );
+
+          return err ? item.url : url;
+        })
+      );
+      items.forEach(async (item, idx)=>{
+        const url=urls[idx];
+        const { id, keys, inst, }=item;
 
         const nextidx=(idx + 1) % items.length;
         const { id: nextid, }=items[nextidx];
@@ -103,7 +119,7 @@ html`page: {
               block: 'center',
             });
           }, 300);
-          emitRun(item);
+          emitRun(item, url);
         }
       });
     });
@@ -174,10 +190,8 @@ html`page: {
 
 
   const funnRun=new Funnel({ lim: 1, });
-  const emitRun=async (item)=>(
-    await funnRun.pour(async item =>{
-      const { url, }=item;
-
+  const emitRun=async (url)=>(
+    await funnRun.pour(async url =>{
       if(!url){
         return;
       }
@@ -186,7 +200,7 @@ html`page: {
         currentWindow: true,
       });
       await chrome.tabs.update(tab.id, { url, });
-    }, item)
+    }, url)
   );
 
   page.open=(...args)=>{

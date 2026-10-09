@@ -176,55 +176,53 @@ class Funnel {
     return await prom;
   }
 }
-const wrap={};
-wrap: {
-  let waits=[];
-  wrap.postMessage=async (data, org, targ)=>{
-    const time=new Date().getTime();
-    const rand=Math.floor(Math.random() * 10**8);
-    const msgid=(time + '-' + rand);
-    data.msgid=msgid;
+const third=(()=>{
+third:{
+  const openai={};
+  const OpenAI=class OpenAIClient {
+    constructor(key=null, url='https://api.openai.com/v1/responses'){
+      const param={ key, url, };
+      this.param=param;
+    }
+    getSess(){
+      return new OpenAISess(this);
+    }
+  }
+  const OpenAISess=class OpenAIClientSession {
+    constructor(openai){
+      const param={ openai, resp_id: null, };
+      this.param=param;
+    }
+    async request(item){
+      const { param, }=this;
+      const { resp_id, openai, }=param;
+      const { key, url, }=openai.param;
 
-    return await new Promise(resl =>{
-      waits.push({ msgid, org, resl, });
-      targ.postMessage(data, org);
-    });
-  };
-  window.addEventListener('message', ev =>{
-    console.log('message:', ev);
-    const { source: targ, }=ev;
-    const { msgid, }=ev.data;
-
-    waits=waits.filter(w =>{
-      if( !(w.msgid === msgid) ){
-        return true;
+      if(resp_id){
+        item.previous_response_id=resp_id;
       }
-      const { resl, }=w;
-      resl(ev.data);
-    });
-  });
 
-  wrap.datasets=(elem)=>{
-    const resolve=(node, key)=>{
-      const { dataset, parentElement: parent, }=node;
-      const val=dataset[key]
+      const init={
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json',
+          'authorization': 'Bearer ' + key,
+        },
+        body: JSON.stringify(item),
+      };
+      const resp=await fetch(url, init);
+      const body=await resp.json();
+      param.resp_id=body.id;
 
-      if(val === undefined){
-        if(parent){
-          return resolve(parent, key);
-        }
-        return;
-      }
-      return val;
-    };
-    const prox=new Proxy({}, {
-      get(targ, key){
-        return resolve(elem, key);
-      },
-    });
-    return prox;
+      return { resp, body, };
+    }
+  }
+  openai.getInst=(key, url)=>{
+    return new OpenAI(key, url);
   };
-}
+
+  return { openai, };
+})()
 page: {
   const page={};
 
@@ -276,7 +274,7 @@ page: {
       });
     });
   };
-  const loadRuns=()=>{
+  const loadRuns=async ()=>{
     ([ ...document.getElementsByClassName('load-item-runs'), ]).forEach(elem =>{
       //const { guideid, }=elem.dataset;
       const { guideid, }=wrap.datasets(elem);
@@ -290,10 +288,26 @@ page: {
       //const stepid=(elem.dataset.stepid || items[0].id);
       const stepid=(wrap.datasets(elem).stepid || items[0].id);
 
+      const run=Starray.getInst('store-run-' + guideid);
+      const { inputs, }=run.list()[0];
+
       wisdom.clear(elem.id);
 
-      items.forEach((item, idx)=>{
-        const { id, url, keys, inst, }=item;
+      const urls=await Promise.all(
+        items.map(async item => {
+          if(!item.url){
+            return null;
+          }
+          const { err, result: url, }=await wrap.postMessage(
+            {cmd: 'render', templ: item.url, ctxt: inputs, },
+            '*', document.getElementById('sandbox').contentWindow );
+
+          return err ? item.url : url;
+        })
+      );
+      items.forEach(async (item, idx)=>{
+        const url=urls[idx];
+        const { id, keys, inst, }=item;
 
         const nextidx=(idx + 1) % items.length;
         const { id: nextid, }=items[nextidx];
@@ -319,7 +333,7 @@ page: {
               block: 'center',
             });
           }, 300);
-          emitRun(item);
+          emitRun(item, url);
         }
       });
     });
@@ -390,10 +404,8 @@ page: {
 
 
   const funnRun=new Funnel({ lim: 1, });
-  const emitRun=async (item)=>(
-    await funnRun.pour(async item =>{
-      const { url, }=item;
-
+  const emitRun=async (url)=>(
+    await funnRun.pour(async url =>{
       if(!url){
         return;
       }
@@ -402,7 +414,7 @@ page: {
         currentWindow: true,
       });
       await chrome.tabs.update(tab.id, { url, });
-    }, item)
+    }, url)
   );
 
   page.open=(...args)=>{
