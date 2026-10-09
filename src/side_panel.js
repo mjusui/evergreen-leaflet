@@ -273,8 +273,8 @@ page: {
       });
     });
   };
-  const loadRuns=async ()=>{
-    ([ ...document.getElementsByClassName('load-item-runs'), ]).forEach(elem =>{
+  const loadRuns=()=>{
+    ([ ...document.getElementsByClassName('load-item-runs'), ]).forEach(async elem =>{
       //const { guideid, }=elem.dataset;
       const { guideid, }=wrap.datasets(elem);
 
