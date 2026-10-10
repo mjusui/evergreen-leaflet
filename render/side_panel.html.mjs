@@ -141,7 +141,7 @@ console.log( (html`<!DOCTYOE html>
 
             <label for='select-provider-models'>使用可能なモデル(改行区切り)</label>
             <textarea id='textarea-provider-models' style='--cols: 5'
-              name='provider_models' data-render3='value' cols='5'></textarea>
+              name='provider_models' data-render4='value' cols='5'></textarea>
           </fieldset>
         </div>
 

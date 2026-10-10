@@ -667,10 +667,11 @@ console.log('vals:', vals);
 
       const [ item ]=star.list();
       const { provider_type='openai', provider_key='',
-        provider_url='', }=item.llm;
+        provider_url='', provider_models=[], }=item.llm;
 
       page.open('modal', 'template-modal-settings',
-        [ provider_type, provider_key, provider_url, ]);
+        [ provider_type, provider_key, provider_url,
+          provider_models.join('\n'), ]);
     }
     if(onclick === 'open-guides'){
       page.open('display', 'template-guides');
