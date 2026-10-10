@@ -159,6 +159,8 @@ console.log('keys:', keys);
           wisdom.append(elem.id, template_name, [
             guideid, stepid, key, textareaid, value, ]);
         });
+      }else{
+        wisdom.text(elem.id, 'なし');
       }
     });
   };
@@ -191,6 +193,8 @@ console.log('keys:', keys);
 
         wisdom.append(elem.id, template_name, [
           guideid, stepid, textareaid, text, ]);
+      }else{
+        wisdom.text(elem.id, 'なし');
       }
     });
   };
