@@ -89,7 +89,10 @@ html`page: {
             { cmd: 'render', templ: item.url, ctxt: inputs, },
             '*', document.getElementById('sandbox').contentWindow );
 
-          return err ? item.url : url;
+          if(err){
+            console.error(err);
+          }
+          return url || item.url;
         })
       );
       items.forEach((item, idx)=>{
@@ -124,10 +127,11 @@ html`page: {
         }
 console.log('loadRuns:', url);
       });
-      await Promise.resolve();
     });
 console.log(proms);
+console.log('prom:');
     await proms;
+console.log('prom:');
 
     loadRunInputs();
     loadRunOutputs();
@@ -164,6 +168,7 @@ console.log('keys:', keys);
     });
   };
   loadRunOutputs=()=>{
+console.log('loadRunOutputs:');
     ([ ...document.getElementsByClassName('load-item-run-outputs'), ]).forEach(async elem =>{
       //const { guideid, stepid, }=elem.dataset;
       const { guideid, stepid, }=wrap.datasets(elem);
