@@ -373,8 +373,8 @@ page: {
 
         const slot=wisdom.append(elem.id, 'template-item-run', [
           guideid, id, nextid, title, desc,
-          (idx + 1), items.length,  done, style, disabled,
-          url || '(URLなし)', inst, ]);
+          (idx + 1), items.length,  done, active, style,
+          disabled, url || '(URLなし)', inst, ]);
 
         if(active){
           const view=slot.lastElementChild;
@@ -713,9 +713,9 @@ console.log('vals:', vals);
     }
     if(onclick === 'open-runs'){
       //const { guideid, stepid='', }=target.closest('[data-guideid]').dataset;
-      const { guideid, stepid='', disabled, }=wrap.datasets(target);
+      const { guideid, stepid='', active, }=wrap.datasets(target);
 
-      if(!disabled){
+      if(active === 'true'){
         return;
       }
       const guide=Starray.getInst('store-guide');
