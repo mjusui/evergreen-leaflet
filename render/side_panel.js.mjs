@@ -160,7 +160,7 @@ console.log('keys:', keys);
             guideid, stepid, key, textareaid, value, ]);
         });
       }else{
-        wisdom.text(elem.id, 'なし');
+        wisdom.html(elem.id, '<div style="--font-size: 0.8rem">なし</div>');
       }
     });
   };
@@ -194,7 +194,7 @@ console.log('keys:', keys);
         wisdom.append(elem.id, template_name, [
           guideid, stepid, textareaid, text, ]);
       }else{
-        wisdom.text(elem.id, 'なし');
+        wisdom.html(elem.id, '<div style="--font-size: 0.8rem">なし</div>');
       }
     });
   };
