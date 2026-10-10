@@ -335,7 +335,8 @@ console.log( (html`<!DOCTYOE html>
         <div class='margin'></div>
         <button class='button-color1' data-render1='data-guideid'
           data-render3='data-stepid' data-render8='textContent'
-          data-render11='disabled' data-onclick='open-runs'></button>
+          data-render11='disabled' data-active='reset'
+          data-onclick='open-runs'></button>
       </div>
     </template>
     <template id='template-item-run-input'>
