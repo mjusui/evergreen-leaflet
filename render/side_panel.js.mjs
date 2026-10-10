@@ -323,7 +323,10 @@ console.log('vals:', vals);
       const { value: provider_type='none', }=target.provider_type;
       const { value: provider_key='', }=target.provider_key;
       const { value: provider_url='', }=target.provider_url;
-      const llm={ provider_type, provider_key, provider_url, };
+      const provider_models=(target.provider_models.value || '')
+        .split('\\n').map(m => m.trim() );
+      const llm={ provider_type, provider_key,
+        provider_url, provider_models, };
 
       const star=Starray.getInst('store-settings');
       star.unshift({ llm, });

@@ -138,6 +138,10 @@ console.log( (html`<!DOCTYOE html>
             <label for='select-provider-url'>カスタムURL</label>
             <textarea id='textarea-provider-url' style='--cols: 2'
               name='provider_url' data-render3='value' cols='2'></textarea>
+
+            <label for='select-provider-models'>使用可能なモデル(改行区切り)</label>
+            <textarea id='textarea-provider-models' style='--cols: 5'
+              name='provider_models' data-render3='value' cols='5'></textarea>
           </fieldset>
         </div>
 
