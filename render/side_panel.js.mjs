@@ -124,7 +124,7 @@ html`page: {
         }
 console.log('loadRuns:', url);
       });
-      await
+      await Promise.resolve();
     });
 console.log(proms);
     await proms;
