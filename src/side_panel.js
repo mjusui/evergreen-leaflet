@@ -385,6 +385,7 @@ page: {
         }
 console.log('loadRuns:', url);
       });
+      await
     });
 console.log(proms);
     await proms;
