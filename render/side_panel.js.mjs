@@ -125,19 +125,14 @@ html`page: {
           }, 300);
           emitRun(url);
         }
-console.log('loadRuns:', url);
       });
     });
-console.log(proms);
-console.log('prom:');
     await Promise.all(proms);
-console.log('prom:');
 
     loadRunInputs();
     loadRunOutputs();
   };
   loadRunInputs=()=>{
-console.log('loadRunInputs:');
     ([ ...document.getElementsByClassName('load-item-run-inputs'), ]).forEach(async elem =>{
       //const { guideid, stepid, }=elem.dataset;
       const { guideid, stepid, }=wrap.datasets(elem);
@@ -168,7 +163,6 @@ console.log('keys:', keys);
     });
   };
   loadRunOutputs=()=>{
-console.log('loadRunOutputs:');
     ([ ...document.getElementsByClassName('load-item-run-outputs'), ]).forEach(async elem =>{
       //const { guideid, stepid, }=elem.dataset;
       const { guideid, stepid, }=wrap.datasets(elem);
