@@ -54,31 +54,40 @@ footer { /* sticky */ position: sticky; /* pos-bottom */ bottom: 0; }</style></h
         <h1>共通設定</h1>
         <div class='margin'></div>
 
-        <div class='block-col-shadow'>
-          <legend>生成AI</legend>
-          <div class='margin'></div>
-          <fieldset class='col'>
-            <label for='select-provider-type' class='required'>種類</label>
-            <select id='select-provider-type'
-              name='provider_type' data-render1='value' required>
-              <option value='none'>生成AIを使わない</option>
-              <option value='openai' selected>Open AI</option>
-            </select>
+        <details>
+          <summary>
+            <h1 style='--font-size: 0.8rem'>生成AI</h1>
+          </summary>
+          <template id='template-llm-setting'>
+            <div class='block-col-shadow'>
+              <label for='select-provider-type' class='required'>種類</label>
+              <select id='select-provider-type'
+                name='provider_type' data-render1='value' required>
+                <option value='openai' selected>Open AI</option>
+              </select>
 
-            <label for='input-provider-key'>APIキー</label>
-            <input id='input-provider-key'
-              type='password' name='provider_key' data-render2='value'>
-            </input>
+              <label for='input-provider-key' class='required'>APIキー</label>
+              <input id='input-provider-key'
+                type='password' name='provider_key' data-render2='value' required>
+              </input>
 
-            <label for='select-provider-url'>カスタムURL</label>
-            <textarea id='textarea-provider-url' style='--cols: 2'
-              name='provider_url' data-render3='value' cols='2'></textarea>
+              <label for='select-provider-models' class='required'>使用可能なモデル(改行区切り)</label>
+              <textarea id='textarea-provider-models' style='--cols: 5'
+                name='provider_models' data-render4='value' cols='5' required></textarea>
 
-            <label for='select-provider-models'>使用可能なモデル(改行区切り)</label>
-            <textarea id='textarea-provider-models' style='--cols: 5'
-              name='provider_models' data-render4='value' cols='5'></textarea>
-          </fieldset>
-        </div>
+              <details>
+                <summary>その他の設定</summary>
+                <label for='select-provider-url'>カスタムURL</label>
+                <textarea id='textarea-provider-url' style='--cols: 2'
+                  name='provider_url' data-render3='value' cols='2'></textarea>
+              </details>
+            </div>
+          </template>
+          <div id='llm-settings' class='col'>
+            <button class='button-color2' style='--font-size: 1rem'
+              data-onclick='add-llm'>+</button>
+          </div>
+        </details>
 
         <div class='margin'></div>
         <div class='margin'></div>
@@ -240,6 +249,11 @@ footer { /* sticky */ position: sticky; /* pos-bottom */ bottom: 0; }</style></h
           <div class='margin'></div>
         </div>
         <div style='--font-size: 0.8rem' data-render4='textContent'></div>
+
+        <div class='row'>
+          <div data-render5='textContent'></div>
+          <div class='margin'></div>
+        </div>
       </header>
       <div class='bar'></div>
 

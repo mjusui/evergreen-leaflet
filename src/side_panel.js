@@ -393,7 +393,7 @@ page: {
     loadRunInputs();
     loadRunOutputs();
   };
-  loadRunInputs=()=>{
+  const loadRunInputs=()=>{
     ([ ...document.getElementsByClassName('load-item-run-inputs'), ]).forEach(async elem =>{
       //const { guideid, stepid, }=elem.dataset;
       const { guideid, stepid, }=wrap.datasets(elem);
@@ -425,7 +425,7 @@ console.log('keys:', keys);
       }
     });
   };
-  loadRunOutputs=()=>{
+  const loadRunOutputs=()=>{
     ([ ...document.getElementsByClassName('load-item-run-outputs'), ]).forEach(async elem =>{
       //const { guideid, stepid, }=elem.dataset;
       const { guideid, stepid, }=wrap.datasets(elem);
