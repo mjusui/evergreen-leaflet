@@ -713,8 +713,11 @@ console.log('vals:', vals);
     }
     if(onclick === 'open-runs'){
       //const { guideid, stepid='', }=target.closest('[data-guideid]').dataset;
-      const { guideid, stepid='', }=wrap.datasets(target);
+      const { guideid, stepid='', disabled, }=wrap.datasets(target);
 
+      if(!disabled){
+        return;
+      }
       const guide=Starray.getInst('store-guide');
       const { title , desc, }=guide.list().find(a => a.id === guideid);
 

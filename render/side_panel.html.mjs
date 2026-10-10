@@ -311,7 +311,7 @@ console.log( (html`<!DOCTYOE html>
     <template id='template-item-run'>
       <div class='block-col-shadow' data-render9='style'
         data-render1='data-guideid' data-render2='data-stepid'
-        data-onclick='open-runs'>
+        data-render10='data-disabled' data-onclick='open-runs'>
         <div class='row'>
           <div style='--font-size: 0.8rem'>(
             <span data-render6='textContent'></span>${ ' / '
@@ -344,7 +344,7 @@ console.log( (html`<!DOCTYOE html>
         <textarea style='--cols: 2'
           data-render1='data-guideid' data-render2='data-stepid'
           data-render3='name' data-render4='id' data-render5='value' data-onchange='update-run-input'
-          data-onpaste='update-run-input' data-ondrop='update-run-input' data-onclick='none'
+          data-onpaste='update-run-input' data-ondrop='update-run-input'
           placeholder='値を貼り付けてください' cols='2'></textarea>
       </div>
     </template>
