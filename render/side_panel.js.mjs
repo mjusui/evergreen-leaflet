@@ -130,7 +130,7 @@ console.log('loadRuns:', url);
     });
 console.log(proms);
 console.log('prom:');
-    await proms;
+    await Promise.all(proms);
 console.log('prom:');
 
     loadRunInputs();
