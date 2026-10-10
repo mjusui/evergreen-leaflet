@@ -132,7 +132,7 @@ console.log( (html`<!DOCTYOE html>
 
             <label for='input-provider-key'>APIキー</label>
             <input id='input-provider-key'
-              type='text' name='provider_key' data-render2='value'>
+              type='password' name='provider_key' data-render2='value'>
             </input>
 
             <label for='select-provider-url'>カスタムURL</label>
