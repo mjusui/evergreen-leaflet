@@ -130,30 +130,32 @@ console.log( (html`<!DOCTYOE html>
           <summary style='--font-size: 0.8rem'>生成AI</summary>
           <template id='template-llm-setting'>
             <div class='block-col-shadow'>
+              <input type='hidden' name='prefix' data-render1='value'></input>
+
               <label for='select-provider-type' class='required'>種類</label>
               <select id='select-provider-type'
-                name='provider_type' data-render1='value' required>
+                name='provider_type' data-render2='value' required>
                 <option value='openai' selected>Open AI</option>
               </select>
 
               <label for='input-provider-key' class='required'>APIキー</label>
               <input id='input-provider-key'
-                type='password' name='provider_key' data-render2='value' required>
+                type='password' name='provider_key' data-render3='value' required>
               </input>
 
               <label for='select-provider-models' class='required'>使用可能なモデル(改行区切り)</label>
               <textarea id='textarea-provider-models' style='--cols: 5'
-                name='provider_models' data-render3='value' cols='5' required></textarea>
+                name='provider_models' data-render4='value' cols='5' required></textarea>
 
               <details>
                 <summary style='--font-size: 0.8rem'>その他の設定</summary>
                 <label for='select-provider-url'>カスタムURL</label>
                 <textarea id='textarea-provider-url' style='--cols: 2'
-                  name='provider_url' data-render4='value' cols='2'></textarea>
+                  name='provider_url' data-render5='value' cols='2'></textarea>
               </details>
             </div>
           </template>
-          <div id='llm-settings' class='col'>
+          <div id='llm-settings' class='row'>
             <button id='button-add-llm-setting'
               class='button-color1' style='--font-size: 1rem'
               data-onclick='add-llm-setting'>+</button>
