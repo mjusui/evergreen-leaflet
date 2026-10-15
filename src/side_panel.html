@@ -3,10 +3,16 @@
   <head><title>Evergreen Leaflet</title><meta charset='UTF-8'></meta><style>* { /* * */ margin: 0; border: 0; padding: 0; outline: none; box-sizing: border-box; background-color: rgba(0,0,0,0.0); color: rgba(55,55,55,1.0); font-family: sans-serif; font-size: var(--font-size, 1rem); opacity: var(--opacity); }
 .col { /* flex-col */ display: flex; flex-direction: column; gap: 0.5rem; }
 .row { /* flex-row */ display: flex; flex-direction: row; gap: 0.5rem; align-items: center; }
+.col-shadow { /* flex-col */ display: flex; flex-direction: column; gap: 0.5rem; /* shadow */ box-shadow: 0 0 1rem 1px rgba(55,55,55,0.1); }
+.row-shadow { /* flex-row */ display: flex; flex-direction: row; gap: 0.5rem; align-items: center; /* shadow */ box-shadow: 0 0 1rem 1px rgba(55,55,55,0.1); }
+.col-border { /* flex-col */ display: flex; flex-direction: column; gap: 0.5rem; /* border */ border-style: solid; border-width: 1px; border-color: rgba(55,55,55,0.1); }
+.row-border { /* flex-row */ display: flex; flex-direction: row; gap: 0.5rem; align-items: center; /* border */ border-style: solid; border-width: 1px; border-color: rgba(55,55,55,0.1); }
 .block-col { /* .col */ /* flex-col */ display: flex; flex-direction: column; gap: 0.5rem; /* block */ margin: 0.5rem; padding: 0.5rem; background-color: rgba(253,253,253,1.0); }
 .block-row { /* .row */ /* flex-row */ display: flex; flex-direction: row; gap: 0.5rem; align-items: center; /* block */ margin: 0.5rem; padding: 0.5rem; background-color: rgba(253,253,253,1.0); }
 .block-col-shadow { /* .block-col */ /* .col */ /* flex-col */ display: flex; flex-direction: column; gap: 0.5rem; /* block */ margin: 0.5rem; padding: 0.5rem; background-color: rgba(253,253,253,1.0); /* shadow */ box-shadow: 0 0 1rem 1px rgba(55,55,55,0.1); }
 .block-row-shadow { /* .block-row */ /* .row */ /* flex-row */ display: flex; flex-direction: row; gap: 0.5rem; align-items: center; /* block */ margin: 0.5rem; padding: 0.5rem; background-color: rgba(253,253,253,1.0); /* shadow */ box-shadow: 0 0 1rem 1px rgba(55,55,55,0.1); }
+.block-col-border { /* .block-col */ /* .col */ /* flex-col */ display: flex; flex-direction: column; gap: 0.5rem; /* block */ margin: 0.5rem; padding: 0.5rem; background-color: rgba(253,253,253,1.0); /* border */ border-style: solid; border-width: 1px; border-color: rgba(55,55,55,0.1); }
+.block-row-border { /* .block-row */ /* .row */ /* flex-row */ display: flex; flex-direction: row; gap: 0.5rem; align-items: center; /* block */ margin: 0.5rem; padding: 0.5rem; background-color: rgba(253,253,253,1.0); /* border */ border-style: solid; border-width: 1px; border-color: rgba(55,55,55,0.1); }
 .bar { /* bar */ margin-top: 0.5rem; margin-bottom: calc(0.5rem - 1px); border-bottom-style: solid; border-bottom-width: 1px; border-bottom-color: rgba(55,55,55,0.1); height: 0; /* flex-row */ display: flex; flex-direction: row; gap: 0.5rem; align-items: center; }
 .margin { /* center */ margin-left: auto; margin-right: auto; /* middle */ margin-top: auto; margin-bottom: auto; }
 button { /* button */ padding: 0.2rem; border-radius: 0.2rem; font-weight: bold; --font-size: 0.8rem; min-width: calc(1lh + 0.4rem); cursor: pointer; }
@@ -55,7 +61,7 @@ footer { /* sticky */ position: sticky; /* pos-bottom */ bottom: 0; }</style></h
         <h1>共通設定</h1>
         <div class='margin'></div>
 
-        <details class='block-col-shadow'>
+        <details class='col-border'>
           <summary style='--font-size: 0.8rem'>生成AI</summary>
           <template id='template-llm-setting'>
             <div class='block-col-shadow'>

@@ -51,10 +51,16 @@ const scss=new Success()
   .classify('body', 'min-height: 100vh', 'background-color: rgba(253,253,253,1.0)' )
   .themify('.col', 'flex-col')
   .themify('.row', 'flex-row')
+  .themify('.col-shadow', 'flex-col', 'shadow')
+  .themify('.row-shadow', 'flex-row', 'shadow')
+  .themify('.col-border', 'flex-col', 'border')
+  .themify('.row-border', 'flex-row', 'border')
   .themify('.block-col', '.col', 'block')
   .themify('.block-row', '.row', 'block')
   .themify('.block-col-shadow', '.block-col', 'shadow')
   .themify('.block-row-shadow', '.block-row', 'shadow')
+  .themify('.block-col-border', '.block-col', 'border')
+  .themify('.block-row-border', '.block-row', 'border')
   .themify('.bar', 'bar', 'flex-row')
   .themify('.margin', 'center', 'middle')
   .themify('button', 'button')
@@ -120,7 +126,7 @@ console.log( (html`<!DOCTYOE html>
         <h1>共通設定</h1>
         <div class='margin'></div>
 
-        <details class='block-col-shadow'>
+        <details class='col-border'>
           <summary style='--font-size: 0.8rem'>生成AI</summary>
           <template id='template-llm-setting'>
             <div class='block-col-shadow'>
