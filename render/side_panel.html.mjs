@@ -156,7 +156,6 @@ console.log( (html`<!DOCTYOE html>
             </div>
           </template>
           <div id='llm-settings' class='row'>
-            <div class='margin'></div>
             <button id='button-add-llm-setting'
               class='button-color1' style='--font-size: 1rem'
               data-onclick='add-llm-setting'>+</button>
