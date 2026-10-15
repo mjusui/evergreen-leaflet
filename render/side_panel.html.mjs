@@ -126,7 +126,7 @@ console.log( (html`<!DOCTYOE html>
         <h1>共通設定</h1>
         <div class='margin'></div>
 
-        <details class='col-border'>
+        <details class='block-col-border'>
           <summary style='--font-size: 0.8rem'>生成AI</summary>
           <template id='template-llm-setting'>
             <div class='block-col-shadow'>
