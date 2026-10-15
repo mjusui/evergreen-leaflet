@@ -660,6 +660,13 @@ console.log('vals:', vals);
     if(onclick_self === 'hide-modal'){
       page.clear('modal');
     }
+    if(onclick_self === 'add-llm-setting'){
+      const prefix='' + Math.floor(Math.random() + 10**8);
+      const id_provider_type=prefix + 'select-provider-type';
+      const id_provider_key=prefix + 'select-provider-key';
+      const id_provider_models=prefix + 'select-provider-models';
+      const id_provider_url=prefix + 'select-provider-url';
+    }
     if(onclick === 'open-modal-settings'){
       const star=Starray.getInst('store-settings');
       star.push({ llm: {}, });

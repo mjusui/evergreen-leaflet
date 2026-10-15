@@ -23,6 +23,7 @@ textarea { /* border */ border-style: solid; border-width: 1px; border-color: rg
 label { /* button */ padding: 0.2rem; border-radius: 0.2rem; font-weight: bold; --font-size: 0.8rem; min-width: calc(1lh + 0.4rem); cursor: pointer; /* input */ min-width: 80vw; font-weight: normal; }
 label.required::after { /* required */ content: '*'; color: red; }
 legend { /* button */ padding: 0.2rem; border-radius: 0.2rem; font-weight: bold; --font-size: 0.8rem; min-width: calc(1lh + 0.4rem); cursor: pointer; /* input */ min-width: 80vw; font-weight: normal; }
+summary { /* button */ padding: 0.2rem; border-radius: 0.2rem; font-weight: bold; --font-size: 0.8rem; min-width: calc(1lh + 0.4rem); cursor: pointer; /* input */ min-width: 80vw; font-weight: normal; }
 .merge-top { /* border */ border-style: solid; border-width: 1px; border-color: rgba(55,55,55,0.1); /* merge-top */ margin-bottom: 0; border-bottom-width: 0; }
 .merge-middle { /* border */ border-style: solid; border-width: 1px; border-color: rgba(55,55,55,0.1); /* merge-middle */ margin-top: 0; border-top-width: 0; margin-bottom: 0; border-bottom-width: 0; }
 .merge-bottom { /* border */ border-style: solid; border-width: 1px; border-color: rgba(55,55,55,0.1); /* merge-bottom */ margin-top: 0; border-top-width: 0; }
@@ -55,9 +56,7 @@ footer { /* sticky */ position: sticky; /* pos-bottom */ bottom: 0; }</style></h
         <div class='margin'></div>
 
         <details>
-          <summary>
-            <h1 style='--font-size: 0.8rem'>生成AI</h1>
-          </summary>
+          <summary style='--font-size: 0.8rem'>生成AI</summary>
           <template id='template-llm-setting'>
             <div class='block-col-shadow'>
               <label for='select-provider-type' class='required'>種類</label>
@@ -73,19 +72,20 @@ footer { /* sticky */ position: sticky; /* pos-bottom */ bottom: 0; }</style></h
 
               <label for='select-provider-models' class='required'>使用可能なモデル(改行区切り)</label>
               <textarea id='textarea-provider-models' style='--cols: 5'
-                name='provider_models' data-render4='value' cols='5' required></textarea>
+                name='provider_models' data-render3='value' cols='5' required></textarea>
 
               <details>
-                <summary>その他の設定</summary>
+                <summary style='--font-size: 0.8rem'>その他の設定</summary>
                 <label for='select-provider-url'>カスタムURL</label>
                 <textarea id='textarea-provider-url' style='--cols: 2'
-                  name='provider_url' data-render3='value' cols='2'></textarea>
+                  name='provider_url' data-render4='value' cols='2'></textarea>
               </details>
             </div>
           </template>
           <div id='llm-settings' class='col'>
-            <button class='button-color2' style='--font-size: 1rem'
-              data-onclick='add-llm'>+</button>
+            <button id='button-add-llm-setting'
+              class='button-color1' style='--font-size: 1rem'
+              data-onclick='add-llm-setting'>+</button>
           </div>
         </details>
 
