@@ -348,11 +348,8 @@ console.log( (html`<!DOCTYOE html>
         </div>
         <div style='--font-size: 0.8rem' data-render4='textContent'></div>
 
-        <div class='row'>
-          <div class='row'>
-            <select></select> 
-          </div>
-          <div class='margin'></div>
+        <div class='col'>
+          <select></select> 
         </div>
       </header>
       <div class='bar'></div>
