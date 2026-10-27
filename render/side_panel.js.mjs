@@ -346,11 +346,7 @@ console.log('vals:', vals);
     const deleting=(target.dataset.delete === 'true');
 
     if(onsubmit === 'update-settings'){
-      const { prefix: input_prefixes, }=target;
-console.log(input_prefixes);
-
-      const prefixes=([ input_prefixes, ]).flat(1).map(i => i.value);
-console.log('prefixes:', prefixes);
+      const prefixes=new FormData(target).getAll('prefix');
 
       const llms=prefixes.map(prefix =>{
 console.log('prefix:', prefix);
