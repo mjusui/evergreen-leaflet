@@ -132,8 +132,8 @@ console.log( (html`<!DOCTYOE html>
             <div data-render1='id' class='block-col-shadow'>
               <div class='row'>
                 <div class='margin'></div>
-                <button class='button-color9' style='--font-size: 1rem'
-                  data-onclick='remove-llm-setting' data-render1='data-remove'>✕</button>
+                <button class='button-color3' style='--font-size: 1rem'
+                  data-onclick='remove-llm-setting' data-render1='data-remove'>-</button>
               </div>
 
               <input type='hidden' name='prefix' data-render1='value'></input>
