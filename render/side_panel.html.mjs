@@ -27,7 +27,7 @@ const scss=new Success()
   .classify('button', 'padding: 0.2rem', 'border-radius: 0.2rem', 'font-weight: bold',
     '--font-size: 0.8rem', 'min-width: calc(1lh + 0.4rem)', 'cursor: pointer' )
   //.classify('button-sign', '--font-size: 1rem')
-  .classify('input', 'min-width: 70vw',  'max-width: 80vw', 'font-weight: normal')
+  .classify('input', 'min-width: 60vw',  'max-width: 70vw', 'font-weight: normal')
   .classify('textarea', 'min-height: calc(0.4rem + var(--cols) * 1rem)', 'max-height: 20vh', 'resize: none')
   .classify('color0', `background: linear-gradient(135deg, rgba(20, 130, 85, 1.0) 0%,
      rgba(31, 181, 115, 1.0) 45%, rgba(55, 200, 150, 1.0) 70%, rgba(45, 160, 180, 1.0) 100%)` )
@@ -75,7 +75,7 @@ const scss=new Success()
   .themify('input', 'border', 'button', 'input')
   .themify('select', 'border', 'button', 'input')
   .themify('textarea', 'border', 'button', 'input', 'textarea')
-  .themify('.modal-item', 'input')
+  .themify('.input-item', 'input')
   .themify('.run-output', 'border', 'button', 'input', 'textarea', 'scroll')
   .themify('label', 'button', 'input')
   .themify('label.required::after', 'required')
@@ -86,7 +86,7 @@ const scss=new Success()
   .themify('.merge-bottom', 'border', 'merge-bottom')
   .themify('.modal', 'modal-hidden')
   .themify('.modal:not(:empty)', 'modal-display', 'flex-col')
-  .themify(html`.modal:not(:empty) > *`, 'center', 'middle')
+  .themify(html`.modal:not(:empty) > *`, 'center', 'middle', 'scroll')
   .themify('body::before', 'app-theme', 'sticky', 'pos-top', 'color0')
   .themify('body', 'body')
   .themify('footer', 'sticky', 'pos-bottom', 'app-back')
@@ -160,7 +160,7 @@ console.log( (html`<!DOCTYOE html>
               <textarea data-render8='id' style='--cols: 5'
                 data-render9='name' data-render10='value' cols='5' required></textarea>
 
-              <details class='col modal-item'>
+              <details class='col input-item'>
                 <summary style='--font-size: 0.8rem'>その他の設定</summary>
                 <label data-render11='for'>カスタムURL</label>
                 <textarea data-render11='id' style='--cols: 2'
