@@ -350,7 +350,7 @@ console.log('vals:', vals);
 
       const llms=prefixes.map(prefix =>{
         const entries=([ 'provider_type', 'provider_key',
-          'provider_models', 'provider_url', ]).map(key =>{
+          'provider_models', 'provider_url', 'name', ]).map(key =>{
           const name=(prefix + '-' + key).replace(/-/g, '_');
           const { value, }=target[name];
           return [ key, value, ];
@@ -440,7 +440,7 @@ console.log('vals:', vals);
       const prefix=id;
 
       const args=([ 'provider_type', 'provider_key',
-        'provider_models', 'provider_url', ]).map(key =>{
+        'provider_models', 'provider_url', 'name', ]).map(key =>{
         const elemid=(prefix + '-' + key).replace(/_/g, '-');
         const name=(prefix + '-' + key).replace(/-/g, '_');
         const value=key === 'provider_type'
