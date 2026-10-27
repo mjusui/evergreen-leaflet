@@ -348,11 +348,9 @@ console.log( (html`<!DOCTYOE html>
         </div>
         <div style='--font-size: 0.8rem' data-render4='textContent'></div>
 
-        <div class='col'>
-          <select></select> 
-        </div>
-        <div class='bar'></div>
+        <select id='select-llm' class=''></select> 
       </header>
+      <div class='bar'></div>
 
       <section id='item-runs' class='load-item-runs' data-render1='data-guideid'
         data-render2='data-stepid'>
