@@ -9,7 +9,7 @@ const scss=new Success()
   .classify('block', 'margin: 0.5rem', 'padding: 0.5rem', 'background-color: rgba(253,253,253,1.0)')
   .classify('border', 'border-style: solid', 'border-width: 1px',
     'border-color: rgba(55,55,55,0.1)' )
-  .classify('border-round', 'border-radius: 50%')
+  .classify('border-round', 'border-radius: 10rem')
   .classify('bar', 'margin-top: 0.5rem', 'margin-bottom: calc(0.5rem - 1px)',
     'border-bottom-style: solid', 'border-bottom-width: 1px', 'border-bottom-color: rgba(55,55,55,0.1)', 'height: 0' )
   .classify('sticky', 'position: sticky').classify('fixed', 'position: fixed')
@@ -350,7 +350,7 @@ console.log( (html`<!DOCTYOE html>
         </div>
         <div style='--font-size: 0.8rem' data-render4='textContent'></div>
 
-        <div class='row'>
+        <div class='block-row'>
           <div class='margin'></div>
           <select id='select-llm' class='button-select'></select> 
           <div class='margin'></div>
