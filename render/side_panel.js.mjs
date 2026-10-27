@@ -412,7 +412,7 @@ console.log('vals:', vals);
     if(onclick_self === 'add-llm-setting'){
       const rand=Math.floor(Math.random() * 10**8);
       const id='llm-setting-' + rand;
-      const provider_type='';
+      const provider_type='openai';
       const provider_key='';
       const provider_models='';
       const provider_url='';
