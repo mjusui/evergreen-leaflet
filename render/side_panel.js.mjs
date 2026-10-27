@@ -346,17 +346,23 @@ console.log('vals:', vals);
     const deleting=(target.dataset.delete === 'true');
 
     if(onsubmit === 'update-settings'){
-      const { value: provider_type='none', }=target.provider_type;
-      const { value: provider_key='', }=target.provider_key;
-      const { value: provider_url='', }=target.provider_url;
-      const provider_models=(target.provider_models.value || '')
-        .split('\\n').map(m => m.trim() );
-      const llm={ provider_type, provider_key,
-        provider_url, provider_models, };
+      const { prefix: input_prefixes, }=target;
+
+      const prefixes=([ ...input_prefixes, ]).map(i => i.value);
+
+      const llms=prefixes.map(prefix =>{
+        const entries=([ 'provider_type', 'provider_key',
+          'provider_models', 'provider_url', ]).map(key =>{
+          const name=(prefix + '-' + key).replace(/-/g, '_');
+          const { value, }=target[name];
+          return [ key, value, ];
+        });
+        return Object.fronEntries(entries);
+      });
 
       const star=Starray.getInst('store-settings');
-      star.unshift({ llm, });
-      star.flatMap( (item, idx)=> 0 < idx ? [] : item);
+      star.unshift({ llms, });
+      star.flatMap((item, idx)=> 0 < idx : [] : item);
 
       page.clear('modal');
     }
