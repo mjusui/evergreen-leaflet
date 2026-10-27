@@ -495,7 +495,7 @@ console.log('keys:', keys);
         }).flat(1);
         args.unshift(prefix);
 
-        wisdom.append('elem.id', 'template-llm-setting', args);
+        wisdom.append(elem.id, 'template-llm-setting', args);
       });
     });
   };
@@ -505,7 +505,7 @@ console.log('keys:', keys);
     loadGuides();
     loadSteps();
     loadRuns();
-    //loadLlmSettings();
+    loadLlmSettings();
   };
   page.open('display', 'template-guides');
 
