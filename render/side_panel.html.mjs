@@ -117,7 +117,7 @@ console.log( (html`<!DOCTYOE html>
     <footer class='block-row'>
         <div class='col'>
           <div class='margin' style='--font-size: 0.7rem'>Evergreen Leaflet</div>
-          <div class='margin' style='--font-size: 0.6rem'>枯れないガイド</div>
+          <div class='margin' style='--font-size: 0.6rem'>枯れないガイドブック</div>
         </div>
         <div class='margin'></div>
 
