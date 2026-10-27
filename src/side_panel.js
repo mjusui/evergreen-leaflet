@@ -608,6 +608,7 @@ console.log('vals:', vals);
 
     if(onsubmit === 'update-settings'){
       const { prefix: input_prefixes, }=target;
+console.log(input_prefixes);
 
       const prefixes=([ ...input_prefixes, ]).map(i => i.value);
 
