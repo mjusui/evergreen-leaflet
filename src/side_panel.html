@@ -65,8 +65,11 @@ footer { /* sticky */ position: sticky; /* pos-bottom */ bottom: 0; }</style></h
           <summary style='--font-size: 0.8rem'>生成AI</summary>
           <template id='template-llm-setting'>
             <div data-render1='id' class='block-col-shadow'>
-              <button class='button-color9' style='--font-size: 1rem'
-                data-onclick='remove-llm-setting' data-render1='data-remove'>✕</button>
+              <div class='row'>
+                <div class='margin'></div>
+                <button class='button-color9' style='--font-size: 1rem'
+                  data-onclick='remove-llm-setting' data-render1='data-remove'>✕</button>
+              </div>
 
               <input type='hidden' name='prefix' data-render1='value'></input>
 
