@@ -73,26 +73,26 @@ footer { /* sticky */ position: sticky; /* pos-bottom */ bottom: 0; }</style></h
 
               <input type='hidden' name='prefix' data-render1='value'></input>
 
-              <label for='select-provider-type' class='required'>種類</label>
-              <select id='select-provider-type'
-                name='provider_type' data-render2='value' required>
+              <label data-render2='for' class='required'>種類</label>
+              <select data-render2='id'
+                data-render3='name' data-render4='value' required>
                 <option value='openai' selected>Open AI</option>
               </select>
 
-              <label for='input-provider-key' class='required'>APIキー</label>
-              <input id='input-provider-key'
-                type='password' name='provider_key' data-render3='value' required>
+              <label data-render5='for' class='required'>APIキー</label>
+              <input data-render5='id'
+                type='password' data-render6='name' data-render7='value' required>
               </input>
 
-              <label for='select-provider-models' class='required'>使用可能なモデル(改行区切り)</label>
-              <textarea id='textarea-provider-models' style='--cols: 5'
-                name='provider_models' data-render4='value' cols='5' required></textarea>
+              <label data-render8='for' class='required'>使用可能なモデル(改行区切り)</label>
+              <textarea data-render8='id' style='--cols: 5'
+                data-render9='name' data-render10='value' cols='5' required></textarea>
 
               <details>
                 <summary style='--font-size: 0.8rem'>その他の設定</summary>
-                <label for='select-provider-url'>カスタムURL</label>
-                <textarea id='textarea-provider-url' style='--cols: 2'
-                  name='provider_url' data-render5='value' cols='2'></textarea>
+                <label data-render11='for'>カスタムURL</label>
+                <textarea data-render11='id' style='--cols: 2'
+                  data-render12='name' data-render13='value' cols='2'></textarea>
               </details>
             </div>
           </template>

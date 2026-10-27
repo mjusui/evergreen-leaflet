@@ -672,14 +672,19 @@ console.log('vals:', vals);
     }
     if(onclick_self === 'add-llm-setting'){
       const rand=Math.floor(Math.random() * 10**8);
-      const id='llm-setting-' + rand;
-      const provider_type='openai';
-      const provider_key='';
-      const provider_models='';
-      const provider_url='';
-      wisdom.append('slot-llm-settings', 'template-llm-setting', [
-        id, provider_type, provider_key,
-        provider_models, provider_url, ]);
+      const id='llm-setting' + rand;
+      const prefix=id;
+
+      const args=([ 'provider_type', 'provider_key',
+        'provider_models', 'provider_url', ]).map(key =>{
+        const elemid=(prefix + '-' + key).replace(/_/g, '-');
+        const name=(prefix + '-' + key).replace(/-/g, '_');
+        const value='';
+        return [ elemid, name, value, ];
+      }).flat(1);
+      args.unshift(id);
+
+      wisdom.append('slot-llm-settings', 'template-llm-setting', args);
     }
     if(onclick === 'open-modal-settings'){
       const star=Starray.getInst('store-settings');
