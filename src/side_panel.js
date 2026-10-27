@@ -608,8 +608,10 @@ console.log('vals:', vals);
 
     if(onsubmit === 'update-settings'){
       const { prefix: input_prefixes, }=target;
+console.log(input_prefixes);
 
       const prefixes=([ input_prefixes, ]).flat(1).map(i => i.value);
+console.log('prefixes:', prefixes);
 
       const llms=prefixes.map(prefix =>{
 console.log('prefix:', prefix);
