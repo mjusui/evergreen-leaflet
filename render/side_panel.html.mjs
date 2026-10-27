@@ -159,7 +159,7 @@ console.log( (html`<!DOCTYOE html>
               <textarea data-render8='id' style='--cols: 5'
                 data-render9='name' data-render10='value' cols='5' required></textarea>
 
-              <details>
+              <details class='col'>
                 <summary style='--font-size: 0.8rem'>その他の設定</summary>
                 <label data-render11='for'>カスタムURL</label>
                 <textarea data-render11='id' style='--cols: 2'
