@@ -93,7 +93,7 @@ const html_css=scss.html;
 
 const handle=await main(()=>{
   const html_head=html.head({
-    title: 'Evergreen Leaflet',
+    title: 'Evergreen Leaflet - 枯れないガイドブック',
     metas: [
       { charset: 'UTF-8', },
     ],
