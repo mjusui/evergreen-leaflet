@@ -35,7 +35,7 @@ html`page: {
 
       items.forEach(item =>{
         const { id, title, desc, }=item;
-        wisdom.append(elem.id, 'template-item-guide', [ id, title, desc, ]);
+        //wisdom.append(elem.id, 'template-item-guide', [ id, title, desc, ]);
       });
     });
   };
