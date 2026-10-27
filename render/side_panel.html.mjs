@@ -75,6 +75,7 @@ const scss=new Success()
   .themify('input', 'border', 'button', 'input')
   .themify('select', 'border', 'button', 'input')
   .themify('textarea', 'border', 'button', 'input', 'textarea')
+  .themify('.modal-item', 'input')
   .themify('.run-output', 'border', 'button', 'input', 'textarea', 'scroll')
   .themify('label', 'button', 'input')
   .themify('label.required::after', 'required')
@@ -159,7 +160,7 @@ console.log( (html`<!DOCTYOE html>
               <textarea data-render8='id' style='--cols: 5'
                 data-render9='name' data-render10='value' cols='5' required></textarea>
 
-              <details class='col'>
+              <details class='col modal-item'>
                 <summary style='--font-size: 0.8rem'>その他の設定</summary>
                 <label data-render11='for'>カスタムURL</label>
                 <textarea data-render11='id' style='--cols: 2'
