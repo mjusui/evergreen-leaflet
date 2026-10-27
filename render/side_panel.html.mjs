@@ -48,7 +48,8 @@ const scss=new Success()
   .classify('modal-display', 'position: fixed', 'top: 0', 'z-index: 80',
     'height: 100vh', 'width: 100%', 'background-color: rgba(55,55,55,0.5)')
   .classify('app-theme', 'content: ""', 'height: 1rem', 'display: block', 'z-index: 100' )
-  .classify('app-back', 'background-image: url("icon.png")' )
+  .classify('app-back', 'background-image: url("icon.png")',
+     'background-position: center', 'background-repeat: no-repeat' )
   .classify('body', 'min-height: 100vh', 'background-color: rgba(253,253,253,1.0)' )
   .themify('.col', 'flex-col')
   .themify('.row', 'flex-row')
