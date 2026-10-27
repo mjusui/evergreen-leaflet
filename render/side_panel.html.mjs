@@ -115,7 +115,7 @@ console.log( (html`<!DOCTYOE html>
     <div class='margin'></div>
 
     <footer class='block-row'>
-        <div style='--font-size: 0.4rem'>Evergreen - 枯れない手順書</div>
+        <div style='--font-size: 0.6rem'>Evergreen - 枯れない手順書</div>
         <div class='margin'></div>
 
         <button class='button-color9-shadow' style='--font-size: 1rem'
