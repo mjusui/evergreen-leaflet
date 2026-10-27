@@ -351,9 +351,11 @@ console.log('vals:', vals);
       const prefixes=([ input_prefixes, ]).flat(1).map(i => i.value);
 
       const llms=prefixes.map(prefix =>{
+console.log('prefix:', prefix);
         const entries=([ 'provider_type', 'provider_key',
           'provider_models', 'provider_url', ]).map(key =>{
           const name=(prefix + '-' + key).replace(/-/g, '_');
+console.log('key,name:', key, name);
           const { value, }=target[name];
           return [ key, value, ];
         });
