@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
-  "name": "Evergreen Leaflet",
-  "description": "登録されたガイドにそって、ブラウザーを半自動で操作し、ユーザーにチュートリアルを提供します。",
+  "name": "Evergreen Leaflet - 枯れないガイドブック",
+  "description": "登録したガイドにそって、人とAIがブラウザーを半自動で操作し、目的を達成するチュートリアルを提供します。",
   "version": "0.9",
   "background": {
     "service_worker": "background.js"
