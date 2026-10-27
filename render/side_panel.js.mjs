@@ -216,6 +216,26 @@ console.log('keys:', keys);
   const loadLlmSettings=()=>{
     ([ ...document.getElementsByClassName('load-llm-settings'), ]).forEach(elem =>{
       console.log('load-llm-settings:', elem);
+
+      const star=Starray.getInst('store-settings');
+      const [ item ]=star.list();
+      const { llms, }=item;
+
+      wisdom.clear(elem.id);
+
+      llms.forEach(llm =>{
+        const { prefix, }=llm;
+        const args=([ 'provider_type', 'provider_key',
+          'provider_models', 'provider_url', ]).map(key =>{
+          const elemid=(prefix + '-' + key).replace(/_/g, '-');
+          const name=(prefix + '-' + key).replace(/-/g, '_');
+          const value=llm[key];
+          return [ elemid, name, value, ];
+        }).flat(1);
+        args.unshift(prefix);
+
+        wisdom.append('elem.id', 'template-llm-setting', args);
+      });
     });
   };
 
@@ -418,7 +438,8 @@ console.log('vals:', vals);
         'provider_models', 'provider_url', ]).map(key =>{
         const elemid=(prefix + '-' + key).replace(/_/g, '-');
         const name=(prefix + '-' + key).replace(/-/g, '_');
-        const value='';
+        const value=key === 'provider_type'
+          ? 'openai' : '';
         return [ elemid, name, value, ];
       }).flat(1);
       args.unshift(id);
@@ -427,16 +448,10 @@ console.log('vals:', vals);
     }
     if(onclick === 'open-modal-settings'){
       const star=Starray.getInst('store-settings');
-      star.push({ llm: {}, });
+      star.push({ llms: [], });
       star.flatMap( (item, idx)=> 0 < idx ? [] : item);
 
-      const [ item ]=star.list();
-      const { provider_type='openai', provider_key='',
-        provider_url='', provider_models=[], }=item.llm;
-
-      page.open('modal', 'template-modal-settings',
-        [ provider_type, provider_key, provider_url,
-          provider_models.join('\\n'), ]);
+      page.open('modal', 'template-modal-settings');
     }
     if(onclick === 'open-guides'){
       page.open('display', 'template-guides');
