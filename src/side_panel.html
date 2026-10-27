@@ -64,7 +64,10 @@ footer { /* sticky */ position: sticky; /* pos-bottom */ bottom: 0; }</style></h
         <details class='block-col-border'>
           <summary style='--font-size: 0.8rem'>生成AI</summary>
           <template id='template-llm-setting'>
-            <div class='block-col-shadow'>
+            <div data-render1='id' class='block-col-shadow'>
+              <button class='button-color9' style='--font-size: 1rem'
+                data-onclick='remove-llm-setting' data-render1='data-remove'>✕</button>
+
               <input type='hidden' name='prefix' data-render1='value'></input>
 
               <label for='select-provider-type' class='required'>種類</label>
@@ -90,10 +93,13 @@ footer { /* sticky */ position: sticky; /* pos-bottom */ bottom: 0; }</style></h
               </details>
             </div>
           </template>
-          <div id='llm-settings' class='row'>
-            <button id='button-add-llm-setting'
-              class='button-color1' style='--font-size: 1rem'
-              data-onclick='add-llm-setting'>+</button>
+          <div class='col'>
+            <div id='slot-llm-settings' class='col load-llm-settings'></div>
+            <div class='row'>
+              <button id='button-add-llm-setting'
+                class='button-color1' style='--font-size: 1rem'
+                data-onclick='add-llm-setting'>+</button>
+            </div>
           </div>
         </details>
 

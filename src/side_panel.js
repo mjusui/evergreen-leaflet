@@ -460,7 +460,6 @@ console.log('keys:', keys);
     });
   };
 
-
   const funnRun=new Funnel({ lim: 1, });
   const emitRun=async (url)=>(
     await funnRun.pour(async url =>{
@@ -475,11 +474,18 @@ console.log('keys:', keys);
     }, url)
   );
 
+  const loadLlmSettings=()=>{
+    ([ ...document.getElementsByClassName('load-llm-settings'), ]).forEach(elem =>{
+      console.log('load-llm-settings:', elem);
+    });
+  };
+
   page.open=(...args)=>{
     wisdom.write(...args);
     loadGuides();
     loadSteps();
     loadRuns();
+    loadLlmSettings();
   };
   page.open('display', 'template-guides');
 
@@ -660,12 +666,20 @@ console.log('vals:', vals);
     if(onclick_self === 'hide-modal'){
       page.clear('modal');
     }
+    if(onclick_self === 'remove-llm-setting'){
+      const { remove, }=target.dataset;
+      wisdom.remove(remove);
+    }
     if(onclick_self === 'add-llm-setting'){
-      const prefix='' + Math.floor(Math.random() + 10**8);
-      const id_provider_type=prefix + 'select-provider-type';
-      const id_provider_key=prefix + 'select-provider-key';
-      const id_provider_models=prefix + 'select-provider-models';
-      const id_provider_url=prefix + 'select-provider-url';
+      const rand=Math.floor(Math.random() * 10**8);
+      const id='llm-setting-' + rand;
+      const provider_type='';
+      const provider_key='';
+      const provider_models='';
+      const provider_url='';
+      wisdom.append('slot-llm-settings', 'template-llm-setting', [
+        id, provider_type, provider_key,
+        provider_models, provider_url, ]);
     }
     if(onclick === 'open-modal-settings'){
       const star=Starray.getInst('store-settings');
