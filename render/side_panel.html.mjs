@@ -350,7 +350,7 @@ console.log( (html`<!DOCTYOE html>
         </div>
         <div style='--font-size: 0.8rem' data-render4='textContent'></div>
 
-        <div class='block-row'>
+        <div class='merge-top'>
           <div class='margin'></div>
           <select id='select-llm' class='button-select'></select> 
           <div class='margin'></div>
