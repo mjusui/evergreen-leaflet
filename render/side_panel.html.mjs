@@ -170,6 +170,7 @@ console.log( (html`<!DOCTYOE html>
           <div class='col'>
             <div id='slot-llm-settings' class='col load-llm-settings'></div>
             <div class='row'>
+              <div class='margin'></div>
               <button id='button-add-llm-setting'
                 class='button-color1' style='--font-size: 1rem'
                 data-onclick='add-llm-setting'>+</button>
