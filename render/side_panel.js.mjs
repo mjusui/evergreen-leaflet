@@ -357,7 +357,7 @@ console.log('vals:', vals);
           const { value, }=target[name];
           return [ key, value, ];
         });
-        return Object.fronEntries(entries);
+        return Object.fromEntries(entries);
       });
 
       const star=Starray.getInst('store-settings');
