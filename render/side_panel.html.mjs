@@ -9,6 +9,7 @@ const scss=new Success()
   .classify('block', 'margin: 0.5rem', 'padding: 0.5rem', 'background-color: rgba(253,253,253,1.0)')
   .classify('border', 'border-style: solid', 'border-width: 1px',
     'border-color: rgba(55,55,55,0.1)' )
+  .classify('border-round', 'border-radius: 50%')
   .classify('bar', 'margin-top: 0.5rem', 'margin-bottom: calc(0.5rem - 1px)',
     'border-bottom-style: solid', 'border-bottom-width: 1px', 'border-bottom-color: rgba(55,55,55,0.1)', 'height: 0' )
   .classify('sticky', 'position: sticky').classify('fixed', 'position: fixed')
@@ -76,6 +77,7 @@ const scss=new Success()
   .themify('.button-sign-color1', 'border', 'button', 'color1')
   .themify('input', 'border', 'button', 'input')
   .themify('select', 'border', 'button', 'input')
+  .themify('.button-select', 'select', 'color1', 'border-round')
   .themify('textarea', 'border', 'button', 'input', 'textarea')
   .themify('.input-item', 'input')
   .themify('.run-output', 'border', 'button', 'input', 'textarea', 'scroll')
@@ -348,7 +350,11 @@ console.log( (html`<!DOCTYOE html>
         </div>
         <div style='--font-size: 0.8rem' data-render4='textContent'></div>
 
-        <select id='select-llm' class=''></select> 
+        <div class='row'>
+          <div class='margin'></div>
+          <select id='select-llm' class='button-select'></select> 
+          <div class='margin'></div>
+        </div>
       </header>
       <div class='bar'></div>
 
