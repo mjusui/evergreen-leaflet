@@ -119,15 +119,15 @@ console.log( (html`<!DOCTYOE html>
     <div class='margin'></div>
 
     <footer class='block-row'>
-        <div class='col'>
-          <div class='margin' style='--font-size: 0.7rem'>Evergreen Leaflet</div>
-          <div class='margin' style='--font-size: 0.6rem'>枯れないガイドブック</div>
-        </div>
-        <div class='margin'></div>
+      <div class='col'>
+        <div class='margin' style='--font-size: 0.7rem'>Evergreen Leaflet</div>
+        <div class='margin' style='--font-size: 0.6rem'>枯れないガイドブック</div>
+      </div>
+      <div class='margin'></div>
 
-        <button class='button-color9-shadow' style='--font-size: 1rem'
-          data-onclick='open-modal-settings'>=</button>
-        </div>
+      <button class='button-color9-shadow' style='--font-size: 1rem'
+        data-onclick='open-modal-settings'>=</button>
+      </div>
     </footer>
 
     <template id='template-modal-settings'>
@@ -147,6 +147,11 @@ console.log( (html`<!DOCTYOE html>
               </div>
 
               <input type='hidden' name='prefix' data-render1='value'></input>
+
+              <label data-render14='for' class='required'>名前</label>
+              <input data-render14='id'
+                type='text' data-render15='name' data-render16='value' required>
+              </input>
 
               <label data-render2='for' class='required'>種類</label>
               <select data-render2='id'
@@ -344,7 +349,9 @@ console.log( (html`<!DOCTYOE html>
         <div style='--font-size: 0.8rem' data-render4='textContent'></div>
 
         <div class='row'>
-          <div data-render5='textContent'></div>
+          <div class='row'>
+            <select></select> 
+          </div>
           <div class='margin'></div>
         </div>
       </header>

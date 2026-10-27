@@ -487,7 +487,7 @@ console.log('keys:', keys);
       llms.forEach(llm =>{
         const { prefix, }=llm;
         const args=([ 'provider_type', 'provider_key',
-          'provider_models', 'provider_url', ]).map(key =>{
+          'provider_models', 'provider_url', 'name', ]).map(key =>{
           const elemid=(prefix + '-' + key).replace(/_/g, '-');
           const name=(prefix + '-' + key).replace(/-/g, '_');
           const value=llm[key];
