@@ -24,8 +24,10 @@ const scss=new Success()
   .classify('center', 'margin-left: auto', 'margin-right: auto')
   .classify('middle', 'margin-top: auto', 'margin-bottom: auto')
   .classify('merge-top', 'margin-bottom: 0', 'border-bottom-width: 0')
-  .classify('merge-middle', 'margin-top: 0', 'border-top-width: 0', 'margin-bottom: 0', 'border-bottom-width: 0')
+  //.classify('merge-middle', 'margin-top: 0', 'border-top-width: 0', 'margin-bottom: 0', 'border-bottom-width: 0')
   .classify('merge-bottom', 'margin-top: 0', 'border-top-width: 0')
+  .classify('merge-left', 'margin-right: 0', 'border-right-width: 0')
+  .classify('merge-right', 'margin-left: 0', 'border-left-width: 0')
   .classify('scroll', 'overflow: auto')
   .classify('button', 'padding: 0.2rem', 'border-radius: 0.2rem', 'font-weight: bold',
     '--font-size: 0.8rem', 'min-width: calc(1lh + 0.4rem)', 'cursor: pointer' )
@@ -86,8 +88,11 @@ const scss=new Success()
   .themify('legend', 'button', 'input')
   .themify('summary', 'button', 'input')
   .themify('.merge-top', 'border', 'merge-top')
-  .themify('.merge-middle', 'border', 'merge-middle')
+  .themify('.merge-middle', 'border', 'merge-top', 'merge-bottom')
   .themify('.merge-bottom', 'border', 'merge-bottom')
+  .themify('.merge-left', 'border', 'merge-left')
+  .themify('.merge-right', 'border', 'merge-right')
+  .themify('.merge-center', 'border', 'merge-left', 'merge-right')
   .themify('.modal', 'modal-hidden')
   .themify('.modal:not(:empty)', 'modal-display', 'flex-col')
   .themify(html`.modal:not(:empty) > *`, 'center', 'middle', 'scroll')
@@ -375,6 +380,11 @@ console.log( (html`<!DOCTYOE html>
           <h1 style='--font-size: 0.8rem' data-render12='textContent'></h1>
         </div>
         <pre style='--font-size: 0.8rem' data-render13='textContent'></pre>
+
+        <div class='row'>
+          <select class='button-color1 merge-left'></select>
+          <button class='button-color1 marge-right'>${ '>' }</button>
+        </div>
 
         <div class='margin'></div>
 

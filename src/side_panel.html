@@ -33,8 +33,11 @@ label.required::after { /* required */ content: '*'; color: red; }
 legend { /* button */ padding: 0.2rem; border-radius: 0.2rem; font-weight: bold; --font-size: 0.8rem; min-width: calc(1lh + 0.4rem); cursor: pointer; /* input */ min-width: 70vw; max-width: 70vw; font-weight: normal; }
 summary { /* button */ padding: 0.2rem; border-radius: 0.2rem; font-weight: bold; --font-size: 0.8rem; min-width: calc(1lh + 0.4rem); cursor: pointer; /* input */ min-width: 70vw; max-width: 70vw; font-weight: normal; }
 .merge-top { /* border */ border-style: solid; border-width: 1px; border-color: rgba(55,55,55,0.1); /* merge-top */ margin-bottom: 0; border-bottom-width: 0; }
-.merge-middle { /* border */ border-style: solid; border-width: 1px; border-color: rgba(55,55,55,0.1); /* merge-middle */ margin-top: 0; border-top-width: 0; margin-bottom: 0; border-bottom-width: 0; }
+.merge-middle { /* border */ border-style: solid; border-width: 1px; border-color: rgba(55,55,55,0.1); /* merge-top */ margin-bottom: 0; border-bottom-width: 0; /* merge-bottom */ margin-top: 0; border-top-width: 0; }
 .merge-bottom { /* border */ border-style: solid; border-width: 1px; border-color: rgba(55,55,55,0.1); /* merge-bottom */ margin-top: 0; border-top-width: 0; }
+.merge-left { /* border */ border-style: solid; border-width: 1px; border-color: rgba(55,55,55,0.1); /* merge-left */ margin-right: 0; border-right-width: 0; }
+.merge-right { /* border */ border-style: solid; border-width: 1px; border-color: rgba(55,55,55,0.1); /* merge-right */ margin-left: 0; border-left-width: 0; }
+.merge-center { /* border */ border-style: solid; border-width: 1px; border-color: rgba(55,55,55,0.1); /* merge-left */ margin-right: 0; border-right-width: 0; /* merge-right */ margin-left: 0; border-left-width: 0; }
 .modal { /* modal-hidden */ display: none; }
 .modal:not(:empty) { /* modal-display */ position: fixed; top: 0; z-index: 80; height: 100vh; width: 100%; background-color: rgba(55,55,55,0.5); /* flex-col */ display: flex; flex-direction: column; gap: 0.5rem; }
 .modal:not(:empty) > * { /* center */ margin-left: auto; margin-right: auto; /* middle */ margin-top: auto; margin-bottom: auto; /* scroll */ overflow: auto; }
@@ -304,6 +307,11 @@ footer { /* sticky */ position: sticky; /* pos-bottom */ bottom: 0; /* app-back 
           <h1 style='--font-size: 0.8rem' data-render12='textContent'></h1>
         </div>
         <pre style='--font-size: 0.8rem' data-render13='textContent'></pre>
+
+        <div class='row'>
+          <select class='button-color1 merge-left'></select>
+          <button class='button-color1 marge-right'>&gt;</button>
+        </div>
 
         <div class='margin'></div>
 
