@@ -146,7 +146,7 @@ html`page: {
           provider_models, }=llm;
 
         const models=provider_models
-          .split('\n').filter(a => a);
+          .split('\\n').filter(a => a);
 
         const innerHTML=models.map(model =>{
           const value=(prefix + '/' + model);
