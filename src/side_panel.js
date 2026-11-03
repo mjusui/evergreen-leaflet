@@ -568,7 +568,7 @@ console.log('keys:', keys);
           },
         }),
       };
-console.log(JSON.stringify(init) );
+console.log(init);
       const resp=await fetch(provider_url + '/v1/responses', init);
       const result=await resp.json();
 console.log(result);
