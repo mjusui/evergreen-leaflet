@@ -390,7 +390,7 @@ console.log( (html`<!DOCTYOE html>
         <div class='merge'>
           <select class='button-color1 merge-left load-item-run-llm-optgroups'
             data-render2='data-stepid'></select>
-          <button class='button-color1 merge-right'>${ ' >' }</button>
+          <button class='button-color1 merge-right'>で実行する</button>
         </div>
 
         <div class='margin'></div>
