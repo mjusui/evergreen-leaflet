@@ -163,7 +163,7 @@ html`page: {
 
 
       const html_options=llms.map(llm =>{
-        cosnt { name, provider_models, }=llm;
+        const { name, provider_models, }=llm;
 
         const models=provider_models.split('\n')
           .filter(a => a);
