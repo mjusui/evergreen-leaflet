@@ -387,7 +387,7 @@ console.log( (html`<!DOCTYOE html>
 
         <div>
           <select class='button-color1 merge-left'></select>
-          <button class='button-color1 merge-right'>${ '>' }</button>
+          <button class='button-color1 merge-right' style='--font-size: 1rem'>${ '>' }</button>
         </div>
 
         <div class='margin'></div>
