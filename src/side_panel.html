@@ -23,6 +23,12 @@ button { /* button */ padding: 0.2rem; border-radius: 0.2rem; font-weight: bold;
 .button-color9-shadow { /* .button-color9 */ /* border */ border-style: solid; border-width: 1px; border-color: rgba(55,55,55,0.1); /* button */ padding: 0.2rem; border-radius: 0.2rem; font-weight: bold; --font-size: 0.8rem; min-width: calc(1lh + 0.4rem); cursor: pointer; /* color9 */ background-color: rgba(55,55,55,0.0); border-color: rgba(55,55,55,1.0); color: rgba(253,253,253,1.0); color: rgba(55,55,55,1.0); /* shadow */ box-shadow: 0 0 1rem 1px rgba(55,55,55,0.3); }
 .baloon { /* relative */ position: relative; }
 .baloon &gt; * { /* absolute */ position: absolute; }
+.warn { /* hidden */ display: none; }
+.info { /* hidden */ display: none; }
+.nice { /* hidden */ display: none; }
+.warn:not(:empty) { /* flex-row */ display: flex; flex-direction: row; gap: 0.5rem; align-items: center; }
+.info:not(:empty) { /* flex-row */ display: flex; flex-direction: row; gap: 0.5rem; align-items: center; }
+.nice:not(:empty) { /* flex-row */ display: flex; flex-direction: row; gap: 0.5rem; align-items: center; }
 .warn::before { /* warn-emoji */ content: "⚠️ "; }
 .info::before { /* info-emoji */ content: "ℹ️ "; }
 .nice::before { /* nice-emoji */ content: "✅ "; }
@@ -43,7 +49,7 @@ summary { /* button */ padding: 0.2rem; border-radius: 0.2rem; font-weight: bold
 .merge-left { /* merge-left */ margin-right: 0; border-right-width: 0; border-top-right-radius: 0; border-bottom-right-radius: 0; }
 .merge-right { /* merge-right */ margin-left: 0; border-left-width: 0; border-top-left-radius: 0; border-bottom-left-radius: 0; }
 .merge-center { /* merge-left */ margin-right: 0; border-right-width: 0; border-top-right-radius: 0; border-bottom-right-radius: 0; /* merge-right */ margin-left: 0; border-left-width: 0; border-top-left-radius: 0; border-bottom-left-radius: 0; }
-.modal { /* modal-hidden */ display: none; }
+.modal { /* hidden */ display: none; }
 .modal:not(:empty) { /* modal-display */ position: fixed; top: 0; z-index: 80; height: 100vh; width: 100%; background-color: rgba(55,55,55,0.5); /* flex-col */ display: flex; flex-direction: column; gap: 0.5rem; }
 .modal:not(:empty) > * { /* center */ margin-left: auto; margin-right: auto; /* middle */ margin-top: auto; margin-bottom: auto; /* scroll */ overflow: auto; }
 body::before { /* app-theme */ content: ""; height: 1rem; display: block; z-index: 100; /* sticky */ position: sticky; /* pos-top */ top: 0; /* color0 */ background: linear-gradient(135deg, rgba(20, 130, 85, 1.0) 0%,
