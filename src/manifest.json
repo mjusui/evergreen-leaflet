@@ -15,5 +15,6 @@
   "sandbox": {
     "pages": [ "sandbox.html" ]
   },
-  "permissions": [ "sidePanel", "scripting", "activeTab" ]
+  "permissions": [ "sidePanel", "scripting", "activeTab" ],
+  "host_permissions": [ "<all_urls>" ]
 }
