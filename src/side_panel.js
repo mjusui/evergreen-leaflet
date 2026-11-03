@@ -742,7 +742,7 @@ console.log('vals:', vals);
 
 
 
-  document.addEventListener('submit', ev =>{
+  document.addEventListener('submit', async ev =>{
     ev.preventDefault();
     console.log('submit:', ev.target);
     const { target, }=ev;
