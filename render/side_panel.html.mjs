@@ -390,7 +390,7 @@ console.log( (html`<!DOCTYOE html>
         <div class='merge'>
           <select class='button-color1 merge-left load-item-run-llm-optgroups'
             data-render2='data-stepid'></select>
-          <button class='button-color1 merge-right' style='--font-size: 1rem'>${ '>' }</button>
+          <button class='button-color1 merge-right'>このモデルで実行</button>
         </div>
 
         <div class='margin'></div>
