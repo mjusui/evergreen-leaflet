@@ -23,6 +23,7 @@ const scss=new Success()
   .classify('top', 'margin-bottom: auto').classify('bottom', 'margin-top: auto')
   .classify('center', 'margin-left: auto', 'margin-right: auto')
   .classify('middle', 'margin-top: auto', 'margin-bottom: auto')
+  .classify('merge', 'display: flex')
   .classify('merge-top', 'margin-bottom: 0', 'border-bottom-width: 0',
     'border-bottom-left-radius: 0', 'border-bottom-right-radius: 0' )
   //.classify('merge-middle', 'margin-top: 0', 'border-top-width: 0', 'margin-bottom: 0', 'border-bottom-width: 0')
@@ -91,6 +92,7 @@ const scss=new Success()
   .themify('label.required::after', 'required')
   .themify('legend', 'button', 'input')
   .themify('summary', 'button', 'input')
+  .themify('merge', 'merge')
   .themify('.merge-top', 'border', 'merge-top')
   .themify('.merge-middle', 'border', 'merge-top', 'merge-bottom')
   .themify('.merge-bottom', 'border', 'merge-bottom')
@@ -385,7 +387,7 @@ console.log( (html`<!DOCTYOE html>
         </div>
         <pre style='--font-size: 0.8rem' data-render13='textContent'></pre>
 
-        <div>
+        <div class='merge'>
           <select class='button-color1 merge-left'></select>
           <button class='button-color1 merge-right' style='--font-size: 1rem'>${ '>' }</button>
         </div>
