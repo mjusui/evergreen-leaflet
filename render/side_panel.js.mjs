@@ -139,7 +139,7 @@ html`page: {
 
     ([ ...document.getElementsByClassName('load-item-run-llm-optgroups'), ]).forEach(elem =>{
       const { stepid, }=elem.dataset;
-      const elem.id=('select-llm-' + stepid);
+      elem.id=('select-llm-' + stepid);
 
       llms.forEach(llm =>{
         const { prefix, name: label,
