@@ -15,5 +15,5 @@
   "sandbox": {
     "pages": [ "sandbox.html" ]
   },
-  "permissions": ["sidePanel"]
+  "permissions": [ "sidePanel", "scripting" ]
 }
