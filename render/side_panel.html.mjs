@@ -381,7 +381,7 @@ console.log( (html`<!DOCTYOE html>
         </div>
         <pre style='--font-size: 0.8rem' data-render13='textContent'></pre>
 
-        <div class='row'>
+        <div>
           <select class='button-color1 merge-left'></select>
           <button class='button-color1 merge-right'>${ '>' }</button>
         </div>
