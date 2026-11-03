@@ -312,7 +312,7 @@ console.log('keys:', keys);
 console.log(result);
       const { text: json, }=result.output[0];
       const data=JSON.parse(json);
-    }, opt);
+    }, opt)
   );
 
   const loadLlmSettings=()=>{
