@@ -23,11 +23,15 @@ const scss=new Success()
   .classify('top', 'margin-bottom: auto').classify('bottom', 'margin-top: auto')
   .classify('center', 'margin-left: auto', 'margin-right: auto')
   .classify('middle', 'margin-top: auto', 'margin-bottom: auto')
-  .classify('merge-top', 'margin-bottom: 0', 'border-bottom-width: 0')
+  .classify('merge-top', 'margin-bottom: 0', 'border-bottom-width: 0',
+    'border-bottom-left-radius: 0', 'border-bottom-right-radius: 0' )
   //.classify('merge-middle', 'margin-top: 0', 'border-top-width: 0', 'margin-bottom: 0', 'border-bottom-width: 0')
-  .classify('merge-bottom', 'margin-top: 0', 'border-top-width: 0')
-  .classify('merge-left', 'margin-right: 0', 'border-right-width: 0')
-  .classify('merge-right', 'margin-left: 0', 'border-left-width: 0')
+  .classify('merge-bottom', 'margin-top: 0', 'border-top-width: 0',
+    'border-top-left-radius: 0', 'border-top-right-radius: 0' )
+  .classify('merge-left', 'margin-right: 0', 'border-right-width: 0',
+    'border-top-right-radius: 0', 'border-bottom-right-radius: 0' )
+  .classify('merge-right', 'margin-left: 0', 'border-left-width: 0',
+    'border-top-left-radius: 0', 'border-bottom-left-radius: 0' )
   .classify('scroll', 'overflow: auto')
   .classify('button', 'padding: 0.2rem', 'border-radius: 0.2rem', 'font-weight: bold',
     '--font-size: 0.8rem', 'min-width: calc(1lh + 0.4rem)', 'cursor: pointer' )
@@ -37,11 +41,11 @@ const scss=new Success()
   .classify('color0', `background: linear-gradient(135deg, rgba(20, 130, 85, 1.0) 0%,
      rgba(31, 181, 115, 1.0) 45%, rgba(55, 200, 150, 1.0) 70%, rgba(45, 160, 180, 1.0) 100%)` )
   .classify('color1', 'background-color: rgba(31,181,115,0.0)',
-    'border-color: rgba(31,181,115,1.0)', 'color: rgba(253,253,253,1.0)', 'color: rgba(31,181,115,1.0)' ) 
+    'border-color: rgba(31,181,115,1.0)', 'color: rgba(253,253,253,1.0)', 'color: rgba(31,181,115,1.0)' )
   .classify('color2', 'background-color: rgba(45,115,210,0.0)',
-    'border-color: rgba(45,115,210,1.0)', 'color: rgba(253,253,253,1.0)', 'color: rgba(45,115,210,1.0)' ) 
+    'border-color: rgba(45,115,210,1.0)', 'color: rgba(253,253,253,1.0)', 'color: rgba(45,115,210,1.0)' )
   .classify('color3', 'background-color: rgba(220,70,70,0.0)',
-    'border-color: rgba(220,70,70,1.0)', 'color: rgba(253,253,253,1.0)', 'color: rgba(220,70,70,1.0)' ) 
+    'border-color: rgba(220,70,70,1.0)', 'color: rgba(253,253,253,1.0)', 'color: rgba(220,70,70,1.0)' )
   // .classify('color9', 'background-color: rgba(220,220,220,1.0)',
   //   'border-color: rgba(220,220,220,1.0)', 'color: rgba(55,55,55,1.0)' ) 
   // .classify('color9', 'background-color: rgba(220,220,220,0.0)',
