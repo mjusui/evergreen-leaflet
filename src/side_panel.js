@@ -500,7 +500,7 @@ console.log('keys:', keys);
         currentWindow: true,
       });
       await chrome.tabs.update(tab.id, { url, });
-    }, url);
+    }, url)
   );
   const emitRunWithLlm=async (opt)=>(
     await funnRun.pour(async opt =>{
