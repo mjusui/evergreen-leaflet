@@ -179,8 +179,8 @@ console.log('keys:', keys);
       const template_name='template-item-run-input';
 
       if(keys){
-        keys.split(',').forEach(str =>{
-          const key=str.trim();
+        keys.split(',').map(a => a.trim() )
+          .filter(a => a).forEach(key =>{
           const textareaid='textarea-' + key;
 
           const value=(inputs[key] || {}).text || '';
@@ -241,11 +241,12 @@ console.log('keys:', keys);
       await chrome.tabs.update(tab.id, { url, });
     }, url)
   );
-  const emitRunWithLlm=async (opt)=>(
-    await funnRun.pour(async opt =>{
-      const { provider_url, provider_key, model, }=opt.llm;
-      const { inst: instruction, url, }=opt.step;
-      const keys=opt.step.keys.split(',');
+  const resolveRunInputsWithLlm=async (llm, step)=>(
+    await funnRun.pour(async (llm, step)=>{
+      const { provider_url, provider_key, model, }=llm;
+      const { inst: instruction, url, }=step;
+      const keys=step.keys.split(',')
+        .map(a => a.trim() ).filter(a => a);
 
       const [ tab ]=await chrome.tabs.query({
         active: true,
@@ -307,14 +308,49 @@ console.log('keys:', keys);
           }, },
         }),
       };
-      const resp=await fetch(provider_url + '/v1/responses', init);
-      const result=await resp.json();
-console.log(result);
+      let resp=null;
+      try{
+        let retry=1;
+        while(retry){
+          resp=await fetch(provider_url + '/v1/responses', init);
 
-      const { content, }=result.output.find(a => a.type === 'message');
-      const { text: json, }=content[0];
-      const data=JSON.parse(json);
-    }, opt)
+          if(resp.status === 429){
+            await new Promise(resl => setTimeout(resl, 1000*retry) );
+            continue;
+          }
+          if( !(resp.status === 200) ){
+            if(2 < retry){
+              const err=new Error('status ' + resp.status);
+              err.code='status-not-200';
+              throw err;
+            }
+            retry++;
+            await new Promise(resl => setTimeout(resl, 1000*retry) );
+            continue;
+          }
+          retry=0;
+        }
+      }catch(err){
+        err.code='request-error';
+        throw err;
+      }
+      try {
+        const result=await resp.json();
+        const { content, }=result.output.find(a => a.type === 'message');
+        const { text: json, }=content[0];
+        const data=JSON.parse(json);
+
+        return Object.keys(data).map(key =>({
+          vals: {
+            text: data[key],
+            html: '', files: [], filenames: [],
+          }, key,
+        }) );
+      }catch(err){
+        err.code='response-error';
+        throw err;
+      }
+    }, llm, step)
   );
 
   const loadLlmSettings=()=>{
@@ -536,7 +572,10 @@ console.log('vals:', vals);
         .list()[0].llms.find(a => a.prefix === prefix);
       llm.model=model;
 
-      emitRunWithLlm({ step, llm, });
+      const items=await resolveRunInputsWithLlm(llm, step);
+      items.forEach(item =>{
+        const { key, vals, }=item;
+      });
     }
   });
   const body=document.getElementsByTagName('body')[0];
