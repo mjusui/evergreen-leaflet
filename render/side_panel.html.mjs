@@ -18,7 +18,7 @@ const scss=new Success()
   .classify('pos-left', 'left: 0').classify('pos-right', 'right: 0')
   .classify('pos-top-margin', 'top: 1rem')
   .classify('pos-bottom-margin', 'bottom: 1rem')
-  .classify('shadow', 'box-shadow: 0 0 1rem 1px rgba(55,55,55,0.1)')
+  .classify('shadow', 'box-shadow: 0 0 1rem 1px rgba(55,55,55,0.2)')
   .classify('margin-auto', 'margin: auto')
   .classify('top', 'margin-bottom: auto').classify('bottom', 'margin-top: auto')
   .classify('center', 'margin-left: auto', 'margin-right: auto')
@@ -350,11 +350,11 @@ console.log( (html`<!DOCTYOE html>
         </div>
         <div style='--font-size: 0.8rem' data-render4='textContent'></div>
 
-        <div class='col'>
+        <!-- <div class='col'>
           <div class='margin'></div>
           <select id='select-llm' class='button-select'></select> 
           <div class='margin'></div>
-        </div>
+        </div> -->
       </header>
       <div class='bar'></div>
 
