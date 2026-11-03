@@ -160,29 +160,6 @@ html`page: {
           [ label, innerHTML, ]);
       });
     });
-
-
-      const html_options=llms.map(llm =>{
-        const { name, provider_models, }=llm;
-
-        const models=provider_models.split('\n')
-          .filter(a => a);
-
-        return models.map(model =>{
-          const value=(prefix + '/' + model);
-
-          const html=([ 
-            ([ '<option value=', value, '>', ]).join('"'), 
-            model, '</option>',
-          ]).join('');
-
-          return html;
-        }); 
-      }).flat(1).join('');
-      
-
-
-    });
   };
   const loadRunInputs=()=>{
     ([ ...document.getElementsByClassName('load-item-run-inputs'), ]).forEach(async elem =>{
