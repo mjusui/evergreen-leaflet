@@ -129,8 +129,60 @@ html`page: {
     });
     await Promise.all(proms);
 
+    loadRunLlmOptgroups();
     loadRunInputs();
     loadRunOutputs();
+  };
+  const loadRunLlmOptgroups=()=>{
+    const settings=Starray.getInst('store-settings');
+    const { llms, }=settings.list()[0];
+
+    ([ ...document.getElementsByClassName('load-item-run-llm-optgroups'), ]).forEach(elem =>{
+      const { stepid, }=elem.dataset;
+      const elem.id=('select-llm-' + stepid);
+
+      llms.forEach(llm =>{
+        const { prefix, name: label,
+          provider_models, }=llm;
+
+        const models=provider_models
+          .split('\n').filter(a => a);
+
+        const innerHTML=models.map(model =>{
+          const value=(prefix + '/' + model);
+          return [
+            ([ '<option value=', value, '>', ]).join('"'),
+            model, '</option>',
+          ];
+        }).flat(1).join('');
+
+        wisdom.append(elem.id, 'template-item-run-llm-optgroup',
+          [ label, innerHTML, ]);
+      });
+    });
+
+
+      const html_options=llms.map(llm =>{
+        cosnt { name, provider_models, }=llm;
+
+        const models=provider_models.split('\n')
+          .filter(a => a);
+
+        return models.map(model =>{
+          const value=(prefix + '/' + model);
+
+          const html=([ 
+            ([ '<option value=', value, '>', ]).join('"'), 
+            model, '</option>',
+          ]).join('');
+
+          return html;
+        }); 
+      }).flat(1).join('');
+      
+
+
+    });
   };
   const loadRunInputs=()=>{
     ([ ...document.getElementsByClassName('load-item-run-inputs'), ]).forEach(async elem =>{

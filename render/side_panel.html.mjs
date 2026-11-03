@@ -388,7 +388,8 @@ console.log( (html`<!DOCTYOE html>
         <pre style='--font-size: 0.8rem' data-render13='textContent'></pre>
 
         <div class='merge'>
-          <select class='button-color1 merge-left'></select>
+          <select class='button-color1 merge-left load-item-run-llm-optgroups'
+            data-render2='data-stepid'></select>
           <button class='button-color1 merge-right' style='--font-size: 1rem'>${ '>' }</button>
         </div>
 
@@ -409,6 +410,10 @@ console.log( (html`<!DOCTYOE html>
           data-render11='disabled' data-active='reset'
           data-onclick='open-runs'></button>
       </div>
+    </template>
+    <template id='template-item-run-llm-optgroup'>
+      <optgroup data-render1='label' data-render2='innerHTML'>
+      </optgroup>
     </template>
     <template id='template-item-run-input'>
       <div class='col'>
