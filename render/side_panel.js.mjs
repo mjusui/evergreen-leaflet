@@ -336,16 +336,19 @@ console.log('keys:', keys);
       }
       try {
         const result=await resp.json();
+console.log('result:', result);
         const { content, }=result.output.find(a => a.type === 'message');
         const { text: json, }=content[0];
         const data=JSON.parse(json);
 
-        return Object.keys(data).map(key =>({
+        const inputs=Object.keys(data).map(key =>({
           vals: {
             text: data[key],
             html: '', files: [], filenames: [],
           }, key,
         }) );
+console.log('inputs:', inputs);
+        return inputs;
       }catch(err){
         err.code='response-error';
         throw err;
