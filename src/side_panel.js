@@ -551,8 +551,8 @@ console.log('keys:', keys);
               instruction, keys, url, html,
             }), },
           ],
-          text: {
-            format: 'json_schema',
+          text: { format: {
+            type: 'json_schema',
             name: 'html_extraction',
             schema: {
               type: 'object',
@@ -565,7 +565,7 @@ console.log('keys:', keys);
               required: keys,
             },
             strict: true,
-          },
+          }, },
         }),
       };
 console.log(init);
