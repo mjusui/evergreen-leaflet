@@ -389,11 +389,12 @@ console.log( (html`<!DOCTYOE html>
 
         <div class='margin'></div>
 
-        <div class='merge'>
+        <form class='merge' data-onsubmit='run-with-llm'>
           <select class='button-color1 merge-left load-item-run-llm-optgroups'
-            data-render2='data-stepid'></select>
-          <button class='button-color1 merge-right'>で実行する${ ' >' }</button>
-        </div>
+            name='id_and_model'></select>
+          <button class='button-color1 merge-right'
+            type='submit'>で実行する${ ' >' }</button>
+        </form>
 
         <div class='margin'></div>
 
