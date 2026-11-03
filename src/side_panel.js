@@ -557,7 +557,7 @@ console.log('keys:', keys);
             schema: {
               type: 'object',
               additionalProperties: false,
-              properties: Object.fronEntries(
+              properties: Object.fromEntries(
                 keys.map(key => [ key, {
                   type: ['string', 'null', ],
                 }, ])
