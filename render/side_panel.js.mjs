@@ -307,11 +307,12 @@ console.log('keys:', keys);
           }, },
         }),
       };
-console.log(init);
       const resp=await fetch(provider_url + '/v1/responses', init);
       const result=await resp.json();
 console.log(result);
-      const { text: json, }=result.output[0];
+
+      const { content, }=result.output.find(a => a.type === 'message');
+      const { text: json, }=content[0];
       const data=JSON.parse(json);
     }, opt)
   );

@@ -37,6 +37,9 @@ const scss=new Success()
   .classify('button', 'padding: 0.2rem', 'border-radius: 0.2rem', 'font-weight: bold',
     '--font-size: 0.8rem', 'min-width: calc(1lh + 0.4rem)', 'cursor: pointer' )
   //.classify('button-sign', '--font-size: 1rem')
+  .classify('warn-emoji', 'content: "⚠️ "')
+  .classify('info-emoji', 'content: "ℹ️ "')
+  .classify('nice-emoji', 'content: "✅ "')
   .classify('input', 'min-width: 70vw',  'max-width: 70vw', 'font-weight: normal')
   .classify('textarea', 'min-height: calc(0.4rem + var(--cols) * 1rem)', 'max-height: 20vh', 'resize: none')
   .classify('color0', `background: linear-gradient(135deg, rgba(20, 130, 85, 1.0) 0%,
@@ -81,7 +84,12 @@ const scss=new Success()
   .themify('.button-color3', 'border', 'button', 'color3')
   .themify('.button-color9', 'border', 'button', 'color9')
   .themify('.button-color9-shadow', '.button-color9', 'shadow')
-  .themify('.button-sign-color1', 'border', 'button', 'color1')
+  //.themify('.button-sign-color1', 'border', 'button', 'color1')
+  .themify('.baloon', 'relative')
+  .themify('.baloon > *', 'absolute')
+  .themify('.warn::before', 'warn-emoji')
+  .themify('.info::before', 'info-emoji')
+  .themify('.nice::before', 'nice-emoji')
   .themify('input', 'border', 'button', 'input')
   .themify('select', 'border', 'button', 'input')
   .themify('.button-select', 'select', 'color1', 'border-round')
@@ -394,6 +402,9 @@ console.log( (html`<!DOCTYOE html>
             name='prefix_and_model'></select>
           <button class='button-color1 merge-right'
             type='submit'>で実行する${ ' >' }</button>
+          <div class='baloon'>
+            <div class='warn'></div>
+          </div>
         </form>
 
         <div class='margin'></div>
