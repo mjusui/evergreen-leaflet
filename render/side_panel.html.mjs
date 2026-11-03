@@ -121,10 +121,10 @@ console.log( (html`<!DOCTYOE html>
     <div class='margin'></div>
 
     <footer class='block-row'>
-      <div class='col'>
+      <!-- <div class='col'>
         <div class='margin' style='--font-size: 0.7rem'>Evergreen Leaflet</div>
         <div class='margin' style='--font-size: 0.6rem'>枯れないガイドブック</div>
-      </div>
+      </div> -->
       <div class='margin'></div>
 
       <button class='button-color9-shadow' style='--font-size: 1rem'
@@ -350,7 +350,7 @@ console.log( (html`<!DOCTYOE html>
         </div>
         <div style='--font-size: 0.8rem' data-render4='textContent'></div>
 
-        <div class='merge-top'>
+        <div class='col'>
           <div class='margin'></div>
           <select id='select-llm' class='button-select'></select> 
           <div class='margin'></div>
