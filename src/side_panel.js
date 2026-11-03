@@ -781,11 +781,21 @@ console.log('vals:', vals);
       loadSteps();
       page.clear('modal');
     }
-    if(onsubmit === 'run-step-with-llm'){
+    if(onsubmit === 'run-with-llm'){
       const { guideid, stepid, }=wrap.datasets(target);
+      const { value: prefix_and_model, }=target.prefix_and_model;
 
-      const step=Starray.getInst('store-step-' + guideid);
-      const { inst, keys, }=step.list().find(a => a.id === stepid);
+      const [ prefix ]=prefix_and_model.split('/');
+      const model=prefix_and_model.slice(prefix.length + 1);
+
+      const step=Starray.getInst('store-step-' + guideid)
+        .list().find(a => a.id === stepid);
+
+      const llm=Starray.getInst('store-settings')
+        .list()[0].llms.find(a => a.prefix === prefix);
+      llm.model=model;
+
+      emitRunWithLlm({ step, llm, });
     }
   });
   const body=document.getElementsByTagName('body')[0];

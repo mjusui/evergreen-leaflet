@@ -391,7 +391,7 @@ console.log( (html`<!DOCTYOE html>
 
         <form class='merge' data-onsubmit='run-with-llm'>
           <select class='button-color1 merge-left load-item-run-llm-optgroups'
-            name='id_and_model'></select>
+            name='prefix_and_model'></select>
           <button class='button-color1 merge-right'
             type='submit'>で実行する${ ' >' }</button>
         </form>
