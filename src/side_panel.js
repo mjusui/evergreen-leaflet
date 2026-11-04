@@ -504,7 +504,7 @@ console.log('keys:', keys);
       await chrome.tabs.update(tab.id, { url, });
     }, url)
   );
-  const resolveRunInputsWithLlm=async (llm, step)=>(
+  const resolveRunWithLlm=async (llm, step)=>(
     await funnRun.pour(async (llm, step)=>{
       const { provider_url, provider_key, model, }=llm;
       const { inst: instruction, url, }=step;
@@ -642,7 +642,7 @@ console.log('actions:', actions);
           }, key,
         }) );
 console.log('inputs:', inputs);
-        return inputs;
+        return { inputs, actions, };
       }catch(err){
         err.code='response-error';
         throw err;
@@ -875,14 +875,25 @@ console.log('vals:', vals);
       try {
         buttons.forEach(a => a.textContent='⧖');
 
-        const items=await resolveRunInputsWithLlm(llm, step);
+        const { inputs, actions, }=await resolveRunWithLlm(llm, step);
 
-        items.forEach(item =>{
+        inputs.forEach(item =>{
           const { key, vals, }=item;
           const textareaid='textarea-' + key;
           const input=document.getElementById(textareaid);
 
           updateRunInput(input, vals);
+        });
+
+        actions.forEach(item =>{
+          const { kind, selector, value, }=item;
+          const elem=document.querySelector(selector);
+
+          if(kind === 'fill'){
+            elem.value=value;
+          }else{
+            elem[kind]();
+          }
         });
 
         const [ nice ]=target.getElementsByClassName('nice');
