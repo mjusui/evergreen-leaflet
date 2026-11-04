@@ -193,7 +193,7 @@ console.log('keys:', keys);
       }
     });
   };
-  const loadRunOutputs=()=>{
+  const loadRunOutputs=()=>funnRun.pour(done =>{
     ([ ...document.getElementsByClassName('load-item-run-outputs'), ]).forEach(async elem =>{
       //const { guideid, stepid, }=elem.dataset;
       const { guideid, stepid, }=wrap.datasets(elem);
@@ -226,7 +226,8 @@ console.log('keys:', keys);
         wisdom.html(elem.id, '<div style="--font-size: 0.8rem">なし</div>');
       }
     });
-  };
+    done();
+  });
 
   const funnRun=new Funnel({ lim: 1, });
   const emitRun=async (url)=>(
@@ -585,7 +586,6 @@ console.log('vals:', vals);
 
           updateRunInput(input, vals);
         });
-        loadRunOutputs();
 
         const [ nice ]=target.getElementsByClassName('nice');
         nice.textContent='OK';
