@@ -645,7 +645,7 @@ console.log('actions:', actions);
           await chrome.scripting.executeScript({
             target: { tabId: tab.id, }, func,
           });
-        });
+        };
 
         const inputs=Object.keys(parsed).map(key =>({
           vals: {
