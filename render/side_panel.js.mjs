@@ -220,13 +220,12 @@ console.log('keys:', keys);
           console.error(err);
         }
 
-        wisdom.append(elem.id, template_name, [
+        wisdom.write(elem.id, template_name, [
           guideid, stepid, textareaid, text, ]);
       }else{
         wisdom.html(elem.id, '<div style="--font-size: 0.8rem">なし</div>');
       }
     });
-    done();
   });
 
   const funnRun=new Funnel({ lim: 1, });
