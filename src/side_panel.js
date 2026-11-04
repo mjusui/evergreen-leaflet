@@ -890,7 +890,7 @@ console.log('vals:', vals);
 
         const items=await resolveRunWithLlm(llm, step);
 
-        inputs.forEach(item =>{
+        items.forEach(item =>{
           const { key, vals, }=item;
           const textareaid='textarea-' + key;
           const input=document.getElementById(textareaid);
