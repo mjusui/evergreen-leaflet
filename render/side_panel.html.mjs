@@ -410,7 +410,7 @@ console.log( (html`<!DOCTYOE html>
         <form class='col' data-onsubmit='run-with-llm' data-warn=''>
           <div class='merge'>
             <select class='button-color1 merge-left load-item-run-llm-optgroups'
-              name='prefix_and_model'></select>
+              name='prefix_and_model' data-render2='data-stepid'></select>
             <button class='button-color1 merge-right'
               style='--font-size: 1rem; border-left-width: 1px'
               type='submit' data-animation='true'>${ '>' }</button>

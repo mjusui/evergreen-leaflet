@@ -399,7 +399,7 @@ page: {
     const { llms, }=settings.list()[0];
 
     ([ ...document.getElementsByClassName('load-item-run-llm-optgroups'), ]).forEach(elem =>{
-      const { stepid, }=elem.dataset;
+      const { stepid, }=wrap.datasets(elem);
       elem.id=('select-llm-' + stepid);
 
       wisdom.clear(elem.id);
