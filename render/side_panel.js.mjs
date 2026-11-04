@@ -585,6 +585,7 @@ console.log('vals:', vals);
 
           updateRunInput(input, vals);
         });
+        loadRunOutputs();
 
         const [ nice ]=target.getElementsByClassName('nice');
         nice.textContent='OK';
