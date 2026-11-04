@@ -569,7 +569,6 @@ console.log('keys:', keys);
             name: 'html_extraction',
             schema: {
               type: 'object',
-              additionalProperties: false,
               properties: {
                 parsed: {
                   type: 'object',
@@ -595,6 +594,7 @@ console.log('keys:', keys);
                   },
                 },
               },
+              additionalProperties: false,
             },
             strict: true,
           }, },
@@ -632,6 +632,8 @@ console.log('result:', result);
         const { content, }=result.output.find(a => a.type === 'message');
         const { text: json, }=content[0];
         const { parsed, actions, }=JSON.parse(json);
+console.log('parsed:', parsed);
+console.log('actions:', actions);
 
         const inputs=Object.keys(parsed).map(key =>({
           vals: {
