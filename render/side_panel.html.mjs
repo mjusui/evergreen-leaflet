@@ -401,6 +401,8 @@ console.log( (html`<!DOCTYOE html>
 
           <h1 style='--font-size: 0.8rem' data-render12='textContent'></h1>
         </div>
+        <div class='bar'></div>
+
         <pre style='--font-size: 0.8rem' data-render13='textContent'></pre>
 
         <div class='margin'></div>
@@ -425,6 +427,7 @@ console.log( (html`<!DOCTYOE html>
             <div class='margin'></div>
           </div>
         </form>
+        <div class='bar'></div>
 
         <div class='margin'></div>
 
