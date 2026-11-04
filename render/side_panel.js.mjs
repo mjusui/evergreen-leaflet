@@ -378,11 +378,12 @@ console.log('actions:', actions);
           const { kind, selector, value, }=action;
 
           const func=kind === 'fill'
-            ? ()=> document.querySelector(selector).value=value
-            : ()=> document.querySelector(selector)[kind]() ;
+            ? (kind, selector, value)=> document.querySelector(selector).value=value
+            : (kind, selector, value)=> document.querySelector(selector)[kind]() ;
 
           const result=await chrome.scripting.executeScript({
             target: { tabId: tab.id, }, func,
+            args: [ kind, selector, value, ],
           });
           console.log('scripting:', result);
         };
