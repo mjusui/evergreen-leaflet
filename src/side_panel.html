@@ -23,7 +23,7 @@ button { /* button */ padding: 0.2rem; border-radius: 0.2rem; font-weight: bold;
 .button-color9-shadow { /* .button-color9 */ /* border */ border-style: solid; border-width: 1px; border-color: rgba(55,55,55,0.1); /* button */ padding: 0.2rem; border-radius: 0.2rem; font-weight: bold; --font-size: 0.8rem; min-width: calc(1lh + 0.4rem); cursor: pointer; /* color9 */ background-color: rgba(55,55,55,0.0); border-color: rgba(55,55,55,1.0); color: rgba(253,253,253,1.0); color: rgba(55,55,55,1.0); /* shadow */ box-shadow: 0 0 1rem 1px rgba(55,55,55,0.3); }
 .baloon { /* relative */ position: relative; }
 .baloon > * { /* absolute */ position: absolute; /* hidden */ display: none; }
-.baloon > *:not(:empty) { /* flex-row */ display: flex; flex-direction: row; gap: 0.5rem; align-items: center; /* block */ margin: 0.5rem; padding: 0.5rem; background-color: rgba(253,253,253,1.0); /* border */ border-style: solid; border-width: 1px; border-color: rgba(55,55,55,0.1); /* border-round */ border-radius: 10rem; }
+.baloon > *:not(:empty) { /* flex-row */ display: flex; flex-direction: row; gap: 0.5rem; align-items: center; /* block */ margin: 0.5rem; padding: 0.5rem; background-color: rgba(253,253,253,1.0); /* border */ border-style: solid; border-width: 1px; border-color: rgba(55,55,55,0.1); }
 .warn::before { /* warn-emoji */ content: "⚠️ "; }
 .info::before { /* info-emoji */ content: "ℹ️ "; }
 .nice::before { /* nice-emoji */ content: "✅ "; }
@@ -319,11 +319,14 @@ footer { /* sticky */ position: sticky; /* pos-bottom */ bottom: 0; /* app-back 
         <form class='merge' data-onsubmit='run-with-llm' data-warn=''>
           <select class='button-color1 merge-left load-item-run-llm-optgroups'
             name='prefix_and_model'></select>
+
+          <div class='col'>
           <button class='button-color1 merge-right'
             type='submit'>で実行する &gt;</button>
           <div class='baloon'>
             <div class='warn'></div>
             <div class='nice'></div>
+          </div>
           </div>
         </form>
 

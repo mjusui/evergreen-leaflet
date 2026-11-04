@@ -88,7 +88,7 @@ const scss=new Success()
   .themify('.baloon', 'relative')
   //.themify('.baloon > *', 'absolute', 'block', 'border', 'border-round')
   .themify(html`.baloon > *`, 'absolute', 'hidden')
-  .themify(html`.baloon > *:not(:empty)`, 'flex-row', 'block', 'border', 'border-round')
+  .themify(html`.baloon > *:not(:empty)`, 'flex-row', 'block', 'border')
 //  .themify('.warn', 'hidden')
 //  .themify('.info', 'hidden')
 //  .themify('.nice', 'hidden')
@@ -408,11 +408,14 @@ console.log( (html`<!DOCTYOE html>
         <form class='merge' data-onsubmit='run-with-llm' data-warn=''>
           <select class='button-color1 merge-left load-item-run-llm-optgroups'
             name='prefix_and_model'></select>
+
+          <div class='col'>
           <button class='button-color1 merge-right'
             type='submit'>で実行する${ ' >' }</button>
           <div class='baloon'>
             <div class='warn'></div>
             <div class='nice'></div>
+          </div>
           </div>
         </form>
 
