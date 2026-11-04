@@ -374,6 +374,18 @@ console.log('result:', result);
 console.log('parsed:', parsed);
 console.log('actions:', actions);
 
+        for(const action of actions){
+          const { kind, selector, value, }=action;
+
+          const func=kind === 'fill'
+            ? ()=> document.querySelector(selector).value=value
+            : ()=> document.querySelector(selector)[kind]() ;
+
+          await chrome.scripting.executeScript({
+            target: { tabId: tab.id, }, func,
+          });
+        });
+
         const inputs=Object.keys(parsed).map(key =>({
           vals: {
             text: parsed[key], html: parsed[key],
@@ -614,7 +626,7 @@ console.log('vals:', vals);
       try {
         buttons.forEach(a => a.textContent='⧖');
 
-        const { inputs, actions, }=await resolveRunWithLlm(llm, step);
+        const items=await resolveRunWithLlm(llm, step);
 
         inputs.forEach(item =>{
           const { key, vals, }=item;
@@ -622,17 +634,6 @@ console.log('vals:', vals);
           const input=document.getElementById(textareaid);
 
           updateRunInput(input, vals);
-        });
-
-        actions.forEach(item =>{
-          const { kind, selector, value, }=item;
-          const elem=document.querySelector(selector);
-
-          if(kind === 'fill'){
-            elem.value=value;
-          }else{
-            elem[kind]();
-          }
         });
 
         const [ nice ]=target.getElementsByClassName('nice');
