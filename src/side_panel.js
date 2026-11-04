@@ -631,7 +631,7 @@ console.log('keys:', keys);
 console.log('result:', result);
         const { content, }=result.output.find(a => a.type === 'message');
         const { text: json, }=content[0];
-        const { parsed, actions=[], }=JSON.parse(json);
+        const { parsed={}, actions=[], }=JSON.parse(json);
 console.log('parsed:', parsed);
 console.log('actions:', actions);
 
