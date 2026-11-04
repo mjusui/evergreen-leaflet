@@ -141,6 +141,8 @@ html`page: {
       const { stepid, }=elem.dataset;
       elem.id=('select-llm-' + stepid);
 
+      wisdom.clear(elem.id);
+
       llms.forEach(llm =>{
         const { prefix, name: label,
           provider_models, }=llm;
