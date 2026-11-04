@@ -8,7 +8,7 @@ const scss=new Success()
   .classify('flex-row', 'display: flex', 'flex-direction: row', 'gap: 0.5rem', 'align-items: center')
   .classify('block', 'margin: 0.5rem', 'padding: 0.5rem', 'background-color: rgba(253,253,253,1.0)')
   .classify('border', 'border-style: solid', 'border-width: 1px',
-    'border-color: rgba(55,55,55,0.1)' )
+    'border-color: rgba(55,55,55,0.2)' )
   .classify('border-round', 'border-radius: 10rem')
   .classify('bar', 'margin-top: 0.5rem', 'margin-bottom: calc(0.5rem - 1px)',
     'border-bottom-style: solid', 'border-bottom-width: 1px', 'border-bottom-color: rgba(55,55,55,0.1)', 'height: 0' )
