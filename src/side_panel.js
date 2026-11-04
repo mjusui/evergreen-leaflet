@@ -635,7 +635,7 @@ console.log('result:', result);
 
         const inputs=Object.keys(parsed).map(key =>({
           vals: {
-            text: data[key], html: data[key],
+            text: parsed[key], html: parsed[key],
             files: [], filenames: [],
           }, key,
         }) );
