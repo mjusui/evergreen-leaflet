@@ -838,7 +838,12 @@ console.log('vals:', vals);
         .list()[0].llms.find(a => a.prefix === prefix);
       llm.model=model;
 
+      const buttons=([ ...target.getElementsByTagName('button'), ])
+        .filter(a => a.dataset.animation === 'true');
+      const prevTexts=buttons.map(a => a.textContent);
       try {
+        buttons.forEach(a => a.textContent='◻');
+
         const items=await resolveRunInputsWithLlm(llm, step);
 
         items.forEach(item =>{
@@ -854,7 +859,7 @@ console.log('vals:', vals);
 
         setTimeout(()=>{
           nice.textContent='';
-        }, 3000);
+        }, 2000);
       }catch(err){
         console.error(err);
         const [ warn ]=target.getElementsByClassName('warn');
@@ -862,7 +867,9 @@ console.log('vals:', vals);
 
         setTimeout(()=>{
           warn.textContent='';
-        }, 5000);
+        }, 7000);
+      }finally{
+        buttons.forEach((a, i)=> a.textContent=prevTexts[i]);
       }
     }
   });
