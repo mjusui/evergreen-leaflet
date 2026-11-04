@@ -3,7 +3,8 @@ import { html, Success, } from '../bronze/templ/html/index.mjs';
 
 const scss=new Success()
   .reset('*', 'color: rgba(55,55,55,1.0)', 'font-family: sans-serif',
-     'font-size: var(--font-size, 1rem)', 'opacity: var(--opacity)' )
+    'font-size: var(--font-size, 1rem)', 'opacity: var(--opacity)' )
+  .classify('any-item', 'max-height: 80vh')
   .classify('flex-col', 'display: flex', 'flex-direction: column', 'gap: 0.5rem')
   .classify('flex-row', 'display: flex', 'flex-direction: row', 'gap: 0.5rem', 'align-items: center')
   .classify('block', 'margin: 0.5rem', 'padding: 0.5rem', 'background-color: rgba(253,253,253,1.0)')
@@ -65,6 +66,7 @@ const scss=new Success()
   .classify('app-back', 'background-image: url("icon.png")', 'background-size: contain',
      'background-position: center', 'background-repeat: no-repeat' )
   .classify('body', 'min-height: 100vh', 'background-color: rgba(253,253,253,1.0)' )
+  .themify(html`body > * > *`, 'any-item')
   .themify('.col', 'flex-col')
   .themify('.row', 'flex-row')
   .themify('.col-shadow', 'flex-col', 'shadow')
