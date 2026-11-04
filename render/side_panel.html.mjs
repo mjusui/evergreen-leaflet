@@ -412,7 +412,7 @@ console.log( (html`<!DOCTYOE html>
             <select class='button-color1 merge-left load-item-run-llm-optgroups'
               name='prefix_and_model'></select>
             <button class='button-color1 merge-right'
-              type='submit' data-animation='true'>${ ' >' }</button>
+              type='submit' data-animation='true'>${ '  >' }</button>
 
           </div>
 
