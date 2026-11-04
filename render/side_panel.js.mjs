@@ -317,7 +317,7 @@ console.log('keys:', keys);
           resp=await fetch(provider_url + '/v1/responses', init);
 
           if(resp.status === 429){
-            await new Promise(resl => setTimeout(resl, 1000*retry) );
+            await new Promise(resl => setTimeout(resl, 1000) );
             continue;
           }
           if( !(resp.status === 200) ){
