@@ -581,7 +581,7 @@ console.log('vals:', vals);
         .filter(a => a.dataset.animation === 'true');
       const prevTexts=buttons.map(a => a.textContent);
       try {
-        buttons.forEach(a => a.textContent='◻');
+        buttons.forEach(a => a.textContent='⧖');
 
         const items=await resolveRunInputsWithLlm(llm, step);
 
