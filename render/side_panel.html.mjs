@@ -412,6 +412,11 @@ console.log( (html`<!DOCTYOE html>
             <button class='button-color1 merge-right'
               type='submit'>で実行する${ ' >' }</button>
 
+          </div>
+
+          <div class='row'>
+            <div class='margin'></div>
+
             <div class='baloon'>
               <div class='warn'></div>
               <div class='nice'></div>
