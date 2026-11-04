@@ -655,7 +655,7 @@ console.log('actions:', actions);
           }, key,
         }) );
 console.log('inputs:', inputs);
-        return { inputs, actions, };
+        return inputs;
       }catch(err){
         err.code='response-error';
         throw err;
