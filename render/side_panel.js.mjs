@@ -370,7 +370,7 @@ console.log('keys:', keys);
 console.log('result:', result);
         const { content, }=result.output.find(a => a.type === 'message');
         const { text: json, }=content[0];
-        const { parsed, actions, }=JSON.parse(json);
+        const { parsed, actions=[], }=JSON.parse(json);
 console.log('parsed:', parsed);
 console.log('actions:', actions);
 
@@ -381,9 +381,10 @@ console.log('actions:', actions);
             ? ()=> document.querySelector(selector).value=value
             : ()=> document.querySelector(selector)[kind]() ;
 
-          await chrome.scripting.executeScript({
+          const result=await chrome.scripting.executeScript({
             target: { tabId: tab.id, }, func,
           });
+          console.log('scripting:', result);
         };
 
         const inputs=Object.keys(parsed).map(key =>({
