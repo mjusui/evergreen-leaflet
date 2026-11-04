@@ -411,11 +411,11 @@ console.log( (html`<!DOCTYOE html>
               name='prefix_and_model'></select>
             <button class='button-color1 merge-right'
               type='submit'>で実行する${ ' >' }</button>
-          </div>
 
-          <div class='baloon'>
-            <div class='warn'></div>
-            <div class='nice'></div>
+            <div class='baloon'>
+              <div class='warn'></div>
+              <div class='nice'></div>
+            </div>
           </div>
         </form>
 
