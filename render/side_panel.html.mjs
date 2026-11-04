@@ -11,7 +11,8 @@ const scss=new Success()
     'border-color: rgba(55,55,55,0.3)' )
   .classify('border-round', 'border-radius: 10rem')
   .classify('bar', 'margin-top: 0.5rem', 'margin-bottom: calc(0.5rem - 1px)',
-    'border-bottom-style: solid', 'border-bottom-width: 1px', 'border-bottom-color: rgba(55,55,55,0.1)', 'height: 0' )
+    'border-bottom-style: solid', 'border-bottom-width: 1px', 'border-bottom-color: rgba(55,55,55,0.1)',
+    'height: 0', 'width: 100%' )
   .classify('sticky', 'position: sticky').classify('fixed', 'position: fixed')
   .classify('relative', 'position: relative').classify('absolute', 'position: absolute')
   .classify('pos-top', 'top: 0').classify('pos-bottom', 'bottom: 0')
@@ -294,9 +295,7 @@ console.log( (html`<!DOCTYOE html>
     </template>
     <template id='template-item-step-top'>
       <div class='row'>
-      <div class='bar'>
-        <div class='margin'></div>
-      </div>
+        <div class='bar'></div>
         <button class='button-color1' style='--font-size: 1rem'
           data-render1='data-guideid'
           data-onclick='open-modal-item-step'>+</button>
@@ -327,8 +326,8 @@ console.log( (html`<!DOCTYOE html>
         <button class='button-color3'  style='--font-size: 1.0rem'
           data-kind='delete' data-onclick='open-modal-item-step'>-</button>
       </div>
-      <div class='bar'>
-        <div class='margin'></div>
+      <div class='row'>
+        <div class='bar'></div>
         <button class='button-color1' style='--font-size: 1rem'
           data-render1='data-guideid' data-render2='data-previd'
           data-onclick='open-modal-item-step'>+</button>
