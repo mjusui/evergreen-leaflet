@@ -405,17 +405,17 @@ console.log( (html`<!DOCTYOE html>
 
         <div class='margin'></div>
 
-        <form class='merge' data-onsubmit='run-with-llm' data-warn=''>
-          <select class='button-color1 merge-left load-item-run-llm-optgroups'
-            name='prefix_and_model'></select>
+        <form class='col' data-onsubmit='run-with-llm' data-warn=''>
+          <div class='merge'>
+            <select class='button-color1 merge-left load-item-run-llm-optgroups'
+              name='prefix_and_model'></select>
+            <button class='button-color1 merge-right'
+              type='submit'>で実行する${ ' >' }</button>
+          </div>
 
-          <div class='col'>
-          <button class='button-color1 merge-right'
-            type='submit'>で実行する${ ' >' }</button>
           <div class='baloon'>
             <div class='warn'></div>
             <div class='nice'></div>
-          </div>
           </div>
         </form>
 
