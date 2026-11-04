@@ -604,8 +604,8 @@ console.log('result:', result);
 
         const inputs=Object.keys(data).map(key =>({
           vals: {
-            text: data[key],
-            html: '', files: [], filenames: [],
+            text: data[key], html: data[key],
+            files: [], filenames: [],
           }, key,
         }) );
 console.log('inputs:', inputs);
@@ -836,10 +836,32 @@ console.log('vals:', vals);
         .list()[0].llms.find(a => a.prefix === prefix);
       llm.model=model;
 
-      const items=await resolveRunInputsWithLlm(llm, step);
-      items.forEach(item =>{
-        const { key, vals, }=item;
-      });
+      try {
+        const items=await resolveRunInputsWithLlm(llm, step);
+
+        items.forEach(item =>{
+          const { key, vals, }=item;
+          const textareaid='textarea-' + key;
+          const input=document.getElementById(textareaid);
+
+          updateRunInput(input, vals);
+        });
+
+        const [ nice ]=target.getElementsByClassName('nice');
+        nice.textContent='OK';
+
+        setTimeout(()=>{
+          nice.textContent='';
+        }, 5000);
+      }catch(err){
+        console.error(err);
+        const [ warn ]=target.getElementsByClassName('warn');
+        warn.textContent=err.message;
+
+        setTimeout(()=>{
+          warn.textContent='';
+        }, 5000);
+      }
     }
   });
   const body=document.getElementsByTagName('body')[0];
