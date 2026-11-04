@@ -420,8 +420,8 @@ console.log( (html`<!DOCTYOE html>
             <div class='margin'></div>
 
             <div class='baloon'>
-              <div class='warn'></div>
-              <div class='nice'></div>
+              <div class='warn' style='--font-size: 0.8rem'></div>
+              <div class='nice' style='--font-size: 0.8rem'></div>
             </div>
 
             <div class='margin'></div>
