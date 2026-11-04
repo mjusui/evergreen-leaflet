@@ -352,9 +352,9 @@ console.log( (html`<!DOCTYOE html>
         <textarea id='textarea-inst' style='--cols: 5'
           name='inst' data-render5='value'></textarea>
 
-        <label for='textarea-keys'>取得する値(カンマ区切り)</label> 
-        <textarea id='textarea-keys' style='--cols: 2'
-          name='keys' data-render6='value' cols='2'></textarea>
+        <label for='textarea-keys'>取得する値(改行区切り)</label> 
+        <textarea id='textarea-keys' style='--cols: 5'
+          name='keys' data-render6='value' cols='5'></textarea>
 
         <label for='textarea-templ'>生成するテキスト</label> 
         <textarea id='textarea-templ' style='--cols: 5'

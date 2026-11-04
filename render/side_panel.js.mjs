@@ -181,7 +181,7 @@ console.log('keys:', keys);
       const template_name='template-item-run-input';
 
       if(keys){
-        keys.split(',').map(a => a.trim() )
+        keys.split('\\n').map(a => a.trim() )
           .filter(a => a).forEach(key =>{
           const textareaid='textarea-' + key;
 
@@ -247,7 +247,7 @@ console.log('keys:', keys);
     await funnRun.pour(async (llm, step)=>{
       const { provider_url, provider_key, model, }=llm;
       const { inst: instruction, url, }=step;
-      const keys=step.keys.split(',')
+      const keys=step.keys.split('\\n')
         .map(a => a.trim() ).filter(a => a);
 
       const [ tab ]=await chrome.tabs.query({
