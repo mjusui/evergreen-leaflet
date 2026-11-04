@@ -854,7 +854,7 @@ console.log('vals:', vals);
 
         setTimeout(()=>{
           nice.textContent='';
-        }, 5000);
+        }, 3000);
       }catch(err){
         console.error(err);
         const [ warn ]=target.getElementsByClassName('warn');
