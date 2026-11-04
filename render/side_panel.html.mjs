@@ -293,8 +293,10 @@ console.log( (html`<!DOCTYOE html>
       </section>
     </template>
     <template id='template-item-step-top'>
+      <div class='row'>
       <div class='bar'>
         <div class='margin'></div>
+      </div>
         <button class='button-color1' style='--font-size: 1rem'
           data-render1='data-guideid'
           data-onclick='open-modal-item-step'>+</button>
