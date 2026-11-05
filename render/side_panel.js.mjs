@@ -377,15 +377,24 @@ console.log('actions:', actions);
         for(const action of actions){
           const { kind, selector, value, }=action;
 
-          const func=kind === 'fill'
-            ? (kind, selector, value)=> document.querySelector(selector).value=value
-            : (kind, selector, value)=> document.querySelector(selector)[kind]() ;
-
-          const result=await chrome.scripting.executeScript({
-            target: { tabId: tab.id, }, func,
-            args: [ kind, selector, value, ],
-          });
-          console.log('scripting:', result);
+          if(kind === 'fill'){
+            const tab={ tabId: tab.id, };
+            try {
+              await chrome.debugger.attach(tab);
+              await chrome.debugger.sendCommand(tab, 'Input.insertText', {
+                text: value,
+              });
+            }finally{
+              await chrome.debugger.detach(tab);
+            }
+          }else{
+            const result=await chrome.scripting.executeScript({
+              target: { tabId: tab.id, },
+              func, (kind, selector)=> document.querySelector(selector)[kind](),
+              args: [ kind, selector, ],
+            });
+            console.log('scripting:', result);
+          }
         };
 
         const inputs=Object.keys(parsed).map(key =>({
