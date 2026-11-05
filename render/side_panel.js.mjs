@@ -385,7 +385,7 @@ console.log('actions:', actions);
                 text: value,
               });
             }finally{
-              await chrome.debugger.detach(target);
+              await chrome.debugger.detach(target, '1.3');
             }
           }else{
             const result=await chrome.scripting.executeScript({
