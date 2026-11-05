@@ -639,14 +639,14 @@ console.log('actions:', actions);
           const { kind, selector, value, }=action;
 
           if(kind === 'fill'){
-            const tab={ tabId: tab.id, };
+            const target={ tabId: tab.id, };
             try {
-              await chrome.debugger.attach(tab);
-              await chrome.debugger.sendCommand(tab, 'Input.insertText', {
+              await chrome.debugger.attach(target);
+              await chrome.debugger.sendCommand(target, 'Input.insertText', {
                 text: value,
               });
             }finally{
-              await chrome.debugger.detach(tab);
+              await chrome.debugger.detach(target);
             }
           }else{
             const result=await chrome.scripting.executeScript({
