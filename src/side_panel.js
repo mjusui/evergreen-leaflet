@@ -651,7 +651,7 @@ console.log('actions:', actions);
           }else{
             const result=await chrome.scripting.executeScript({
               target: { tabId: tab.id, },
-              func, (kind, selector)=> document.querySelector(selector)[kind](),
+              func: (kind, selector)=> document.querySelector(selector)[kind](),
               args: [ kind, selector, ],
             });
             console.log('scripting:', result);
