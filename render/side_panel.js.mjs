@@ -382,7 +382,7 @@ console.log('actions:', actions);
             try {
               await chrome.scripting.executeScript({
                 target,
-                func: (selector)=> document.querySelector(selector)focus(),
+                func: (selector)=> document.querySelector(selector).focus(),
                 args: [ selector, ],
               });
               await chrome.debugger.attach(target, '1.3');
