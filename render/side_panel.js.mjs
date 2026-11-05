@@ -380,6 +380,11 @@ console.log('actions:', actions);
           if(kind === 'fill'){
             const target={ tabId: tab.id, };
             try {
+              await chrome.scripting.executeScript({
+                target,
+                func: (selector)=> document.querySelector(selector)focus(),
+                args: [ selector, ],
+              });
               await chrome.debugger.attach(target, '1.3');
               await chrome.debugger.sendCommand(target, 'Input.insertText', {
                 text: value,
